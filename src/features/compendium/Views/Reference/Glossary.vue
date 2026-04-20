@@ -60,7 +60,7 @@
 
 <script lang="ts">
 import * as _ from 'lodash-es';
-import { glossary } from '@massif/lancer-data';
+import { glossary } from '@/lancer-data-proxy';
 
 export default {
   name: 'Glossary',

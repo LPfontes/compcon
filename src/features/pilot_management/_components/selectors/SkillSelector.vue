@@ -110,7 +110,7 @@
 
   import { CompendiumStore } from '@/stores'
   import { Rules, Pilot } from '@/class'
-  import { rules } from '@massif/lancer-data'
+  import { rules } from '@/lancer-data-proxy'
 
   import * as _ from 'lodash-es'
   import logger from '@/user/logger'

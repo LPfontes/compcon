@@ -105,7 +105,7 @@ export default {
   name: 'Errata',
   mixins: [useMobile],
   data: () => ({
-    faq: '',
+    faq: [],
     loading: true,
     showNav: false,
   }),

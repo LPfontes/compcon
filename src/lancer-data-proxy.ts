@@ -2,7 +2,16 @@ import { i18n } from './locales/i18n'
 // @ts-ignore
 import * as enData from '@massif/lancer-data-en'
 // @ts-ignore
-import * as ptData from '@massif/lancer-data-pt'
+import * as ptData from 'lancer-data-pt-br'
+
+/**
+ * Obtém o conjunto de dados (source) baseado no idioma atual.
+ */
+function getSource() {
+  const locale = i18n.global.locale.value
+  const isPt = locale === 'pt-BR' || locale === 'pt'
+  return isPt ? ptData : enData
+}
 
 /**
  * Este Proxy intercepta acessos ao objeto lancerData.
@@ -10,34 +19,36 @@ import * as ptData from '@massif/lancer-data-pt'
  */
 const lancerDataProxy = new Proxy({} as any, {
   get(_, prop) {
-    const locale = i18n.global.locale.value
-    const isPt = locale === 'pt-BR' || locale === 'pt'
-    const source = isPt ? ptData : enData
-    return source[prop]
+    return getSource()[prop]
   },
   ownKeys() {
-    const locale = i18n.global.locale.value
-    const isPt = locale === 'pt-BR' || locale === 'pt'
-    return Reflect.ownKeys(isPt ? ptData : enData)
+    return Reflect.ownKeys(getSource())
   },
-  getOwnPropertyDescriptor(target, prop) {
-    const locale = i18n.global.locale.value
-    const isPt = locale === 'pt-BR' || locale === 'pt'
-    return Reflect.getOwnPropertyDescriptor(isPt ? ptData : enData, prop)
+  getOwnPropertyDescriptor(_, prop) {
+    return Reflect.getOwnPropertyDescriptor(getSource(), prop)
   }
 })
 
-// Função auxiliar para criar proxies reativos para exportações nomeadas
+/**
+ * Função auxiliar para criar proxies para exportações nomeadas (ex: actions, weapons).
+ * Redireciona o acesso diretamente para o campo correspondente no source atual.
+ */
 function createNamedProxy(key: string) {
   return new Proxy({} as any, {
     get(_, prop) {
-      return lancerDataProxy[key][prop]
+      const source = getSource()
+      if (source && source[key]) {
+        return source[key][prop]
+      }
+      return undefined
     },
     ownKeys() {
-      return Reflect.ownKeys(lancerDataProxy[key])
+      const source = getSource()
+      return source && source[key] ? Reflect.ownKeys(source[key]) : []
     },
     getOwnPropertyDescriptor(_, prop) {
-      return Reflect.getOwnPropertyDescriptor(lancerDataProxy[key], prop)
+      const source = getSource()
+      return source && source[key] ? Reflect.getOwnPropertyDescriptor(source[key], prop) : undefined
     }
   })
 }

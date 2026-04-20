@@ -8,7 +8,7 @@ import '@/ui/style/horusText.js'
 import { register } from '@/ui/style/quillSetup'
 register(Quill)
 
-import lancerData from '@massif/lancer-data'
+import lancerData from '@/lancer-data-proxy'
 import { kebabCase } from 'lodash-es'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

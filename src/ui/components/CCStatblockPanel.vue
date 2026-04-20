@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { glossary } from '@massif/lancer-data';
+import { glossary } from '@/lancer-data-proxy';
 import { isArray } from 'lodash-es';
 
 export default {

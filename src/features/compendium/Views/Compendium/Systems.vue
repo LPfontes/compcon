@@ -23,6 +23,7 @@ export default {
       views: ['single', 'table'],
       initialView: 'single',
       groups: ['source', 'lcp', 'license', 'none'],
+      initialGroup: 'source',
     },
   }),
   computed: {

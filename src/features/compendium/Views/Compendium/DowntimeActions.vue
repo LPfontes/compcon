@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { CompendiumStore } from '@/stores';
-import lancerdata from '@massif/lancer-data';
+
 
 import { orderBy } from 'lodash-es';
 

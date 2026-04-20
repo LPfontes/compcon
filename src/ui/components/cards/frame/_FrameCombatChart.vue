@@ -11,7 +11,7 @@
               :items="getComparableFrames"
               item-title="Name"
               return-object
-              label="Compare to"
+              :label="$t('common.selectors.compare_to')"
               density="compact"
               hide-details
               clearable
@@ -58,19 +58,6 @@ export default {
   },
   data: () => ({
     compareFrames: [] as Frame[],
-    labels: [
-      'HP',
-      'Armor',
-      'Repair Capacity',
-      'Evasion',
-      'Speed',
-      'E-Defense',
-      'Tech Attack',
-      'SP',
-      'Heat Capacity',
-      'Sensors',
-      'Save Target',
-    ],
     statProps: [
       'HP',
       'Armor',
@@ -125,8 +112,9 @@ export default {
                 const label = tooltipItem.dataset.label || '';
                 const frame = CompendiumStore().Frames.find((x) => x.ID === tooltipItem.dataset.id);
                 if (!frame) return label;
+                const statName = this.labels[tooltipItem.dataIndex];
                 const value = frame[this.statProps[tooltipItem.dataIndex]];
-                return `${label}: ${value}`;
+                return `${label}: ${statName} ${value}`;
               },
             },
           },
@@ -153,6 +141,21 @@ export default {
           },
         },
       };
+    },
+    labels() {
+      return [
+        this.$t('nav.stats.hp'),
+        this.$t('nav.stats.armor'),
+        this.$t('nav.stats.repairCapacity'),
+        this.$t('nav.stats.evasion'),
+        this.$t('nav.stats.speed'),
+        this.$t('nav.stats.edef'),
+        this.$t('nav.stats.techAttack'),
+        this.$t('nav.stats.sp'),
+        this.$t('nav.stats.heatCapacity'),
+        this.$t('nav.stats.sensors'),
+        this.$t('nav.stats.saveTarget'),
+      ];
     },
     chartData() {
       return {

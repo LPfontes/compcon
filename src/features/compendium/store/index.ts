@@ -3,7 +3,7 @@ import { markRaw } from 'vue'
 import { defineStore } from 'pinia'
 import * as _ from 'lodash-es'
 import semver from 'semver'
-import lancerData from '@massif/lancer-data'
+import lancerData from '@/lancer-data-proxy'
 import {
   License,
   CoreBonus,

@@ -982,12 +982,12 @@ export default {
     const user = UserStore().User;
     this.view = user.View(
       `compendium_${this.itemType.toLowerCase()}_view`,
-      this.options.initialView
+      this.options.initialView || this.options.views[0] || 'list'
     );
 
     this.group = user.View(
       `compendium_${this.itemType.toLowerCase()}_group`,
-      this.options.initialGroup
+      this.options.initialGroup || this.options.groups[0] || 'source'
     );
   },
   methods: {

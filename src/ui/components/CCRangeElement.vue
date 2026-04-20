@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { Range } from '@/class';
-import { glossary } from '@massif/lancer-data';
+import { glossary } from '@/lancer-data-proxy';
 
 export default {
   name: 'CCRangeElement',

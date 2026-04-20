@@ -2,14 +2,14 @@
   <v-row dense
     align="center">
     <v-col>
-      <div class="heading h2">{{ item.Source }} {{ item.MechTypeString }} Frame</div>
+      <div class="heading h2">{{ item.Source }} {{ item.MechTypeString }} {{ $t('compendium.frameSuffix') }}</div>
       <div v-if="item.Variant"
-        class="heading h4 text-accent">{{ item.Variant }} Variant Frame</div>
+        class="heading h4 text-accent">{{ item.Variant }} {{ $t('compendium.variantFrame') || 'Variant Frame' }}</div>
     </v-col>
     <v-col cols="auto">
       <cc-tooltip :icon="item.SizeIcon"
         size="65">
-        <div class="heading h3">Size {{ item.Size === 0.5 ? '½' : item.Size }}</div>
+        <div class="heading h3">{{ $t('nav.stats.size') }} {{ item.Size === 0.5 ? '½' : item.Size }}</div>
         <v-divider class="my-1" />
         {{ glossary('size') }}
       </cc-tooltip>
@@ -19,7 +19,7 @@
     dense>
     <v-col>
       <div v-if="item.Description">
-        <div class="text-cc-overline my-1 text-text">COMPENDIUM ENTRY</div>
+        <div class="text-cc-overline my-1 text-text">{{ $t('compendium.entry') || 'COMPENDIUM ENTRY' }}</div>
         <p v-html-safe="item.Description"
           class="flavor-text" />
       </div>
@@ -33,11 +33,11 @@
   </v-row>
 
   <div class="my-4">
-    <div class="text-cc-overline text-text">COMBAT PROFILE</div>
+    <div class="text-cc-overline text-text">{{ $t('compendium.combatProfile') || 'COMBAT PROFILE' }}</div>
     <frame-combat-chart :frame="item" />
   </div>
 
-  <div class="text-cc-overline text-text">FRAME TRAITS</div>
+  <div class="text-cc-overline text-text">{{ $t('compendium.frameTraits') || 'FRAME TRAITS' }}</div>
   <cc-masonry-grid :items="item.Traits"
     :column-width="500"
     :gap="16"
@@ -51,7 +51,7 @@
   </cc-masonry-grid>
 
   <br />
-  <div class="text-cc-overline text-text">AVAILABLE WEAPON MOUNTS</div>
+  <div class="text-cc-overline text-text">{{ $t('compendium.weaponMounts') || 'AVAILABLE WEAPON MOUNTS' }}</div>
   <v-row justify="space-around"
     class="mb-3">
     <v-col v-for="(m, index) in item.Mounts"
@@ -64,7 +64,7 @@
             class="clipped"
             tile
             v-bind:="props">
-            <v-card-text class="heading h3 px-8 text-uppercase">{{ m }} Mount</v-card-text>
+            <v-card-text class="heading h3 px-8 text-uppercase">{{ m }} {{ $t('compendium.mount') || 'Mount' }}</v-card-text>
           </v-card>
         </template>
         <p v-html-safe="get_mount_tooltip(m)" />
@@ -72,13 +72,13 @@
     </v-col>
   </v-row>
 
-  <div class="text-cc-overline text-text">ONBOARD CORE SYSTEM</div>
+  <div class="text-cc-overline text-text">{{ $t('compendium.coreSystem') || 'ONBOARD CORE SYSTEM' }}</div>
   <cc-core-system-panel :frame="item" />
 </template>
 
 <script lang="ts">
 import { FrameCombatChart } from '../frame';
-import { glossary } from '@massif/lancer-data';
+import { glossary } from '@/lancer-data-proxy';
 import { useMobile } from '@/mixins/useMobile';
 
 
@@ -116,19 +116,10 @@ export default {
     },
 
     get_mount_tooltip(mount_type: string) {
-      const mount_tooltips = {
-        Heavy: 'Holds one <b>HEAVY</b>, <b>MAIN</b>, or <b>AUXILIARY</b> weapon',
-        Main: 'Holds one <b>MAIN</b> or <b>AUXILIARY</b> weapon',
-        'Aux/Aux': 'Holds up to two <b>AUXILIARY</b> weapons',
-        Aux: 'Holds one <b>AUXILIARY</b> weapon',
-        'Main/Aux':
-          'Holds one <b>MAIN</b> weapon and one <b>AUXILIARY</b> weapon, or two <b>AUXILIARY</b> weapons',
-        Flex: 'Holds either one <b>MAIN</b> weapon or up to two <b>AUXILIARY</b> weapons',
-      };
-      if (mount_type in mount_tooltips) {
-        return mount_tooltips[mount_type];
+      if (this.$te(`compendium.mountTooltips.${mount_type}`)) {
+        return this.$t(`compendium.mountTooltips.${mount_type}`);
       }
-      return 'Error: Unknown Mount Type';
+      return this.$t('compendium.mountTooltips.unknown');
     },
   },
 };

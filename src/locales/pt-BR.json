@@ -55,7 +55,8 @@
       "addDowntimeProject": "Adicionar Projeto de Downtime",
       "addProject": "Adicionar Projeto",
       "addOrganization": "Adicionar Organização",
-      "other": "Outro"
+      "other": "Outro",
+      "compare_to": "Comparar com"
     }
   },
   "pilotManagement": {
@@ -302,11 +303,15 @@
       "edef": "E-Def",
       "heatCap": "Cap. Calor",
       "repCap": "Cap. Reparo",
+      "repairCapacity": "Capacidade de Reparo",
       "sensors": "Sensores",
       "techAtk": "Atq. Tec.",
+      "techAttack": "Ataque Tecnológico",
       "save": "Salvamento",
+      "saveTarget": "Salvamento",
       "speed": "Velocidade",
       "sp": "PE",
+      "systemPoints": "Pontos de Sistema",
       "type": "Tipo",
       "range": "Alcance",
       "damage": "Dano",
@@ -330,7 +335,10 @@
       "sys": "SIS",
       "eng": "ENG",
       "origin": "Origem",
-      "icon": "Ícone"
+      "icon": "Ícone",
+      "structure": "Estrutura",
+      "stress": "Estresse",
+      "heatCapacity": "Capacidade de Calor"
     },
     "gm": {
       "npcRoster": "Lista de NPCs",
@@ -364,6 +372,22 @@
     "licenses": "Licenças",
     "coreBonuses": "Bônus de NÚCLEO",
     "frames": "Chassis",
+    "variantFrame": "Chassi Variante",
+    "entry": "ENTRADA DO COMPÊNDIO",
+    "combatProfile": "PERFIL DE COMBATE",
+    "frameTraits": "TRAÇOS DO CHASSI",
+    "weaponMounts": "ENCAIXES DE ARMA DISPONÍVEIS",
+    "mount": "Encaixe",
+    "coreSystem": "SISTEMA DE NÚCLEO INTEGRADO",
+    "mountTooltips": {
+      "Heavy": "Comporta uma arma <b>PESADA</b>, <b>PRINCIPAL</b> ou <b>AUXILIAR</b>",
+      "Main": "Comporta uma arma <b>PRINCIPAL</b> ou <b>AUXILIAR</b>",
+      "Aux/Aux": "Comporta até duas armas <b>AUXILIARES</b>",
+      "Aux": "Comporta uma arma <b>AUXILIAR</b>",
+      "Main/Aux": "Comporta uma arma <b>PRINCIPAL</b> e uma arma <b>AUXILIAR</b>, ou duas armas <b>AUXILIARES</b>",
+      "Flex": "Comporta ou uma arma <b>PRINCIPAL</b> ou até duas armas <b>AUXILIARES</b>",
+      "unknown": "Erro: Tipo de Encaixe Desconhecido"
+    },
     "mechWeapons": "Armas de Mecha",
     "mechSystems": "Sistemas de Mecha",
     "pilotGear": "Equipamento de Piloto",
