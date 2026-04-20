@@ -208,12 +208,14 @@ export default {
   name: 'PackInstall',
   components: { PackInfo },
   mixins: [useMobile],
-  data: () => ({
-    value: null,
-    installing: false,
-    contentPacks: [] as IContentPack[],
-    error: '',
-  }),
+  data() {
+    return {
+      value: null,
+      installing: false,
+      contentPacks: [] as IContentPack[],
+      error: '',
+    }
+  },
   computed: {
     hasAlreadyInstalled() {
       return this.contentPacks.some((pack) => this.packAlreadyInstalled(pack));

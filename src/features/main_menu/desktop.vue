@@ -49,8 +49,8 @@
           </v-tooltip>
 
 
-          <extra-content v-model="extraContentModal" />
         </main-btn>
+        <extra-content v-model="extraContentModal" />
       </v-row>
     </v-container>
 

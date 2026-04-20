@@ -216,9 +216,9 @@ class UserProfile {
     this.save()
   }
 
-  public Option(option: string): string {
-    if (Object.hasOwn(this._options, option)) return this._options[option]
-    return defaultOptions()[option]
+  public Option(option: string): any {
+    if (Object.hasOwn(this._options, option)) return (this._options as any)[option]
+    return (defaultOptions() as any)[option]
   }
 
   public SetView(view: string, setting: any): void {

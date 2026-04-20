@@ -100,22 +100,28 @@ export default {
   name: 'PacksList',
   components: { PackInfoCard },
   mixins: [useMobile],
-  data: () => ({
-    expandedRows: [] as any[],
-    initHeaders: [
-      { title: '', key: 'data-table-expand' },
-      { title: this.$t('contentManager.packs.headers.active'), value: 'toggleActive', sortable: false },
-      { title: this.$t('contentManager.packs.headers.name'), value: 'Name' },
-      { title: this.$t('contentManager.packs.headers.author'), value: 'Author' },
-      { title: this.$t('contentManager.packs.headers.version'), value: 'Version' },
-      { title: this.$t('contentManager.packs.headers.v3'), value: 'v3' },
-      { title: '', value: 'deleteAction', sortable: false },
-    ],
-    loading: false,
-  }),
+  data() {
+    return {
+      expandedRows: [] as any[],
+      loading: false,
+    }
+  },
   computed: {
     headers() {
-      return this.mobile ? this.initHeaders.slice(1) : this.initHeaders
+      const baseHeaders = [
+        { title: '', key: 'data-table-expand' },
+        {
+          title: this.$t('contentManager.packs.headers.active'),
+          value: 'toggleActive',
+          sortable: false,
+        },
+        { title: this.$t('contentManager.packs.headers.name'), value: 'Name' },
+        { title: this.$t('contentManager.packs.headers.author'), value: 'Author' },
+        { title: this.$t('contentManager.packs.headers.version'), value: 'Version' },
+        { title: this.$t('contentManager.packs.headers.v3'), value: 'v3' },
+        { title: '', value: 'deleteAction', sortable: false },
+      ]
+      return this.mobile ? baseHeaders.slice(1) : baseHeaders
     },
     contentPacks() {
       return [...CompendiumStore().ContentPacks].sort((a, b) => {

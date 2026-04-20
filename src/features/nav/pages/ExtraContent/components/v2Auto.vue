@@ -96,7 +96,6 @@
 <script lang="ts">
 import { GetValue, SetValue } from '@/io/Storage'
 import { downloadFullBackup } from '@/io/FullImporter'
-import { block } from 'vuetify/lib/util/anchor.mjs';
 
 export default {
   name: 'V2Auto',

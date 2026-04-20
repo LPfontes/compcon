@@ -19,7 +19,7 @@
         </cc-heading>
         <v-row align="center" justify="center">
           <v-col lg="4" cols="12">
-            <cc-text-field v-model="code" color="primary" :label="$t('auth.codeLabel')" />
+            <cc-text-field v-model="code" color="primary" :label="$t('auth.resetCodeLabel')" />
           </v-col>
           <v-col lg="6" cols="12">
             <cc-text-field

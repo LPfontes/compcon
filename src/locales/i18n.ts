@@ -15,12 +15,12 @@ const getInitialLocale = (): string => {
 }
 
 export const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR'>({
-  legacy: false, // Required for Vue 3 Composition API
+  legacy: false,
+  globalInjection: true,
   locale: getInitialLocale(),
   fallbackLocale: 'en',
   messages: {
     en: en,
     'pt-BR': ptBR,
-    pt: ptBR,
   },
 })

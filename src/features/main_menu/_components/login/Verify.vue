@@ -20,7 +20,7 @@
           color="accent"
           class="mt-2"
           @click="resend()">
-          {{ preFill ? $t('auth.resend') : $t('auth.send') }} {{ $t('auth.codeLabel') }}
+          {{ preFill ? $t('auth.resend') : $t('auth.send') }} {{ $t('auth.verifyCodeLabel') }}
         </cc-button>
       </div>
       <v-fade-transition>
@@ -40,7 +40,7 @@
           <v-col cols="12" sm="6" lg="4">
             <v-text-field
               v-model="verify"
-              :label="$t('auth.codeLabel')"
+              :label="$t('auth.verifyCodeLabel')"
               density="compact"
               variant="outlined"
               class="my-1"

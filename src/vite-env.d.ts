@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     $notify: Notify
     $router: Router
     $route: Route
+    $t: (key: string, values?: any) => string
   }
 }
 
