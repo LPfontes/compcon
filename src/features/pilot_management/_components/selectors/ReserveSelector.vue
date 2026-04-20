@@ -1,123 +1,137 @@
 <template>
-  <cc-compendium-browser :items="reserves"
+  <cc-compendium-browser
+    :items="reserves"
     item-type="Reserve"
     :table-headers="headers"
     :options="options"
     equippable
-    @equip="add($event)">
+    @equip="add($event)"
+  >
     <template #header>
-      <cc-button size="x-small"
+      <cc-button
+        size="x-small"
         color="secondary"
         class="mb-1"
         block
-        @click="CustomDialog = true">
-        Add Custom Reserve
+        @click="CustomDialog = true"
+      >
+        {{ $t('common.selectors.addCustomReserve') }}
       </cc-button>
-      <cc-button size="x-small"
+      <cc-button
+        size="x-small"
         color="secondary"
         class="mb-1"
         block
-        @click="ProjectDialog = true">
-        Add Downtime Project
+        @click="ProjectDialog = true"
+      >
+        {{ $t('common.selectors.addDowntimeProject') }}
       </cc-button>
-      <cc-button size="x-small"
+      <cc-button
+        size="x-small"
         color="secondary"
         class="mb-1"
         block
-        @click="OrgDialog = true">
-        Add Organization
+        @click="OrgDialog = true"
+      >
+        {{ $t('common.selectors.addOrganization') }}
       </cc-button>
     </template>
   </cc-compendium-browser>
 
-  <cc-solo-modal v-model="CustomDialog"
+  <cc-solo-modal
+    v-model="CustomDialog"
     max-width="60vw"
     shrink
-    title="Add Custom Reserve"
-    icon="cc:orbital">
+    :title="$t('common.selectors.addCustomReserve')"
+    icon="cc:orbital"
+  >
     <custom-reserve-panel @add="add($event)" />
   </cc-solo-modal>
-  <cc-solo-modal v-model="ProjectDialog"
+  <cc-solo-modal
+    v-model="ProjectDialog"
     max-width="60vw"
     shrink
-    title="Add Project"
-    icon="cc:orbital">
+    :title="$t('common.selectors.addProject')"
+    icon="cc:orbital"
+  >
     <downtime-project-panel @add="add($event)" />
   </cc-solo-modal>
-  <cc-solo-modal v-model="OrgDialog"
+  <cc-solo-modal
+    v-model="OrgDialog"
     max-width="60vw"
     shrink
-    title="Add Organization"
-    icon="cc:orbital">
+    :title="$t('common.selectors.addOrganization')"
+    icon="cc:orbital"
+  >
     <organization-panel @add="addOrg($event)" />
   </cc-solo-modal>
 </template>
 
 <script lang="ts">
-import CustomReservePanel from './components/_CustomReservePanel.vue'
-import DowntimeProjectPanel from './components/_DowntimeProjectPanel.vue'
-import OrganizationPanel from './components/_OrganizationPanel.vue'
-import { Reserve, Organization, Pilot, CompendiumItem } from '@/class'
-import * as _ from 'lodash-es'
-import { CompendiumStore } from '@/stores'
+  import CustomReservePanel from './components/_CustomReservePanel.vue'
+  import DowntimeProjectPanel from './components/_DowntimeProjectPanel.vue'
+  import OrganizationPanel from './components/_OrganizationPanel.vue'
+  import { Reserve, Organization, Pilot, CompendiumItem } from '@/class'
+  import * as _ from 'lodash-es'
+  import { CompendiumStore } from '@/stores'
 
-export default {
-  name: 'CCReserveSelector',
-  components: {
-    CustomReservePanel,
-    DowntimeProjectPanel,
-    OrganizationPanel,
-  },
-  props: {
-    pilot: {
-      type: Object,
-      required: true,
+  export default {
+    name: 'CCReserveSelector',
+    components: {
+      CustomReservePanel,
+      DowntimeProjectPanel,
+      OrganizationPanel,
     },
-  },
-  emits: ['close'],
-  data: () => ({
-    tab: 0,
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Type', key: 'Type' },
-    ],
-    options: {
-      views: ['list', 'cards', 'table'],
-      initialView: 'cards',
-      groups: ['lcp', 'type', 'none'],
-      initialGroup: 'type',
-      noSource: true,
+    props: {
+      pilot: {
+        type: Object,
+        required: true,
+      },
     },
-    CustomDialog: false,
-    ProjectDialog: false,
-    OrgDialog: false,
-  }),
-  computed: {
-    allReserves() {
-      if (!this.pilot.LcpConfig) return CompendiumStore().Reserves
-      const packIDs = new Set(this.pilot.LcpConfig.packList.map((y: any) => y.packID))
-      const packNames = new Set(this.pilot.LcpConfig.packList.map((y: any) => y.packName))
-      return CompendiumStore().Reserves.filter(
-        (x: any) => !x.InLcp || packIDs.has(x.Brew?.LcpId) || packNames.has(x.Brew.LcpName)
-      )
+    emits: ['close'],
+    data: () => ({
+      tab: 0,
+      headers: [
+        { title: 'Content Pack', key: 'LcpName' },
+        { title: 'Name', key: 'Name' },
+        { title: 'Type', key: 'Type' },
+      ],
+      options: {
+        views: ['list', 'cards', 'table'],
+        initialView: 'cards',
+        groups: ['lcp', 'type', 'none'],
+        initialGroup: 'type',
+        noSource: true,
+      },
+      CustomDialog: false,
+      ProjectDialog: false,
+      OrgDialog: false,
+    }),
+    computed: {
+      allReserves() {
+        if (!this.pilot.LcpConfig) return CompendiumStore().Reserves
+        const packIDs = new Set(this.pilot.LcpConfig.packList.map((y: any) => y.packID))
+        const packNames = new Set(this.pilot.LcpConfig.packList.map((y: any) => y.packName))
+        return CompendiumStore().Reserves.filter(
+          (x: any) => !x.InLcp || packIDs.has(x.Brew?.LcpId) || packNames.has(x.Brew.LcpName)
+        )
+      },
+      reserves() {
+        return _.orderBy(
+          this.allReserves.filter(x => !x.IsHidden),
+          'Name'
+        )
+      },
     },
-    reserves() {
-      return _.orderBy(
-        this.allReserves.filter(x => !x.IsHidden),
-        'Name'
-      )
+    methods: {
+      add(reserve: Reserve): void {
+        this.pilot.ReservesController.AddReserve(CompendiumItem.Clone(reserve))
+        this.$emit('close')
+      },
+      addOrg(org: Organization): void {
+        this.pilot.ReservesController.AddOrganization(Organization.Clone(org))
+        this.$emit('close')
+      },
     },
-  },
-  methods: {
-    add(reserve: Reserve): void {
-      this.pilot.ReservesController.AddReserve(CompendiumItem.Clone(reserve))
-      this.$emit('close')
-    },
-    addOrg(org: Organization): void {
-      this.pilot.ReservesController.AddOrganization(Organization.Clone(org))
-      this.$emit('close')
-    },
-  },
-}
+  }
 </script>
