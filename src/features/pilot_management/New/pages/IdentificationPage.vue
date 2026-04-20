@@ -3,29 +3,29 @@
     mandatory
     exit="../pilot_management"
     @complete="$emit('next')">
-    <cc-title offset>{{ $t('pilotRegistration.title') }}</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.new.registration.title') }}</cc-title>
     <div class="heading h2">
-      {{ $t('pilotRegistration.identService') }}
+      {{ $t('pilotManagement.new.registration.identService') }}
       <cc-slashes />
-      {{ $t('pilotRegistration.personnelPilot') }}
+      {{ $t('pilotManagement.new.registration.personnelPilot') }}
     </div>
     <p class="flavor-text"
       style="font-size: 14px">
-      {{ $t('pilotRegistration.identWelcome') }}
+      {{ $t('pilotManagement.new.registration.identWelcome') }}
     </p>
     <v-alert color="accent"
       variant="outlined"
       density="compact"
       class="mt-2">
       <div class="heading">
-        {{ $t('pilotRegistration.fieldsWarning', { icon: '' }) }}
+        {{ $t('pilotManagement.new.registration.fieldsWarning', { icon: '' }) }}
         <v-icon color="error"
           size="small"
           class="mt-n1">mdi-alert</v-icon>
-        {{ $t('pilotRegistration.fieldsWarning').split('{icon}')[1] }}
+        {{ $t('pilotManagement.new.registration.fieldsWarning').split('{icon}')[1] }}
       </div>
       <p class="text-cc-overline">
-        {{ $t('pilotRegistration.truthAttestation') }}
+        {{ $t('pilotManagement.new.registration.truthAttestation') }}
       </p>
     </v-alert>
 
@@ -35,12 +35,12 @@
         class="mr-auto">
         <div class="my-2">
           <div v-if="!mobile"
-            class="text-caption">{{ $t('pilotRegistration.fullNameLabel') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.fullNameLabel') }}</div>
           <div v-else
-            class="text-caption">{{ $t('pilotRegistration.pilotNameLabel') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.pilotNameLabel') }}</div>
           <cc-text-field v-model="pilot.Name"
             variant="outlined"
-            :placeholder="$t('pilotRegistration.namePlaceholder')"
+            :placeholder="$t('pilotManagement.new.registration.namePlaceholder')"
             :icon="pilot.Name ? 'mdi-check-circle-outline' : 'mdi-alert'"
             :color="pilot.Name ? 'success' : 'error'"
             class="my-1 d-inline">
@@ -48,7 +48,7 @@
               <cc-button icon="mdi-dice-multiple"
                 variant="outlined"
                 size="small"
-                :tooltip="$t('pilotRegistration.randomName')"
+                :tooltip="$t('pilotManagement.new.registration.randomName')"
                 @click="randomName()" />
             </template>
           </cc-text-field>
@@ -57,13 +57,13 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            {{ $t('pilotRegistration.callsignLabel') }}
+            {{ $t('pilotManagement.new.registration.callsignLabel') }}
           </div>
           <div v-else
-            class="text-caption">{{ $t('pilotRegistration.callsignLabelShort') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.callsignLabelShort') }}</div>
           <cc-text-field v-model="pilot.Callsign"
             variant="outlined"
-            :placeholder="$t('pilotRegistration.callsignPlaceholder')"
+            :placeholder="$t('pilotManagement.new.registration.callsignPlaceholder')"
             :icon="pilot.Callsign ? 'mdi-check-circle-outline' : 'mdi-alert'"
             :color="pilot.Callsign ? 'success' : 'error'"
             class="my-1 d-inline">
@@ -71,7 +71,7 @@
               <cc-button icon="mdi-dice-multiple"
                 variant="outlined"
                 size="small"
-                :tooltip="$t('pilotRegistration.randomCallsign')"
+                :tooltip="$t('pilotManagement.new.registration.randomCallsign')"
                 @click="randomCallsign()" />
             </template>
           </cc-text-field>
@@ -80,18 +80,18 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            {{ $t('pilotRegistration.backgroundLabel') }}
+            {{ $t('pilotManagement.new.registration.backgroundLabel') }}
           </div>
           <div v-else
-            class="text-caption">{{ $t('pilotRegistration.backgroundLabelShort') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.backgroundLabelShort') }}</div>
           <cc-text-field v-model="pilot.Background"
             variant="outlined"
-            :placeholder="$t('pilotRegistration.backgroundPlaceholder')"
+            :placeholder="$t('pilotManagement.new.registration.backgroundPlaceholder')"
             :icon="pilot.Background ? 'mdi-check-circle-outline' : 'mdi-circle-outline'"
             :color="pilot.Background ? 'success' : 'light-panel'"
             class="my-1 d-inline">
             <template #extra>
-              <v-tooltip :text="$t('pilotRegistration.selectPredefined')">
+              <v-tooltip :text="$t('pilotManagement.new.registration.selectPredefined')">
                 <template #activator="{ props }">
                   <span v-bind="props">
                     <background-selector
@@ -106,10 +106,10 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            {{ $t('pilotRegistration.bioLabel') }}
+            {{ $t('pilotManagement.new.registration.bioLabel') }}
           </div>
           <div v-else
-            class="text-caption">{{ $t('pilotRegistration.bioLabelShort') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.bioLabelShort') }}</div>
           <v-row align="center"
             dense>
             <v-col>
@@ -117,10 +117,10 @@
                 size="small"
                 :color="!pilot.History ? 'light-panel' : 'success'"
                 @click="bioDialog = true">
-                <div v-if="!pilot.History">{{ $t('pilotRegistration.addBio') }}</div>
-                <div v-else>{{ $t('pilotRegistration.editBio') }}</div>
+                <div v-if="!pilot.History">{{ $t('pilotManagement.new.registration.addBio') }}</div>
+                <div v-else>{{ $t('pilotManagement.new.registration.editBio') }}</div>
                 <cc-text-editor-dialog v-model="bioDialog"
-                  :title="$t('pilotRegistration.editBio')"
+                  :title="$t('pilotManagement.new.registration.editBio')"
                   :original="pilot.History"
                   @save="$emit('set', { attr: 'History', val: $event })" />
               </cc-button>
@@ -138,10 +138,10 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            {{ $t('pilotRegistration.appearanceLabel') }}
+            {{ $t('pilotManagement.new.registration.appearanceLabel') }}
           </div>
           <div v-else
-            class="text-caption">{{ $t('pilotRegistration.appearanceLabelShort') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.appearanceLabelShort') }}</div>
           <v-row align="center"
             dense>
             <v-col>
@@ -149,10 +149,10 @@
                 size="small"
                 :color="!pilot.TextAppearance ? 'light-panel' : 'success'"
                 @click="appearanceDialog = true">
-                <div v-if="!pilot.TextAppearance">{{ $t('pilotRegistration.addAppearance') }}</div>
-                <div v-else>{{ $t('pilotRegistration.editAppearance') }}</div>
+                <div v-if="!pilot.TextAppearance">{{ $t('pilotManagement.new.registration.addAppearance') }}</div>
+                <div v-else>{{ $t('pilotManagement.new.registration.editAppearance') }}</div>
                 <cc-text-editor-dialog v-model="appearanceDialog"
-                  :title="$t('pilotRegistration.editAppearance')"
+                  :title="$t('pilotManagement.new.registration.editAppearance')"
                   :original="pilot.TextAppearance"
                   @save="$emit('set', { attr: 'TextAppearance', val: $event })" />
               </cc-button>
@@ -170,17 +170,17 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            {{ $t('pilotRegistration.llLabel') }}
+            {{ $t('pilotManagement.new.registration.llLabel') }}
           </div>
           <div v-else
-            class="text-caption">{{ $t('pilotRegistration.llLabelShort') }}</div>
+            class="text-caption">{{ $t('pilotManagement.new.registration.llLabelShort') }}</div>
           <cc-number-field v-model.number="pilot.Level"
             type="number"
-            :label="$t('pilotRegistration.startingLl')"
+            :label="$t('pilotManagement.new.registration.startingLl')"
             :max="12"
             :min="0"
             :color="pilot.Level ? 'warning' : 'success'"
-            :tooltip="$t('pilotRegistration.llTooltip')"
+            :tooltip="$t('pilotManagement.new.registration.llTooltip')"
             tooltip-icon="mdi-alert"
             class="my-1 d-inline" />
         </div>
@@ -191,8 +191,8 @@
         style="max-width: 325px">
           <div v-if="!mobile"
             class="text-caption">
-            {{ $t('pilotRegistration.imagingLabel') }}
-            <div class="mt-n1 text-disabled">{{ $t('pilotRegistration.imagingSub') }}</div>
+            {{ $t('pilotManagement.new.registration.imagingLabel') }}
+            <div class="mt-n1 text-disabled">{{ $t('pilotManagement.new.registration.imagingSub') }}</div>
           </div>
         <div class="border mr-8 ml-auto mr-auto"
           style="width: 300px; height: 300px">
@@ -201,7 +201,7 @@
             aspect-ratio="1" />
         </div>
         <div class="mt-3">
-          <cc-modal :title="$t('pilotRegistration.addImage')"
+          <cc-modal :title="$t('pilotManagement.new.registration.addImage')"
             icon="cc:pilot">
             <template #activator="{ open }">
               <cc-button block
@@ -210,7 +210,7 @@
                 :append-icon="pilot.Portrait ? '' : 'mdi-check-circle-outline'"
                 :prepend-icon="pilot.Portrait ? 'mdi-circle-edit-outline' : 'mdi-plus'"
                 @click="open">
-                {{ pilot.Portrait ? $t('pilotRegistration.editImage') : $t('pilotRegistration.addImage') }}
+                {{ pilot.Portrait ? $t('pilotManagement.new.registration.editImage') : $t('pilotManagement.new.registration.addImage') }}
               </cc-button>
             </template>
             <cc-image-selector ref="imageSelector"
@@ -230,9 +230,9 @@
           color="primary"
           :disabled="!pilot.HasIdent"
           @click="savePilot">
-          {{ $t('pilotRegistration.skipRegistration') }}
+          {{ $t('pilotManagement.new.registration.skipRegistration') }}
         </cc-button>
-        <div class="text-caption text-disabled"><i>{{ $t('pilotRegistration.recommendedAdvanced') }}</i></div>
+        <div class="text-caption text-disabled"><i>{{ $t('pilotManagement.new.registration.recommendedAdvanced') }}</i></div>
       </v-col>
       <v-spacer />
       <v-col cols="12"
@@ -242,9 +242,9 @@
           color="primary"
           :disabled="!pilot.HasIdent"
           @click="$emit('templates')">
-          {{ $t('pilotRegistration.selectTemplate') }}
+          {{ $t('pilotManagement.new.registration.selectTemplate') }}
         </cc-button>
-        <div class="text-caption text-disabled"><i>{{ $t('pilotRegistration.recommendedNew') }}</i></div>
+        <div class="text-caption text-disabled"><i>{{ $t('pilotManagement.new.registration.recommendedNew') }}</i></div>
       </v-col>
     </v-row>
   </stepper-content>

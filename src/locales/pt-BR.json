@@ -30,12 +30,235 @@
       "addOrganization": "Adicionar Organização"
     }
   },
+  "pilotManagement": {
+    "title": "Gestão de Pilotos",
+    "stepper": {
+      "exit": "SAIR",
+      "back": "VOLTAR",
+      "continue": "CONTINUAR",
+      "skipStep": "PULAR ETAPA"
+    },
+    "new": {
+      "tabs": {
+        "identification": "Identificação",
+        "skills": "Perícias",
+        "talents": "Talentos",
+        "mechSkills": "Perícias de Mecha",
+        "licenses": "Licenças",
+        "coreBonuses": "Bônus de NÚCLEO",
+        "confirm": "Confirmar",
+        "templates": "Modelos"
+      },
+      "exitConfirm": "Tem certeza de que deseja sair do registro? Todo o progresso será perdido.",
+      "exitTitle": "Sair do Registro?",
+      "exitDesc": "Tem certeza de que deseja sair do registro? Todo o progresso será perdido.",
+      "registration": {
+        "title": "Registro de Novo Piloto",
+        "identService": "Serviço UAD IDENT",
+        "personnelPilot": "Pessoal RM-4::Piloto (C)",
+        "identWelcome": "Bem-vindo ao serviço de registro IDENT do Departamento Administrativo da União. O IDENT é o sistema de certificação baseado na omninet que orienta o usuário através do processo de registro de piloto do UAD. O IDENT ajuda a garantir que os pilotos atendam aos requisitos regulatórios e de política através do uso de protocolos de validação de dados dirigidos por NHP. Militares da União que já receberam uma impressão digital RM-4 IDENT não devem preencher este formulário, a menos que instruídos por seu oficial superior.",
+        "fieldsWarning": "Todos os campos marcados com o glifo {icon} devem ser preenchidos.",
+        "truthAttestation": "Ao enviar este formulário, você atesta que suas respostas são verdadeiras e precisas de acordo com o seu melhor conhecimento. Fornecer informações falsas ou incompletas intencionalmente é punível sob DoJ/HR AR 303-J.",
+        "fullNameLabel": "RM-4-01 // NOME COMPLETO OU ALIAS PRIMÁRIO",
+        "pilotNameLabel": "NOME DO PILOTO",
+        "callsignLabel": "RM-4-02 // CODINOME APROVADO (OU DESIGNAÇÃO DE CADETE, SE APLICÁVEL)",
+        "callsignLabelShort": "CODINOME",
+        "backgroundLabel": "RM-4-03 // OCUPAÇÃO OU POSIÇÃO ANTERIOR (RESPONDA 17b NO RM-2-C)",
+        "backgroundLabelShort": "ANTECEDENTE",
+        "bioLabel": "RM-4-04 // DOSSIÊ BIOGRÁFICO ANEXADO (SUPLEMENTO RM-4b)",
+        "bioLabelShort": "BIOGRAFIA",
+        "addBio": "Adicionar Biografia do Piloto",
+        "editBio": "Editar Biografia do Piloto",
+        "appearanceLabel": "RM-4-05 // RESULTADOS DO EXAME DE SAÚDE OHM ANEXADOS",
+        "appearanceLabelShort": "APARÊNCIA",
+        "addAppearance": "Adicionar Descrição do Piloto",
+        "editAppearance": "Editar Descrição do Piloto",
+        "llLabel": "RM-4-δ // TRANSFERÊNCIA DE DADOS DE LICENÇA EXTERNA (SE APLICÁVEL)",
+        "llLabelShort": "LL INICIAL",
+        "startingLl": "Nível de Licença Inicial",
+        "llTooltip": "Iniciar este Piloto em um nível de licença específico. Recomendado para usuários avançados.",
+        "imagingLabel": "RM-4-06 // SCAN DE IMAGEM OHM ANEXADO",
+        "imagingSub": "(DEVE INCLUIR DADOS RETINIANOS)",
+        "editImage": "Editar Imagem do Piloto",
+        "addImage": "Adicionar Imagem do Piloto",
+        "randomName": "Gerar nome aleatório",
+        "randomCallsign": "Gerar codinome aleatório",
+        "selectPredefined": "Selecionar Antecedente Predefinido",
+        "namePlaceholder": "Nome",
+        "callsignPlaceholder": "Codinome",
+        "backgroundPlaceholder": "Antecedente",
+        "skipRegistration": "Pular Registro de Novo Piloto",
+        "selectTemplate": "Selecionar Modelo de Personagem",
+        "recommendedAdvanced": "Recomendado para Usuários Avançados",
+        "recommendedNew": "Recomendado para Novos Jogadores",
+        "wizard": {
+          "skills": {
+            "title": "Gatilhos de Perícia do Piloto",
+            "subtitle": "Autoavaliação de Piloto RM-4b (1/3)",
+            "description": "A auditoria de AUTOAVALIAÇÃO DE PILOTO RM-4b (Perícias) cataloga as forças relatadas pelo próprio piloto com base em seleções derivadas dos resultados do Exame de Saúde OHM // Scan de Atividade Cerebral CR-2 e respostas de captação dadas ao representante NHP do Administrador da União presidente.",
+            "nb": "NB:",
+            "nbDescription": "O formulário a seguir é composto por saídas não filtradas geradas por uma ou mais Pessoas Não Humanas UNI-TACANALYSIS e NÃO PODE ser copiado, traduzido, reproduzido, transmitido ou codificado sem a permissão expressa da Inteligência Naval da União.",
+            "selectCount": "Selecione {word} ({count}) Gatilhos de Perícia.",
+            "suggestionsAvailable": "Sugestões de Perícia Disponíveis",
+            "suggestionsDescription": "O IDENT.SERVICE.PRIMARY gerou uma lista de Gatilhos de Perícia sugeridos. Estas sugestões são baseadas na sua resposta ao RM-4-03 (OCUPAÇÃO OU POSIÇÃO ANTERIOR) e são compatíveis com os resultados do seu Scan de Atividade Cerebral OHM/CR-2 e respostas de captação conforme relatado ao Escritório de Saúde Psicológica e Ontológica da União.",
+            "addSuggestions": "Adicionar Perícias Sugeridas",
+            "suggestionsAdded": "Perícias Sugeridas Adicionadas.",
+            "words": [
+              "zero",
+              "um",
+              "dois",
+              "três",
+              "quatro",
+              "cinco",
+              "seis",
+              "sete",
+              "oito",
+              "nove",
+              "dez",
+              "onze",
+              "doze",
+              "treze",
+              "quatorze",
+              "quinze",
+              "dezesseis"
+            ]
+          },
+          "talents": {
+            "title": "Talentos do Piloto",
+            "subtitle": "Autoavaliação de Piloto RM-4c (2/3)",
+            "description": "A auditoria de AUTOAVALIAÇÃO DE PILOTO RM-4b (Talentos) cataloga as aptidões de operação de combate relatadas pelo próprio piloto e confere privilégios de requisição para tempo de simulador, materiais de treinamento de holocampo e sensório cortical, dados de telemetria de campo de batalha em classificações abaixo de GREY SIERRA SHARP e (em casos específicos) licenças de material de padrão MM da GMS. Recursos adicionais podem ser disponibilizados a seu pedido no decorrer das operações de campo.",
+            "selectCount": "Selecione {word} ({count}) Talentos de Piloto."
+          },
+          "mechSkills": {
+            "title": "Perícias de Mecha do Piloto",
+            "subtitle": "Autoavaliação de Piloto RM-4d (3/3)",
+            "description": "A AUTOAVALIAÇÃO DE PILOTO RM-4b (Perícias de Mecha) será transmitida à equipe de impressão para finalizar a configuração do seu GMS-SP1 EVEREST emitido. Estes dados de configuração serão remetidos ao seu cofre pessoal da Omninet na validação e aceitação do formulário RM-4, juntamente com a emissão da sua impressão digital IDENT, que poderá então ser aplicada a qualquer Chassi futuro a seu critério.",
+            "addCount": "Adicione {word} ({count}) Pontos de Perícia de Mecha."
+          },
+          "confirm": {
+            "warning": "AVISO: A submissão para o registro IDENT {id} possui os seguintes problemas:",
+            "critical": "CRÍTICO",
+            "errors": {
+              "callsign": "CODINOME DO PILOTO em branco ou inválido",
+              "name": "NOME DO PILOTO em branco ou inválido",
+              "skills": "GATILHOS DE PERÍCIA DO PILOTO ausentes ou incompletos",
+              "talents": "TALENTOS DO PILOTO ausentes ou incompletos",
+              "mechSkills": "PERÍCIAS DE MECHA DO PILOTO ausentes ou incompletas",
+              "licenses": "DADOS DE LICENÇA DO PILOTO ausentes ou incompletos",
+              "coreBonuses": "DADOS DE BÔNUS DE NÚCLEO DO PILOTO ausentes ou incompletos"
+            },
+            "registerBtn": "Registrar Novo Piloto // {callsign} ({name})",
+            "defaultCallsign": "[NOVO CODINOME]",
+            "defaultName": "Novo Piloto",
+            "overrideBtn": "Sobrepor Registro",
+            "overrideTooltip": "Forçar registro de piloto"
+          },
+          "templates": {
+            "subtitle": "SELEÇÃO DE ACESSO RÁPIDO PRM-ALT",
+            "description": "De acordo com a Lei PRM-ALT de 5017, o serviço de registro IDENT do Departamento Administrativo da União fornece um módulo de Seleção de Acesso Rápido, criado e curado pelo Suporte de Cavalaria Blindada da UAD. A equipe NHP da UAD-ACS gerou uma seleção de Modelos de Doutrina de Combate baseada nos resultados do seu Exame de Saúde OHM // Scan de Atividade Cerebral CR-2. Cada um destes modelos preencherá o restante do seu Registro de Combate IDENT com um conjunto de respostas otimizadas para a função de combate.",
+            "selectionNote": "Selecionar um modelo completará a interface de Novo Piloto e iniciará seu Piloto com um conjunto curado de perícias e talentos e um mecha GMS EVEREST equipado, adaptado à função de combate selecionada abaixo. Todas estas seleções podem ser editadas a qualquer momento através das seções de carga da Ficha do Piloto e do Mecha, bem como nos cabeçalhos de seção com o ícone {icon}",
+            "artCourtesy": "ARTE DO MECHA CORTESIA DE"
+          },
+          "coreBonuses": {
+            "title": "Bônus de Núcleo",
+            "subtitle": "Suplemento de Modificação de Núcleo RM-4c (S-2)",
+            "description": "O Suplemento II RM-4β (Modificação de Núcleo) registra um Arquivo de Dados de Modificação de Núcleo (CMD) de um piloto individual para ser disponibilizado para serviços de impressão e equipagem. O catálogo a seguir representa todas as Modificações de Núcleo atualmente validadas como FAB-COMPLETE pelo Padrão de Chassi Universal da General Massive Systems, conforme adotado pela Autoridade de Licenciamento da União.",
+            "selectCount": "Selecione {word} ({count}) {n, plural, one {Bônus} other {Bônus}} de Núcleo.",
+            "disclaimer": "A Autoridade de Licenciamento da União e o Departamento de Administração da União por meio deste renunciam a toda e qualquer responsabilidade, obrigação por quaisquer modificações, alterações, adaptações ou emendas (doravante, \"Modificações de Núcleo\") feitas em qualquer sistema, componente, estrutura ou substrato, seja físico, digital, conceitual ou metafísico, independentemente do momento, método ou intenção de tais modificações."
+          },
+          "licenses": {
+            "title": "Licenças de Piloto",
+            "subtitle": "Suplemento de Autorização de Licenciamento RM-4c (S-1)",
+            "description": "O Suplemento I RM-4α (Autorização de Licenciamento) registra as Licenças de Impressão e Operação de Chassi (FP/O) de um piloto individual sob a Autoridade de Licenciamento da União. O catálogo a seguir representa todas as licenças atualmente validadas como FAB-COMPLETE pelos Serviços de Registro e Validação de Dados da ULA. A Autoridade de Licenciamento da União reserva-se o direito de auditar dados de licença a qualquer momento.",
+            "selectCount": "Selecione {word} ({count}) Posto(s) de Licença.",
+            "disclaimer": "A Autoridade de Licenciamento da União não assume nenhuma responsabilidade ou obrigação, expressa ou implícita, por qualquer lesão, dano, perda ou prejuízo decorrente de, relacionado a ou resultante da impressão, implantação ou operação de qualquer material relacionado a licenças não emitido diretamente pela General Massive Systems. Esta exclusão de responsabilidade abrange expressamente, sem limitação, lesão física ou destruição, perturbações existenciais ou ontológicas e qualquer comprometimento, degradação ou cessação total ou parcial da subjetividade, incluindo mas não se limitando a perda de vida, identidade pessoal, autoconsciência, volição ou agência."
+          }
+        }
+      }
+    },
+    "level": {
+      "tabs": {
+        "overview": "Visão Geral",
+        "skills": "Perícias",
+        "talents": "Talentos",
+        "mechSkills": "Perícias de Mecha",
+        "licenses": "Licenças",
+        "coreBonuses": "Bônus de NÚCLEO",
+        "confirm": "Confirmar"
+      },
+      "overview": {
+        "title": "Subir de Nível (Visão Geral)",
+        "subtitle": "Solicitação de Aquisição de Licença MV-2",
+        "description": "A Solicitação de Aquisição de Licença MV-2 do IDENT UAD foi projetada para permitir que o pessoal ativo da União registre atualizações de licença enquanto estiver implantado em campo e receba recursos imediatos de suporte de campo da ONU e da GMS. O pessoal da União deve confirmar a correção do formulário enviado com seu oficial local da União ou, caso um oficial não esteja disponível, solicitar uma revisão dirigida por NHP no endereço Omninet seguro",
+        "legalWarning": "A submissão de atualizações de licenciamento não autorizadas e/ou a submissão de solicitações de direitos de licença não autorizados ou previamente retidos sem autorização prévia MV-8a/j de um Administrador da União resultará na rejeição automática da solicitação de licenciamento e poderá resultar em uma auditoria de licenciamento sob DoJ/HR AR 716-J",
+        "eligibilityDetermined": "O serviço IDENT da UAD determinou que",
+        "eligibleForUpdate": "está qualificado para a seguinte atualização de licença:",
+        "licenseLevel": "NÍVEL DE LICENÇA",
+        "benefitSkillTrigger": "MELHORIA DE GATILHO DE PERÍCIA DE PILOTO",
+        "benefitTalent": "UPGRADE DE TALENTO DE PILOTO",
+        "benefitMechSkill": "UPGRADE DE PERÍCIA DE MECHA",
+        "benefitGrit": "MELHORIA DE BRIO",
+        "benefitLicense": "DESBLOQUEIO DE NOVA LICENÇA",
+        "benefitCoreBonus": "INSTALAÇÃO DE BÔNUS DE NÚCLEO",
+        "benefitCoreBonusIneligible": "INELEGÍVEL PARA BÔNUS DE NÚCLEO"
+      },
+      "skills": {
+        "title": "Melhorar Gatilhos de Perícia",
+        "subtitle": "Avaliação de Melhoria de Perícia MV-2//a",
+        "description": "A auditoria de Autoavaliação de Piloto MV2/a cataloga as forças relatadas pelo próprio piloto com base em seleções derivadas de telemetria de campo de batalha e registros de debrief analisados por um representante NHP da Marinha da União.",
+        "nbLabel": "NB:",
+        "nbDescription": "O formulário a seguir é composto por saídas não filtradas geradas por uma ou mais Pessoas Não Humanas UNI-TACANALYSIS e NÃO PODE ser copiado, traduzido, reproduzido, transmitido ou codificado sem a permissão expressa da Inteligência Naval da União.",
+        "instruction": "Adicione ou Melhore um Gatilho de Perícia.",
+        "legalFooter": "Ao enviar este formulário, você atesta que suas respostas são verdadeiras e precisas de acordo com o seu melhor conhecimento. Fornecer informações falsas ou incompletas intencionalmente é punível sob DoJ/HR AR 303-J."
+      },
+      "talents": {
+        "title": "Melhorar Talentos",
+        "subtitle": "Requisição de Recursos COA MV-2//b",
+        "description": "A Requisição de Habilidade de Operação de Combate (COA), mediante a aprovação de um sistema automatizado de aprovação de solicitações guiado por NHP, confere privilégios de simulador UNI, materiais de treinamento de holocampo e sensório cortical, dados de telemetria de campo de batalha em classificações abaixo de GREY SIERRA SHARP e (em casos específicos) licenças de material de padrão MM da GMS.",
+        "instruction": "Adicione ou Melhore um Talento.",
+        "legalFooter": "Ao enviar este formulário, você reconhece sua responsabilidade de evitar a divulgação não autorizada, garantindo que todo e qualquer material de treinamento, dados de relatório de campo e modelos de impressão sejam sempre armazenados e transmitidos sob protocolos de criptografia UNI NDL-DISCORDANT//BREATH ou superior da classe NDL-DISCORDANT. A reprodução, extração e transmissão destes materiais, no todo ou em parte, é proibida sem a permissão expressa da Inteligência Naval da União."
+      },
+      "mechSkills": {
+        "title": "Melhorar Perícias de Mecha",
+        "subtitle": "Atualização de Configuração de Chassi MV-2//c",
+        "description": "Ao aceitar a Atualização de Configuração de Chassi MV-2//c, o subsistema IDENT//eng da União atualizará automaticamente os protocolos de configuração de chassi armazenados no endereço do Cofre Omninet registrado em seu perfil IDENT (V.node::/{id}). Para garantir que os dados de configuração sejam remetidos ao endereço correto, quaisquer alterações nos dados do nó do Cofre devem ser enviadas ao serviço IDENT usando o formulário RM-09-E IDENT Suplementar (e)",
+        "instruction": "Melhore uma Perícia de Mecha.",
+        "legalFooter": "A União e seus representantes não são responsáveis por problemas decorrentes de opções de configuração de CHASSI que excedam as especificações do fabricante. Consulte o banco de dados oficial do CHASSI fornecido pelo fabricante antes de implementar qualquer configuração de NÚCLEO não padronizada."
+      },
+      "licenses": {
+        "title": "Desbloquear Licença",
+        "subtitle": "Registro de Transmissão Licenciador/Licenciado MV-2//d",
+        "description": "O Registro de Transmissão Licenciador/Licenciado MV-2 registra a transmissão e o recebimento de uma Licença de CHASSI reconhecida pela ONU, consistindo em, mas não se limitando a, Modelos de Impressão de Equipamento não excedendo 1.5EB, Modelos de Impressão de CHASSI não excedendo 3.75EB e protocolos de acesso a software de sistema compatível com CHASSI.",
+        "instruction": "Desbloqueie uma Licença.",
+        "legalFooter": "A União e seus representantes não são responsáveis por problemas decorrentes da impressão, instalação e/ou uso de materiais de Licença não reconhecidos ou proibidos."
+      },
+      "coreBonuses": {
+        "title": "Adicionar Bônus de NÚCLEO",
+        "subtitle": "Suplemento de NÚCLEO MV-2(a)",
+        "description": "A Emenda Suplementar MV-2(a) registra uma grande modificação, atualização, retrofit ou aprimoramento de NÚCLEO. O Conselho de Inteligência Naval da União, o Conselho de Licenciamento Naval da União, o Conselho de Advocacia de Pilotos Administrativos da União e o Subcomitê de Engenharia Ética do Departamento de Justiça e Recursos Humanos da União apenas reconhecem o aumento de NÚCLEO de um Licenciador aprovado e registrado pela União.",
+        "instruction": "Selecione um Bônus de NÚCLEO",
+        "legalFooter": "A implementação de protocolos de aumento de NÚCLEO de um Licenciador ou Licenciadores não reconhecidos, proibidos ou não registrados torna o piloto operacional responsável por todos e quaisquer danos resultantes do mau funcionamento do NÚCLEO, inclusive fusão do reator.",
+        "ineligibleTitle": "PILOTO INELEGÍVEL PARA BÔNUS DE NÚCLEO",
+        "nextIn": "PRÓXIMO BÔNUS DE NÚCLEO EM {n} NÍVEIS DE LICENÇA"
+      },
+      "confirm": {
+        "warningTitle": "AVISO: A submissão para o registro IDENT {id} possui os seguintes problemas:",
+        "errCallsign": "CODINOME DO PILOTO em branco ou inválido",
+        "errName": "NOME DO PILOTO em branco ou inválido",
+        "errSkills": "GATILHOS DE PERÍCIA DO PILOTO incompletos ou inválidos",
+        "errTalents": "TALENTOS DO PILOTO incompletos ou inválidos",
+        "errMechSkills": "PERÍCIAS DE MECHA DO PILOTO incompletas ou inválidas",
+        "errLicenses": "LICENÇAS DO PILOTO incompletas ou inválidas",
+        "errCoreBonuses": "BÔNUS DE NÚCLEO DO PILOTO incompletos ou inválidos",
+        "updateBtn": "Atualizar Registro do Piloto // {callsign} ({name})"
+      }
+    }
+  },
   "nav": {
     "navigateBack": "Voltar",
     "navigateForward": "Avançar",
     "mainMenu": "Menu Principal",
     "compendium": "Compêndio",
-    "pilotManagement": "Gestão de Pilotos",
     "activeMode": "Modo Ativo",
     "quickReference": "Referência Rápida",
     "cloudAccount": "Conta na Nuvem",
@@ -193,7 +416,7 @@
   "auth": {
     "signIn": "Entrar",
     "signUp": "Criar Conta",
-    "email": "E-Mail",
+    "email": "E-mail",
     "password": "Senha",
     "forgotPassword": "Recuperação de Senha",
     "verifyEmail": "Verificar E-Mail",
@@ -238,7 +461,7 @@
     "confirmError": "Erro ao confirmar conta. Por favor, tente novamente.",
     "resendSuccess": "Novo e-mail de verificação enviado para {email}",
     "resetHeading": "Redefinir Senha",
-    "emailLabel": "Endereço de E-Mail",
+    "emailLabel": "Endereço de E-mail",
     "sendResetEmail": "Enviar E-Mail de Redefinição de Senha",
     "codeSentTo": "Código de redefinição de senha enviado para {email}",
     "resetCodeLabel": "Código de Redefinição de Senha",
@@ -845,13 +1068,14 @@
       "narrative": "NARRATIVA",
       "bonds": "LAÇOS",
       "tactical": "TÁTICO",
-      "hangar": "HANGAR"
+      "hangar": "HANGAR",
+      "pilotManagement": "Gerenciamento de Piloto"
     },
     "statblock": {
       "generateLabel": "Gerar",
       "emojiLabel": "Incluir Emoji de Discord do Pilot NET",
       "emojiCaption": "(Não funciona no formato de bloco de código)",
-      "selectmechasLabel": "Selecionar Mecha",
+      "selectMechLabel": "Selecionar Mecha",
       "copyTooltip": "Copiar bloco de estatísticas para a área de transferência",
       "copyBtn": "Copiar para área de transferência",
       "copySuccessTitle": "Bloco de estatísticas copiado",
@@ -860,7 +1084,39 @@
       "copyErrorText": "Não foi possível copiar o bloco de estatísticas",
       "optFull": "Completo",
       "optPilotOnly": "Apenas Piloto",
-      "optmechasOnly": "Apenas Mechas"
+      "optMechOnly": "Apenas Mecha",
+      "generated": {
+        "skillTriggers": "GATILHOS DE PERÍCIA",
+        "gear": "EQUIPAMENTO",
+        "bond": "LAÇO",
+        "powers": "Poderes",
+        "mechSkills": "PERÍCIAS DE MECHA",
+        "grit": "BRIO",
+        "talents": "TALENTOS",
+        "licenses": "LICENÇAS",
+        "coreBonuses": "BÔNUS DE NÚCLEO",
+        "mech": "MECHA",
+        "size": "TAMANHO",
+        "structure": "ESTRUTURA",
+        "hp": "PV",
+        "armor": "ARMADURA",
+        "stress": "ESTRESSE",
+        "heat": "CALOR",
+        "repair": "REPARO",
+        "atkBonus": "BÔNUS DE ATQ",
+        "techAtk": "ATQ TEC",
+        "ltdBonus": "BÔNUS LTD",
+        "spd": "VEL",
+        "eva": "EVA",
+        "edef": "EDEF",
+        "sens": "SENS",
+        "save": "RESIST",
+        "weapons": "ARMAS",
+        "integratedMount": "MONTAGEM INTEGRADA",
+        "superheavyBracing": "SUPORTE DE ARMA SUPERPESADA",
+        "systems": "SISTEMAS",
+        "noMechSelected": "NENHUM MECHA SELECIONADO"
+      }
     },
     "clone": {
       "intro": "Duplicar ou clonar um piloto removerá quaisquer links do Vault, salvando o Piloto copiado como um novo personagem em sua conta",
@@ -926,7 +1182,7 @@
       "linkTooltipBold": "URL acessível publicamente",
       "copyLinkTooltip": "Copiar link de compartilhamento",
       "styleLabel": "ESTILO DA FICHA",
-      "includemechasLabel": "INCLUIR MECHA",
+      "includeMechLabel": "INCLUIR MECHA",
       "optFull": "Completo",
       "optBuildOnly": "Apenas Build",
       "optNone": "Nenhum",
@@ -1034,7 +1290,7 @@
       "nameLabel": "Nome",
       "randomNameTooltip": "Gerar Nome Aleatório",
       "registerBtn": "Registrar Novo Mecha",
-      "loadoutLabel": "Loadout//",
+      "loadoutLabel": "Equipamento//",
       "errLabel": "ERRO",
       "emptyLabel": "VAZIO",
       "frameHeaders": {
@@ -1096,23 +1352,23 @@
       "allAssigned": "Todos Atribuídos",
       "pilotBondsLabel": "Vínculos do Piloto"
     },
-    "mechas": {
-      "setImageTitle": "definir imagem do Mecha",
+    "mech": {
+      "setImageTitle": "definir imagem do mecha",
       "setImageBtn": "Definir Imagem do Mecha",
       "deleteTitle": "Excluir Mecha",
-      "deleteSubtitle": "Remover Mecha do Hangar",
-      "deleteConfirm": "Lancer, por favor confirme a exclusão da Configuração de Mecha: {boldText}",
+      "deleteSubtitle": "Remover mecha do Hangar",
+      "deleteConfirm": "Lancer, por favor confirme a exclusão da Configuração do Mecha: {boldText}",
       "operatorNotes": "Notas do Operador",
       "licensesRequired": "Licenças Necessárias",
       "frameTraits": "Traços de Chassi {source} {name}",
-      "coreSystem": "Sistema Núcleo {source} {name}",
-      "returnToPilot": "Retornar à Ficha do Piloto",
-      "mechasOptions": "Opções de Mecha",
+      "coreSystem": "Sistema de Núcleo {source} {name}",
+      "returnToPilot": "Retornar para Ficha do Piloto",
+      "mechOptions": "Opções do Mecha",
       "printTitle": "Imprimir",
-      "printSubtitle": "Imprimir uma ficha de Mecha pronta para mesa",
+      "printSubtitle": "Imprimir uma ficha de mecha pronta para a mesa",
       "generateStatblock": "Gerar Bloco de Estatísticas",
-      "generateStatblockSubtitle": "Obter uma representação em texto simples desta configuração de Mecha",
-      "licenseMissingWarning": "AVISO: LICENÇA FALTANDO",
+      "generateStatblockSubtitle": "Obtenha uma representação em texto simples desta configuração de mecha",
+      "licenseMissingWarning": "AVISO: LICENÇA AUSENTE",
       "gmsLicense": "LICENÇA DE PILOTO PADRÃO GMS",
       "rankLabel": "{name} POSTO {rank}",
       "requiredFor": "Necessário para:",
@@ -1121,12 +1377,12 @@
       "equipmentLoadout": "Carga de Equipamento",
       "statusAlerts": {
         "systemCapacityExceededTitle": "CAPACIDADE DE SISTEMA EXCEDIDA",
-        "systemCapacityExceededText": "A configuração de carga excede a Capacidade de Sistema do Chassi disponível",
+        "systemCapacityExceededText": "A configuração da carga excede a Capacidade de Sistema do Chassi disponível",
         "systemCapacityRemainingTitle": "CAPACIDADE DE SISTEMA RESTANTE",
         "capacityImpairedText": "Capacidade operacional significativamente prejudicada",
-        "emptyMountsTitle": "SUPORTES VAZIOS DETECTADOS",
+        "emptyMountsTitle": "MONTAGENS VAZIAS DETECTADAS",
         "unlicensedTitle": "EQUIPAMENTO NÃO LICENCIADO DETECTADO",
-        "unlicensedText": "O piloto está sem uma ou mais licenças necessárias para imprimir ou operar legalmente esta configuração",
+        "unlicensedText": "O piloto não possui uma ou mais licenças necessárias para imprimir ou operar legalmente esta configuração",
         "incompatibleModTitle": "MOD DE ARMA INCOMPATÍVEL",
         "incompatibleModText": "Um ou mais mods de arma estão instalados em armas incompatíveis"
       },
@@ -1142,7 +1398,7 @@
         "repcap": "CapRep",
         "repairCapacity": "Capacidade de Reparo",
         "limitedSysBonusShort": "+ SIS LTD",
-        "limitedSysBonus": "Bônus Sis Ltd",
+        "limitedSysBonus": "Bônus de Sis Limitados",
         "limitedSystemBonus": "Bônus de Sistema Limitado",
         "attackBonusShort": "Bônus ATQ",
         "attackBonus": "Bônus de Ataque",
@@ -1151,143 +1407,14 @@
         "techAtkShort": "ATQ Tec",
         "techAttack": "Ataque Tecnológico",
         "edefShort": "EDEF",
-        "eDefense": "E-Defesa",
+        "eDefense": "Defesa Eletrônica",
         "sensors": "Sensores",
-        "save": "Resist",
-        "hull": "carcaça",
+        "save": "Resistência",
+        "hull": "casco",
         "agility": "agilidade",
         "systems": "sistemas",
         "engineering": "engenharia"
       }
-    }
-  },
-  "pilotRegistration": {
-    "title": "Registro de Novo Piloto",
-    "identService": "Serviço de IDENT do UAD",
-    "personnelPilot": "Pessoal RM-4::Piloto (C)",
-    "identWelcome": "Bem-vindo ao serviço de registro IDENT do Departamento Administrativo da União. O IDENT é o sistema de certificação baseado na omninet que guia o usuário através do processo de registro de piloto do UAD. O IDENT ajuda a garantir que os pilotos atendam aos requisitos regulatórios e de política através do uso de protocolos de validação de dados dirigidos por NHP. Militares da União que já possuem um registro RM-4 IDENT não devem preencher este formulário, a menos que instruídos por seu oficial superior.",
-    "fieldsWarning": "Todos os campos marcados com o glifo {icon} devem ser preenchidos.",
-    "truthAttestation": "Ao enviar este formulário, você atesta que suas respostas são verdadeiras e precisas de acordo com o seu melhor conhecimento. Fornecer informações falsas ou incompletas intencionalmente é punível sob DoJ/HR AR 303-J.",
-    "fullNameLabel": "RM-4-01 // NOME COMPLETO OU ALIAS PRIMÁRIO",
-    "pilotNameLabel": "NOME DO PILOTO",
-    "callsignLabel": "RM-4-02 // CODINOME APROVADO (OU DESIGNAÇÃO DE CADETE, SE APLICÁVEL)",
-    "callsignLabelShort": "CODINOME",
-    "backgroundLabel": "RM-4-03 // OCUPAÇÃO OU POSIÇÃO ANTERIOR (RESPONDA 17b NO RM-2-C)",
-    "backgroundLabelShort": "ANTECEDENTE",
-    "bioLabel": "RM-4-04 // DOSSIÊ BIOGRÁFICO ANEXADO (RM-4b SUPLEMENTAR)",
-    "bioLabelShort": "BIOGRAFIA",
-    "addBio": "Adicionar Biografia do Piloto",
-    "editBio": "Editar Biografia do Piloto",
-    "appearanceLabel": "RM-4-05 // RESULTADOS DO EXAME DE SAÚDE OHM ANEXADOS",
-    "appearanceLabelShort": "APARÊNCIA",
-    "addAppearance": "Adicionar Descrição do Piloto",
-    "editAppearance": "Editar Descrição do Piloto",
-    "llLabel": "RM-4-δ // TRANSFERÊNCIA DE DADOS DE LICENÇA EXTERNA (SE APLICÁVEL)",
-    "llLabelShort": "LL INICIAL",
-    "startingLl": "Nível de Licença Inicial",
-    "llTooltip": "Inicie este Piloto em um nível de licença específico. Recomendado para usuários avançados.",
-    "imagingLabel": "RM-4-06 // SCAN DE IMAGEM OHM ANEXADO",
-    "imagingSub": "(DEVE INCLUIR DADOS RETINIANOS)",
-    "editImage": "Editar Imagem do Piloto",
-    "addImage": "Adicionar Imagem do Piloto",
-    "randomName": "Gerar nome aleatório",
-    "randomCallsign": "Gerar codinome aleatório",
-    "selectPredefined": "Selecionar Antecedente Predefinido",
-    "namePlaceholder": "Nome",
-    "callsignPlaceholder": "Codinome",
-    "backgroundPlaceholder": "Antecedente",
-    "skipRegistration": "Pular Registro de Novo Piloto",
-    "selectTemplate": "Selecionar Modelo de Personagem",
-    "recommendedAdvanced": "Recomendado para Usuários Avançados",
-    "recommendedNew": "Recomendado para Novos Jogadores",
-    "wizard": {
-      "skills": {
-        "title": "Gatilhos de Perícia do Piloto",
-        "subtitle": "RM-4b Autoavaliação do Piloto (1/3)",
-        "description": "A auditoria RM-4b AUTOAVALIAÇÃO DO PILOTO (Perícias) cataloga as forças autorrelatadas de um piloto individual com base em seleções derivadas dos resultados do Exame de Saúde OHM//Scan de Atividade Cerebral CR-2 e respostas de absorção dadas ao representante NHP do Administrador da União presidindo.",
-        "nb": "OBS:",
-        "nbDescription": "O formulário a seguir é composto por saídas não filtradas geradas por uma ou mais UNI-TACANALYSIS Pessoas Não Humanas e NÃO PODE ser copiado, traduzido, reproduzido, transmitido ou codificado sem a permissão expressa da Inteligência Naval da União.",
-        "selectCount": "Selecione {word} ({count}) Gatilhos de Perícia.",
-        "suggestionsAvailable": "Sugestões de Perícia Disponíveis",
-        "suggestionsDescription": "IDENT.SERVICE.PRIMARY gerou uma lista de Gatilhos de Perícia sugeridos. Estas sugestões são baseadas em sua resposta ao RM-4-03 (OCUPAÇÃO OU POSIÇÃO ANTERIOR) e compatíveis com os resultados do seu Scan de Atividade Cerebral OHM/CR-2 e respostas de absorção conforme relatado ao Escritório de Saúde Psicológica e Ontológica da União.",
-        "addSuggestions": "Adicionar Perícias Sugeridas",
-        "suggestionsAdded": "Perícias Sugeridas Adicionadas.",
-        "words": [
-          "zero",
-          "um",
-          "dois",
-          "três",
-          "quatro",
-          "cinco",
-          "seis",
-          "sete",
-          "oito",
-          "nove",
-          "dez",
-          "onze",
-          "doze",
-          "treze",
-          "quatorze",
-          "quinze",
-          "dezesseis"
-        ]
-      },
-      "talents": {
-        "title": "Talentos do Piloto",
-        "subtitle": "RM-4c Autoavaliação do Piloto (2/3)",
-        "description": "A auditoria RM-4b AUTOAVALIAÇÃO DO PILOTO (Talentos) cataloga as aptidões de operação de combate autorrelatadas de um piloto individual e confere privilégios de requisição para tempo de simulador, materiais de treinamento em holocampo e sensório cortical, dados de telemetria de campo de batalha em classificações abaixo de GREY SIERRA SHARP e (em casos específicos) licenças de material de padrão GMS MM. Recursos adicionais podem ser disponibilizados a seu pedido no decorrer das operações de campo.",
-        "selectCount": "Selecione {word} ({count}) Talentos de Piloto."
-      },
-      "mechaskills": {
-        "title": "Perícias de Mecha do Piloto",
-        "subtitle": "RM-4d Autoavaliação do Piloto (3/3)",
-        "description": "A RM-4b AUTOAVALIAÇÃO DO PILOTO (Perícias de Mecha) será transmitida à equipe de impressão para finalizar a configuração do seu GMS-SP1 EVEREST emitido. Esses dados de configuração serão remetidos ao seu cofre pessoal na Omninet após a validação e aceitação do formulário RM-4, juntamente com a emissão da sua impressão digital IDENT, que poderá então ser aplicada a qualquer Chassi(s) futuro(s) a seu critério.",
-        "addCount": "Adicione {word} ({count}) Pontos de Perícia de Mecha."
-      },
-      "confirm": {
-        "warning": "AVISO: O envio para o registro IDENT {id} possui os seguintes problemas:",
-        "critical": "CRÍTICO",
-        "errors": {
-          "callsign": "CODINOME DO PILOTO em branco ou inválido",
-          "name": "NOME DO PILOTO em branco ou inválido",
-          "skills": "GATILHOS DE PERÍCIA DO PILOTO ausentes ou incompletos",
-          "talents": "TALENTOS DO PILOTO ausentes ou incompletos",
-          "mechaskills": "PERÍCIAS DE MECHA DO PILOTO ausentes ou incompletas",
-          "licenses": "DADOS DE LICENÇA DO PILOTO ausentes ou incompletos",
-          "coreBonuses": "DADOS DE BÔNUS DE NÚCLEO DO PILOTO ausentes ou incompletos"
-        },
-        "registerBtn": "Registrar Novo Piloto // {callsign} ({name})",
-        "defaultCallsign": "[NOVO CODINOME]",
-        "defaultName": "Novo Piloto",
-        "overrideBtn": "Substituição de Registro",
-        "overrideTooltip": "Forçar registro do piloto"
-      },
-      "templates": {
-        "subtitle": "PRM-ALT SELEÇÃO DE ACESSO RÁPIDO",
-        "description": "De acordo com o Ato PRM-ALT de 5017, o serviço de registro IDENT do Departamento Administrativo da União fornece um módulo de Seleção de Acesso Rápido, criado e curado pelo Suporte de Cavalaria Blindada do UAD. A equipe NHP do UAD-ACS gerou uma seleção de Modelos de Doutrina de Combate baseada nos resultados do seu Exame de Saúde OHM//Scan de Atividade Cerebral CR-2. Cada um desses modelos preencherá o restante do seu Registro de Combate IDENT com um conjunto personalizado de respostas ideais para a função de combate.",
-        "selectionNote": "A seleção de um modelo completará a interface de Novo Piloto e iniciará seu Piloto com um conjunto curado de perícias e talentos e um Mecha GMS EVEREST equipado, adaptado à função de combate selecionada abaixo. Todas essas seleções podem ser editadas a qualquer momento através das seções de carga do Piloto e do Mecha, bem como nos cabeçalhos das seções com o ícone {icon}",
-        "artCourtesy": "ARTE DO MECHA CORTESIA DE"
-      },
-      "coreBonuses": {
-        "title": "Bônus de Núcleo",
-        "subtitle": "RM-4c (S-2) Suplemento de Modificação de Núcleo",
-        "description": "O Suplemento II do RM-4β (Modificação de Núcleo) registra o Arquivo de Dados de Modificação de Núcleo (CMD) de um piloto individual para ser disponibilizado para serviços de impressão e equipagem. O catálogo a seguir representa todas as Modificações de Núcleo atualmente validadas como FAB-COMPLETE pelo Padrão de Chassi Universal da General Massive Systems, conforme adotado pela Autoridade de Licenciamento da União.",
-        "selectCount": "Selecione {word} ({count}) {n, plural, one {Bônus de Núcleo} other {Bônus de Núcleo}}.",
-        "disclaimer": "A Autoridade de Licenciamento da União e o Departamento Administrativo da União por meio deste se isentam de toda e qualquer responsabilidade, obrigação por quaisquer modificações, alterações, adaptações ou emendas (doravante, \"Modificações de Núcleo\") feitas a qualquer sistema, componente, estrutura ou substrato, seja físico, digital, conceitual ou metafísico, independentemente do momento, método ou intenção de tais modificações."
-      },
-      "licenses": {
-        "title": "Licenças do Piloto",
-        "subtitle": "RM-4c (S-1) Suplemento de Autorização de Licenciamento",
-        "description": "O Suplemento I do RM-4α (Autorização de Licenciamento) registra as Licenças de Impressão e Operação de Chassi (FP/O) de um piloto individual sob a Autoridade de Licenciamento da União. O catálogo a seguir representa todas as licenças atualmente validadas como FAB-COMPLETE pelo Registrador da ULA e pelos Serviços de Validação de Dados. A Autoridade de Licenciamento da União reserva-se o direito de auditar os dados de licença a qualquer momento.",
-        "selectCount": "Selecione {word} ({count}) Rank(s) de Licença.",
-        "disclaimer": "A Autoridade de Licenciamento da União não assume qualquer responsabilidade ou obrigação, expressa ou implícita, por qualquer lesão, dano, perda ou mal decorrente, relacionado ou resultante da impressão, implantação ou operação de qualquer material relacionado a licenças não emitido diretamente pela General Massive Systems. Esta exclusão de responsabilidade abrange expressamente, sem limitação, lesões físicas ou destruição, distúrbios existenciais ou ontológicos e qualquer comprometimento, degradação ou cessação total ou parcial da subjetividade, incluindo, mas não se limitando a perda da vida, identidade pessoal, autoconsciência, vontade ou agência."
-      }
-    },
-    "stepper": {
-      "exit": "SAIR",
-      "back": "VOLTAR",
-      "continue": "CONTINUAR",
-      "skipStep": "PULAR ETAPA"
     }
   },
   "activeMode": {
@@ -1400,9 +1527,9 @@
         },
         "palette": {
           "mounted": "Montado",
-          "braced": "Preparado",
+          "braced": "Preparar-se (Reação)",
           "overwatch": "Vigilância",
-          "prepared": "Preparado",
+          "prepared": "Preparar (Ação)",
           "aiControl": "Controle de IA"
         },
         "sections": {
@@ -1457,9 +1584,6 @@
             "title": "Estraçalhado",
             "desc": "O dano ignora armadura e resistência."
           }
-        },
-        "palette": {
-          "label": "Paleta Personalizada"
         }
       }
     },
@@ -1551,7 +1675,7 @@
       "nextRound": "Próxima Rodada:",
       "loseStatuses": "perderá os seguintes status:",
       "expiresAt": "no {EndsOn} do seu turno",
-      "bracedExit": "Você sai do estado PREPARADO e entra no estado de RECARGA DE PREPARAÇÃO."
+      "bracedExit": "Você sai do estado de PREPARAR-SE e entra no estado de RECARGA DE PREPARAÇÃO."
     },
     "endEncounter": {
       "btn": "Encerrar Encontro",
@@ -1606,14 +1730,6 @@
       "archived": {
         "title": "Mesas Arquivadas",
         "desc": "mesas concluídas/encerradas com histórico, relatórios pós-ação, etc. Devem ser imprimíveis/exportáveis e convertidas em elementos narrativos ou similares."
-      },
-      "combatTracker": {
-        "title": "Rastreador de Combate",
-        "initiative": "Iniciativa",
-        "start": "Iniciar Combate",
-        "end": "Encerrar Combate",
-        "next": "Próximo Turno",
-        "round": "Rodada {n}"
       }
     }
   },

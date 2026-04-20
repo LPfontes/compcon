@@ -22,8 +22,8 @@ export const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR' | 'pt'>({
   fallbackWarn: false,
   missingWarn: false,
   messages: {
-    en: en,
-    'pt-BR': ptBR,
-    pt: ptBR,
+    en: en as MessageSchema,
+    'pt-BR': ptBR as MessageSchema,
+    pt: ptBR as MessageSchema,
   },
 })

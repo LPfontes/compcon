@@ -1,5 +1,6 @@
 import { Pilot, Mech, PilotWeapon, MechWeapon } from '../class'
 import { Unit } from './npc/unit/Unit'
+import { i18n } from '../locales/i18n'
 
 function linebreak(i: number, length: number): string {
   if (i > 0 && (i + 1) % 2 === 0 && i + 1 !== length) {
@@ -36,6 +37,7 @@ function addWeaponToOutput(output: string, discordEmoji: boolean, w: MechWeapon 
 class Statblock {
   public static Generate(pilot: Pilot, mech: Mech, discordEmoji: boolean, view: string): string {
     let output = ''
+    const t = (key: string, args?: any) => (i18n.global as any).t(`pilotSheet.statblock.generated.${key}`, args)
 
     if (view === 'pilotBuild' || view === 'full') {
       output += `» ${pilot.Name} // ${pilot.Callsign.toUpperCase()} «\n  `
@@ -43,7 +45,7 @@ class Statblock {
         output += `${pilot.Background}, `
       }
       output += `LL${pilot.Level}\n`
-      output += `[ SKILL TRIGGERS ]\n  `
+      output += `[ ${t('skillTriggers')} ]\n  `
       for (let i = 0; i < pilot.SkillsController.Skills.length; i++) {
         const s = pilot.SkillsController.Skills[i]
         output += `${s.Skill.Trigger} (+${s.Bonus})${linebreak(
@@ -54,7 +56,7 @@ class Statblock {
 
       const loadout = pilot.PilotLoadoutController.ActiveLoadout
       if (loadout) {
-        output += '[ GEAR ]\n  '
+        output += `[ ${t('gear')} ]\n  `
         for (let i = 0; i < loadout.Items.length; i++) {
           if (loadout.Items[i]) {
             if (discordEmoji) {
@@ -82,10 +84,10 @@ class Statblock {
 
       const bond = pilot.BondController
       if (bond.Bond) {
-        output += '[ BOND ]\n  '
+        output += `[ ${t('bond')} ]\n  `
         output += `${bond.Bond.Name.toUpperCase()}\n`
         if (bond.BondPowers) {
-          output += '  Powers: '
+          output += `  ${t('powers')}: `
           for (let i = 0; i < bond.BondPowers.length; i++) {
             output += `${bond.BondPowers[i].name.toUpperCase()}${linebreak(
               i,
@@ -97,10 +99,10 @@ class Statblock {
       }
 
       if (view === 'pilotBuild') {
-        output += '[ MECH SKILLS ]\n  '
-        output += `GRIT:${pilot.Grit} // H:${pilot.MechSkillsController.MechSkills.Hull} A:${pilot.MechSkillsController.MechSkills.Agi} S:${pilot.MechSkillsController.MechSkills.Sys} E:${pilot.MechSkillsController.MechSkills.Eng}\n`
+        output += `[ ${t('mechSkills')} ]\n  `
+        output += `${t('grit')}:${pilot.Grit} // H:${pilot.MechSkillsController.MechSkills.Hull} A:${pilot.MechSkillsController.MechSkills.Agi} S:${pilot.MechSkillsController.MechSkills.Sys} E:${pilot.MechSkillsController.MechSkills.Eng}\n`
       }
-      output += '[ TALENTS ]\n  '
+      output += `[ ${t('talents')} ]\n  `
       for (let i = 0; i < pilot.TalentsController.Talents.length; i++) {
         const t = pilot.TalentsController.Talents[i]
         output += `${t.Talent.Name} ${t.Rank}${linebreak(
@@ -110,7 +112,7 @@ class Statblock {
       }
 
       if (pilot.LicenseController.Licenses.length) {
-        output += '[ LICENSES ]\n  '
+        output += `[ ${t('licenses')} ]\n  `
         for (let i = 0; i < pilot.LicenseController.Licenses.length; i++) {
           const l = pilot.LicenseController.Licenses[i]
 
@@ -125,7 +127,7 @@ class Statblock {
       }
 
       if (pilot.CoreBonusController.CoreBonuses.length) {
-        output += '[ CORE BONUSES ]\n  '
+        output += `[ ${t('coreBonuses')} ]\n  `
         for (let i = 0; i < pilot.CoreBonusController.CoreBonuses.length; i++) {
           const cb = pilot.CoreBonusController.CoreBonuses[i]
           output += `${cb.Name}${linebreak(i, pilot.CoreBonusController.CoreBonuses.length)}`
@@ -135,23 +137,23 @@ class Statblock {
 
     if (mech) {
       if (view === 'full') {
-        output += `[ MECH ]\n  « ${mech.Name.toUpperCase()} »\n  ${mech.Frame.Source} ${
+        output += `[ ${t('mech')} ]\n  « ${mech.Name.toUpperCase()} »\n  ${mech.Frame.Source} ${
           mech.Frame.Name
         }\n`
-        output += `  H:${mech.Hull} A:${mech.Agi} S:${mech.Sys} E:${mech.Eng} SIZE:${mech.Size}\n`
-        output += `  STRUCTURE:${mech.MaxStructure}`
-        output += ` HP:${mech.MaxHP}`
-        output += ` ARMOR:${mech.Armor}\n`
-        output += `  STRESS:${mech.MaxStress}`
-        output += ` HEAT:${mech.HeatCapacity}}`
-        output += ` REPAIR:${mech.RepairCapacity}\n`
-        output += `  ATK BONUS:${mech.AttackBonus} TECH ATK:${mech.TechAttack} LTD BONUS:${mech.LimitedBonus}\n`
-        output += `  SPD:${mech.Speed} EVA:${mech.Evasion} EDEF:${mech.EDefense} SENS:${mech.SensorRange} SAVE:${mech.SaveTarget}\n`
+        output += `  H:${mech.Hull} A:${mech.Agi} S:${mech.Sys} E:${mech.Eng} ${t('size')}:${mech.Size}\n`
+        output += `  ${t('structure')}:${mech.MaxStructure}`
+        output += ` ${t('hp')}:${mech.MaxHP}`
+        output += ` ${t('armor')}:${mech.Armor}\n`
+        output += `  ${t('stress')}:${mech.MaxStress}`
+        output += ` ${t('heat')}:${mech.HeatCapacity}}`
+        output += ` ${t('repair')}:${mech.RepairCapacity}\n`
+        output += `  ${t('atkBonus')}:${mech.AttackBonus} ${t('techAtk')}:${mech.TechAttack} ${t('ltdBonus')}:${mech.LimitedBonus}\n`
+        output += `  ${t('spd')}:${mech.Speed} ${t('eva')}:${mech.Evasion} ${t('edef')}:${mech.EDefense} ${t('sens')}:${mech.SensorRange} ${t('save')}:${mech.SaveTarget}\n`
 
-        output += '[ WEAPONS ]\n'
+        output += `[ ${t('weapons')} ]\n`
         for (const im of mech.MechLoadoutController.ActiveLoadout.IntegratedMounts) {
           for (const mw of im.Weapons) {
-            output += '  INTEGRATED MOUNT: '
+            output += `  ${t('integratedMount')}: `
             output = addWeaponToOutput(output, discordEmoji, mw)
             output += '\n'
           }
@@ -166,7 +168,7 @@ class Statblock {
           )) {
             output += `  ${mount.Name}: `
             if (mount.IsLocked) {
-              output += 'SUPERHEAVY WEAPON BRACING'
+              output += t('superheavyBracing')
             } else {
               mount.Weapons.forEach((w, idx) => {
                 output = addWeaponToOutput(output, discordEmoji, w)
@@ -182,7 +184,7 @@ class Statblock {
             output += '\n'
           }
 
-          output += '[ SYSTEMS ]\n  '
+          output += `[ ${t('systems')} ]\n  `
           const allsys = mech.MechLoadoutController.ActiveLoadout.IntegratedSystems.concat(
             loadout.Systems
           )
@@ -192,18 +194,19 @@ class Statblock {
         }
       }
     } else if (view === 'full') {
-      output += '\n>> NO MECH SELECTED <<'
+      output += `\n>> ${t('noMechSelected')} <<`
     }
     return output
   }
 
   public static GenerateBuildSummary(pilot: Pilot, mech: Mech, discordEmoji: boolean): string {
+    const t = (key: string, args?: any) => (i18n.global as any).t(`pilotSheet.statblock.generated.${key}`, args)
     if (mech) {
       const mechLoadout = mech.MechLoadoutController.ActiveLoadout
         ? mech.MechLoadoutController.ActiveLoadout
         : mech.MechLoadoutController.Loadouts[0]
       return `-- ${mech.Frame.Source} ${mech.Frame.Name} @ LL${pilot.Level} --
-[ LICENSES ]
+[ ${t('licenses')} ]
   ${
     pilot.LicenseController.Licenses.length
       ? `${pilot.LicenseController.Licenses.map(l => {
@@ -212,29 +215,29 @@ class Statblock {
         }).join(', ')}`
       : 'N/A'
   }
-[ CORE BONUSES ]
+[ ${t('coreBonuses')} ]
   ${
     pilot.CoreBonusController.CoreBonuses.length
       ? `${pilot.CoreBonusController.CoreBonuses.map(cb => cb.Name).join(', ')}`
       : 'N/A'
   }
-[ TALENTS ]
+[ ${t('talents')} ]
   ${pilot.TalentsController.Talents.map(t => `${t.Talent.Name} ${t.Rank}`).join(', ')}
-[ STATS ]
+[ ${t('mechSkills')} ]
   HULL:${pilot.MechSkillsController.MechSkills.Hull} AGI:${
     pilot.MechSkillsController.MechSkills.Agi
   } SYS:${pilot.MechSkillsController.MechSkills.Sys} ENGI:${
     pilot.MechSkillsController.MechSkills.Eng
   }
-  STRUCTURE:${mech.MaxStructure} HP:${mech.MaxHP} ARMOR:${mech.Armor}
-  STRESS:${mech.MaxStress} HEATCAP:${mech.HeatCapacity} REPAIR:${mech.RepairCapacity}
-  TECH ATK:${mech.TechAttack > 0 ? `+${mech.TechAttack}` : mech.TechAttack} LIMITED:+${
+  ${t('structure')}:${mech.MaxStructure} ${t('hp')}:${mech.MaxHP} ${t('armor')}:${mech.Armor}
+  ${t('stress')}:${mech.MaxStress} ${t('heat')}:${mech.HeatCapacity} ${t('repair')}:${mech.RepairCapacity}
+  ${t('techAtk')}:${mech.TechAttack > 0 ? `+${mech.TechAttack}` : mech.TechAttack} LIMITED:+${
     mech.LimitedBonus
   }
-  SPD:${mech.Speed} EVA:${mech.Evasion} EDEF:${mech.EDefense} SENSE:${mech.SensorRange} SAVE:${
+  ${t('spd')}:${mech.Speed} ${t('eva')}:${mech.Evasion} ${t('edef')}:${mech.EDefense} ${t('sens')}:${mech.SensorRange} ${t('save')}:${
     mech.SaveTarget
   }
-[ WEAPONS ]
+[ ${t('weapons')} ]
   ${mech.MechLoadoutController.ActiveLoadout.IntegratedMounts.map(
     mount =>
       `Integrated: ${mount.Weapon ? mount.Weapon.TrueName : 'N/A  '}${
@@ -259,7 +262,7 @@ class Statblock {
     )
     .map(mount => {
       let out = `${mount.Name}: `
-      if (mount.IsLocked) out += 'SUPERHEAVY WEAPON BRACING'
+      if (mount.IsLocked) out += t('superheavyBracing')
       else
         out += mount.Weapons.filter(Boolean)
           .map(
@@ -288,16 +291,17 @@ class Statblock {
       return out
     })
     .join('\n  ')}
-[ SYSTEMS ]
+[ ${t('systems')} ]
   ${mechLoadout.Systems.map(sys => {
     let out = sys.TrueName
     if (sys.IsLimited) out += ` x${sys.getTotalUses(mech.LimitedBonus)}`
     return out
   }).join(', ')}`
-    } else return '>> NO MECH SELECTED <<'
+    } else return `>> ${t('noMechSelected')} <<`
   }
 
   public static GenerateNPC(npc: Unit, includeNarrative: boolean): string {
+    const t = (key: string, args?: any) => (i18n.global as any).t(`pilotSheet.statblock.generated.${key}`, args)
     let output = `// ${npc.Name} //\n`
     if (npc.NpcTemplateController.Templates)
       output += `${npc.NpcTemplateController.Templates.map(t => t.Name).join(' ')}`
@@ -308,26 +312,26 @@ class Statblock {
         ? `, Tier ${npc.NpcClassController.Tier} `
         : ', Custom '
     output += `${npc.Tag}\n`
-    output += '[ STATS ]\n'
+    output += `[ ${t('mechSkills')} ]\n`
     output += `  H: ${npc.StatController.getMax('Hull')} | A: ${npc.StatController.getMax(
       'Agi'
     )} | S: ${npc.StatController.getMax('Sys')} | E: ${npc.StatController.getMax('Eng')}\n`
-    output += `  STRUCT: ${npc.StatController.getMax(
+    output += `  ${t('structure')}: ${npc.StatController.getMax(
       'Structure'
-    )} | ARMOR: ${npc.StatController.getMax('Armor')} | HP: ${npc.StatController.getMax('hp')}\n`
-    output += `  STRESS: ${npc.StatController.getMax(
+    )} | ${t('armor')}: ${npc.StatController.getMax('Armor')} | ${t('hp')}: ${npc.StatController.getMax('hp')}\n`
+    output += `  ${t('stress')}: ${npc.StatController.getMax(
       'Stress'
-    )} | HEATCAP: ${npc.StatController.getMax('heat')} | SPD: ${npc.StatController.getMax(
+    )} | ${t('heat')}: ${npc.StatController.getMax('heat')} | ${t('spd')}: ${npc.StatController.getMax(
       'Speed'
     )}\n`
-    output += `  SAVE: ${npc.StatController.getMax(
+    output += `  ${t('save')}: ${npc.StatController.getMax(
       'SaveTarget'
-    )} | EVADE: ${npc.StatController.getMax('Evasion')} | EDEF: ${npc.StatController.getMax(
+    )} | ${t('eva')}: ${npc.StatController.getMax('Evasion')} | ${t('edef')}: ${npc.StatController.getMax(
       'EDefense'
     )}\n`
-    output += `  SENS: ${npc.StatController.getMax(
+    output += `  ${t('sens')}: ${npc.StatController.getMax(
       'SensorRange'
-    )} | SIZE: ${npc.StatController.getMax('Size')} | ACT: ${npc.StatController.getMax(
+    )} | ${t('size')}: ${npc.StatController.getMax('Size')} | ACT: ${npc.StatController.getMax(
       'Activations'
     )}\n`
     output += '[ FEATURES ]\n  '
@@ -343,6 +347,7 @@ class Statblock {
   }
 
   public static ScanNpc(npc: Unit): string {
+    const t = (key: string, args?: any) => (i18n.global as any).t(`pilotSheet.statblock.generated.${key}`, args)
     let output = `[ ${npc.Name} ]\n`
     if (npc.NpcTemplateController.Templates)
       output += `${npc.NpcTemplateController.Templates.map(t => t.Name).join(' ')}`
@@ -355,20 +360,20 @@ class Statblock {
     output += `${npc.Tag}\n\n`
     output += `ACTIVATIONS: ${npc.StatController.getCurrent('activations')} / ${npc.StatController.getMax('activations')}\n`
 
-    output += `STRUCT: ${npc.StatController.getCurrent('structure')} / ${npc.StatController.getMax('structure')} | ARMOR: ${npc.StatController.getMax('armor')} | HP: ${npc.StatController.getCurrent('hp')} / ${npc.StatController.getMax('hp')}\n`
-    output += `STRESS: ${npc.StatController.getCurrent('stress')} / ${npc.StatController.getMax('stress')} | HEATCAP: ${npc.StatController.getCurrent('heat')} / ${npc.StatController.getMax('heat')} | SPD: ${npc.StatController.getCurrent('speed')} / ${npc.StatController.getMax('speed')}\n\n`
+    output += `${t('structure')}: ${npc.StatController.getCurrent('structure')} / ${npc.StatController.getMax('structure')} | ${t('armor')}: ${npc.StatController.getMax('armor')} | ${t('hp')}: ${npc.StatController.getCurrent('hp')} / ${npc.StatController.getMax('hp')}\n`
+    output += `${t('stress')}: ${npc.StatController.getCurrent('stress')} / ${npc.StatController.getMax('stress')} | ${t('heat')}: ${npc.StatController.getCurrent('heat')} / ${npc.StatController.getMax('heat')} | ${t('spd')}: ${npc.StatController.getCurrent('speed')} / ${npc.StatController.getMax('speed')}\n\n`
 
     output += `H: ${npc.StatController.getMax('Hull')} | A: ${npc.StatController.getMax(
       'Agi'
     )} | S: ${npc.StatController.getMax('Sys')} | E: ${npc.StatController.getMax('Eng')}\n`
-    output += `SAVE: ${npc.StatController.getMax(
+    output += `${t('save')}: ${npc.StatController.getMax(
       'SaveTarget'
-    )} | EVADE: ${npc.StatController.getMax('Evasion')} | EDEF: ${npc.StatController.getMax(
+    )} | ${t('eva')}: ${npc.StatController.getMax('Evasion')} | ${t('edef')}: ${npc.StatController.getMax(
       'EDefense'
     )}\n`
-    output += `SENS: ${npc.StatController.getMax(
+    output += `${t('sens')}: ${npc.StatController.getMax(
       'SensorRange'
-    )} | TECH_ATK: ${npc.StatController.getMax('Tech Attack')} | SIZE: ${npc.StatController.getMax('Size')} \n\n`
+    )} | TECH_ATK: ${npc.StatController.getMax('Tech Attack')} | ${t('size')}: ${npc.StatController.getMax('Size')} \n\n`
 
     output += '[ FEATURES ]\n  '
     output += npc.NpcFeatureController.Features.map(

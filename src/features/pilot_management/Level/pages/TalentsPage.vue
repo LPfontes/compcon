@@ -5,27 +5,19 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title offset>Improve Talents</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.level.talents.title') }}</cc-title>
     <div class="heading h2">
-      MV-2 License Acquisition Request
+      {{ $t('pilotManagement.level.overview.subtitle') }}
       <cc-slashes />
-      &nbsp;MV-2//b COA Resource Requisition
+      &nbsp;{{ $t('pilotManagement.level.talents.subtitle') }}
     </div>
     <p class="flavor-text" style="font-size: 14px">
-      The Combat Operation Ability Requisition, on the approval of a NHP-guided automated request
-      approval system, confers UNI simulator privileges, holofield and cortical sensorium training
-      materials, battlefield telemetry data at classifications below GREY SIERRA SHARP, and (in
-      specific cases) GMS MM-pattern materiel licenses.
+      {{ $t('pilotManagement.level.talents.description') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
-      <div class="heading">Add or Upgrade a Talent.</div>
+      <div class="heading">{{ $t('pilotManagement.level.talents.instruction') }}</div>
       <p class="text-cc-overline">
-        By submitting this form you acknowledge your responsibility to prevent unauthorized
-        disclosure by ensuring any and all training materials, field report data, and print
-        templates are always stored and transmitted under NDL-DISCORDANT//BREATH or higher
-        NDL-DISCORDANT-class UNI encryption protocols. The reproduction, extraction, and
-        transmission of these materials, in whole or in part, is forbidden without the express
-        permission of Union Naval Intelligence.
+        {{ $t('pilotManagement.level.talents.legalFooter') }}
       </p>
     </v-alert>
     <talent-selector level-up flat :pilot="<Pilot>pilot" />

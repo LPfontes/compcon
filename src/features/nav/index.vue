@@ -73,7 +73,7 @@
     <cc-button
       :size="mobile ? 'large' : 'x-large'"
       icon="cc:pilot"
-      :tooltip="$t('nav.pilotManagement')"
+      :tooltip="$t('pilotManagement.title')"
       tooltip-location="bottom"
       @click="$router.push({ path: '/pilot_management' })"
     />

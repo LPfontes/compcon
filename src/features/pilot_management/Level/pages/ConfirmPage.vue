@@ -9,20 +9,20 @@
     <cc-alert v-if="!pilotReady"
       color="error">
       <div class="stat-text">
-        WARNING: Submission for IDENT record {{ pilot.ID }} has the following issue(s):
+        {{ $t('pilotManagement.level.confirm.warningTitle', { id: pilot.ID }) }}
       </div>
       <ul class="flavor-text text-stark">
-        <li v-if="!pilot.Callsign">PILOT CALLSIGN blank or invalid</li>
-        <li v-if="!pilot.Name">PILOT NAME blank or invalid</li>
+        <li v-if="!pilot.Callsign">{{ $t('pilotManagement.level.confirm.errCallsign') }}</li>
+        <li v-if="!pilot.Name">{{ $t('pilotManagement.level.confirm.errName') }}</li>
         <li v-if="!pilot.SkillsController.HasFullSkills">
-          PILOT SKILL TRIGGERS incomplete or invalid
+          {{ $t('pilotManagement.level.confirm.errSkills') }}
         </li>
-        <li v-if="!pilot.TalentsController.HasFullTalents">PILOT TALENTS incomplete or invalid</li>
+        <li v-if="!pilot.TalentsController.HasFullTalents">{{ $t('pilotManagement.level.confirm.errTalents') }}</li>
         <li v-if="!pilot.MechSkillsController.HasFullHASE">
-          PILOT MECH SKILLS incomplete or invalid
+          {{ $t('pilotManagement.level.confirm.errMechSkills') }}
         </li>
-        <li v-if="!pilot.LicenseController.HasLicenses">PILOT LICENSES incomplete or invalid</li>
-        <li v-if="!pilot.CoreBonusController.HasCBs">PILOT CORE BONUSES incomplete or invalid</li>
+        <li v-if="!pilot.LicenseController.HasLicenses">{{ $t('pilotManagement.level.confirm.errLicenses') }}</li>
+        <li v-if="!pilot.CoreBonusController.HasCBs">{{ $t('pilotManagement.level.confirm.errCoreBonuses') }}</li>
       </ul>
     </cc-alert>
     <cc-button block
@@ -30,7 +30,7 @@
       class="my-6"
       prepend-icon="cc:orbital"
       @click="savePilot()">
-      Update Pilot Record // {{ pilot.Callsign }} ({{ pilot.Name }})
+      {{ $t('pilotManagement.level.confirm.updateBtn', { callsign: pilot.Callsign, name: pilot.Name }) }}
     </cc-button>
   </stepper-content>
 </template>

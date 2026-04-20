@@ -6,18 +6,18 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title offset>{{ $t('pilotRegistration.wizard.mechSkills.title') }}&emsp;</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.new.registration.wizard.mechSkills.title') }}&emsp;</cc-title>
     <div class="heading h2">
-      {{ $t('pilotRegistration.identService') }}
+      {{ $t('pilotManagement.new.registration.identService') }}
       <cc-slashes />
-      &nbsp;{{ $t('pilotRegistration.wizard.mechSkills.subtitle') }}
+      &nbsp;{{ $t('pilotManagement.new.registration.wizard.mechSkills.subtitle') }}
     </div>
     <p class="flavor-text" style="font-size: 14px">
-      {{ $t('pilotRegistration.wizard.mechSkills.description') }}
+      {{ $t('pilotManagement.new.registration.wizard.mechSkills.description') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
-      <div class="heading">{{ $t('pilotRegistration.wizard.mechSkills.addCount', { word, count }) }}</div>
-        {{ $t('pilotRegistration.truthAttestation') }}
+      <div class="heading">{{ $t('pilotManagement.new.registration.wizard.mechSkills.addCount', { word, count }) }}</div>
+        {{ $t('pilotManagement.new.registration.truthAttestation') }}
     </v-alert>
     <mech-skills-selector level-up :pilot="<Pilot>pilot" />
   </stepper-content>
@@ -48,7 +48,7 @@ export default {
       return this.pilot.MechSkillsController.MaxHASEPoints;
     },
     word(): string {
-      const words = this.$t('pilotRegistration.wizard.skills.words');
+      const words = this.$t('pilotManagement.new.registration.wizard.skills.words');
       return words[this.count];
     },
   },

@@ -6,21 +6,21 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title offset>{{ $t('pilotRegistration.wizard.coreBonuses.title') }}&emsp;</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.new.registration.wizard.coreBonuses.title') }}&emsp;</cc-title>
     <div class="heading h2">
-      {{ $t('pilotRegistration.identService') }}
+      {{ $t('pilotManagement.new.registration.identService') }}
       <cc-slashes />
-      &nbsp;{{ $t('pilotRegistration.wizard.coreBonuses.subtitle') }}
+      &nbsp;{{ $t('pilotManagement.new.registration.wizard.coreBonuses.subtitle') }}
     </div>
     <p class="flavor-text" style="font-size: 14px">
-      {{ $t('pilotRegistration.wizard.coreBonuses.description') }}
+      {{ $t('pilotManagement.new.registration.wizard.coreBonuses.description') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
       <div class="heading">
-        {{ $t('pilotRegistration.wizard.coreBonuses.selectCount', { word, count, n: count }) }}
+        {{ $t('pilotManagement.new.registration.wizard.coreBonuses.selectCount', { word, count, n: count }) }}
       </div>
       <p class="text-cc-overline">
-        {{ $t('pilotRegistration.wizard.coreBonuses.disclaimer') }}
+        {{ $t('pilotManagement.new.registration.wizard.coreBonuses.disclaimer') }}
       </p>
     </v-alert>
     <core-bonus-selector flat :pilot="<Pilot>pilot" />
@@ -52,7 +52,7 @@ export default {
       return this.pilot.CoreBonusController.MaxCBPoints;
     },
     word(): string {
-      const words = this.$t('pilotRegistration.wizard.skills.words');
+      const words = this.$t('pilotManagement.new.registration.wizard.skills.words');
       return words[this.count];
     },
   },

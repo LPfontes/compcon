@@ -6,18 +6,18 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title offset>{{ $t('pilotRegistration.wizard.licenses.title') }}&emsp;</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.new.registration.wizard.licenses.title') }}&emsp;</cc-title>
     <div class="heading h2">
-      {{ $t('pilotRegistration.identService') }}
+      {{ $t('pilotManagement.new.registration.identService') }}
       <cc-slashes />
-      &nbsp;{{ $t('pilotRegistration.wizard.licenses.subtitle') }}
+      &nbsp;{{ $t('pilotManagement.new.registration.wizard.licenses.subtitle') }}
     </div>
     <p class="flavor-text" style="font-size: 14px">
-      {{ $t('pilotRegistration.wizard.licenses.description') }}
+      {{ $t('pilotManagement.new.registration.wizard.licenses.description') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
-      <div class="heading">{{ $t('pilotRegistration.wizard.licenses.selectCount', { word, count }) }}</div>
-        {{ $t('pilotRegistration.wizard.licenses.disclaimer') }}
+      <div class="heading">{{ $t('pilotManagement.new.registration.wizard.licenses.selectCount', { word, count }) }}</div>
+        {{ $t('pilotManagement.new.registration.wizard.licenses.disclaimer') }}
     </v-alert>
     <license-selector flat :pilot="<Pilot>pilot" />
   </stepper-content>
@@ -48,7 +48,7 @@ export default {
       return this.pilot.LicenseController.MaxLicensePoints;
     },
     word(): string {
-      const words = this.$t('pilotRegistration.wizard.skills.words');
+      const words = this.$t('pilotManagement.new.registration.wizard.skills.words');
       return words[this.count];
     },
   },

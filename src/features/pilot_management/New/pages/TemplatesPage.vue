@@ -5,18 +5,18 @@
     mandatory
     @back="$emit('back')"
     @complete="setTemplate()">
-    <cc-title offset>{{ $t('pilotRegistration.title') }}</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.new.registration.title') }}</cc-title>
     <div class="heading h2">
-      {{ $t('pilotRegistration.identService') }}
+      {{ $t('pilotManagement.new.registration.identService') }}
       <cc-slashes />
-      &nbsp;{{ $t('pilotRegistration.wizard.templates.subtitle') }}
+      &nbsp;{{ $t('pilotManagement.new.registration.wizard.templates.subtitle') }}
     </div>
     <v-row density="compact"
       justify="start">
       <v-col>
         <p class="flavor-text"
           style="font-size: 14px">
-          {{ $t('pilotRegistration.wizard.templates.description') }}
+          {{ $t('pilotManagement.new.registration.wizard.templates.description') }}
         </p>
         <v-alert color="accent"
           variant="outlined"
@@ -24,15 +24,15 @@
           class="mt-2"
           tile>
           <div class="text-center text-stark">
-            {{ $t('pilotRegistration.wizard.templates.selectionNote', { icon: '' }) }}
+            {{ $t('pilotManagement.new.registration.wizard.templates.selectionNote', { icon: '' }) }}
             <v-icon color="accent">mdi-circle-edit-outline</v-icon>
-            {{ $t('pilotRegistration.wizard.templates.selectionNote').split('{icon}')[1] }}
+            {{ $t('pilotManagement.new.registration.wizard.templates.selectionNote').split('{icon}')[1] }}
           </div>
         </v-alert>
       </v-col>
       <v-col cols="12"
         md="4">
-        <b class="heading h3 text-accent">{{ $t('pilotRegistration.wizard.templates.artCourtesy') }}</b>
+        <b class="heading h3 text-accent">{{ $t('pilotManagement.new.registration.wizard.templates.artCourtesy') }}</b>
         <v-img target="_blank"
           href="https://www.retrogrademinis.com/"
           src="/public/retrograde_logo.webp"

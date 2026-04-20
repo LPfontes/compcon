@@ -5,34 +5,28 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title large offset>Add CORE Bonus</cc-title>
+    <cc-title large offset>{{ $t('pilotManagement.level.coreBonuses.title') }}</cc-title>
     <div class="heading h2">
-      MV-2 License Acquisition Request
+      {{ $t('pilotManagement.level.overview.subtitle') }}
       <cc-slashes />
-      &nbsp;MV-2(a) CORE Supplemental
+      &nbsp;{{ $t('pilotManagement.level.coreBonuses.subtitle') }}
     </div>
     <p class="flavor-text" style="font-size: 14px">
-      The MV-2(a) Supplemental Amendment registers a major CORE modification, upgrade, retrofit, or
-      enhancement. The Union Naval Intelligence Board, the Union Naval Licensing Board, the Union
-      Administrative Pilot Advocacy Council, and The Union Department of Justice and Human Resources
-      Ethical Engineering Subcommittee only recognize CORE augmentation from a Union-approved and
-      registered Lincensor.
+      {{ $t('pilotManagement.level.coreBonuses.description') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
-      <div class="heading">Select a CORE Bonus</div>
+      <div class="heading">{{ $t('pilotManagement.level.coreBonuses.instruction') }}</div>
       <p class="text-cc-overline">
-        Implementing CORE augmentation protocols from a nonrecognized, phohibited, or unregistered
-        Licensor or Licensors renders the operating pilot liable for any and all damages resultant
-        from CORE malfunction, up to and including reactor meltdown.
+        {{ $t('pilotManagement.level.coreBonuses.legalFooter') }}
       </p>
     </v-alert>
     <core-bonus-selector v-if="cbEligible" level-up flat :pilot="pilot" />
     <v-card v-else flat tile color="panel">
       <v-card-text class="flavor-text text-center py-5 px-3">
-        <span class="heading h2 text-disabled text--darken-1">PILOT INELIGIBLE FOR CORE BONUS</span>
+        <span class="heading h2 text-disabled text--darken-1">{{ $t('pilotManagement.level.coreBonuses.ineligibleTitle') }}</span>
         <br />
         <span class="text-disabled text--darken-2">
-          NEXT CORE BONUS IN {{ 3 - (pilot.Level % 3) }} LICENSE LEVELS
+          {{ $t('pilotManagement.level.coreBonuses.nextIn', { n: 3 - (pilot.Level % 3) }) }}
         </span>
       </v-card-text>
     </v-card>

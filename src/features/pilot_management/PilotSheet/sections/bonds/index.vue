@@ -318,7 +318,7 @@
         @set="setBond($event)" />
 
       <cc-solo-modal v-model="bondModal"
-        title="Select Pilot Bond"
+        :title="$t('pilotSheet.bonds.selectBondTitle')"
         clip>
         <bond-selector :pilot="pilot"
           @set="setBond($event)" />

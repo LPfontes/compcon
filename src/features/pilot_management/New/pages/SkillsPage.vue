@@ -6,32 +6,32 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title offset>{{ $t('pilotRegistration.wizard.skills.title') }}</cc-title>
+    <cc-title offset>{{ $t('pilotManagement.new.registration.wizard.skills.title') }}</cc-title>
 
     <div class="heading h2">
-      {{ $t('pilotRegistration.identService') }}
+      {{ $t('pilotManagement.new.registration.identService') }}
       <cc-slashes />
-      {{ $t('pilotRegistration.wizard.skills.subtitle') }}
+      {{ $t('pilotManagement.new.registration.wizard.skills.subtitle') }}
     </div>
 
     <p class="flavor-text" style="font-size: 14px">
-      {{ $t('pilotRegistration.wizard.skills.description') }}
+      {{ $t('pilotManagement.new.registration.wizard.skills.description') }}
       <br />
-      <b>{{ $t('pilotRegistration.wizard.skills.nb') }}</b>
-      {{ $t('pilotRegistration.wizard.skills.nbDescription') }}
+      <b>{{ $t('pilotManagement.new.registration.wizard.skills.nb') }}</b>
+      {{ $t('pilotManagement.new.registration.wizard.skills.nbDescription') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
-      <div class="heading">{{ $t('pilotRegistration.wizard.skills.selectCount', { word, count }) }}</div>
-        {{ $t('pilotRegistration.truthAttestation') }}
+      <div class="heading">{{ $t('pilotManagement.new.registration.wizard.skills.selectCount', { word, count }) }}</div>
+        {{ $t('pilotManagement.new.registration.truthAttestation') }}
     </v-alert>
     <v-scroll-y-reverse-transition>
       <cc-alert
         v-if="pilot.Background && !pilot.SkillsController.HasFullSkills"
         class="my-2"
         icon="mdi-orbit"
-        :title="$t('pilotRegistration.wizard.skills.suggestionsAvailable')">
+        :title="$t('pilotManagement.new.registration.wizard.skills.suggestionsAvailable')">
         <p class="text-cc-overline text-disabled">
-          {{ $t('pilotRegistration.wizard.skills.suggestionsDescription') }}
+          {{ $t('pilotManagement.new.registration.wizard.skills.suggestionsDescription') }}
         </p>
         <div class="mx-3 mt-2">
           <cc-button
@@ -41,7 +41,7 @@
             prepend-icon="mdi-auto-mode"
             :append-icon="suggestedSet ? 'mdi-check' : undefined"
             @click="setSuggestedSkills()">
-            {{ suggestedSet ? $t('pilotRegistration.wizard.skills.suggestionsAdded') : $t('pilotRegistration.wizard.skills.addSuggestions') }}
+            {{ suggestedSet ? $t('pilotManagement.new.registration.wizard.skills.suggestionsAdded') : $t('pilotManagement.new.registration.wizard.skills.addSuggestions') }}
           </cc-button>
         </div>
       </cc-alert>
@@ -79,7 +79,7 @@ export default {
       return this.pilot.SkillsController.MaxSkillPoints;
     },
     word(): string {
-      const words = this.$t('pilotRegistration.wizard.skills.words');
+      const words = this.$t('pilotManagement.new.registration.wizard.skills.words');
       return words[this.count];
     },
   },

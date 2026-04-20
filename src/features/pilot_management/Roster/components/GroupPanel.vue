@@ -286,13 +286,13 @@
             </cc-button>
           </v-col>
 
-          <v-col cols="auto">
+          <v-col cols="auto"
+            class="d-flex flex-nowrap">
             <v-menu offset-y>
               <template #activator="{ props }">
                 <cc-button color="primary"
                   :size="mobile ? 'x-small' : 'small'"
                   :stacked="!mobile"
-                  :block="mobile"
                   prepend-icon="mdi-dots-vertical"
                   @click="props.onClick($event)">
                   {{ $t('roster.groupPanel.import') }}
@@ -324,15 +324,15 @@
                 </v-card-text>
               </v-card>
             </v-menu>
+            <cc-button color="primary"
+              class="ml-2"
+              :size="mobile ? 'x-small' : 'small'"
+              :stacked="!mobile"
+              prepend-icon="mdi-export"
+              @click="exportGroup()">
+              {{ $t('roster.groupPanel.export') }}
+            </cc-button>
           </v-col>
-          <cc-button color="primary"
-            :size="mobile ? 'x-small' : 'small'"
-            :stacked="!mobile"
-            :block="mobile"
-            prepend-icon="mdi-export"
-            @click="exportGroup()">
-            {{ $t('roster.groupPanel.export') }}
-          </cc-button>
         </v-row>
       </v-card>
     </v-expand-transition>

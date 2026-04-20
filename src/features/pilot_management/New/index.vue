@@ -4,33 +4,33 @@
     <template #tabs>
       <v-tab value="ident">
         <v-icon v-show="pilot.HasIdent" icon="mdi-check" />
-        Identification
+        {{ $t('pilotManagement.new.tabs.identification') }}
       </v-tab>
       <v-tab value="skills">
         <v-icon v-show="pilot.SkillsController.HasFullSkills" icon="mdi-check" />
-        Skills
+        {{ $t('pilotManagement.new.tabs.skills') }}
       </v-tab>
       <v-tab value="talents">
         <v-icon v-show="pilot.TalentsController.HasFullTalents" icon="mdi-check" />
-        Talents
+        {{ $t('pilotManagement.new.tabs.talents') }}
       </v-tab>
       <v-tab value="mechskills">
         <v-icon v-show="pilot.MechSkillsController.HasFullHASE" icon="mdi-check" />
-        Mech Skills
+        {{ $t('pilotManagement.new.tabs.mechSkills') }}
       </v-tab>
       <v-slide-x-transition mode="out-in">
         <v-tab v-if="pilot.Level > 0" value="licenses">
           <v-icon v-show="pilot.LicenseController.HasLicenses" icon="mdi-check" />
-          Licenses
+          {{ $t('pilotManagement.new.tabs.licenses') }}
         </v-tab>
       </v-slide-x-transition>
       <v-slide-x-transition mode="out-in">
         <v-tab v-if="pilot.Level > 2" value="corebonuses">
           <v-icon v-show="pilot.CoreBonusController.HasCBs" icon="mdi-check" />
-          Core Bonuses
+          {{ $t('pilotManagement.new.tabs.coreBonuses') }}
         </v-tab>
       </v-slide-x-transition>
-      <v-tab value="confirm">Confirm</v-tab>
+      <v-tab value="confirm">{{ $t('pilotManagement.new.tabs.confirm') }}</v-tab>
     </template>
     <v-container>
       <template #default>
@@ -111,8 +111,8 @@ export default {
     } else {
       (this.$refs as any).confirm
         .open(
-          'EXIT REGISTRATION',
-          'Are you sure you want to exit the Pilot Registration process? Your pilot will be discarded.'
+          this.$t('pilotManagement.new.exitTitle'),
+          this.$t('pilotManagement.new.exitDesc')
         )
         .then((confirmed) => {
           if (confirmed) {
