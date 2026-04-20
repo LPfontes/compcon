@@ -1,7 +1,7 @@
 <template>
   <v-container class="pb-12">
     <h1 id="statuses"
-      class="heading">Statuses</h1>
+      class="heading">{{ $t('compendium.reference_pages.statuses_page.statuses') }}</h1>
     <cc-masonry-grid :items="statuses"
       :column-width="400"
       :gap="16"
@@ -13,7 +13,7 @@
     </cc-masonry-grid>
 
     <h1 id="conditions"
-      class="heading">Conditions</h1>
+      class="heading">{{ $t('compendium.reference_pages.statuses_page.conditions') }}</h1>
     <cc-masonry-grid :items="conditions"
       :column-width="400"
       :gap="16"
@@ -30,10 +30,11 @@
     <v-tabs density="compact"
       center-active
       grow>
-      <v-tab v-for="item in content"
-        :key="item"
-        @click="scrollTo(item)"
-        v-text="item" />
+      <v-tab v-for="item in navItems"
+        :key="item.id"
+        @click="scrollTo(item.id)">
+        {{ $t(item.label) }}
+      </v-tab>
     </v-tabs>
   </v-footer>
 
@@ -42,7 +43,7 @@
     color="primary"
     variant="plain"
     style="position: fixed; bottom: 35px; right: 0; margin: 8px; z-index: 999"
-    @click="scrollTo(content[0])">
+    @click="scrollTo('statuses')">
     <v-icon size="30">mdi-arrow-up</v-icon>
   </v-btn>
 </template>
@@ -64,7 +65,10 @@ export default {
     },
   },
   data: () => ({
-    content: ['statuses', 'conditions'],
+    navItems: [
+      { id: 'statuses', label: 'compendium.reference_pages.statuses_page.statuses' },
+      { id: 'conditions', label: 'compendium.reference_pages.statuses_page.conditions' },
+    ],
   }),
   computed: {
     widescreen() {
@@ -84,8 +88,8 @@ export default {
     },
   },
   methods: {
-    scrollTo(item: any): void {
-      const el = document.getElementById(`${item.replace(/\W/g, '')}`);
+    scrollTo(id: string): void {
+      const el = document.getElementById(id);
       if (el) scrollTo(el, this.isModal);
     },
   },

@@ -1,5 +1,5 @@
 <template>
-  <srd-view title="combat" :content="combat" :pre-scroll="preScroll" />
+  <srd-view :title="$t('compendium.reference_pages.combat')" :content="combat" :pre-scroll="preScroll" />
 </template>
 
 <script lang="ts">

@@ -19,6 +19,7 @@
 
 <script>
 import dictionary from '@/assets/srd/lib/dictionary.json';
+import { NavStore } from '@/stores';
 
 export default {
   props: {
@@ -38,7 +39,8 @@ export default {
   computed: {
     highlightedText() {
       const words = dictionary.flatMap((entry) => entry.keys.map((key) => key.toLowerCase()));
-      const regex = new RegExp(`\\b(${words.join('|')})\\b`, 'gi');
+      const sortedWords = words.sort((a, b) => b.length - a.length);
+      const regex = new RegExp(`\\b(${sortedWords.join('|')})\\b`, 'gi');
       return this.text.replace(regex, (match) => {
         return `<span class='cc-dictionary-word' data-word='${match.toLowerCase()}'>${match}</span>`;
       });
@@ -51,8 +53,14 @@ export default {
         const entry = dictionary.find((entry) =>
           entry.keys.some((key) => key.toLowerCase() === this.selectedWord)
         );
-        this.selectedDefinition = entry ? entry.definition : 'Definition not found.';
-        this.selectedIcon = entry ? entry.icon : '';
+        if (entry) {
+          const lang = NavStore().Language;
+          this.selectedDefinition = entry.definition[lang] || entry.definition.en;
+          this.selectedIcon = entry.icon || '';
+        } else {
+          this.selectedDefinition = this.$t('compendium.reference_pages.glossary_page.definitionNotFound');
+          this.selectedIcon = '';
+        }
         this.sheet = true;
       }
     },

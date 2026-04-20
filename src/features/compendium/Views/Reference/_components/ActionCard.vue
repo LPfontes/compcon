@@ -12,7 +12,7 @@
         <div v-else>
           <p v-html-safe="action.Detail" />
           <div v-if="action.SubActions && action.SubActions.length">
-            <div class="text-overline text-disabled">OPTIONS</div>
+            <div class="text-overline text-disabled">{{ $t('common.options') }}</div>
             <v-row no-gutters justify="center">
               <v-col v-for="(a, index) in action.SubActions" :key="`sub-${index}`" cols="auto">
                 <cc-action :action="a" :panel="false" class="ma-2" />
@@ -25,7 +25,7 @@
     <v-card-text class="pa-2">
       <p v-html-safe="action.Detail" />
       <div v-if="action.SubActions && action.SubActions.length">
-        <div class="text-overline text-disabled">OPTIONS</div>
+        <div class="text-overline text-disabled">{{ $t('common.options') }}</div>
         <v-row no-gutters justify="center">
           <v-col v-for="(a, index) in action.SubActions" :key="`dialog-sub-${index}`" cols="auto">
             <cc-action :action="a" :panel="false" class="ma-2" />
@@ -58,7 +58,7 @@ export default {
       return this.clickable ? 'cc-clickable-panel' : 'cc-panel';
     },
     exclusive() {
-      if (this.action.IsPilotAction && !this.action.IsMechAction) return ' (Pilot Only)';
+      if (this.action.IsPilotAction && !this.action.IsMechAction) return ` (${this.$t('compendium.reference_pages.pilotOnly')})`;
       return '';
     },
   },

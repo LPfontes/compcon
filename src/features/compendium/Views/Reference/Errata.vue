@@ -40,13 +40,12 @@
           </v-list-group>
         </v-list>
       </v-navigation-drawer>
-      <h1 class="heading h1 ml-8">FAQ & ERRATA</h1>
+      <h1 class="heading h1 ml-8">{{ $t('compendium.reference_pages.errata_page.title') }}</h1>
       <v-container>
         <cc-alert color="panel" class="mb-5">
-          <div class="heading h4">Please note:</div>
+          <div class="heading h4">{{ $t('compendium.reference_pages.errata_page.noteTitle') }}</div>
           <div>
-            This FAQ and Errata is a community-driven project and is not part of an official Massif
-            Press LANCER release. This page is furnished by FAQ data from the
+            {{ $t('compendium.reference_pages.errata_page.noteText', { repo: '---REPO---', link: '---LINK---' }).split('---REPO---')[0] }}
             <v-chip
               tile
               variant="tonal"
@@ -55,7 +54,7 @@
               target="_blank">
               lancer-faq repository
             </v-chip>
-            on GitHub, currently maintained by lenaleciel. This document is also available at
+            {{ $t('compendium.reference_pages.errata_page.noteText', { repo: '---REPO---', link: '---LINK---' }).split('---REPO---')[1].split('---LINK---')[0] }}
             <v-chip
               tile
               variant="tonal"
@@ -64,7 +63,7 @@
               target="_blank">
               lancer-faq.netlify.app/
             </v-chip>
-            .
+            {{ $t('compendium.reference_pages.errata_page.noteText', { repo: '---REPO---', link: '---LINK---' }).split('---LINK---')[1] }}
           </div>
         </cc-alert>
         <v-card v-for="(faq, i) in faq" :key="`faq-${i}`" flat tile class="mb-5">
@@ -166,7 +165,7 @@ export default {
     srdFormat(arr) {
       return arr.map((item) => {
         const out = {
-          book: 'Lancer Core Book',
+          book: this.$t('compendium.reference_pages.errata_page.defaultBook'),
         };
         const titleMatch = item.heading.match(/^page (\d+), (.+)$/i);
         if (titleMatch) {

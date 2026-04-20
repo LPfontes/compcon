@@ -141,7 +141,7 @@ export default defineConfig(({ mode }) => {
         },
         {
           find: '@massif/lancer-data-pt',
-          replacement: fileURLToPath(new URL('../lancer-data-pt-br/index.js', import.meta.url)),
+          replacement: fileURLToPath(new URL('./node_modules/lancer-data-pt-br/index.js', import.meta.url)),
         },
         {
           find: '@massif/lancer-data',

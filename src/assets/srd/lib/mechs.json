@@ -1,166 +1,206 @@
 [
   {
     "title": {
-      "en": "Modular Mechs"
+      "en": "Modular Mechs",
+      "pt-BR": "Mechas Modulares"
     },
     "content": {
-      "en": "<p>Mechs are powerful machines, but what makes them more powerful &ndash; and your character more unique than other pilots &ndash; is your ability to source and combine mech weapons, parts, and gear from many different manufacturers. Mechs in Lancer are <strong>modular</strong>: each <strong>FRAME </strong>comes with a list of license-restricted gear that, once unlocked, can be freely swapped between all of your mechs. Because of this customizability, pilots are as much experts at building their machines as they are piloting them.&nbsp;</p> <p>Your pilot&rsquo;s access to more and better parts increases with their <strong>LL</strong>. When your pilot&rsquo;s <strong>LL </strong>increases (up to a maximum of 12), you gain<strong>&nbsp;+1 license rank</strong> that you can spend on a license from a mech manufacturer. Manufacturers offer a range of different licenses, all of which have three tiers &ndash; <strong>rank I, rank II, and rank III</strong> &ndash; that must be bought in order.&nbsp;</p> <p>Every new rank you obtain unlocks various systems, weapons, and even mechs. At <strong>rank II</strong>, you get a new mech <strong>FRAME</strong>, and <strong>rank III</strong> gives you access to the most advanced components. These weapons and systems are interchangeable &ndash; you can add as many to your mech as its <strong>FRAME </strong>can support, from any license rank you have unlocked.&nbsp;</p> <p>For example, an LL5 character with licenses for the IPS-N Raleigh III and the SSC Metalmark II has access to every piece of gear from<strong>&nbsp;ranks I&ndash;III</strong> of the Raleigh license, and all the gear from ranks I and II of the Metalmark license. They could take the Raleigh&rsquo;s rank I <strong>HAND CANNON</strong> and put it on the Metalmark <strong>FRAME</strong>, or take the Metalmark&rsquo;s <strong>RAIL RIFLE</strong> and put in on the Raleigh, mixing and matching as they choose.</p>"
+      "en": "<p>Mechs are powerful machines, but what makes them more powerful &ndash; and your character more unique than other pilots &ndash; is your ability to source and combine mech weapons, parts, and gear from many different manufacturers. Mechs in Lancer are <strong>modular</strong>: each <strong>FRAME </strong>comes with a list of license-restricted gear that, once unlocked, can be freely swapped between all of your mechs. Because of this customizability, pilots are as much experts at building their machines as they are piloting them.&nbsp;</p> <p>Your pilot&rsquo;s access to more and better parts increases with their <strong>LL</strong>. When your pilot&rsquo;s <strong>LL </strong>increases (up to a maximum of 12), you gain<strong>&nbsp;+1 license rank</strong> that you can spend on a license from a mech manufacturer. Manufacturers offer a range of different licenses, all of which have three tiers &ndash; <strong>rank I, rank II, and rank III</strong> &ndash; that must be bought in order.&nbsp;</p> <p>Every new rank you obtain unlocks various systems, weapons, and even mechs. At <strong>rank II</strong>, you get a new mech <strong>FRAME</strong>, and <strong>rank III</strong> gives you access to the most advanced components. These weapons and systems are interchangeable &ndash; you can add as many to your mech as its <strong>FRAME </strong>can support, from any license rank you have unlocked.&nbsp;</p> <p>For example, an LL5 character with licenses for the IPS-N Raleigh III and the SSC Metalmark II has access to every piece of gear from<strong>&nbsp;ranks I&ndash;III</strong> of the Raleigh license, and all the gear from ranks I and II of the Metalmark license. They could take the Raleigh&rsquo;s rank I <strong>HAND CANNON</strong> and put it on the Metalmark <strong>FRAME</strong>, or take the Metalmark&rsquo;s <strong>RAIL RIFLE</strong> and put in on the Raleigh, mixing and matching as they choose.</p>",
+      "pt-BR": "<p>Mechas são máquinas poderosas, mas o que os torna mais poderosos — e seu personagem mais único do que outros pilotos — é sua habilidade de obter e combinar armas, peças e equipamentos de mecha de muitos fabricantes diferentes. Os mechas em Lancer são <strong>modulares</strong>: cada <strong>CHASSI</strong> (FRAME) vem com uma lista de equipamentos restritos por licença que, uma vez desbloqueados, podem ser trocados livremente entre todos os seus mechas. Devido a essa customização, os pilotos são tanto especialistas na construção de suas máquinas quanto na pilotagem delas.</p> <p>O acesso do seu piloto a mais e melhores peças aumenta com o seu <strong>NvL</strong> (LL). Quando o <strong>NvL</strong> do seu piloto aumenta (até o máximo de 12), você ganha <strong>+1 nível de licença</strong> que pode gastar em uma licença de um fabricante de mechas. Os fabricantes oferecem uma gama de licenças diferentes, todas com três níveis — <strong>nível I, nível II e nível III</strong> — que devem ser adquiridos em ordem.</p> <p>Cada novo nível obtido desbloqueia vários sistemas, armas e até mechas. No <strong>nível II</strong>, você recebe um novo <strong>CHASSI</strong> de mecha, e o <strong>nível III</strong> dá acesso aos componentes mais avançados. Essas armas e sistemas são intercambiáveis — você pode adicionar ao seu mecha quantos o seu <strong>CHASSI</strong> suportar, de qualquer nível de licença que tenha desbloqueado.</p> <p>Por exemplo, um personagem de NvL 5 com licenças para o IPS-N Raleigh III e o SSC Metalmark II tem acesso a todas as peças de equipamento dos <strong>níveis I-III</strong> da licença Raleigh, e todos os equipamentos dos níveis I e II da licença Metalmark. Eles poderiam pegar o <strong>CANHÃO DE MÃO</strong> (HAND CANNON) de nível I do Raleigh e colocá-lo no <strong>CHASSI</strong> do Metalmark, ou pegar o <strong>RIFLE DE TRILHO</strong> (RAIL RIFLE) do Metalmark e colocá-lo no Raleigh, misturando e combinando como escolherem.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "General Massive Systems"
+          "en": "General Massive Systems",
+          "pt-BR": "General Massive Systems (GMS)"
         },
         "content": {
-          "en": "<p>All pilots, even at <strong>LL0</strong>, have access to the <strong>GMS-SP1 Everest FRAME</strong> and the <strong>GMS gear list</strong>. At first, this will be the only gear available to you &ndash; until your character gains some <strong>LLs </strong>and unlocks new licenses. GMS parts are galactic standards, useful for even high-<strong>LL </strong>pilots.</p>"
+          "en": "<p>All pilots, even at <strong>LL0</strong>, have access to the <strong>GMS-SP1 Everest FRAME</strong> and the <strong>GMS gear list</strong>. At first, this will be the only gear available to you &ndash; until your character gains some <strong>LLs </strong>and unlocks new licenses. GMS parts are galactic standards, useful for even high-<strong>LL </strong>pilots.</p>",
+          "pt-BR": "<p>Todos os pilotos, mesmo no <strong>NvL 0</strong>, têm acesso ao <strong>CHASSI GMS-SP1 Everest</strong> e à <strong>lista de equipamentos da GMS</strong>. No início, este será o único equipamento disponível para você — até que seu personagem ganhe alguns <strong>NvL</strong> e desbloqueie novas licenças. As peças da GMS são padrões galácticos, úteis até mesmo para pilotos de alto <strong>NvL</strong>.</p>"
         }
       },
       {
         "title": {
-          "en": "Without Limits"
+          "en": "Without Limits",
+          "pt-BR": "Sem Limites"
         },
         "content": {
-          "en": "<p>You never lose access to mechs or gear that you&rsquo;re licensed to use. Your pilot is assumed to almost always have access to it by one means or another, whether influence, patronage, wealth, or rank.&nbsp;</p> <p>Accessing licensed equipment is made even easier by advancements in 3D printing. In Lancer, it&rsquo;s possible to print entire mechs wholesale. Even if your mech is destroyed in battle, you can easily print a replacement during downtime</p>"
+          "en": "<p>You never lose access to mechs or gear that you&rsquo;re licensed to use. Your pilot is assumed to almost always have access to it by one means or another, whether influence, patronage, wealth, or rank.&nbsp;</p> <p>Accessing licensed equipment is made even easier by advancements in 3D printing. In Lancer, it&rsquo;s possible to print entire mechs wholesale. Even if your mech is destroyed in battle, you can easily print a replacement during downtime</p>",
+          "pt-BR": "<p>Você nunca perde o acesso a mechas ou equipamentos que está licenciado a usar. Assume-se que seu piloto quase sempre tem acesso a eles por um meio ou outro, seja por influência, patrocínio, riqueza ou patente.</p> <p>O acesso a equipamentos licenciados é facilitado pelos avanços na impressão 3D. Em Lancer, é possível imprimir mechas inteiros em massa. Mesmo que seu mecha seja destruído em batalha, você pode facilmente imprimir um substituto durante o período de inatividade.</p>"
         }
       }
     ]
   },
   {
     "title": {
-      "en": "Mech Skills"
+      "en": "Mech Skills",
+      "pt-BR": "Perícias de Mecha"
     },
     "content": {
-      "en": "<p>Mechs operate on an entirely different level to anything else in Lancer. They&rsquo;re powered, armored hulks of incredible strength, packed full of advanced systems and weapons. A mech is capable of far more than a person on foot. They grant their pilots the ability to perform feats of incredible strength, speed, and resilience when skill alone isn&rsquo;t enough.</p> <p>Your lancer has four <strong>mech skills</strong> that represent their ability to build, pilot, and fight with mechs:</p> <ul> <li><strong>HULL</strong> describes your ability to build and pilot durable, structurally sound mechs that can take punches and keep going.</li> <li><strong>AGILITY</strong> describes your ability to build and pilot fast, evasive mechs.</li> <li><strong>SYSTEMS</strong> describes your ability to build and pilot advanced mechs with powerful electronic warfare capabilities.</li> <li><strong>ENGINEERING</strong> describes your ability to build and pilot mechs with effective reactors, supplies and support systems.</li> </ul> <p><strong>Mech skills</strong> go from <strong>+0</strong> to <strong>+6</strong> and are used...</p> <ul> <li>...instead of triggers when you make<strong> skill checks</strong> that directly utilize a mech (e.g., if you wanted to punch something with a mech, you would roll <strong>HULL</strong> instead of a pilot trigger like &lsquo;<strong>Assault</strong>&rsquo;).</li> <li>...in mech combat, especially when making <strong>saves</strong>.</li> <li>...for <strong>additional bonuses</strong> when building a mech.</li> </ul> <p><strong>When you make a roll that calls for one of these skills</strong>, you add the relevant skill to your roll.</p>"
+      "en": "<p>Mechs operate on an entirely different level to anything else in Lancer. They&rsquo;re powered, armored hulks of incredible strength, packed full of advanced systems and weapons. A mech is capable of far more than a person on foot. They grant their pilots the ability to perform feats of incredible strength, speed, and resilience when skill alone isn&rsquo;t enough.</p> <p>Your lancer has four <strong>mech skills</strong> that represent their ability to build, pilot, and fight with mechs:</p> <ul> <li><strong>HULL</strong> describes your ability to build and pilot durable, structurally sound mechs that can take punches and keep going.</li> <li><strong>AGILITY</strong> describes your ability to build and pilot fast, evasive mechs.</li> <li><strong>SYSTEMS</strong> describes your ability to build and pilot advanced mechs with powerful electronic warfare capabilities.</li> <li><strong>ENGINEERING</strong> describes your ability to build and pilot mechs with effective reactors, supplies and support systems.</li> </ul> <p><strong>Mech skills</strong> go from <strong>+0</strong> to <strong>+6</strong> and are used...</p> <ul> <li>...instead of triggers when you make<strong> skill checks</strong> that directly utilize a mech (e.g., if you wanted to punch something with a mech, you would roll <strong>HULL</strong> instead of a pilot trigger like &lsquo;<strong>Assault</strong>&rsquo;).</li> <li>...in mech combat, especially when making <strong>saves</strong>.</li> <li>...for <strong>additional bonuses</strong> when building a mech.</li> </ul> <p><strong>When you make a roll that calls for one of these skills</strong>, you add the relevant skill to your roll.</p>",
+      "pt-BR": "<p>Mechas operam em um nível inteiramente diferente de qualquer outra coisa em Lancer. São colossos blindados e motorizados de força incrível, repletos de sistemas e armas avançadas. Um mecha é capaz de muito mais do que uma pessoa a pé. Eles concedem aos seus pilotos a habilidade de realizar feitos de força, velocidade e resiliência incríveis quando a perícia sozinha não é suficiente.</p> <p>Seu lanceiro tem quatro <strong>perícias de mecha</strong> que representam sua habilidade de construir, pilotar e lutar com mechas:</p> <ul> <li><strong>CASCO (HULL)</strong> descreve sua habilidade de construir e pilotar mechas duráveis e estruturalmente sólidos que podem aguentar golpes e continuar avançando.</li> <li><strong>AGILIDADE (AGILITY)</strong> descreve sua habilidade de construir e pilotar mechas rápidos e evasivos.</li> <li><strong>SISTEMAS (SYSTEMS)</strong> descreve sua habilidade de construir e pilotar mechas avançados com capacidades poderosas de guerra eletrônica.</li> <li><strong>ENGENHARIA (ENGINEERING)</strong> descreve sua habilidade de construir e pilotar mechas com reatores, suprimentos e sistemas de suporte eficazes.</li> </ul> <p>As <strong>perícias de mecha</strong> vão de <strong>+0</strong> a <strong>+6</strong> e são usadas...</p> <ul> <li>...em vez de gatilhos quando você faz <strong>testes de perícia</strong> que utilizam diretamente um mecha (ex: se você quiser socar algo com um mecha, você rolaria <strong>CASCO</strong> em vez de um gatilho de piloto como '<strong>Assalto</strong>').</li> <li>...no combate de mechas, especialmente ao fazer <strong>salvamentos</strong> (saves).</li> <li>...para <strong>bônus adicionais</strong> ao construir um mecha.</li> </ul> <p><strong>Quando você faz uma rolagem que pede uma dessas perícias</strong>, você adiciona a perícia relevante à sua rolagem.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "Hull"
+          "en": "Hull",
+          "pt-BR": "Casco"
         },
         "content": {
-          "en": "<p>Roll <strong>HULL</strong> when: smashing through or pulverizing obstacles, vehicles, or buildings; lifting, dragging, pushing, or hurling an enormous amount of weight; grabbing or wrestling mechs, starships, or mechsized creatures; resisting a huge amount of force; or, staying upright in cataclysmic weather.</p>"
+          "en": "<p>Roll <strong>HULL</strong> when: smashing through or pulverizing obstacles, vehicles, or buildings; lifting, dragging, pushing, or hurling an enormous amount of weight; grabbing or wrestling mechs, starships, or mechsized creatures; resisting a huge amount of force; or, staying upright in cataclysmic weather.</p>",
+          "pt-BR": "<p>Role <strong>CASCO</strong> ao: atravessar ou pulverizar obstáculos, veículos ou edifícios; levantar, arrastar, empurrar ou arremessar uma quantidade enorme de peso; agarrar ou lutar com mechas, naves estelares ou criaturas de escala de mecha; resistir a uma quantidade enorme de força; ou manter-se em pé em climas cataclísmicos.</p>"
         }
       },
       {
         "title": {
-          "en": "Agility"
+          "en": "Agility",
+          "pt-BR": "Agilidade"
         },
         "content": {
-          "en": "<p>Roll <strong>AGILITY</strong> when: chasing, pursuing, or fleeing with incredible speed; performing acrobatics in your mech; hiding or moving silently; performing a feat of fine manual dexterity with your mech; or, dodging out of the way of danger.</p>"
+          "en": "<p>Roll <strong>AGILITY</strong> when: chasing, pursuing, or fleeing with incredible speed; performing acrobatics in your mech; hiding or moving silently; performing a feat of fine manual dexterity with your mech; or, dodging out of the way of danger.</p>",
+          "pt-BR": "<p>Role <strong>AGILIDADE</strong> ao: caçar, perseguir ou fugir com velocidade incrível; realizar acrobacias em seu mecha; esconder-se ou mover-se silenciosamente; realizar um feito de destreza manual fina com seu mecha; ou esquivar-se do perigo.</p>"
         }
       },
       {
         "title": {
-          "en": "Systems"
+          "en": "Systems",
+          "pt-BR": "Sistemas"
         },
         "content": {
-          "en": "<p>Roll <strong>SYSTEMS</strong> when: infiltrating hardened and powerful electronic systems and targets, including other mechs; boosting or suppressing a signal; engaging in electronic warfare; scanning or analyzing information; boosting or weakening the electronic systems of vehicles, mechs, starships, or bases; interacting safely with electronic life forms; or, analyzing the nature of unfamiliar electronic systems.</p>"
+          "en": "<p>Roll <strong>SYSTEMS</strong> when: infiltrating hardened and powerful electronic systems and targets, including other mechs; boosting or suppressing a signal; engaging in electronic warfare; scanning or analyzing information; boosting or weakening the electronic systems of vehicles, mechs, starships, or bases; interacting safely with electronic life forms; or, analyzing the nature of unfamiliar electronic systems.</p>",
+          "pt-BR": "<p>Role <strong>SISTEMAS</strong> ao: infiltrar sistemas eletrônicos e alvos protegidos e poderosos, incluindo outros mechas; amplificar ou suprimir um sinal; engajar em guerra eletrônica; escanear ou analisar informações; fortalecer ou enfraquecer os sistemas eletrônicos de veículos, mechas, naves estelares ou bases; interagir com segurança com formas de vida eletrônicas; ou analisar a natureza de sistemas eletrônicos desconhecidos.</p>"
         }
       },
       {
         "title": {
-          "en": "Engineering"
+          "en": "Engineering",
+          "pt-BR": "Engenharia"
         },
         "content": {
-          "en": "<p>Roll <strong>ENGINEERING</strong> when: pushing your mech past its limits; withstanding extreme conditions such as heat, cold, void, or radiation; using your mech&rsquo;s reactor like a forge; keeping your mech running well past its breaking point or for extreme amounts of time; traveling or moving safely through hazardous or hostile conditions; boosting the reactor output of other mechs, starships, or bases; or, conserving and efficiently using ammo, power, and other resources.</p>"
+          "en": "<p>Roll <strong>ENGINEERING</strong> when: pushing your mech past its limits; withstanding extreme conditions such as heat, cold, void, or radiation; using your mech&rsquo;s reactor like a forge; keeping your mech running well past its breaking point or for extreme amounts of time; traveling or moving safely through hazardous or hostile conditions; boosting the reactor output of other mechs, starships, or bases; or, conserving and efficiently using ammo, power, and other resources.</p>",
+          "pt-BR": "<p>Role <strong>ENGENHARIA</strong> ao: forçar seu mecha além dos limites; resistir a condições extremas como calor, frio, vácuo ou radiação; usar o reator do seu mecha como uma forja; manter seu mecha funcionando bem além do ponto de ruptura ou por períodos extremos de tempo; viajar ou mover-se com segurança através de condições perigosas ou hostis; aumentar a saída do reator de outros mechas, naves estelares ou bases; ou conservar e usar eficientemente munição, energia e outros recursos.</p>"
         }
       }
     ]
   },
   {
     "title": {
-      "en": "Mech Structure"
+      "en": "Mech Structure",
+      "pt-BR": "Estrutura do Mecha"
     },
     "content": {
-      "en": "<p>Most mechs have two arms and two legs, but you can modify this basic structure however you choose within reason &ndash; just ask your GM. Your mech&rsquo;s overall look, structure, and layout have no bearing on gameplay.</p>"
+      "en": "<p>Most mechs have two arms and two legs, but you can modify this basic structure however you choose within reason &ndash; just ask your GM. Your mech&rsquo;s overall look, structure, and layout have no bearing on gameplay.</p>",
+      "pt-BR": "<p>A maioria dos mechas tem dois braços e duas pernas, mas você pode modificar esta estrutura básica como desejar dentro do razoável — basta perguntar ao seu MJ. A aparência geral, estrutura e layout do seu mecha não têm influência na jogabilidade.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "Frames"
+          "en": "Frames",
+          "pt-BR": "Chassis (Frames)"
         },
         "content": {
-          "en": "<p>The basic structure and components of a mech &ndash; its chassis, armor, and mounts &ndash; is called its <strong>FRAME</strong>. A mech&rsquo;s <strong>FRAME </strong>determines its appearance, size, and function, defining it as anything from a heavy siege engine to an agile flier, or even a cloaking mech that specializes in electronic warfare. These effects are expressed by a <strong>FRAME&rsquo;S</strong> traits. Think about choosing a <strong>FRAME </strong>as (more or less) choosing the mech your character is going to pilot. But remember that you&rsquo;re not limited to just one <strong>FRAME </strong>&ndash; you can acquire new ones by unlocking <strong>rank II licenses</strong>.&nbsp;</p> <p>In game terms, a <strong>FRAME </strong>is a mech&rsquo;s modular base. It determines your mech&rsquo;s <strong>SIZE</strong>, <strong>ARMOR</strong>, and other specifications, as well as its available weapon mounts and capacity for additional systems.&nbsp;</p> <p>Each <strong>FRAME </strong>also comes with a unique <strong>CORE SYSTEM</strong>, a powerful special ability that can typically only be used once per mission.</p>"
+          "en": "<p>The basic structure and components of a mech &ndash; its chassis, armor, and mounts &ndash; is called its <strong>FRAME</strong>. A mech&rsquo;s <strong>FRAME </strong>determines its appearance, size, and function, defining it as anything from a heavy siege engine to an agile flier, or even a cloaking mech that specializes in electronic warfare. These effects are expressed by a <strong>FRAME&rsquo;S</strong> traits. Think about choosing a <strong>FRAME </strong>as (more or less) choosing the mech your character is going to pilot. But remember that you&rsquo;re not limited to just one <strong>FRAME </strong>&ndash; you can acquire new ones by unlocking <strong>rank II licenses</strong>.&nbsp;</p> <p>In game terms, a <strong>FRAME </strong>is a mech&rsquo;s modular base. It determines your mech&rsquo;s <strong>SIZE</strong>, <strong>ARMOR</strong>, and other specifications, as well as its available weapon mounts and capacity for additional systems.&nbsp;</p> <p>Each <strong>FRAME </strong>also comes with a unique <strong>CORE SYSTEM</strong>, a powerful special ability that can typically only be used once per mission.</p>",
+          "pt-BR": "<p>A estrutura básica e os componentes de um mecha — seu chassis, armadura e suportes — são chamados de <strong>CHASSI</strong> (FRAME). O <strong>CHASSI</strong> de um mecha determina sua aparência, tamanho e função, definindo-o como qualquer coisa, desde uma máquina de cerco pesada até um voador ágil, ou mesmo um mecha furtivo especializado em guerra eletrônica. Esses efeitos são expressos pelas características do <strong>CHASSI</strong>. Pense na escolha de um <strong>CHASSI</strong> como (mais ou menos) escolher o mecha que seu personagem vai pilotar. Mas lembre-se de que você não está limitado a apenas um <strong>CHASSI</strong> — você pode adquirir novos desbloqueando <strong>licenças de nível II</strong>.</p> <p>Em termos de jogo, um <strong>CHASSI</strong> é a base modular de um mecha. Ele determina o <strong>TAMANHO</strong>, <strong>ARMADURA</strong> e outras especificações do seu mecha, bem como seus suportes de armas disponíveis e capacidade para sistemas adicionais.</p> <p>Cada <strong>CHASSI</strong> também vem com um <strong>SISTEMA DE NÚCLEO</strong> (CORE SYSTEM) único, uma habilidade especial poderosa que normalmente só pode ser usada uma vez por missão.</p>"
         }
       },
       {
         "title": {
-          "en": "Size"
+          "en": "Size",
+          "pt-BR": "Tamanho (Size)"
         },
         "content": {
-          "en": "<p>All mechs, characters, and objects on the battlefield have a <strong>SIZE </strong>that describes how large they are, in grid spaces, on each side (rounded up to 1 if smaller, so a <strong>SIZE 1/2</strong> and <strong>SIZE 1</strong> character occupy the same space). <strong>SIZE </strong>is an abstract measurement &ndash; it doesn&rsquo;t describe a precise height and width in feet, but the space a character controls around them. Humans and the smallest mechs are <strong>SIZE 1/2</strong>. Most mechs are <strong>SIZE 1</strong>, but some are as large as <strong>SIZE 3</strong>.</p>"
+          "en": "<p>All mechs, characters, and objects on the battlefield have a <strong>SIZE </strong>that describes how large they are, in grid spaces, on each side (rounded up to 1 if smaller, so a <strong>SIZE 1/2</strong> and <strong>SIZE 1</strong> character occupy the same space). <strong>SIZE </strong>is an abstract measurement &ndash; it doesn&rsquo;t describe a precise height and width in feet, but the space a character controls around them. Humans and the smallest mechs are <strong>SIZE 1/2</strong>. Most mechs are <strong>SIZE 1</strong>, but some are as large as <strong>SIZE 3</strong>.</p>",
+          "pt-BR": "<p>Todos os mechas, personagens e objetos no campo de batalha têm um <strong>TAMANHO</strong> (SIZE) que descreve quão grandes eles são, em espaços do grid, em cada lado (arredondado para 1 se for menor, então um personagem de <strong>TAMANHO 1/2</strong> e um de <strong>TAMANHO 1</strong> ocupam o mesmo espaço). <strong>TAMANHO</strong> é uma medida abstrata — não descreve uma altura e largura precisas em metros, mas o espaço que um personagem controla ao seu redor. Humanos e os menores mechas são <strong>TAMANHO 1/2</strong>. A maioria dos mechas é <strong>TAMANHO 1</strong>, mas alguns chegam ao <strong>TAMANHO 3</strong>.</p>"
         }
       },
       {
         "title": {
-          "en": "Armor"
+          "en": "Armor",
+          "pt-BR": "Armadura (Armor)"
         },
         "content": {
-          "en": "<p>A mech&rsquo;s <strong>ARMOR </strong>reduces all incoming damage by that amount, excluding some special types of damage. <strong>ARMOR </strong>mostly depends on your mech&rsquo;s <strong>FRAME</strong>, and never goes above four.</p>"
+          "en": "<p>A mech&rsquo;s <strong>ARMOR </strong>reduces all incoming damage by that amount, excluding some special types of damage. <strong>ARMOR </strong>mostly depends on your mech&rsquo;s <strong>FRAME</strong>, and never goes above four.</p>",
+          "pt-BR": "<p>A <strong>ARMADURA</strong> (ARMOR) de um mecha reduz todo o dano recebido por esse valor, excluindo alguns tipos especiais de dano. A <strong>ARMADURA</strong> depende principalmente do <strong>CHASSI</strong> do seu mecha e nunca ultrapassa quatro.</p>"
         }
       },
       {
         "title": {
-          "en": "Mounts"
+          "en": "Mounts",
+          "pt-BR": "Suportes (Mounts)"
         },
         "content": {
-          "en": "<p>Mechs can only carry a limited number of weapons, determined by their <strong>FRAME</strong>. Trying to install too many weapons &ndash; and their supporting systems &ndash; places far too much stress on the mech&rsquo;s structure and reactor.&nbsp;</p> <p>Each mech <strong>FRAME </strong>has a different number and different types of <strong>mounts</strong>. To add a weapon to your mech, you need an available mount of the right type and size. You can, however, add smaller weapons to larger mounts. For example, you could add a <strong>main </strong>or <strong>auxiliary weapon</strong> to a <strong>heavy mount</strong> or add two <strong>auxiliary weapons</strong> to a <strong>main/auxiliary mount</strong>.</p><p>Weapons mounted on a mech aren&rsquo;t necessarily attached to the chassis &ndash; they can be slung in holsters, built into compartments, or held normally. You can decide how your mech&rsquo;s weapons are mounted &ndash; it has no effect on the rules.</p>"
+          "en": "<p>Mechs can only carry a limited number of weapons, determined by their <strong>FRAME</strong>. Trying to install too many weapons &ndash; and their supporting systems &ndash; places far too much stress on the mech&rsquo;s structure and reactor.&nbsp;</p> <p>Each mech <strong>FRAME </strong>has a different number and different types of <strong>mounts</strong>. To add a weapon to your mech, you need an available mount of the right type and size. You can, however, add smaller weapons to larger mounts. For example, you could add a <strong>main </strong>or <strong>auxiliary weapon</strong> to a <strong>heavy mount</strong> or add two <strong>auxiliary weapons</strong> to a <strong>main/auxiliary mount</strong>.</p><p>Weapons mounted on a mech aren&rsquo;t necessarily attached to the chassis &ndash; they can be slung in holsters, built into compartments, or held normally. You can decide how your mech&rsquo;s weapons are mounted &ndash; it has no effect on the rules.</p>",
+          "pt-BR": "<p>Mechas só podem carregar um número limitado de armas, determinado pelo seu <strong>CHASSI</strong>. Tentar instalar armas demais — e seus sistemas de suporte — coloca estresse excessivo na estrutura e no reator do mecha.</p> <p>Cada <strong>CHASSI</strong> de mecha tem um número e tipos diferentes de <strong>suportes</strong> (mounts). Para adicionar uma arma ao seu mecha, você precisa de um suporte disponível do tipo e tamanho corretos. Você pode, no entanto, adicionar armas menores em suportes maiores. Por exemplo, você pode adicionar uma arma <strong>principal</strong> ou <strong>auxiliar</strong> em um <strong>suporte pesado</strong>, ou adicionar duas <strong>armas auxiliares</strong> em um <strong>suporte principal/auxiliar</strong>.</p><p>Armas montadas em um mecha não estão necessariamente presas ao chassis — elas podem estar em coldres, embutidas em compartimentos ou seguradas normalmente. Você decide como as armas do seu mecha são montadas — isso não tem efeito nas regras.</p>"
         },
         "children": [
           {
             "title": {
-              "en": "Main Mounts"
+              "en": "Main Mounts",
+              "pt-BR": "Suportes Principais"
             },
             "content": {
-              "en": "<p>Main Mounts can take one <strong>MAIN </strong>or <strong>AUXILIARY </strong>weapon.</p>"
+              "en": "<p>Main Mounts can take one <strong>MAIN </strong>or <strong>AUXILIARY </strong>weapon.</p>",
+              "pt-BR": "<p>Suportes Principais podem levar uma arma <strong>PRINCIPAL</strong> (MAIN) ou <strong>AUXILIAR</strong> (AUXILIARY).</p>"
             }
           },
           {
             "title": {
-              "en": "Heavy Mounts"
+              "en": "Heavy Mounts",
+              "pt-BR": "Suportes Pesados"
             },
             "content": {
-              "en": "<p>Heavy Mounts can take one <strong>HEAVY</strong>, <strong>MAIN</strong>, or <strong>AUXILIARY </strong>weapon.</p>"
+              "en": "<p>Heavy Mounts can take one <strong>HEAVY</strong>, <strong>MAIN</strong>, or <strong>AUXILIARY </strong>weapon.</p>",
+              "pt-BR": "<p>Suportes Pesados podem levar uma arma <strong>PESADA</strong> (HEAVY), <strong>PRINCIPAL</strong> ou <strong>AUXILIAR</strong>.</p>"
             }
           },
           {
             "title": {
-              "en": "Aux/Aux Mounts"
+              "en": "Aux/Aux Mounts",
+              "pt-BR": "Suportes Aux/Aux"
             },
             "content": {
-              "en": "<p>Aux/Aux Mounts can take up to two <strong>AUXILIARY </strong>weapons.</p>"
+              "en": "<p>Aux/Aux Mounts can take up to two <strong>AUXILIARY </strong>weapons.</p>",
+              "pt-BR": "<p>Suportes Aux/Aux podem levar até duas armas <strong>AUXILIARES</strong>.</p>"
             }
           },
           {
             "title": {
-              "en": "Main/Aux Mounts"
+              "en": "Main/Aux Mounts",
+              "pt-BR": "Suportes Principal/Aux"
             },
             "content": {
-              "en": "<p>Main/Aux Mounts can take one <strong>MAIN </strong>weapon and one <strong>AUXILIARY </strong>weapon, or two <strong>AUXILIARY </strong>weapons.</p>"
+              "en": "<p>Main/Aux Mounts can take one <strong>MAIN </strong>weapon and one <strong>AUXILIARY </strong>weapon, or two <strong>AUXILIARY </strong>weapons.</p>",
+              "pt-BR": "<p>Suportes Principal/Aux podem levar uma arma <strong>PRINCIPAL</strong> e uma arma <strong>AUXILIAR</strong>, ou duas armas <strong>AUXILIARES</strong>.</p>"
             }
           },
           {
             "title": {
-              "en": "Flexible Mounts"
+              "en": "Flexible Mounts",
+              "pt-BR": "Suportes Flexíveis"
             },
             "content": {
-              "en": "<p>Flexible Mounts can take either one <strong>MAIN </strong>weapon or up to two <strong>AUXILIARY </strong>weapons.</p>"
+              "en": "<p>Flexible Mounts can take either one <strong>MAIN </strong>weapon or up to two <strong>AUXILIARY </strong>weapons.</p>",
+              "pt-BR": "<p>Suportes Flexíveis podem levar ou uma arma <strong>PRINCIPAL</strong> ou até duas armas <strong>AUXILIARES</strong>.</p>"
             }
           },
           {
             "title": {
-              "en": "Integrated Mounts"
+              "en": "Integrated Mounts",
+              "pt-BR": "Suportes Integrados"
             },
             "content": {
-              "en": "<p>Integrated Mounts are designed around specific weapons, built into <strong>FRAMES</strong>. They automatically include the listed weapons, which cannot be destroyed, removed, replaced, or modified in any way.</p>"
+              "en": "<p>Integrated Mounts are designed around specific weapons, built into <strong>FRAMES</strong>. They automatically include the listed weapons, which cannot be destroyed, removed, replaced, or modified in any way.</p>",
+              "pt-BR": "<p>Suportes Integrados são projetados em torno de armas específicas, embutidas nos <strong>CHASSIS</strong>. Eles incluem automaticamente as armas listadas, que não podem ser destruídas, removidas, substituídas ou modificadas de forma alguma.</p>"
             }
           },
           {
             "title": {
-              "en": "Superheavy Weapons"
+              "en": "Superheavy Weapons",
+              "pt-BR": "Armas Superpesadas"
             },
             "content": {
-              "en": "<p>Superheavy Weapons which are especially large, require both a <strong>HEAVY </strong>mount and<strong>&nbsp;one other mount of any size</strong>.</p>"
+              "en": "<p>Superheavy Weapons which are especially large, require both a <strong>HEAVY </strong>mount and<strong>&nbsp;one other mount of any size</strong>.</p>",
+              "pt-BR": "<p>Armas Superpesadas, que são especialmente grandes, requerem tanto um suporte <strong>PESADO</strong> quanto <strong>um outro suporte de qualquer tamanho</strong>.</p>"
             }
           }
         ]
@@ -169,86 +209,106 @@
   },
   {
     "title": {
-      "en": "Mech Weapons"
+      "en": "Mech Weapons",
+      "pt-BR": "Armas de Mecha"
     },
     "content": {
-      "en": "<p>Mech weapons have three traits: <strong>size</strong>, <strong>type</strong>, and <strong>damage</strong>.</p>"
+      "en": "<p>Mech weapons have three traits: <strong>size</strong>, <strong>type</strong>, and <strong>damage</strong>.</p>",
+      "pt-BR": "<p>Armas de mecha possuem três características: <strong>tamanho</strong>, <strong>tipo</strong> e <strong>dano</strong>.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "Size"
+          "en": "Size",
+          "pt-BR": "Tamanho"
         },
         "content": {
-          "en": "<ul> <li><strong>Auxiliary&nbsp;</strong>weapons are the smallest mech weapons, light enough to use alongside larger weapons.&nbsp;</li> <li><strong>Main&nbsp;</strong>weapons are the standard size for mech weapons.</li> <li><strong>Heavy&nbsp;</strong>weapons are larger, heavier weapons used to inflict massive damage.</li> <li><strong>Superheavy&nbsp;</strong>weapons are very large weapons with high power requirements; they are usually rare or highly advanced.</li> </ul>"
+          "en": "<ul> <li><strong>Auxiliary&nbsp;</strong>weapons are the smallest mech weapons, light enough to use alongside larger weapons.&nbsp;</li> <li><strong>Main&nbsp;</strong>weapons are the standard size for mech weapons.</li> <li><strong>Heavy&nbsp;</strong>weapons are larger, heavier weapons used to inflict massive damage.</li> <li><strong>Superheavy&nbsp;</strong>weapons are very large weapons with high power requirements; they are usually rare or highly advanced.</li> </ul>",
+          "pt-BR": "<ul> <li>Armas <strong>Auxiliares</strong> (Auxiliary) são as menores armas de mecha, leves o suficiente para serem usadas ao lado de armas maiores.</li> <li>Armas <strong>Principais</strong> (Main) são o tamanho padrão para armas de mecha.</li> <li>Armas <strong>Pesadas</strong> (Heavy) são armas maiores e mais pesadas, usadas para infligir dano massivo.</li> <li>Armas <strong>Superpesadas</strong> (Superheavy) são armas muito grandes com altos requisitos de energia; geralmente são raras ou altamente avançadas.</li> </ul>"
         }
       },
       {
         "title": {
-          "en": "Type"
+          "en": "Type",
+          "pt-BR": "Tipo"
         },
         "content": {
-          "en": "<p>All weapons have a type that describes their general range and combat function.</p> <ul> <li><strong>Melee</strong> weapons are mech-scale swords, axes, power tools, and other hand-to-hand weapons. A mech&rsquo;s raw strength can turn even crude tools into forces to be reckoned with.</li> <li><strong>CQB</strong> (<strong>close quarters battle</strong>) weapons are those designed for close-range combat, including pistols, shotguns, flamethrowers, and more exotic weapons like nailguns. They usually have short range but are better for reacting quickly to emergent threats.</li> <li><strong>Rifles</strong> are sturdy weapons with good range and stopping power.</li> <li><strong>Launchers</strong> are weapons that fire missiles, grenades, or other projectiles.</li> <li><strong>Cannons</strong> are high-caliber weapons useful for inflicting heavy damage on enemies. What they lack in precision, they usually make up for in power.</li> <li><strong>Nexus</strong> weapons are reservoirs and projectors for swarms of self-propelled, armed drones.</li> </ul> <p>Note: <strong>CQB, RIFLES, LAUNCHERS, CANNONS</strong> and <strong>NEXUS</strong> weapons are <strong>Ranged Weapons</strong>, and always make <strong>Ranged Attacks</strong> even against targets within their <strong>THREAT</strong>.</p>"
+          "en": "<p>All weapons have a type that describes their general range and combat function.</p> <ul> <li><strong>Melee</strong> weapons are mech-scale swords, axes, power tools, and other hand-to-hand weapons. A mech&rsquo;s raw strength can turn even crude tools into forces to be reckoned with.</li> <li><strong>CQB</strong> (<strong>close quarters battle</strong>) weapons are those designed for close-range combat, including pistols, shotguns, flamethrowers, and more exotic weapons like nailguns. They usually have short range but are better for reacting quickly to emergent threats.</li> <li><strong>Rifles</strong> are sturdy weapons with good range and stopping power.</li> <li><strong>Launchers</strong> are weapons that fire missiles, grenades, or other projectiles.</li> <li><strong>Cannons</strong> are high-caliber weapons useful for inflicting heavy damage on enemies. What they lack in precision, they usually make up for in power.</li> <li><strong>Nexus</strong> weapons are reservoirs and projectors for swarms of self-propelled, armed drones.</li> </ul> <p>Note: <strong>CQB, RIFLES, LAUNCHERS, CANNONS</strong> and <strong>NEXUS</strong> weapons are <strong>Ranged Weapons</strong>, and always make <strong>Ranged Attacks</strong> even against targets within their <strong>THREAT</strong>.</p>",
+          "pt-BR": "<p>Todas as armas possuem um tipo que descreve seu alcance geral e função de combate.</p> <ul> <li>Armas <strong>Corpo a Corpo</strong> (Melee) são espadas, machados, ferramentas elétricas e outras armas de combate próximo em escala de mecha. A força bruta de um mecha pode transformar até ferramentas rudimentares em forças temíveis.</li> <li>Armas <strong>CQC</strong> (CQB - combate a curta distância) são projetadas para combate de curto alcance, incluindo pistolas, espingardas, lança-chamas e armas mais exóticas como pregadores pneumáticos. Geralmente possuem alcance curto, mas são melhores para reagir rapidamente a ameaças emergentes.</li> <li><strong>Rifles</strong> são armas robustas com bom alcance e poder de parada.</li> <li><strong>Lançadores</strong> (Launchers) são armas que disparam mísseis, granadas ou outros projéteis.</li> <li><strong>Canhões</strong> (Cannons) são armas de alto calibre úteis para infligir dano pesado. O que lhes falta em precisão, geralmente compensam em poder.</li> <li>Armas <strong>Nexus</strong> são reservatórios e projetores para enxames de drones armados e autopropelidos.</li> </ul> <p>Nota: Armas <strong>CQC, RIFLES, LANÇADORES, CANHÕES</strong> e <strong>NEXUS</strong> são <strong>Armas à Distância</strong> e sempre realizam <strong>Ataques à Distância</strong>, mesmo contra alvos dentro de sua <strong>AMEAÇA</strong> (THREAT).</p>"
         }
       },
       {
         "title": {
-          "en": "Damage"
+          "en": "Damage",
+          "pt-BR": "Dano"
         },
         "content": {
-          "en": "<p>Most weapons deal one of three kinds of damage: <strong>kinetic</strong>, <strong>explosive</strong>, or <strong>energy</strong>. Some special weapons also deal <strong>heat</strong> (harm to a mech&rsquo;s internal systems) or <strong>burn</strong> (damage over time), which are explained in the <a href=\"/srd/reference/combat?preScroll=Harm\">Harm section</a></p>"
+          "en": "<p>Most weapons deal one of three kinds of damage: <strong>kinetic</strong>, <strong>explosive</strong>, or <strong>energy</strong>. Some special weapons also deal <strong>heat</strong> (harm to a mech&rsquo;s internal systems) or <strong>burn</strong> (damage over time), which are explained in the <a href=\"/srd/reference/combat?preScroll=Harm\">Harm section</a></p>",
+          "pt-BR": "<p>A maioria das armas causa um de três tipos de dano: <strong>cinético</strong>, <strong>explosivo</strong> ou <strong>energia</strong>. Algumas armas especiais também causam <strong>calor</strong> (heat - dano aos sistemas internos do mecha) ou <strong>queimadura</strong> (burn - dano ao longo do tempo), que são explicados na <a href=\"/srd/reference/combat?preScroll=Harm\">seção de Dano</a>.</p>"
         }
       }
     ]
   },
   {
     "title": {
-      "en": "System Points"
+      "en": "System Points",
+      "pt-BR": "Pontos de Sistema (SP)"
     },
     "content": {
-      "en": "<p>Mech <strong>FRAMES</strong> also have a set number of<strong> SYSTEM POINTS (SP)</strong>. <strong>SP</strong> can be spent to add extra systems to your mech, and some heavier weapons require both <strong>mounts</strong> and <strong>SP</strong>. You cannot add systems to your mech that would cause you to exceed your available <strong>SP</strong>.</p> <p>Your pilot&rsquo;s <strong>GRIT</strong>, equal to half their <strong>LL</strong>, is added to your total <strong>SP</strong>, and you gain an additional <strong>SP</strong> for every two points of <strong>SYSTEMS</strong>.</p>"
+      "en": "<p>Mech <strong>FRAMES</strong> also have a set number of<strong> SYSTEM POINTS (SP)</strong>. <strong>SP</strong> can be spent to add extra systems to your mech, and some heavier weapons require both <strong>mounts</strong> and <strong>SP</strong>. You cannot add systems to your mech that would cause you to exceed your available <strong>SP</strong>.</p> <p>Your pilot&rsquo;s <strong>GRIT</strong>, equal to half their <strong>LL</strong>, is added to your total <strong>SP</strong>, and you gain an additional <strong>SP</strong> for every two points of <strong>SYSTEMS</strong>.</p>",
+      "pt-BR": "<p>Os <strong>CHASSIS</strong> de mecha também possuem um número definido de <strong>PONTOS DE SISTEMA (SP)</strong>. SP podem ser gastos para adicionar sistemas extras ao seu mecha, e algumas armas mais pesadas exigem tanto <strong>suportes</strong> quanto <strong>SP</strong>. Você não pode adicionar sistemas ao seu mecha que excedam seus <strong>SP</strong> disponíveis.</p> <p>A <strong>GARRA</strong> (GRIT) do seu piloto, igual à metade do seu <strong>NvL</strong>, é adicionada ao seu total de <strong>SP</strong>, e você ganha um <strong>SP</strong> adicional para cada dois pontos em <strong>SISTEMAS</strong>.</p>"
     }
   },
   {
     "title": {
-      "en": "Core Systems"
+      "en": "Core Systems",
+      "pt-BR": "Sistemas de Núcleo"
     },
     "content": {
-      "en": "<p>Every <strong>FRAME</strong> comes with a <strong>CORE SYSTEM</strong>. These powerful abilities are unique to each <strong>FRAME</strong>, can&rsquo;t be transferred to other mechs, and in most cases can only be used once a mission by consuming <strong>CORE POWER</strong> (<strong>CP</strong>).</p> <p><strong>CP</strong> refers to a reservoir of high-efficiency reactor power, designed to be used in a quick burst. This reservoir is essential to the high-powered systems many mechs use in emergency situations and heavy action.</p> <p>At any given time, a mech either has <strong>CP</strong> or it doesn&rsquo;t. There&rsquo;s no way to save it up or store extra <strong>CP</strong>, aside from some rare equipment. Instead, you get <strong>CP</strong> when you start a mission or your mech receives a <strong>FULL REPAIR</strong>. Sometimes, if you&rsquo;re lucky, the GM might grant you <strong>CP</strong> during a mission.</p>"
+      "en": "<p>Every <strong>FRAME</strong> comes with a <strong>CORE SYSTEM</strong>. These powerful abilities are unique to each <strong>FRAME</strong>, can&rsquo;t be transferred to other mechs, and in most cases can only be used once a mission by consuming <strong>CORE POWER</strong> (<strong>CP</strong>).</p> <p><strong>CP</strong> refers to a reservoir of high-efficiency reactor power, designed to be used in a quick burst. This reservoir is essential to the high-powered systems many mechs use in emergency situations and heavy action.</p> <p>At any given time, a mech either has <strong>CP</strong> or it doesn&rsquo;t. There&rsquo;s no way to save it up or store extra <strong>CP</strong>, aside from some rare equipment. Instead, you get <strong>CP</strong> when you start a mission or your mech receives a <strong>FULL REPAIR</strong>. Sometimes, if you&rsquo;re lucky, the GM might grant you <strong>CP</strong> during a mission.</p>",
+      "pt-BR": "<p>Cada <strong>CHASSI</strong> vem com um <strong>SISTEMA DE NÚCLEO</strong> (CORE SYSTEM). Essas habilidades poderosas são exclusivas de cada <strong>CHASSI</strong>, não podem ser transferidas para outros mechas e, na maioria dos casos, só podem ser usadas uma vez por missão consumindo <strong>ENERGIA DE NÚCLEO</strong> (CP).</p> <p><strong>CP</strong> refere-se a um reservatório de energia de reator de alta eficiência, projetado para ser usado em uma explosão rápida. Este reservatório é essencial para os sistemas de alta potência que muitos mechas usam em situações de emergência e ação pesada.</p> <p>A qualquer momento, um mecha ou tem <strong>CP</strong> ou não tem. Não há como economizar ou armazenar <strong>CP</strong> extra, exceto por alguns equipamentos raros. Em vez disso, você ganha <strong>CP</strong> quando inicia uma missão ou seu mecha recebe um <strong>REPARO COMPLETO</strong> (FULL REPAIR). Às vezes, se tiver sorte, o MJ pode conceder <strong>CP</strong> durante uma missão.</p>"
     }
   },
   {
     "title": {
-      "en": "Base Statistics"
+      "en": "Base Statistics",
+      "pt-BR": "Estatísticas Base"
     },
     "content": {
-      "en": "<p>Different <strong>FRAMES</strong> have different starting statistics, giving them unique roles in combat.</p> <p><strong>HP AND STRUCTURE</strong>: Like your pilot, your mech has hit points (<strong>HP</strong>). Your mech, however, isn&rsquo;t destroyed when it reaches <strong>0 HP</strong>. Mechs have <strong>4 STRUCTURE</strong> &ndash; when they reach <strong>0 HP</strong>, they take <strong>1 structure damage</strong> and their <strong>HP resets</strong>. When they lose <strong>STRUCTURE</strong> like this, mechs have to make a special <strong>structure damage check</strong> and receive a consequence based on the roll. Most mechs have <strong>4 STRUCTURE</strong> and are destroyed when they reach <strong>0 STRUCTURE</strong>.</p> <p><strong>REPAIR CAP</strong>: <strong>REPAIRS</strong> are a kind of currency that you can use to heal and repair your mech. If your mech runs out of <strong>REPAIRS</strong>, you can no longer regain <strong>HP</strong> or fix damaged systems in the field.</p> <p><strong>SPEED</strong>: Your mech&rsquo;s <strong>SPEED</strong> determines how far you can move on your turn, in spaces, when you make a standard move or <strong>BOOST</strong>.</p> <p><strong>EVASION</strong>: <strong>EVASION</strong> is how hard it is for ranged and melee attacks to hit you.</p> <p><strong>SENSORS</strong>: Your mech&rsquo;s <strong>SENSORS</strong> is the maximum distance (in spaces) over which a mech can detect enemies, use tech systems, and make tech attacks. If a character is within your <strong>SENSORS</strong> and isn&rsquo;t hiding, you know they&rsquo;re there &ndash; even if you can&rsquo;t directly see them.</p> <p><strong>TECH ATTACK</strong>: You add your mech&rsquo;s <strong>TECH ATTACK</strong> as a bonus instead of <strong>GRIT</strong> when you conduct electronic warfare.</p> <p><strong>E-DEFENSE</strong>: <strong>E-DEFENSE</strong> is how hard it is for electronic and guided weapons and systems to hit you.</p> <p><strong>HEAT CAP AND STRESS</strong>: Your mech can take heat from tech attacks and some of its own systems. If it takes more heat than its <strong>HEAT CAP</strong>, it overheats. Mechs also have <strong>STRESS</strong>, which is similar to <strong>STRUCTURE</strong> &ndash; when they exceed their <strong>HEAT CAP,</strong> they take <strong>1 stress damage</strong> and <strong>clear all heat</strong>. When they lose <strong>STRESS</strong> like this, mechs have to make a special <strong>stress damage check</strong> and receive a consequence based on the roll. Most mechs have <strong>4 STRESS</strong>, and are destroyed when they reach <strong>0 STRESS</strong>.</p> <p><strong>SAVE TARGET</strong>: When you force another character to make a save, they must match or beat your mech&rsquo;s <strong>SAVE TARGET</strong> or take consequences.</p>"
+      "en": "<p>Different <strong>FRAMES</strong> have different starting statistics, giving them unique roles in combat.</p> <p><strong>HP AND STRUCTURE</strong>: Like your pilot, your mech has hit points (<strong>HP</strong>). Your mech, however, isn&rsquo;t destroyed when it reaches <strong>0 HP</strong>. Mechs have <strong>4 STRUCTURE</strong> &ndash; when they reach <strong>0 HP</strong>, they take <strong>1 structure damage</strong> and their <strong>HP resets</strong>. When they lose <strong>STRUCTURE</strong> like this, mechs have to make a special <strong>structure damage check</strong> and receive a consequence based on the roll. Most mechs have <strong>4 STRUCTURE</strong> and are destroyed when they reach <strong>0 STRUCTURE</strong>.</p> <p><strong>REPAIR CAP</strong>: <strong>REPAIRS</strong> are a kind of currency that you can use to heal and repair your mech. If your mech runs out of <strong>REPAIRS</strong>, you can no longer regain <strong>HP</strong> or fix damaged systems in the field.</p> <p><strong>SPEED</strong>: Your mech&rsquo;s <strong>SPEED</strong> determines how far you can move on your turn, in spaces, when you make a standard move or <strong>BOOST</strong>.</p> <p><strong>EVASION</strong>: <strong>EVASION</strong> is how hard it is for ranged and melee attacks to hit you.</p> <p><strong>SENSORS</strong>: Your mech&rsquo;s <strong>SENSORS</strong> is the maximum distance (in spaces) over which a mech can detect enemies, use tech systems, and make tech attacks. If a character is within your <strong>SENSORS</strong> and isn&rsquo;t hiding, you know they&rsquo;re there &ndash; even if you can&rsquo;t directly see them.</p> <p><strong>TECH ATTACK</strong>: You add your mech&rsquo;s <strong>TECH ATTACK</strong> as a bonus instead of <strong>GRIT</strong> when you conduct electronic warfare.</p> <p><strong>E-DEFENSE</strong>: <strong>E-DEFENSE</strong> is how hard it is for electronic and guided weapons and systems to hit you.</p> <p><strong>HEAT CAP AND STRESS</strong>: Your mech can take heat from tech attacks and some of its own systems. If it takes more heat than its <strong>HEAT CAP</strong>, it overheats. Mechs also have <strong>STRESS</strong>, which is similar to <strong>STRUCTURE</strong> &ndash; when they exceed their <strong>HEAT CAP,</strong> they take <strong>1 stress damage</strong> and <strong>clear all heat</strong>. When they lose <strong>STRESS</strong> like this, mechs have to make a special <strong>stress damage check</strong> and receive a consequence based on the roll. Most mechs have <strong>4 STRESS</strong>, and are destroyed when they reach <strong>0 STRESS</strong>.</p> <p><strong>SAVE TARGET</strong>: When you force another character to make a save, they must match or beat your mech&rsquo;s <strong>SAVE TARGET</strong> or take consequences.</p>",
+      "pt-BR": "<p>Diferentes <strong>CHASSIS</strong> possuem estatísticas iniciais diferentes, dando-lhes funções únicas no combate.</p> <p><strong>PV E ESTRUTURA</strong>: Como seu piloto, seu mecha possui pontos de vida (<strong>PV</strong>/HP). Seu mecha, no entanto, não é destruído ao chegar a <strong>0 PV</strong>. Mechas possuem <strong>4 de ESTRUTURA</strong> — quando chegam a <strong>0 PV</strong>, sofrem <strong>1 de dano de estrutura</strong> e seus <strong>PV reiniciam</strong>. Quando perdem <strong>ESTRUTURA</strong> assim, os mechas precisam fazer um <strong>teste de dano de estrutura</strong> especial e recebem uma consequência baseada na rolagem. A maioria dos mechas tem 4 de ESTRUTURA e é destruída ao chegar a 0 de ESTRUTURA.</p> <p><strong>LIMITE DE REPAROS</strong> (REPAIR CAP): <strong>REPAROS</strong> são um tipo de recurso que você pode usar para curar e consertar seu mecha. Se o seu mecha ficar sem REPAROS, você não poderá mais recuperar PV ou consertar sistemas danificados em campo.</p> <p><strong>VELOCIDADE</strong> (SPEED): A <strong>VELOCIDADE</strong> do seu mecha determina o quão longe você pode se mover no seu turno, em espaços, quando faz um movimento padrão ou um <strong>IMPULSO</strong> (BOOST).</p> <p><strong>EVASÃO</strong> (EVASION): A <strong>EVASÃO</strong> é o quão difícil é para ataques à distância e corpo a corpo acertarem você.</p> <p><strong>SENSORES</strong> (SENSORS): Os <strong>SENSORES</strong> do seu mecha são a distância máxima (em espaços) na qual um mecha pode detectar inimigos, usar sistemas tecnológicos e realizar ataques tecnológicos. Se um personagem estiver dentro de seus SENSORES e não estiver escondido, você sabe que ele está lá — mesmo que não consiga vê-lo diretamente.</p> <p><strong>ATAQUE TECNOLÓGICO</strong> (TECH ATTACK): Você adiciona o <strong>ATAQUE TECNOLÓGICO</strong> do seu mecha como bônus em vez da <strong>GARRA</strong> (GRIT) quando realiza guerra eletrônica.</p> <p><strong>DEFESA ELETRÔNICA</strong> (E-DEFENSE): A <strong>DEFESA ELETRÔNICA</strong> é o quão difícil é para armas e sistemas eletrônicos ou guiados acertarem você.</p> <p><strong>LIMITE DE CALOR E ESTRESSE</strong> (HEAT CAP / STRESS): Seu mecha pode receber calor de ataques tecnológicos e de alguns de seus próprios sistemas. Se ele receber mais calor do que seu <strong>LIMITE DE CALOR</strong>, ele superaquece. Mechas também possuem <strong>ESTRESSE</strong> (STRESS), que é semelhante à <strong>ESTRUTURA</strong> — quando excedem seu LIMITE DE CALOR, sofrem <strong>1 de dano de estresse</strong> e <strong>limpam todo o calor</strong>. Quando perdem ESTRESSE assim, precisam fazer um <strong>teste de dano de estresse</strong> especial e recebem uma consequência baseada na rolagem. A maioria dos mechas tem 4 de ESTRESSE e é destruída ao chegar a 0 de ESTRESSE.</p> <p><strong>DIFICULDADE DE SALVAMENTO</strong> (SAVE TARGET): Quando você força outro personagem a fazer um salvamento, ele deve igualar ou superar a <strong>DIFICULDADE DE SALVAMENTO</strong> do seu mecha ou sofrer as consequências.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "Improving Mechs"
+          "en": "Improving Mechs",
+          "pt-BR": "Melhorando Mechas"
         },
         "content": {
-          "en": "<p>When your pilot builds a mech, their <strong>mech skills</strong> allow you to boost some of its statistics. This is your pilot&rsquo;s unique or personal touch, giving you the ability to customize a stock FRAME.</p> <p>Your pilot&rsquo;s <strong>GRIT</strong> is added to your mech&rsquo;s <strong>HP</strong> and <strong>SAVE TARGET</strong>, as well as its <strong>SP</strong> and attack rolls.</p> <p>Your pilot&rsquo;s <strong>HULL</strong> affects your mech&rsquo;s durability. You gain:</p> <ul> <li><strong>+2 HP</strong> for each point of <strong>HULL</strong>.</li> <li><strong>+1 REPAIR CAP</strong> for every two points of <strong>HULL</strong>.</li> </ul> <p>Your pilot&rsquo;s <strong>AGILITY</strong> affects your mech&rsquo;s maneuverability. You gain:</p> <ul> <li><strong>+1 EVASION</strong> for each point of <strong>AGILITY</strong>.</li> <li><strong>+1 SPEED</strong> for every two points of <strong>AGILITY</strong>.</li> </ul> <p>Your pilot&rsquo;s <strong>SYSTEMS</strong> affects your mech&rsquo;s systems and electronic warfare abilities. You gain:</p> <ul> <li><strong>+1 E-DEFENSE</strong> and <strong>TECH ATTACK</strong> for each point of <strong>SYSTEMS</strong>.</li> <li><strong>+1 SP</strong> for every two points of <strong>SYSTEMS</strong>.</li> </ul> <p>Your pilot&rsquo;s <strong>ENGINEERING</strong> affects heat management and ease of repair. You gain:</p> <ul> <li><strong>+1 HEAT CAP</strong> for each point of <strong>ENGINEERING</strong>.</li> <li><strong>+1</strong> to the maximum uses of any <strong>limited</strong> systems or weapons for every two points of <strong>ENGINEERING</strong>.</li> </ul>"
+          "en": "<p>When your pilot builds a mech, their <strong>mech skills</strong> allow you to boost some of its statistics. This is your pilot&rsquo;s unique or personal touch, giving you the ability to customize a stock FRAME.</p> <p>Your pilot&rsquo;s <strong>GRIT</strong> is added to your mech&rsquo;s <strong>HP</strong> and <strong>SAVE TARGET</strong>, as well as its <strong>SP</strong> and attack rolls.</p> <p>Your pilot&rsquo;s <strong>HULL</strong> affects your mech&rsquo;s durability. You gain:</p> <ul> <li><strong>+2 HP</strong> for each point of <strong>HULL</strong>.</li> <li><strong>+1 REPAIR CAP</strong> for every two points of <strong>HULL</strong>.</li> </ul> <p>Your pilot&rsquo;s <strong>AGILITY</strong> affects your mech&rsquo;s maneuverability. You gain:</p> <ul> <li><strong>+1 EVASION</strong> for each point of <strong>AGILITY</strong>.</li> <li><strong>+1 SPEED</strong> for every two points of <strong>AGILITY</strong>.</li> </ul> <p>Your pilot&rsquo;s <strong>SYSTEMS</strong> affects your mech&rsquo;s systems and electronic warfare abilities. You gain:</p> <ul> <li><strong>+1 E-DEFENSE</strong> and <strong>TECH ATTACK</strong> for each point of <strong>SYSTEMS</strong>.</li> <li><strong>+1 SP</strong> for every two points of <strong>SYSTEMS</strong>.</li> </ul> <p>Your pilot&rsquo;s <strong>ENGINEERING</strong> affects heat management and ease of repair. You gain:</p> <ul> <li><strong>+1 HEAT CAP</strong> for each point of <strong>ENGINEERING</strong>.</li> <li><strong>+1</strong> to the maximum uses of any <strong>limited</strong> systems or weapons for every two points of <strong>ENGINEERING</strong>.</li> </ul>",
+          "pt-BR": "<p>Quando seu piloto constrói um mecha, suas <strong>perícias de mecha</strong> permitem aumentar algumas de suas estatísticas. Este é o toque pessoal ou único do seu piloto, dando a você a habilidade de customizar um CHASSI padrão.</p> <p>A <strong>GARRA</strong> (GRIT) do seu piloto é adicionada aos <strong>PV</strong> e à <strong>DIFICULDADE DE SALVAMENTO</strong> do seu mecha, bem como aos seus <strong>SP</strong> e rolagens de ataque.</p> <p>O <strong>CASCO</strong> (HULL) do seu piloto afeta a durabilidade do mecha. Você ganha:</p> <ul> <li><strong>+2 PV</strong> para cada ponto em <strong>CASCO</strong>.</li> <li><strong>+1 LIMITE DE REPAROS</strong> para cada dois pontos em <strong>CASCO</strong>.</li> </ul> <p>A <strong>AGILIDADE</strong> (AGILITY) do seu piloto afeta a manobrabilidade do mecha. Você ganha:</p> <ul> <li><strong>+1 EVASÃO</strong> para cada ponto em <strong>AGILIDADE</strong>.</li> <li><strong>+1 VELOCIDADE</strong> para cada dois pontos em <strong>AGILIDADE</strong>.</li> </ul> <p>Os <strong>SISTEMAS</strong> (SYSTEMS) do seu piloto afetam os sistemas e habilidades de guerra eletrônica do mecha. Você ganha:</p> <ul> <li><strong>+1 DEFESA-E</strong> e <strong>ATAQUE TECNOLÓGICO</strong> para cada ponto em <strong>SISTEMAS</strong>.</li> <li><strong>+1 SP</strong> para cada dois pontos em <strong>SISTEMAS</strong>.</li> </ul> <p>A <strong>ENGENHARIA</strong> (ENGINEERING) do seu piloto afeta a gestão de calor e facilidade de reparo. Você ganha:</p> <ul> <li><strong>+1 LIMITE DE CALOR</strong> para cada ponto em <strong>ENGENHARIA</strong>.</li> <li><strong>+1</strong> ao número máximo de usos de quaisquer sistemas ou armas <strong>limitados</strong> para cada dois pontos em <strong>ENGENHARIA</strong>.</li> </ul>"
         }
       }
     ]
   },
   {
     "title": {
-      "en": "Core Bonuses"
+      "en": "Core Bonuses",
+      "pt-BR": "Bônus de Núcleo (Core Bonuses)"
     },
     "content": {
-      "en": "<p>As your pilot acquires more licenses, they gain knowledge and skills specific to individual manufacturers and their design philosophies. This specialized knowledge is represented by <strong>core bonuses</strong>, unique enhancements that offer interesting ways to customize your mech.</p> <p><strong>Core bonuses</strong> are permanent improvements that apply to any <strong>FRAME</strong> your pilot uses. You cannot choose the same core bonus more than once, but as your pilot progresses, you will be able to choose a range of different bonuses.</p> <p>Your pilot gets a new core bonus every three <strong>LLs</strong>. You can always choose core bonuses from the <strong>GMS list</strong>, but for each core bonus you choose from another manufacturer, you first need to have three license ranks with that manufacturer. For example, to choose a core bonus from IPS-Northstar (IPS-N) you would need at least three ranks in IPS-N licenses; if you wanted to choose a second IPS-N bonus, you would need at least six ranks in licenses. These ranks can be in any combination &ndash; for example, you might have the <strong>rank I</strong> and <strong>rank II</strong> license for one mech and three different <strong>rank I</strong> licenses, equaling six in total.</p>"
+      "en": "<p>As your pilot acquires more licenses, they gain knowledge and skills specific to individual manufacturers and their design philosophies. This specialized knowledge is represented by <strong>core bonuses</strong>, unique enhancements that offer interesting ways to customize your mech.</p> <p><strong>Core bonuses</strong> are permanent improvements that apply to any <strong>FRAME</strong> your pilot uses. You cannot choose the same core bonus more than once, but as your pilot progresses, you will be able to choose a range of different bonuses.</p> <p>Your pilot gets a new core bonus every three <strong>LLs</strong>. You can always choose core bonuses from the <strong>GMS list</strong>, but for each core bonus you choose from another manufacturer, you first need to have three license ranks with that manufacturer. For example, to choose a core bonus from IPS-Northstar (IPS-N) you would need at least three ranks in IPS-N licenses; if you wanted to choose a second IPS-N bonus, you would need at least six ranks in licenses. These ranks can be in any combination &ndash; for example, you might have the <strong>rank I</strong> and <strong>rank II</strong> license for one mech and three different <strong>rank I</strong> licenses, equaling six in total.</p>",
+      "pt-BR": "<p>Conforme seu piloto adquire mais licenças, ele ganha conhecimento e habilidades específicas de fabricantes individuais e suas filosofias de design. Esse conhecimento especializado é representado pelos <strong>bônus de núcleo</strong> (core bonuses), melhorias únicas que oferecem formas interessantes de customizar seu mecha.</p> <p><strong>Bônus de núcleo</strong> são melhorias permanentes que se aplicam a qualquer <strong>CHASSI</strong> que seu piloto usar. Você não pode escolher o mesmo bônus de núcleo mais de uma vez, mas conforme seu piloto progride, você poderá escolher uma gama de bônus diferentes.</p> <p>Seu piloto recebe um novo bônus de núcleo a cada três <strong>NvL</strong> (LL). Você sempre pode escolher bônus de núcleo da <strong>lista da GMS</strong>, mas para cada bônus de núcleo que escolher de outro fabricante, você precisa primeiro ter três níveis de licença com aquele fabricante. Por exemplo, para escolher um bônus de núcleo da IPS-Northstar (IPS-N), você precisaria de pelo menos três níveis em licenças da IPS-N; se quisesse escolher um segundo bônus da IPS-N, precisaria de pelo menos seis níveis em licenças. Esses níveis podem ser em qualquer combinação — por exemplo, você pode ter a licença de <strong>nível I</strong> e <strong>nível II</strong> para um mecha e três licenças diferentes de <strong>nível I</strong>, totalizando seis no total.</p>"
     }
   },
   {
     "title": {
-      "en": "Talents"
+      "en": "Talents",
+      "pt-BR": "Talentos"
     },
     "content": {
-      "en": "<p>Your pilot&rsquo;s ingenuity and experience piloting a mech are represented by <strong>talents</strong> &ndash; special enhancements that can help pilots push mechs past their limits. Talents give your pilot benefits or abilities with specific weapon types, systems, or styles of play, allowing you to further define them within the rules and story. With a few exceptions, talents only affect your character&rsquo;s capabilities as a mech pilot.</p> <p>Talents, like licenses, are measured in ranks: from <strong>rank I</strong> to <strong>rank III</strong>. At <strong>LL0</strong>, you start with three <strong>rank I</strong> talents of your choice. When your pilot levels up, you can either increase a talent to the next rank (i.e., from <strong>rank I</strong> to <strong>rank II</strong>) or choose a new talent at <strong>rank I</strong>.</p>"
+      "en": "<p>Your pilot&rsquo;s ingenuity and experience piloting a mech are represented by <strong>talents</strong> &ndash; special enhancements that can help pilots push mechs past their limits. Talents give your pilot benefits or abilities with specific weapon types, systems, or styles of play, allowing you to further define them within the rules and story. With a few exceptions, talents only affect your character&rsquo;s capabilities as a mech pilot.</p> <p>Talents, like licenses, are measured in ranks: from <strong>rank I</strong> to <strong>rank III</strong>. At <strong>LL0</strong>, you start with three <strong>rank I</strong> talents of your choice. When your pilot levels up, you can either increase a talent to the next rank (i.e., from <strong>rank I</strong> to <strong>rank II</strong>) or choose a new talent at <strong>rank I</strong>.</p>",
+      "pt-BR": "<p>A engenhosidade e experiência do seu piloto na pilotagem de um mecha são representadas pelos <strong>talentos</strong> — melhorias especiais que podem ajudar os pilotos a forçarem seus mechas além dos limites. Talentos dão ao seu piloto benefícios ou habilidades com tipos de armas, sistemas ou estilos de jogo específicos, permitindo que você os defina ainda mais dentro das regras e da história. Com poucas exceções, talentos afetam apenas as capacidades do seu personagem como piloto de mecha.</p> <p>Talentos, como as licenças, são medidos em níveis: do <strong>nível I</strong> ao <strong>nível III</strong>. No <strong>NvL 0</strong>, você começa com três talentos de <strong>nível I</strong> de sua escolha. Quando seu piloto sobe de nível, você pode aumentar um talento para o próximo nível (ou seja, do <strong>nível I</strong> para o <strong>nível II</strong>) ou escolher um novo talento de <strong>nível I</strong>.</p>"
     }
   }
 ]

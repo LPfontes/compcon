@@ -71,6 +71,10 @@ export default {
         title: '中文',
         value: 'zh',
       },
+      {
+        title: 'Português (Brasil)',
+        value: 'pt-BR',
+      },
     ],
   }),
   computed: {

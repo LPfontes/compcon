@@ -15,7 +15,7 @@
         <v-alert variant="outlined"
           class="mb-3 py-1"
           style="border-color: rgb(var(--v-theme-primary))">
-          <div class="heading h3 text-center text-accent">Glossary</div>
+          <div class="heading h3 text-center text-accent">{{ $t('compendium.reference_pages.glossary_page.title') }}</div>
         </v-alert>
         <v-text-field v-model="search"
           item-title="Name"
@@ -24,6 +24,7 @@
           density="compact"
           hide-details
           clearable
+          :placeholder="$t('compendium.reference_pages.glossary_page.searchPlaceholder')"
           class="mt-2" />
         <v-divider class="mt-2" />
         <v-list-item v-for="(e, index) in glossary"

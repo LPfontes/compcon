@@ -1,144 +1,178 @@
 [
   {
     "title": {
-      "en": "As a Player"
+      "en": "As a Player",
+      "pt-BR": "Como Jogador"
     },
     "content": {
-      "en": "content"
+      "en": "content",
+      "pt-BR": "conteúdo"
     },
     "children": [
       {
         "title": {
-          "en": "Pilots"
+          "en": "Pilots",
+          "pt-BR": "Pilotos"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         },
         "children": [
           {
             "title": {
-              "en": "Pilot Roster"
+              "en": "Pilot Roster",
+              "pt-BR": "Lista de Pilotos"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Creating a Pilot"
+              "en": "Creating a Pilot",
+              "pt-BR": "Criando um Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Managing a Pilot"
+              "en": "Managing a Pilot",
+              "pt-BR": "Gerenciando um Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Sharing Pilot Data"
+              "en": "Sharing Pilot Data",
+              "pt-BR": "Compartilhando Dados do Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           }
         ]
       },
       {
         "title": {
-          "en": "Mechs"
+          "en": "Mechs",
+          "pt-BR": "Mechas"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         },
         "children": [
           {
             "title": {
-              "en": "Mech Hangar"
+              "en": "Mech Hangar",
+              "pt-BR": "Hangar de Mechas"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Creating a Mech"
+              "en": "Creating a Mech",
+              "pt-BR": "Criando um Mecha"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Managing a Mech"
+              "en": "Managing a Mech",
+              "pt-BR": "Gerenciando um Mecha"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Loadouts"
+              "en": "Loadouts",
+              "pt-BR": "Configurações (Loadouts)"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           }
         ]
       },
       {
         "title": {
-          "en": "Printable Content"
+          "en": "Printable Content",
+          "pt-BR": "Conteúdo para Impressão"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         },
         "children": [
           {
             "title": {
-              "en": "Statblocks"
+              "en": "Statblocks",
+              "pt-BR": "Blocos de Estatísticas (Statblocks)"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           }
         ]
       },
       {
         "title": {
-          "en": "Tracking Combat"
+          "en": "Tracking Combat",
+          "pt-BR": "Rastreando Combate"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         },
         "children": [
           {
             "title": {
-              "en": "Pilot Sheets"
+              "en": "Pilot Sheets",
+              "pt-BR": "Fichas de Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Combat"
+              "en": "Combat",
+              "pt-BR": "Combate"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "External Tools and Apps"
+              "en": "External Tools and Apps",
+              "pt-BR": "Ferramentas e Apps Externos"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           }
         ]
@@ -147,76 +181,94 @@
   },
   {
     "title": {
-      "en": "As a GM"
+      "en": "As a GM",
+      "pt-BR": "Como MJ"
     },
     "content": {
-      "en": "content"
+      "en": "content",
+      "pt-BR": "conteúdo"
     },
     "children": [
       {
         "title": {
-          "en": "NPCs"
+          "en": "NPCs",
+          "pt-BR": "PdMs (NPCs)"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       },
       {
         "title": {
-          "en": "Encounters"
+          "en": "Encounters",
+          "pt-BR": "Encontros"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       },
       {
         "title": {
-          "en": "Campaigns"
+          "en": "Campaigns",
+          "pt-BR": "Campanhas"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       },
       {
         "title": {
-          "en": "Combat"
+          "en": "Combat",
+          "pt-BR": "Combate"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       }
     ]
   },
   {
     "title": {
-      "en": "Lancer Content Packs"
+      "en": "Lancer Content Packs",
+      "pt-BR": "Pacotes de Conteúdo Lancer (LCPs)"
     },
     "content": {
-      "en": "content"
+      "en": "content",
+      "pt-BR": "conteúdo"
     },
     "children": [
       {
         "title": {
-          "en": "Finding LCPs"
+          "en": "Finding LCPs",
+          "pt-BR": "Encontrando LCPs"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       },
       {
         "title": {
-          "en": "Using LCPs"
+          "en": "Using LCPs",
+          "pt-BR": "Usando LCPs"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       },
       {
         "title": {
-          "en": "Creating LCPs"
+          "en": "Creating LCPs",
+          "pt-BR": "Criando LCPs"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         }
       }
     ]

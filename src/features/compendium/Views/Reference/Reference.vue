@@ -5,10 +5,10 @@
   />
   <cc-tabs fixed-tabs>
     <template #tabs>
-      <v-tab>Actions</v-tab>
-      <v-tab>Statuses & Conditions</v-tab>
-      <v-tab>Icon Guide</v-tab>
-      <v-tab>Damage Tables</v-tab>
+      <v-tab>{{ $t('compendium.reference_pages.actions') }}</v-tab>
+      <v-tab>{{ $t('compendium.reference_pages.statuses') }}</v-tab>
+      <v-tab>{{ $t('compendium.reference_pages.iconGuide') }}</v-tab>
+      <v-tab>{{ $t('compendium.reference_pages.damageTables') }}</v-tab>
     </template>
     <v-window-item>
       <action-economy />

@@ -4,13 +4,13 @@
       <v-col>
         <h1 id="mechactions"
           class="heading">
-          Mech Actions
+          {{ $t('compendium.reference_pages.actions_page.mechActions') }}
         </h1>
       </v-col>
       <v-col v-if="!mobile"
         cols="auto">
         <cc-switch v-model="expanded"
-          label="Show Full" />
+          :label="$t('compendium.reference_pages.actions_page.showFull')" />
       </v-col>
     </v-row>
     <cc-masonry-grid :items="actions"
@@ -26,7 +26,7 @@
 
     <h1 id="pilotactions"
       class="heading">
-      Pilot Actions
+      {{ $t('compendium.reference_pages.actions_page.pilotActions') }}
     </h1>
     <cc-masonry-grid :items="pilotActions"
       :column-width="400"
@@ -41,7 +41,7 @@
 
     <h1 id="downtimeactions"
       class="heading">
-      Downtime Actions
+      {{ $t('compendium.reference_pages.actions_page.downtimeActions') }}
     </h1>
     <cc-masonry-grid :items="downtimeActions"
       :column-width="400"
@@ -61,10 +61,11 @@
     <v-tabs density="compact"
       center-active
       grow>
-      <v-tab v-for="item in content"
-        :key="item"
-        @click="scrollTo(item)"
-        v-text="item" />
+      <v-tab v-for="item in navItems"
+        :key="item.id"
+        @click="scrollTo(item.id)">
+        {{ $t(item.label) }}
+      </v-tab>
     </v-tabs>
   </v-footer>
   <v-btn size="x-small"
@@ -72,7 +73,7 @@
     color="primary"
     variant="plain"
     style="position: fixed; bottom: 35px; right: 0; margin: 8px; z-index: 999"
-    @click="scrollTo(content[0])">
+    @click="scrollTo('mechactions')">
     <v-icon size="30">mdi-arrow-up</v-icon>
   </v-btn>
 </template>
@@ -94,12 +95,10 @@ export default {
     },
   },
   data: () => ({
-    content: ['mech actions', 'pilot actions', 'downtime actions'],
-    actionTypes: [
-      { action: 'move', icon: 'mdi-arrow-right-bold-hexagon-outline' },
-      { action: 'overcharge', icon: 'cc:overcharge' },
-      { action: 'reaction', icon: 'cc:reaction' },
-      { action: 'free', icon: 'cc:free' },
+    navItems: [
+      { id: 'mechactions', label: 'compendium.reference_pages.actions_page.mechActions' },
+      { id: 'pilotactions', label: 'compendium.reference_pages.actions_page.pilotActions' },
+      { id: 'downtimeactions', label: 'compendium.reference_pages.actions_page.downtimeActions' },
     ],
     expanded: false,
   }),
@@ -124,8 +123,8 @@ export default {
     this.expanded = this.widescreen
   },
   methods: {
-    scrollTo(item: any): void {
-      const el = document.getElementById(`${item.replace(/\W/g, '')}`)
+    scrollTo(id: string): void {
+      const el = document.getElementById(id)
       if (el) scrollTo(el, this.isModal)
     },
   },

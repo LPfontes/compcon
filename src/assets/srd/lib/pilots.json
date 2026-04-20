@@ -1,44 +1,54 @@
 [
   {
     "title": {
-      "en": "Overview"
+      "en": "Overview",
+      "pt-BR": "Visão Geral"
     },
     "content": {
-      "en": "<p>Your pilot is the person inside the machine; the character whose entire career you’ll be playing out. Lancers are generally interesting people – if they weren’t, you probably wouldn’t be playing them! As you create your character, you will be able to figure out who they are and what makes them so interesting.</p>"
+      "en": "<p>Your pilot is the person inside the machine; the character whose entire career you’ll be playing out. Lancers are generally interesting people – if they weren’t, you probably wouldn’t be playing them! As you create your character, you will be able to figure out who they are and what makes them so interesting.</p>",
+      "pt-BR": "<p>Seu piloto é a pessoa dentro da máquina; o personagem cuja carreira inteira você estará vivenciando. Lancers são geralmente pessoas interessantes – se não fossem, você provavelmente não estaria jogando com eles! Ao criar seu personagem, você poderá descobrir quem ele é e o que o torna tão interessante.</p>"
     }
   },
   {
     "title": {
-      "en": "Backgrounds"
+      "en": "Backgrounds",
+      "pt-BR": "Antecedentes"
     },
     "content": {
-      "en": "<p>Your pilot&rsquo;s background describes their life before they became a mech pilot. It doesn&rsquo;t necessarily determine your pilot&rsquo;s current role &ndash; indeed, your pilot might reject their old lives, wanting nothing to do with their history even as it affects them in the present &ndash; but it tells your GM and fellow players a bit about who they were prior to entering their machine.&nbsp;</p> <p>Think of a background as a prompt to draw on when imagining your pilot&rsquo;s full backstory. How did your pilot first become a soldier, a doctor, or a miner? And from there, how did they become the lancer they are now?&nbsp;</p> <p>When creating a character, you can choose a background from the <a href=\"/srd/compendium/backgrounds\">list</a> or just make one up yourself.</p>"
+      "en": "<p>Your pilot&rsquo;s background describes their life before they became a mech pilot. It doesn&rsquo;t necessarily determine your pilot&rsquo;s current role &ndash; indeed, your pilot might reject their old lives, wanting nothing to do with their history even as it affects them in the present &ndash; but it tells your GM and fellow players a bit about who they were prior to entering their machine.&nbsp;</p> <p>Think of a background as a prompt to draw on when imagining your pilot&rsquo;s full backstory. How did your pilot first become a soldier, a doctor, or a miner? And from there, how did they become the lancer they are now?&nbsp;</p> <p>When creating a character, you can choose a background from the <a href=\"/srd/compendium/backgrounds\">list</a> or just make one up yourself.</p>",
+      "pt-BR": "<p>O antecedente do seu piloto descreve a vida dele antes de se tornar um piloto de mecha. Ele não determina necessariamente a função atual do seu piloto – na verdade, seu piloto pode rejeitar sua vida antiga, não querendo nada com sua história, mesmo que ela o afete no presente – mas diz ao seu MJ e aos outros jogadores um pouco sobre quem ele era antes de entrar em sua máquina. Pense em um antecedente como um guia para usar ao imaginar a história completa do seu piloto. Como seu piloto se tornou um soldado, um médico ou um minerador? E a partir daí, como ele se tornou o lancer que é agora? Ao criar um personagem, você pode escolher um antecedente da <a href=\"/srd/compendium/backgrounds\">lista</a> ou simplesmente criar um você mesmo.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "Invoking Backgrounds"
+          "en": "Invoking Backgrounds",
+          "pt-BR": "Invocando Antecedentes"
         },
         "content": {
-          "en": "<p>Outside of combat, you (or the GM) can <strong>invoke&nbsp;</strong>your pilot&rsquo;s background to receive <strong>1 ACCURACY</strong> or <strong>1 DIFFICULTY</strong> on any skill check, if their background is relevant. For example, someone who was a colonist might get <strong>+1 ACCURACY</strong> when negotiating with other colonists, navigating the wilderness, or farming. A character born in space, however, might get <strong>+1 DIFFICULTY</strong> when doing the same things.&nbsp;</p> <p>If there is any disagreement, the rest of the group &ndash; <strong>excluding both yourself and the GM</strong> &ndash; arbitrates. If the other players can&rsquo;t reach a consensus, the person who invoked the background decides.</p>"
+          "en": "<p>Outside of combat, you (or the GM) can <strong>invoke&nbsp;</strong>your pilot&rsquo;s background to receive <strong>1 ACCURACY</strong> or <strong>1 DIFFICULTY</strong> on any skill check, if their background is relevant. For example, someone who was a colonist might get <strong>+1 ACCURACY</strong> when negotiating with other colonists, navigating the wilderness, or farming. A character born in space, however, might get <strong>+1 DIFFICULTY</strong> when doing the same things.&nbsp;</p> <p>If there is any disagreement, the rest of the group &ndash; <strong>excluding both yourself and the GM</strong> &ndash; arbitrates. If the other players can&rsquo;t reach a consensus, the person who invoked the background decides.</p>",
+          "pt-BR": "<p>Fora de combate, você (ou o MJ) pode **invocar** o antecedente do seu piloto para receber **1 PRECISÃO** ou **1 DIFICULDADE** em qualquer verificação de perícia, caso o antecedente seja relevante. Por exemplo, alguém que foi um colono pode receber **+1 PRECISÃO** ao negociar com outros colonos, navegar na natureza ou cultivar. Um personagem nascido no espaço, no entanto, pode receber **+1 DIFICULDADE** ao fazer as mesmas coisas. Se houver qualquer discordância, o resto do grupo – **excluindo você e o MJ** – arbitra. Se os outros jogadores não chegarem a um consenso, a pessoa que invocou o antecedente decide.</p>"
         }
       }
     ]
   },
   {
     "title": {
-      "en": "Triggers"
+      "en": "Triggers",
+      "pt-BR": "Gatilhos"
     },
     "content": {
-      "en": "<p>As a central character in the story, your pilot will have moments when their background, training, and personality shine through. These moments are your pilot&rsquo;s <strong>triggers</strong>: short phrases that describe key decisions and actions like<strong>&nbsp;Apply Fists to Faces</strong> or <strong>Get Somewhere Fast</strong>. Triggers are always accompanied by a bonus of <strong>+2</strong>, <strong>+4</strong>, or <strong>+6</strong>.&nbsp;</p> <p>When one of your character&rsquo;s triggers is relevant to a skill check, you get a bonus to the roll. For example, if you have &ldquo;<strong>+2 to Apply Fists to Faces</strong>&rdquo; written on your sheet, any time your character acts in a way that could be construed as applying fists to faces, you get <strong>+2</strong> to the skill check. You can only receive a bonus from one trigger at a time.&nbsp;</p> <p>Triggers apply to actions that depend on your pilot&rsquo;s personal abilities, experience, training, or background &ndash; not actions that rely on their mech&rsquo;s specifications. When taking actions that rely on a mech, <strong>mech skills</strong> are used instead.&nbsp;</p> <p>Triggers are almost always used in <strong>narrative play</strong>, and they never apply to attack rolls, saves, or any rolls other than skill checks.</p> <p>Triggers are usually fairly open-ended, allowing you to apply them in creative ways. That said, the GM is responsible for arbitrating outlandish claims. Be prepared to justify how your <strong>Apply Fists to Faces</strong> trigger helps you hack into an electronic network.</p>"
+      "en": "<p>As a central character in the story, your pilot will have moments when their background, training, and personality shine through. These moments are your pilot&rsquo;s <strong>triggers</strong>: short phrases that describe key decisions and actions like<strong>&nbsp;Apply Fists to Faces</strong> or <strong>Get Somewhere Fast</strong>. Triggers are always accompanied by a bonus of <strong>+2</strong>, <strong>+4</strong>, or <strong>+6</strong>.&nbsp;</p> <p>When one of your character&rsquo;s triggers is relevant to a skill check, you get a bonus to the roll. For example, if you have &ldquo;<strong>+2 to Apply Fists to Faces</strong>&rdquo; written on your sheet, any time your character acts in a way that could be construed as applying fists to faces, you get <strong>+2</strong> to the skill check. You can only receive a bonus from one trigger at a time.&nbsp;</p> <p>Triggers apply to actions that depend on your pilot&rsquo;s personal abilities, experience, training, or background &ndash; not actions that rely on their mech&rsquo;s specifications. When taking actions that rely on a mech, <strong>mech skills</strong> are used instead.&nbsp;</p> <p>Triggers are almost always used in <strong>narrative play</strong>, and they never apply to attack rolls, saves, or any rolls other than skill checks.</p> <p>Triggers are usually fairly open-ended, allowing you to apply them in creative ways. That said, the GM is responsible for arbitrating outlandish claims. Be prepared to justify how your <strong>Apply Fists to Faces</strong> trigger helps you hack into an electronic network.</p>",
+      "pt-BR": "<p>Como personagem central na história, seu piloto terá momentos em que seu antecedente, treinamento e personalidade se destacarão. Esses momentos são os **gatilhos** do seu piloto: frases curtas que descrevem decisões e ações importantes como **Socar Rostos** ou **Chegar Rápido a Algum Lugar**. Gatilhos são sempre acompanhados de um bônus de **+2**, **+4** ou **+6**. Quando um dos gatilhos do seu personagem é relevante para uma verificação de perícia, você recebe um bônus na rolagem. Por exemplo, se você tiver \"**+2 em Socar Rostos**\" escrito em sua ficha, sempre que seu personagem agir de uma forma que possa ser interpretada como socar rostos, você receberá **+2** na verificação de perícia. Você só pode receber bônus de um gatilho por vez. Gatilhos se aplicam a ações que dependem das habilidades pessoais, experiência, treinamento ou antecedente do seu piloto – não a ações que dependem das especificações de seu mecha. Ao realizar ações que dependem de um mecha, **perícias de mecha** são usadas em vez disso. Gatilhos são quase sempre usados no **jogo narrativo** e nunca se aplicam a rolagens de ataque, salvamentos ou quaisquer rolagens que não sejam verificações de perícia. Gatilhos geralmente são bem abertos, permitindo que você os aplique de maneiras criativas. Dito isso, o MJ é responsável por arbitrar alegações absurdas. Esteja preparado para justificar como seu gatilho **Socar Rostos** ajuda você a hackear uma rede eletrônica.</p>"
     },
     "children": [
       {
         "title": {
-          "en": "Creating Triggers"
+          "en": "Creating Triggers",
+          "pt-BR": "Criando Gatilhos"
         },
         "content": {
-          "en": "<p>With GM approval, you can write your own triggers. Custom triggers can be more specific than the examples in this book &ndash; <strong>Kill in Cold Blood</strong> or <strong>Insult Someone</strong>, for instance &ndash; but they shouldn&rsquo;t be more general. They should always apply to specific circumstances or actions.</p>"
+          "en": "<p>With GM approval, you can write your own triggers. Custom triggers can be more specific than the examples in this book &ndash; <strong>Kill in Cold Blood</strong> or <strong>Insult Someone</strong>, for instance &ndash; but they shouldn&rsquo;t be more general. They should always apply to specific circumstances or actions.</p>",
+          "pt-BR": "<p>Com a aprovação do MJ, você pode escrever seus próprios gatilhos. Gatilhos personalizados podem ser mais específicos do que os exemplos deste livro – **Matar a Sangue Frio** ou **Insultar Alguém**, por exemplo – mas não devem ser mais gerais. Eles devem sempre se aplicar a circunstâncias ou ações específicas.</p>"
         }
       }
     ]

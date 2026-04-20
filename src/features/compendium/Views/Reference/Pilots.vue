@@ -1,5 +1,5 @@
 <template>
-  <srd-view title="pilots" :content="pilots" :pre-scroll="preScroll" />
+  <srd-view :title="$t('compendium.reference_pages.pilots')" :content="pilots" :pre-scroll="preScroll" />
 </template>
 
 <script lang="ts">

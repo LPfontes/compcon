@@ -1,50 +1,62 @@
 [
   {
     "title": {
-      "en": "As a Player"
+      "en": "As a Player",
+      "pt-BR": "Como Jogador"
     },
     "content": {
-      "en": "content"
+      "en": "content",
+      "pt-BR": "conteúdo"
     },
     "children": [
       {
         "title": {
-          "en": "Pilots"
+          "en": "Pilots",
+          "pt-BR": "Pilotos"
         },
         "content": {
-          "en": "content"
+          "en": "content",
+          "pt-BR": "conteúdo"
         },
         "children": [
           {
             "title": {
-              "en": "Pilot Roster"
+              "en": "Pilot Roster",
+              "pt-BR": "Lista de Pilotos"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Creating a Pilot"
+              "en": "Creating a Pilot",
+              "pt-BR": "Criando um Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Managing a Pilot"
+              "en": "Managing a Pilot",
+              "pt-BR": "Gerenciando um Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           },
           {
             "title": {
-              "en": "Sharing Pilot Data"
+              "en": "Sharing Pilot Data",
+              "pt-BR": "Compartilhando Dados do Piloto"
             },
             "content": {
-              "en": "content"
+              "en": "content",
+              "pt-BR": "conteúdo"
             }
           }
         ]

@@ -1,13 +1,13 @@
 <template>
   <v-container>
-    <h1 class="heading">Per Turn</h1>
+    <h1 class="heading">{{ $t('compendium.reference_pages.actionEconomy.perTurn') }}</h1>
     <v-card color="panel" elevation-10>
       <v-card-text>
         <v-row justify="center" dense>
           <v-col cols="12" md="4" class="effect-text text-center">
-            Full Action
-            <i class="text-disabled text--darken-1">or&nbsp</i>
-            2 Quick Actions
+            {{ $t('compendium.reference_pages.actionEconomy.fullAction') }}
+            <i class="text-disabled text--darken-1">{{ $t('compendium.reference_pages.actionEconomy.or') }}&nbsp</i>
+            {{ $t('compendium.reference_pages.actionEconomy.quickActions') }}
             <br />
             <v-card tile flat color="action--full" class="text-center py-3">
               <v-icon :size="mobile ? 50 : 100" dark>mdi-hexagon-slice-6</v-icon>
@@ -23,7 +23,7 @@
             sm=""
             style="min-width: 12vw"
             class="effect-text text-center text-capitalize">
-            {{ a.action }}
+            {{ $t(`common.actions.${a.action}`) }}
             <br />
             <v-card tile flat :color="`action--${a.action}`" class="py-3">
               <v-icon :size="mobile ? 50 : 100" dark>{{ a.icon }}</v-icon>
