@@ -9,7 +9,7 @@
       <v-icon icon="cc:destroyed"
         size="x-large"
         start />
-      {{ item.ItemType }} DESTROYED
+      {{ $t(`activeMode.runner.common.genericDestroyed`, { type: item.ItemType }) }}
       <div
         style="position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; opacity: 0.85"
         class="bg-background" />
@@ -68,18 +68,15 @@
                     max-width="300"
                     class="pa-2 text-center"
                     border="sm">
-                    <div>Mark an activation as complete?
-                    </div>
+                    <div>{{ $t('activeMode.runner.common.endTurn.title') }}</div>
 
                     <div v-if="item.CombatController.StatController.CurrentStats['activations'] > 1"
                       class="text-cc-overline text-text mt-1 mb-2">
-                      This will reduce reduced the remaining activations
-                      by 1 and
-                      reset all actions.
+                      {{ $t('activeMode.runner.common.endTurn.desc') }}
                     </div>
                     <div v-else
                       class="text-cc-overline text-text mt-1 mb-2">
-                      This will end {{ item.Name }}'s turn.
+                      {{ $t('activeMode.runner.common.endTurn.last', { name: item.Name }) }}
                     </div>
                     <v-btn block
                       flat
@@ -87,7 +84,7 @@
                       size="small"
                       color="primary"
                       @click="handleActivate">
-                      Confirm
+                      {{ $t('activeMode.runner.common.confirm') }}
                     </v-btn>
                   </v-card>
                 </v-menu>
@@ -105,7 +102,7 @@
                 v-if="Object.keys(item.StatController.MaxStats).includes('grit') || (item.Parent && Object.keys(item.Parent.StatController.MaxStats).includes('grit'))"
                 cols="auto">
                 <v-tooltip location="top"
-                  text="Pilot Grit">
+                  :text="$t('activeMode.runner.common.grit')">
                   <template #activator="{ props }">
                     <span v-bind="props">
                       <v-icon icon="mdi-star-four-points-outline"
@@ -240,7 +237,7 @@
                 :class="mobile ? '' : 'ml-auto'"
                 align-self="center">
                 <div v-if="mobile"
-                  class="text-cc-overline text-disabled">Cover</div>
+                  class="text-cc-overline text-disabled">{{ $t('activeMode.runner.common.cover.label') }}</div>
                 <v-btn-toggle v-model="item.CombatController.Cover"
                   flat
                   tile
@@ -248,13 +245,13 @@
                   style="height: 30px">
                   <v-btn size="small"
                     height="30"
-                    value="none">{{ mobile ? 'None' : 'No Cover' }}</v-btn>
+                    value="none">{{ mobile ? $t('activeMode.runner.common.cover.noneShort') : $t('activeMode.runner.common.cover.none') }}</v-btn>
                   <v-btn size="small"
                     height="30"
-                    value="soft">{{ mobile ? 'Soft' : 'Soft Cover' }}</v-btn>
+                    value="soft">{{ mobile ? $t('activeMode.runner.common.cover.softShort') : $t('activeMode.runner.common.cover.soft') }}</v-btn>
                   <v-btn size="small"
                     height="30"
-                    value="hard">{{ mobile ? 'Hard' : 'Hard Cover' }}</v-btn>
+                    value="hard">{{ mobile ? $t('activeMode.runner.common.cover.hardShort') : $t('activeMode.runner.common.cover.hard') }}</v-btn>
                 </v-btn-toggle>
               </v-col>
             </v-row>
@@ -296,14 +293,14 @@
                 color="panel"
                 flat>
                 <v-expansion-panel>
-                  <v-expansion-panel-title class="heading h4 ">Resistances</v-expansion-panel-title>
+                  <v-expansion-panel-title class="heading h4 ">{{ $t('activeMode.runner.common.sections.resistances') }}</v-expansion-panel-title>
                   <v-expansion-panel-text style="border: 2px solid rgb(var(--v-theme-panel))">
                     <damage-condition-selector :controller="item.CombatController" />
                   </v-expansion-panel-text>
                 </v-expansion-panel>
                 <v-expansion-panel>
                   <v-expansion-panel-title
-                    class="heading h4 ">Statuses/Conditions</v-expansion-panel-title>
+                    class="heading h4 ">{{ $t('activeMode.runner.common.sections.conditions') }}</v-expansion-panel-title>
                   <v-expansion-panel-text style="border: 2px solid rgb(var(--v-theme-panel))">
                     <status-condition-selector :controller="item.CombatController"
                       :encounter="encounterInstance" />
@@ -321,7 +318,7 @@
 
         <slot name="pre" />
 
-        <div class="text-cc-overline mt-4 text-disabled">COUNTERS</div>
+        <div class="text-cc-overline mt-4 text-disabled">{{ $t('activeMode.runner.common.counters') }}</div>
         <cc-counter-set :actor="item" />
       </v-col>
       <v-col cols="12"

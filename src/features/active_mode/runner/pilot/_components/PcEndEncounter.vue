@@ -7,7 +7,7 @@
         color="accent"
         prepend-icon="mdi-progress-check"
         @click="props.onClick($event)">
-        End Encounter
+        {{ $t('activeMode.runner.endEncounter.btn') }}
       </v-btn>
     </template>
     <template #default="{ isActive }">
@@ -19,7 +19,7 @@
             <v-icon icon="mdi-clock-end"
               class="mt-n1 ml-2"
               start />
-            Confirm End Encounter
+            {{ $t('activeMode.runner.endEncounter.confirmTitle') }}
           </div>
           <v-spacer />
           <v-btn icon
@@ -28,7 +28,7 @@
           </v-btn>
         </v-toolbar>
         <v-card-text>
-          <div class="text-cc-overline">// AFTER-ACTION REPORT</div>
+          <div class="text-cc-overline">// {{ $t('activeMode.runner.endEncounter.reportTitle') }}</div>
           <v-card color="background"
             class="mt-1 mb-4">
             <v-card-text class="pa-2">
@@ -48,7 +48,9 @@
                     hide-details
                     density="compact"
                     min-width="250"
-                    :items="npcStatusTypes" /></v-col>
+                    :items="npcStatusTypes.map(s => ({ title: localStatus(s), value: s }))"
+                    item-title="title"
+                    item-value="value" /></v-col>
                 <v-col v-if="c.pilotStatus"
                   cols="auto"><v-combobox v-model="c.pilotStatus"
                     flat
@@ -56,7 +58,9 @@
                     hide-details
                     density="compact"
                     min-width="250"
-                    :items="pilotStatusTypes" /></v-col>
+                    :items="pilotStatusTypes.map(s => ({ title: localStatus(s), value: s }))"
+                    item-title="title"
+                    item-value="value" /></v-col>
                 <v-col v-if="c.mechStatus"
                   cols="auto"><v-combobox v-model="c.mechStatus"
                     flat
@@ -64,16 +68,20 @@
                     hide-details
                     density="compact"
                     min-width="250"
-                    :items="mechStatusTypes" /></v-col>
+                    :items="mechStatusTypes.map(s => ({ title: localStatus(s), value: s }))"
+                    item-title="title"
+                    item-value="value" /></v-col>
               </v-row>
             </v-card-text>
           </v-card>
 
-          <div class="text-cc-overline">// RESULT</div>
+          <div class="text-cc-overline">// {{ $t('activeMode.runner.endEncounter.resultTitle') }}</div>
           <v-row>
             <v-col>
               <v-combobox v-model="result"
-                :items="['PC VICTORY', 'ENEMY VICTORY', 'STALEMATE']"
+                :items="['PC VICTORY', 'ENEMY VICTORY', 'STALEMATE'].map(r => ({ title: localResult(r), value: r }))"
+                item-title="title"
+                item-value="value"
                 variant="outlined"
                 density="compact" />
             </v-col>
@@ -84,13 +92,10 @@
             <cc-alert v-if="confirm"
               color="warning"
               variant="outlined"
-              title="Confirm End Encounter"
+              :title="$t('activeMode.runner.endEncounter.confirmTitle')"
               icon="mdi-alert-outline"
               class="mb-4">
-              <p class=text-text>Ending this encounter will close the active sheet instance and send
-                a
-                copy to the archive.
-                Are you sure you want to continue?</p>
+              <p class=text-text>{{ $t('activeMode.runner.endEncounter.archiveWarning') }}</p>
             </cc-alert>
           </v-slide-y-reverse-transition>
           <v-row>
@@ -99,12 +104,12 @@
                 block
                 size=small
                 color="primary"
-                @click="confirm = true">end encounter</cc-button>
+                @click="confirm = true">{{ $t('activeMode.runner.endEncounter.btn') }}</cc-button>
               <cc-button v-else
                 block
                 size=small
                 color="warning"
-                @click="end">Confirm end encounter</cc-button>
+                @click="end">{{ $t('activeMode.runner.endEncounter.confirmTitle') }}</cc-button>
             </v-col>
           </v-row>
         </v-card-text>
@@ -179,6 +184,31 @@ export default {
       this.sheet.Archive();
       this.$router.replace('/active-mode/sheet-manager');
     },
+    localStatus(s: string) {
+      const map: any = {
+        'COMBAT EFFECTIVE': 'combatEffective',
+        'INJURED': 'injured',
+        'KIA': 'kia',
+        'MIA': 'mia',
+        'ESCAPED': 'escaped',
+        'DISENGAGED': 'disengaged',
+        'OPERATIONAL': 'operational',
+        'DESTROYED': 'destroyed',
+        'DESTROYED - REACTOR MELTDOWN': 'destroyedMeltdown',
+        'MECH OPERATIONAL': 'mechOperational',
+        'MECH DESTROYED': 'mechDestroyed',
+        'AI CONTROL - IN CASCADE': 'aiCascade'
+      };
+      return this.$t(`activeMode.runner.endEncounter.statuses.${map[s] || _.camelCase(s)}`);
+    },
+    localResult(r: string) {
+      const map: any = {
+        'PC VICTORY': 'pcVictory',
+        'ENEMY VICTORY': 'enemyVictory',
+        'STALEMATE': 'stalemate'
+      };
+      return this.$t(`activeMode.runner.endEncounter.results.${map[r]}`);
+    }
   },
 
 };

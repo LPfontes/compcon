@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="heading h2"> Character Sheets</div>
+    <div class="heading h2"> {{ $t('activeMode.manager.title') }}</div>
 
     <div class="my-1">
       <v-tooltip location="top"
@@ -21,7 +21,7 @@
               class="mb-n1" />
           </v-btn>
         </template>
-        <span>Sort by Recent</span>
+        <span>{{ $t('activeMode.manager.sortRecent') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top"
@@ -42,7 +42,7 @@
               color="accent" />
           </v-btn>
         </template>
-        <span>Sort by Name</span>
+        <span>{{ $t('activeMode.manager.sortName') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top"
@@ -63,7 +63,7 @@
               class="mb-n1" />
           </v-btn>
         </template>
-        <span>Sort by created timestamp</span>
+        <span>{{ $t('activeMode.manager.sortCreated') }}</span>
       </v-tooltip>
     </div>
 
@@ -83,7 +83,7 @@
           color="primary"
           to="/active-mode/new-sheet"
           class="mb-2">
-          New Character Sheet
+          {{ $t('activeMode.manager.newSheet') }}
         </cc-button>
       </v-col>
       <v-col cols="12"
@@ -94,7 +94,7 @@
           color="primary"
           class="mb-2"
           @click="importSelect()">
-          Import
+          {{ $t('activeMode.manager.import') }}
         </cc-button>
       </v-col>
     </v-row>
@@ -102,7 +102,7 @@
     <v-expansion-panels>
       <v-expansion-panel>
         <v-expansion-panel-title class="text-cc-overline">
-          Archived Sheets ({{ archived.length }})
+          {{ $t('activeMode.manager.archivedTitle', { count: archived.length }) }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <div class="mb-4"
@@ -116,7 +116,7 @@
           </div>
           <div v-if="archived.length === 0"
             class="text-center text-cc-overline text-disabled">
-            <i>No archived sheets found{{ search ? ` including "${search}"` : '' }}.</i>
+            <i>{{ search ? $t('activeMode.manager.noArchivedSearch', { search: search }) : $t('activeMode.manager.noArchived') }}</i>
           </div>
           <v-row v-for="e in archived"
             :key="e.ID"
@@ -128,35 +128,34 @@
               <br>
               <v-card v-if="e.Combatant.actor.CombatController.IsDead"
                 class="px-1 bg-error text-center">
-                KIA
+                {{ $t('activeMode.manager.status.kia') }}
               </v-card>
               <v-card v-else
                 class="px-1 bg-success text-center">
-                ACTIVE
+                {{ $t('activeMode.manager.status.active') }}
               </v-card>
             </v-col>
             <v-col cols="auto">
               <div>
-                <span class="text-disabled mr-1">CREATED</span>
+                <span class="text-disabled mr-1">{{ $t('activeMode.manager.labels.created') }}</span>
                 <b>{{ new Date(e.Created).toLocaleDateString() }}</b>
               </div>
               <div>
-                <span class="text-disabled mr-1">ARCHIVED</span>
+                <span class="text-disabled mr-1">{{ $t('activeMode.manager.labels.archived') }}</span>
                 <b>{{ new Date(e.Updated).toLocaleDateString() }}</b>
               </div>
             </v-col>
             <v-col class="text-center">
               <cc-dialog :close-on-click="false"
-                :title="`${e.Name} - LOGS AND TELEMETRY`">
+                :title="$t('activeMode.manager.telemetry.title', { name: e.Name })">
                 <template #activator="{ open }">
                   <cc-button size="small"
                     color="primary"
                     disabled
                     block
-                    tooltip="Review the combat log and battlefield telemetry from this sheet and optionally save it to your pilot's history."
-                    @click="open()">Save
-                    Pilot History</cc-button>
-                  <div class="text-cc-overline text-disabled">Feature in development (v3.1)</div>
+                    :tooltip="$t('activeMode.manager.telemetry.saveTooltip')"
+                    @click="open()">{{ $t('activeMode.manager.telemetry.saveBtn') }}</cc-button>
+                  <div class="text-cc-overline text-disabled">{{ $t('activeMode.manager.telemetry.wip') }}</div>
                 </template>
                 <v-card flat
                   tile>
@@ -167,25 +166,24 @@
                       tile
                       color="panel"
                       border=start
-                      border-color="red">This feature is still in development. Additional
-                      data and export options will be available in future builds.
+                      border-color="red">{{ $t('activeMode.manager.telemetry.wipAlert') }}
                     </v-alert>
                     <v-expansion-panels>
                       <v-expansion-panel>
                         <v-expansion-panel-title class="heading">
-                          encounter #
+                          {{ $t('activeMode.manager.telemetry.encounterNum') }}
                         </v-expansion-panel-title>
                         <v-expansion-panel-text class="bg-background">
                           <code class="text-left "
                             style="white-space: pre-wrap; word-break: break-word;">
                         <v-row dense>
                           <v-col>
-                            <div class="text-disabled mb-1">BATTLEFIELD TELEMETRY</div>
+                            <div class="text-disabled mb-1">{{ $t('activeMode.manager.telemetry.battlefieldTelemetry') }}</div>
                             <div class="text-disabled mb-1">---------------------</div>
                             <!-- {{ formatTelemetry(a.telemetry) }} -->
                           </v-col>
                           <v-col style="max-height: 800px; overflow-y: scroll;">
-                            <div class="text-disabled mb-1">COMBAT LOGS</div>
+                            <div class="text-disabled mb-1">{{ $t('activeMode.manager.telemetry.combatLogs') }}</div>
                             <div class="text-disabled mb-1">---------------------</div>
                             <div class="mb-2">
                               <!-- {{ formatLogEntry(log) }} -->
@@ -199,7 +197,7 @@
                   </v-card-text>
                   <v-card-actions>
                     <cc-button color="primary">
-                      Export as JSON
+                      {{ $t('activeMode.manager.telemetry.exportBtn') }}
                     </cc-button>
                   </v-card-actions>
                 </v-card>
@@ -221,19 +219,16 @@
                 </template>
                 <v-card>
                   <v-card-text>
-                    <b>Delete this archive?</b>
+                    <b>{{ $t('activeMode.manager.delete.title') }}</b>
                     <br>
                     <p class="text-caption text--text mb-2">
-                      This will flag the archive for deletion. It will no longer appear in this
-                      list,
-                      but will be permanently deleted based on your retention options in the Options
-                      Menu.
+                      {{ $t('activeMode.manager.delete.confirm') }}
                     </p>
                     <cc-button size="small"
                       block
                       color="primary"
                       @click="e.SaveController.Delete()">
-                      Delete
+                      {{ $t('activeMode.manager.delete.btn') }}
                     </cc-button>
                   </v-card-text>
                 </v-card>
@@ -342,7 +337,7 @@ export default {
             PilotStore().SetActiveSheet(sheet.ID);
             this.$router.push(`pilot-runner/${sheet.ID}`);
           } catch (error) {
-            alert('Failed to import sheet: Invalid file format.');
+            alert(this.$t('activeMode.manager.importError'));
           }
         };
         reader.readAsText(file);

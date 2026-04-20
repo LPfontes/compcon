@@ -1290,6 +1290,241 @@
       "skipStep": "SKIP STEP"
     }
   },
+  "activeMode": {
+    "landing": {
+      "title": "Active Mission Mode",
+      "newSession": "New Active Session",
+      "newSessionSubtitle": "Begin a new active session with a pilot and mecha",
+      "loadSession": "Load Active Session",
+      "loadSessionSubtitle": "Resume an existing active mission",
+      "noSessions": "No active sessions found"
+    },
+    "new": {
+      "title": "New Character Sheet",
+      "selectPilot": "select pilot",
+      "selectMech": "select active mecha",
+      "createNewPilot": "Create New Pilot",
+      "allPilots": "All Pilots",
+      "confirm": "Confirm",
+      "campaignLabel": "Campaign Name",
+      "campaignTooltip": "Optional, for organizational purposes.",
+      "launchBtn": "Create and Launch Active Mode",
+      "libraryBtn": "Create and return to library",
+      "stats": {
+        "str": "STR",
+        "hp": "HP",
+        "stress": "Stress",
+        "heat": "Heat",
+        "repCap": "Repair Cap."
+      }
+    },
+    "manager": {
+      "title": "Character Sheets",
+      "newSheet": "New Character Sheet",
+      "import": "Import",
+      "importError": "Failed to import sheet: Invalid file format.",
+      "archivedTitle": "Archived Sheets ({count})",
+      "noArchived": "No archived sheets found",
+      "noArchivedSearch": "No archived sheets found including \"{search}\"",
+      "sortRecent": "Sort by Recent",
+      "sortName": "Sort by Name",
+      "sortCreated": "Sort by created timestamp",
+      "status": {
+        "kia": "KIA",
+        "active": "ACTIVE"
+      },
+      "labels": {
+        "created": "CREATED",
+        "archived": "ARCHIVED"
+      },
+      "delete": {
+        "title": "Delete this archive?",
+        "confirm": "This will flag the archive for deletion. It will no longer appear in this list, but will be permanently deleted based on your retention options in the Options Menu.",
+        "btn": "Delete"
+      },
+      "telemetry": {
+        "title": "{name} - LOGS AND TELEMETRY",
+        "saveBtn": "Save Pilot History",
+        "saveTooltip": "Review the combat log and battlefield telemetry from this sheet and optionally save it to your pilot's history.",
+        "wip": "Feature in development (v3.1)",
+        "wipAlert": "This feature is still in development. Additional data and export options will be available in future builds.",
+        "encounterNum": "encounter #",
+        "battlefieldTelemetry": "BATTLEFIELD TELEMETRY",
+        "combatLogs": "COMBAT LOGS",
+        "exportBtn": "Export as JSON"
+      },
+      "item": {
+        "local": "Local",
+        "noCampaign": "No Campaign Information",
+        "archive": "Archive Sheet",
+        "export": "Export Sheet",
+        "delete": "Delete Sheet",
+        "mounted": "MOUNTED",
+        "unmounted": "UNMOUNTED",
+        "round": "Round {n}",
+        "started": "started",
+        "lastTurn": "last turn"
+      }
+    },
+    "runner": {
+      "loading": "Loading pilot sheet...",
+      "playedBy": "Played by",
+      "reserves": "reserves",
+      "unusedOnly": "Unused Only",
+      "all": "All",
+      "noReserves": "No reserves available",
+      "common": {
+        "mounted": "MOUNTED",
+        "unmounted": "UNMOUNTED",
+        "pilotMounted": "PILOT MOUNTED",
+        "pilotUnmounted": "PILOT UNMOUNTED",
+        "round": "Round {n}",
+        "grit": "Pilot Grit",
+        "counters": "COUNTERS",
+        "override": "override",
+        "confirm": "Confirm",
+        "endTurn": {
+          "title": "Mark an activation as complete?",
+          "desc": "This will reduce the remaining activations by 1 and reset all actions.",
+          "last": "This will end {name}'s turn."
+        },
+        "cover": {
+          "label": "Cover",
+          "none": "No Cover",
+          "soft": "Soft Cover",
+          "hard": "Hard Cover",
+          "noneShort": "None",
+          "softShort": "Soft",
+          "hardShort": "Hard"
+        },
+        "palette": {
+          "mounted": "Mounted",
+          "braced": "Braced",
+          "overwatch": "Overwatch",
+          "prepared": "Prepared",
+          "aiControl": "AI Control"
+        },
+        "sections": {
+          "traits": "Frame Traits ({count})",
+          "bonuses": "Core Bonuses ({count})",
+          "talents": "Pilot Talents ({count})",
+          "core": "Core",
+          "loadout": "Loadout",
+          "resistances": "Resistances",
+          "conditions": "Statuses/Conditions"
+        }
+      },
+      "mech": {
+        "destroyedTitle": "Mech Destroyed — Reactor Meltdown",
+        "destroyedDesc": "This mech has suffered a reactor meltdown. It is permanently destroyed and cannot be repaired.",
+        "aiTitle": "Under AI Control",
+        "genericDestroyed": "MECH DESTROYED"
+      },
+      "pilot": {
+        "kiaTitle": "Pilot KIA",
+        "kiaDesc": "This pilot has been killed in action.",
+        "downTitle": "Down and Out",
+        "downDesc": "Pilot is unconscious, and any additional damage will kill them.",
+        "genericDestroyed": "PILOT DESTROYED"
+      },
+      "damage": {
+        "btn": "Take damage",
+        "title": "Take Damage",
+        "incomingLabel": "Incoming Damage Value",
+        "half": "Half Damage",
+        "ap": "Armor Piercing",
+        "force": "Irreducible",
+        "typeLabel": "Damage Type",
+        "defenderLabel": "Defender Status",
+        "nominal": "NOMINAL",
+        "totalLabel": "Total Damage",
+        "applyBtn": "Apply and Close",
+        "types": {
+          "kinetic": "Kinetic",
+          "energy": "Energy",
+          "explosive": "Explosive",
+          "heat": "Heat",
+          "burn": "Burn",
+          "aoe": "AoE"
+        },
+        "statuses": {
+          "exposed": {
+            "title": "Exposed",
+            "desc": "Kinetic, explosive, and heat damage doubled."
+          },
+          "shredded": {
+            "title": "Shredded",
+            "desc": "Damage ignores armor and resistance."
+          }
+        }
+      }
+    },
+    "endRound": {
+      "btn": "End Round",
+      "confirmTitle": "Confirm End Round",
+      "remainingActions": "You have remaining actions!",
+      "forfeitWarning": "Ending the round will forfeit any unused actions.",
+      "nextRound": "Next Round:",
+      "loseStatuses": "will lose the following statuses:",
+      "expiresAt": "at the {EndsOn} of your turn",
+      "bracedExit": "You exit BRACED and enter BRACE COOLDOWN state."
+    },
+    "endEncounter": {
+      "btn": "End Encounter",
+      "confirmTitle": "Confirm End Encounter",
+      "reportTitle": "AFTER-ACTION REPORT",
+      "resultTitle": "RESULT",
+      "results": {
+        "pcVictory": "PC VICTORY",
+        "enemyVictory": "ENEMY VICTORY",
+        "stalemate": "STALEMATE"
+      },
+      "statuses": {
+        "combatEffective": "COMBAT EFFECTIVE",
+        "injured": "INJURED",
+        "kia": "KIA",
+        "mia": "MIA",
+        "escaped": "ESCAPED",
+        "disengaged": "DISENGAGED",
+        "operational": "OPERATIONAL",
+        "destroyed": "DESTROYED",
+        "destroyedMeltdown": "DESTROYED - REACTOR MELTDOWN",
+        "mechOperational": "MECH OPERATIONAL",
+        "mechDestroyed": "MECH DESTROYED",
+        "aiCascade": "AI CONTROL - IN CASCADE"
+      },
+      "archiveWarning": "Ending this encounter will close the active sheet instance and send a copy to the archive. Are you sure you want to continue?"
+    },
+    "tables": {
+      "title": "Tables",
+      "sort": {
+        "status": "Sort by Online Status",
+        "name": "Sort by Name",
+        "gm": "Sort by GM",
+        "lastOnline": "Sort by Last Online",
+        "nextSession": "Sort by Next Session"
+      },
+      "online": "Online",
+      "offline": "Offline",
+      "gm": "GM",
+      "players": "Players",
+      "lastOnline": "Last Online",
+      "nextSession": "Next Session",
+      "nextSessionAt": "at {time}",
+      "currentlyRunning": "Currently Running",
+      "callsign": "Callsign",
+      "activeMech": "Active Mech",
+      "connect": "Connect",
+      "gmOffline": "GM OFFLINE",
+      "addTable": "Add Table",
+      "tableCode": "Table Connect Code",
+      "search": "Search",
+      "archived": {
+        "title": "Archived Tables",
+        "desc": "completed/closed tables with history, after action reports, etc. These should be printable/exportable and converted into narrative elements or similar."
+      }
+    }
+  },
   "compendium": {
     "selectBtn": "Select {name}",
     "frameSuffix": "Frame"

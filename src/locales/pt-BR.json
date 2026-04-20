@@ -1290,6 +1290,249 @@
       "skipStep": "PULAR ETAPA"
     }
   },
+  "activeMode": {
+    "landing": {
+      "title": "Modo de Missão Ativa",
+      "newSession": "Nova Sessão Ativa",
+      "newSessionSubtitle": "Iniciar uma nova sessão ativa com um piloto e mecha",
+      "loadSession": "Carregar Sessão Ativa",
+      "loadSessionSubtitle": "Retomar uma missão ativa existente",
+      "noSessions": "Nenhuma sessão ativa encontrada"
+    },
+    "new": {
+      "title": "Nova Ficha de Personagem",
+      "selectPilot": "selecionar piloto",
+      "selectMech": "selecionar mecha ativo",
+      "createNewPilot": "Criar Novo Piloto",
+      "allPilots": "Todos os Pilotos",
+      "confirm": "Confirmar",
+      "campaignLabel": "Nome da Campanha",
+      "campaignTooltip": "Opcional, para fins de organização.",
+      "launchBtn": "Criar e Iniciar Modo Ativo",
+      "libraryBtn": "Criar e retornar à biblioteca",
+      "stats": {
+        "str": "EST",
+        "hp": "PV",
+        "stress": "Estresse",
+        "heat": "Calor",
+        "repCap": "Cap. Reparo"
+      }
+    },
+    "manager": {
+      "title": "Fichas de Personagem",
+      "newSheet": "Nova Ficha de Personagem",
+      "import": "Importar",
+      "importError": "Falha ao importar ficha: Formato de arquivo inválido.",
+      "archivedTitle": "Fichas Arquivadas ({count})",
+      "noArchived": "Nenhuma ficha arquivada encontrada",
+      "noArchivedSearch": "Nenhuma ficha arquivada encontrada incluindo \"{search}\"",
+      "sortRecent": "Ordenar por Recentes",
+      "sortName": "Ordenar por Nome",
+      "sortCreated": "Ordenar por data de criação",
+      "status": {
+        "kia": "MIA",
+        "active": "ATIVO"
+      },
+      "labels": {
+        "created": "CRIADO EM",
+        "archived": "ARQUIVADO EM"
+      },
+      "delete": {
+        "title": "Excluir este arquivo?",
+        "confirm": "Isso marcará o arquivo para exclusão. Ele não aparecerá mais nesta lista, mas será excluído permanentemente com base em suas opções de retenção no Menu de Opções.",
+        "btn": "Excluir"
+      },
+      "telemetry": {
+        "title": "{name} - LOGS E TELEMETRIA",
+        "saveBtn": "Salvar Histórico do Piloto",
+        "saveTooltip": "Revise o log de combate e a telemetria do campo de batalha desta ficha e opcionalmente salve-o no histórico do seu piloto.",
+        "wip": "Recurso em desenvolvimento (v3.1)",
+        "wipAlert": "Este recurso ainda está em desenvolvimento. Dados adicionais e opções de exportação estarão disponíveis em versões futuras.",
+        "encounterNum": "encontro #",
+        "battlefieldTelemetry": "TELEMETRIA DE CAMPO DE BATALHA",
+        "combatLogs": "LOGS DE COMBATE",
+        "exportBtn": "Exportar como JSON"
+      },
+      "item": {
+        "local": "Local",
+        "noCampaign": "Sem Informações de Campanha",
+        "archive": "Arquivar Ficha",
+        "export": "Exportar Ficha",
+        "delete": "Excluir Ficha",
+        "mounted": "MONTADO",
+        "unmounted": "DESMONTADO",
+        "round": "Rodada {n}",
+        "started": "iniciado em",
+        "lastTurn": "último turno"
+      }
+    },
+    "runner": {
+      "loading": "Carregando ficha do piloto...",
+      "playedBy": "Jogado por",
+      "reserves": "reservas",
+      "unusedOnly": "Apenas Não Usados",
+      "all": "Tudo",
+      "noReserves": "Nenhuma reserva disponível",
+      "common": {
+        "mounted": "MONTADO",
+        "unmounted": "DESMONTADO",
+        "pilotMounted": "PILOTO MONTADO",
+        "pilotUnmounted": "PILOTO DESMONTADO",
+        "round": "Rodada {n}",
+        "grit": "Audácia do Piloto",
+        "counters": "CONTADORES",
+        "override": "sobrescrever",
+        "confirm": "Confirmar",
+        "endTurn": {
+          "title": "Marcar uma ativação como concluída?",
+          "desc": "Isso reduzirá as ativações restantes em 1 e redefinirá todas as ações.",
+          "last": "Isso encerrará o turno de {name}."
+        },
+        "cover": {
+          "label": "Cobertura",
+          "none": "Sem Cobertura",
+          "soft": "Cobertura Leve",
+          "hard": "Cobertura Pesada",
+          "noneShort": "Nenhuma",
+          "softShort": "Leve",
+          "hardShort": "Pesada"
+        },
+        "palette": {
+          "mounted": "Montado",
+          "braced": "Preparado",
+          "overwatch": "Vigilância",
+          "prepared": "Preparado",
+          "aiControl": "Controle de IA"
+        },
+        "sections": {
+          "traits": "Traços da Estrutura ({count})",
+          "bonuses": "Bônus de Núcleo ({count})",
+          "talents": "Talentos do Piloto ({count})",
+          "core": "Núcleo",
+          "loadout": "Armamento",
+          "resistances": "Resistências",
+          "conditions": "Status/Condições"
+        }
+      },
+      "mech": {
+        "destroyedTitle": "Mecha Destruído — Fusão do Reator",
+        "destroyedDesc": "Este mecha sofreu uma fusão do reator. Ele está permanentemente destruído e não pode ser reparado.",
+        "aiTitle": "Sob Controle de IA",
+        "genericDestroyed": "MECHA DESTRUÍDO"
+      },
+      "pilot": {
+        "kiaTitle": "Piloto MIA",
+        "kiaDesc": "Este piloto foi morto em ação.",
+        "downTitle": "Nocauteado",
+        "downDesc": "O piloto está inconsciente, e qualquer dano adicional o matará.",
+        "genericDestroyed": "PILOTO DESTRUÍDO"
+      },
+      "damage": {
+        "btn": "Receber dano",
+        "title": "Receber Dano",
+        "incomingLabel": "Valor de Dano Recebido",
+        "half": "Metade do Dano",
+        "ap": "Perfurante",
+        "force": "Irredutível",
+        "typeLabel": "Tipo de Dano",
+        "defenderLabel": "Status do Defensor",
+        "nominal": "NOMINAL",
+        "totalLabel": "Dano Total",
+        "applyBtn": "Aplicar e Fechar",
+        "types": {
+          "kinetic": "Cinético",
+          "energy": "Energia",
+          "explosive": "Explosivo",
+          "heat": "Calor",
+          "burn": "Queimadura",
+          "aoe": "Área"
+        },
+        "statuses": {
+          "exposed": {
+            "title": "Exposto",
+            "desc": "Dano cinético, explosivo e de calor dobrado."
+          },
+          "shredded": {
+            "title": "Estraçalhado",
+            "desc": "O dano ignora armadura e resistência."
+          }
+        }
+      }
+    },
+    "endRound": {
+      "btn": "Encerrar Rodada",
+      "confirmTitle": "Confirmar Fim de Rodada",
+      "remainingActions": "Você ainda tem ações restantes!",
+      "forfeitWarning": "Encerrar a rodada fará com que você perca quaisquer ações não utilizadas.",
+      "nextRound": "Próxima Rodada:",
+      "loseStatuses": "perderá os seguintes status:",
+      "expiresAt": "no {EndsOn} do seu turno",
+      "bracedExit": "Você sai do estado PREPARADO e entra no estado de RECARGA DE PREPARAÇÃO."
+    },
+    "endEncounter": {
+      "btn": "Encerrar Encontro",
+      "confirmTitle": "Confirmar Fim de Encontro",
+      "reportTitle": "RELATÓRIO PÓS-AÇÃO",
+      "resultTitle": "RESULTADO",
+      "results": {
+        "pcVictory": "VITÓRIA DOS JOGADORES",
+        "enemyVictory": "VITÓRIA DO INIMIGO",
+        "stalemate": "IMPASSE"
+      },
+      "statuses": {
+        "combatEffective": "PRONTO PARA COMBATE",
+        "injured": "FERIDO",
+        "kia": "MORTO EM AÇÃO",
+        "mia": "DESAPARECIDO EM AÇÃO",
+        "escaped": "ESCAPOU",
+        "disengaged": "DESENGATOU",
+        "operational": "OPERACIONAL",
+        "destroyed": "DESTRUÍDO",
+        "destroyedMeltdown": "DESTRUÍDO - FUSÃO DO REATOR",
+        "mechOperational": "MECHA OPERACIONAL",
+        "mechDestroyed": "MECHA DESTRUÍDO",
+        "aiCascade": "CONTROLE DE IA - EM CASCATA"
+      },
+      "archiveWarning": "Encerrar este encontro fechará a instância da ficha ativa e enviará uma cópia para o arquivo. Tem certeza de que deseja continuar?"
+    },
+    "tables": {
+      "title": "Mesas",
+      "sort": {
+        "status": "Ordenar por Status Online",
+        "name": "Ordenar por Nome",
+        "gm": "Ordenar por Mestre",
+        "lastOnline": "Ordenar por Última Vez Online",
+        "nextSession": "Ordenar por Próxima Sessão"
+      },
+      "online": "Online",
+      "offline": "Offline",
+      "gm": "Mestre",
+      "players": "Jogadores",
+      "lastOnline": "Última Vez Online",
+      "nextSession": "Próxima Sessão",
+      "nextSessionAt": "às {time}",
+      "currentlyRunning": "Jogando Agora",
+      "callsign": "Codinome",
+      "activeMech": "Mecha Ativo",
+      "connect": "Conectar",
+      "gmOffline": "MESTRE OFFLINE",
+      "addTable": "Adicionar Mesa",
+      "tableCode": "Código de Conexão da Mesa",
+      "search": "Buscar",
+      "archived": {
+        "title": "Mesas Arquivadas",
+        "desc": "mesas concluídas/encerradas com histórico, relatórios pós-ação, etc. Devem ser imprimíveis/exportáveis e convertidas em elementos narrativos ou similares."
+      },
+      "combatTracker": {
+        "title": "Rastreador de Combate",
+        "initiative": "Iniciativa",
+        "start": "Iniciar Combate",
+        "end": "Encerrar Combate",
+        "next": "Próximo Turno",
+        "round": "Rodada {n}"
+      }
+    }
+  },
   "compendium": {
     "selectBtn": "Selecionar {name}",
     "frameSuffix": "Chassi"

@@ -9,7 +9,7 @@
         class="mt-2"
         prepend-icon="cc:eclipse"
         @click="props.onClick($event)">
-        Take damage
+        {{ $t('activeMode.runner.damage.btn') }}
       </cc-button>
     </template>
     <template #default="{ isActive }">
@@ -21,7 +21,7 @@
             <v-icon icon="cc:eclipse"
               class="mt-n1 ml-2"
               start />
-            Take Damage
+            {{ $t('activeMode.runner.damage.title') }}
           </div>
           <v-spacer />
           <v-btn icon
@@ -34,7 +34,7 @@
             <v-col cols="12"
               md=""
               :style="mobile ? '' : 'max-width: 300px'">
-              <div class="text-cc-overline text-disabled">Incoming Damage Value</div>
+              <div class="text-cc-overline text-disabled">{{ $t('activeMode.runner.damage.incomingLabel') }}</div>
               <v-divider />
               <v-text-field v-model="incomingDamageValue"
                 type="number"
@@ -51,7 +51,7 @@
                 tile
                 :color="damageMods.includes('half') ? 'accent' : 'panel'"
                 @click="toggleDamageMod('half')">
-                Half Damage
+                {{ $t('activeMode.runner.damage.half') }}
               </v-btn>
               <v-btn size="x-small"
                 class="mt-1"
@@ -60,7 +60,7 @@
                 tile
                 :color="damageMods.includes('ap') ? 'accent' : 'panel'"
                 @click="toggleDamageMod('ap')">
-                Armor Piercing
+                {{ $t('activeMode.runner.damage.ap') }}
               </v-btn>
               <v-btn size="x-small"
                 class="mt-1"
@@ -69,9 +69,9 @@
                 tile
                 :color="damageMods.includes('force') ? 'accent' : 'panel'"
                 @click="toggleDamageMod('force')">
-                Irreducible
+                {{ $t('activeMode.runner.damage.force') }}
               </v-btn>
-              <div class="text-cc-overline text-disabled mt-3">Damage Type</div>
+              <div class="text-cc-overline text-disabled mt-3">{{ $t('activeMode.runner.damage.typeLabel') }}</div>
               <v-divider />
               <v-row dense
                 class="mt-1">
@@ -92,7 +92,7 @@
                           size="35" />
                       </v-card>
                     </template>
-                    <div class="heading h3">{{ dmg.Name }}</div>
+                    <div class="heading h3">{{ $t(`activeMode.runner.damage.types.${dmg.Name.toLowerCase()}`) }}</div>
                     {{ dmg.Terse || dmg.Effects }}
                   </v-tooltip>
                 </v-col>
@@ -100,7 +100,7 @@
             </v-col>
             <v-col cols="12"
               md="">
-              <div class="text-cc-overline text-disabled">Defender Status</div>
+              <div class="text-cc-overline text-disabled">{{ $t('activeMode.runner.damage.defenderLabel') }}</div>
               <v-divider class="mb-2" />
               <v-row v-for="damage in controller.Resistances"
                 :key="`${damage.type}-${damage.condition}`"
@@ -137,11 +137,11 @@
                 class="py-1 text-center text-cc-overline"
                 style="opacity: 0.75"
                 color="panel">
-                NOMINAL
+                {{ $t('activeMode.runner.damage.nominal') }}
               </v-card>
             </v-col>
             <v-col>
-              <div class="text-cc-overline text-disabled">Total Damage</div>
+              <div class="text-cc-overline text-disabled">{{ $t('activeMode.runner.damage.totalLabel') }}</div>
               <v-divider class="mb-2" />
               <v-card flat
                 tile
@@ -177,8 +177,7 @@
                 color="primary"
                 block
                 size="small"
-                @click="apply(isActive)">Apply and
-                Close</cc-button>
+                @click="apply(isActive)">{{ $t('activeMode.runner.damage.applyBtn') }}</cc-button>
             </v-col>
           </v-row>
         </v-card-text>
@@ -233,14 +232,14 @@ export default {
         {
           id: 'exposed',
           icon: 'cc:status_exposed',
-          title: 'Exposed',
-          description: 'Kinetic, explosive, and heat damage doubled.',
+          title: this.$t('activeMode.runner.damage.statuses.exposed.title'),
+          description: this.$t('activeMode.runner.damage.statuses.exposed.desc'),
         },
         {
           id: 'shredded',
           icon: 'cc:condition_shredded',
-          title: 'Shredded',
-          description: 'Damage ignores armor and resistance.',
+          title: this.$t('activeMode.runner.damage.statuses.shredded.title'),
+          description: this.$t('activeMode.runner.damage.statuses.shredded.desc'),
         }
       ]
 

@@ -1,6 +1,6 @@
 <template>
   <cc-alert v-if="pilot.CombatController.IsDead"
-    title="Pilot KIA"
+    :title="$t('activeMode.runner.pilot.kiaTitle')"
     icon="mdi-skull"
     color="error"
     variant="outlined"
@@ -8,14 +8,14 @@
     class="my-8">
     <p class="text-text mb-3">
 
-      This pilot has been killed in action.
+      {{ $t('activeMode.runner.pilot.kiaDesc') }}
     </p>
     <div class="text-right">
       <v-btn size="x-small"
         variant="text"
         class="fade-select"
         @click="pilot.CombatController.IsDead = false">
-        override
+        {{ $t('activeMode.runner.common.override') }}
       </v-btn>
     </div>
   </cc-alert>
@@ -28,11 +28,11 @@
       <div class="heading h4">{{ pilot.Name }}</div>
 
       <cc-alert v-if="pilot.CombatController.HasStatus('downandout')"
-        title="Down and Out"
+        :title="$t('activeMode.runner.pilot.downTitle')"
         icon="mdi-medical-bag"
         color="primary"
         class="mr-6">
-        Pilot is unconscious, and any additional damage will kill them.
+        {{ $t('activeMode.runner.pilot.downDesc') }}
       </cc-alert>
     </template>
 
@@ -44,7 +44,7 @@
             size="small"
             block
             :color="pilot.ActiveMech.CombatController.Mounted ? 'primary' : 'panel'"
-            text="Mounted"
+            :text="$t('activeMode.runner.common.palette.mounted')"
             @click="setMounted" />
         </v-col>
         <v-divider vertical />
@@ -54,7 +54,7 @@
             size="small"
             block
             :color="pilot.CombatController.Overwatch ? 'primary' : 'panel'"
-            text="Overwatch"
+            :text="$t('activeMode.runner.common.palette.overwatch')"
             @click="pilot.CombatController.Overwatch = !pilot.CombatController.Overwatch" />
         </v-col>
         <v-divider vertical />
@@ -64,7 +64,7 @@
             size="small"
             block
             :color="pilot.CombatController.Prepared ? 'primary' : 'panel'"
-            text="Prepared"
+            :text="$t('activeMode.runner.common.palette.prepared')"
             @click="pilot.CombatController.Prepared = !pilot.CombatController.Prepared" />
         </v-col>
       </v-row>
@@ -87,7 +87,7 @@
             <v-icon icon="cc:talent"
               class="mt-n1"
               start />
-            Pilot Talents ({{ pilot.TalentsController.Talents.length }})
+            {{ $t('activeMode.runner.common.sections.talents', { count: pilot.TalentsController.Talents.length }) }}
           </div>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -125,7 +125,7 @@
       </v-expansion-panel>
     </v-expansion-panels>
 
-    <div class="text-cc-overline mt-4 text-disabled">Loadout</div>
+    <div class="text-cc-overline mt-4 text-disabled">{{ $t('activeMode.runner.common.sections.loadout') }}</div>
     <pilot-combat-loadout :encounter-instance="encounterInstance"
       :owner="combatant"
       @deploy="deploy($event)" />

@@ -1,6 +1,6 @@
 <template>
   <v-container :fluid="$vuetify.display.mdAndDown">
-    <div class="heading h2">New Character Sheet</div>
+    <div class="heading h2">{{ $t('activeMode.new.title') }}</div>
     <v-row dense
       class="mt-2">
       <v-col v-if="!mobile"
@@ -12,7 +12,7 @@
       </v-col>
       <v-col>
         <cc-panel>
-          <cc-titled-divider title="select pilot"
+          <cc-titled-divider :title="$t('activeMode.new.selectPilot')"
             color="accent">
             <template v-if="mobile"
               #prepend>
@@ -112,7 +112,7 @@
               color="accent"
               prepend-icon="mdi-plus-box"
               @click="$router.push({ name: 'new', params: { groupID: 'no_group' } })">
-              Create New Pilot
+              {{ $t('activeMode.new.createNewPilot') }}
             </cc-button>
           </div>
         </cc-panel>
@@ -129,7 +129,7 @@
         </v-col>
         <v-col>
           <cc-panel>
-            <cc-titled-divider title="select active mech"
+            <cc-titled-divider :title="$t('activeMode.new.selectMech')"
               color="accent"
               class="mb-1">
               <template v-if="mobile"
@@ -174,35 +174,35 @@
                           justify="space-around">
                           <v-col cols="auto">
                             <span>
-                              STR
+                              {{ $t('activeMode.new.stats.str') }}
                               <b>{{ mech.MaxStructure }}</b>
                             </span>
                           </v-col>
 
                           <v-col cols="auto">
                             <span>
-                              HP
+                              {{ $t('activeMode.new.stats.hp') }}
                               <b>{{ mech.MaxHP }}</b>
                             </span>
                           </v-col>
 
                           <v-col cols="auto">
                             <span>
-                              Stress
+                              {{ $t('activeMode.new.stats.stress') }}
                               <b>{{ mech.MaxStress }}</b>
                             </span>
                           </v-col>
 
                           <v-col cols="auto">
                             <span>
-                              Heat
+                              {{ $t('activeMode.new.stats.heat') }}
                               <b>{{ mech.HeatCapacity }}</b>
                             </span>
                           </v-col>
 
                           <v-col cols="auto">
                             <span>
-                              RepCap
+                              {{ $t('activeMode.new.stats.repCap') }}
                               <b>{{ mech.RepairCapacity }}</b>
                             </span>
                           </v-col>
@@ -237,7 +237,7 @@
         </v-col>
         <v-col>
           <cc-panel>
-            <cc-titled-divider title="Confirm"
+            <cc-titled-divider :title="$t('activeMode.new.confirm')"
               color="accent">
               <template v-if="mobile"
                 #prepend>
@@ -247,10 +247,10 @@
             </cc-titled-divider>
 
             <div class="my-3">
-              <div class="text-cc-overline text-disabled">Campaign Name</div>
+              <div class="text-cc-overline text-disabled">{{ $t('activeMode.new.campaignLabel') }}</div>
               <cc-text-field v-model="campaign"
                 max-width="600px"
-                tooltip="Optional, for organizational purposes."
+                :tooltip="$t('activeMode.new.campaignTooltip')"
                 color="primary" />
             </div>
 
@@ -258,7 +258,7 @@
               color="success"
               prepend-icon="mdi-arrow-right-bold-hexagon-outline"
               @click="createSheet(true)">
-              <span>Create and Launch ACtive Mode</span>
+              <span>{{ $t('activeMode.new.launchBtn') }}</span>
             </cc-button>
             <v-row dense
               class="mt-1">
@@ -268,7 +268,7 @@
                   color="error"
                   :prepend-icon="mobile ? '' : 'mdi-close'"
                   @click="reset()">
-                  <span v-if="!mobile">Cancel</span>
+                  <span v-if="!mobile">{{ $t('common.cancel') }}</span>
                   <v-icon v-else
                     size="47"
                     icon=mdi-close />
@@ -280,7 +280,7 @@
                   color="primary"
                   prepend-icon="mdi-content-save"
                   @click="createSheet(false)">
-                  Create and return to library
+                  {{ $t('activeMode.new.libraryBtn') }}
                 </cc-button>
               </v-col>
             </v-row>
@@ -312,12 +312,12 @@ export default {
     selectedMech: null as Mech | null,
     confirmed: false,
     search: '',
-    group: null,
+    group: undefined,
     campaign: '',
   }),
   computed: {
     groups() {
-      const groups = [{ title: 'All Pilots', value: null }];
+      const groups = [{ title: this.$t('activeMode.new.allPilots'), value: undefined }];
       return [...groups,
       ...(PilotStore().PilotGroups as PilotGroup[]).map((g: PilotGroup) => ({ title: g.Name, value: g.ID }))
       ];

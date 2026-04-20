@@ -1,13 +1,13 @@
 <template>
   <cc-alert v-if="mech.CombatController.ReactorDestroyed"
-    title="Mech Destroyed &mdash; Reactor Meltdown"
+    :title="$t('activeMode.runner.mech.destroyedTitle')"
     icon="mdi-radioactive-circle"
     color="error"
     variant="outlined"
     prominent
     class="my-8">
     <p class="text-text mb-3">
-      This mech has suffered a reactor meltdown. It is permanently destroyed and cannot be repaired.
+      {{ $t('activeMode.runner.mech.destroyedDesc') }}
     </p>
     <cc-combat-action-chip :action="mech.CombatController.MeltdownAction"
       :owner="combatant"
@@ -18,7 +18,7 @@
         variant="text"
         class="fade-select"
         @click="mech.CombatController.ReactorDestroyed = false">
-        override
+        {{ $t('activeMode.runner.common.override') }}
       </v-btn>
     </div>
   </cc-alert>
@@ -31,7 +31,7 @@
       <div class="heading h4">{{ mech.Frame.Source }} {{ mech.Frame.Name }}</div>
 
       <cc-alert v-if="mech.CombatController.AIControl"
-        title="Under AI Control"
+        :title="$t('activeMode.runner.mech.aiTitle')"
         icon="cc:nhp"
         color="primary"
         class="mr-6">
@@ -50,7 +50,7 @@
             size="small"
             block
             :color="mech.CombatController.Mounted ? 'primary' : 'panel'"
-            text="Mounted"
+            :text="$t('activeMode.runner.common.palette.mounted')"
             @click="setMounted" />
         </v-col>
         <v-divider vertical />
@@ -60,7 +60,7 @@
             size="small"
             block
             :color="mech.CombatController.Braced ? 'primary' : 'panel'"
-            text="Braced"
+            :text="$t('activeMode.runner.common.palette.braced')"
             @click="mech.CombatController.Braced = !mech.CombatController.Braced" />
         </v-col>
         <v-divider vertical />
@@ -70,7 +70,7 @@
             size="small"
             block
             :color="mech.CombatController.Overwatch ? 'primary' : 'panel'"
-            text="Overwatch"
+            :text="$t('activeMode.runner.common.palette.overwatch')"
             @click="mech.CombatController.Overwatch = !mech.CombatController.Overwatch" />
         </v-col>
         <v-divider vertical />
@@ -80,7 +80,7 @@
             size="small"
             block
             :color="mech.CombatController.Prepared ? 'primary' : 'panel'"
-            text="Prepared"
+            :text="$t('activeMode.runner.common.palette.prepared')"
             @click="mech.CombatController.Prepared = !mech.CombatController.Prepared" />
         </v-col>
         <v-divider vertical />
@@ -91,7 +91,7 @@
             size="small"
             block
             :color="mech.CombatController.AIControl ? 'primary' : 'panel'"
-            text="AI Control"
+            :text="$t('activeMode.runner.common.palette.aiControl')"
             @click="mech.CombatController.AIControl = !mech.CombatController.AIControl" />
         </v-col>
       </v-row>
@@ -115,7 +115,7 @@
             <v-icon icon="cc:trait"
               class="mt-n1"
               start />
-            Frame Traits ({{ mech.Frame.Traits.length }})
+            {{ $t('activeMode.runner.common.sections.traits', { count: mech.Frame.Traits.length }) }}
           </div>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -156,7 +156,7 @@
             <v-icon icon="cc:corebonus"
               class="mt-n1"
               start />
-            Core Bonuses ({{ mech.Parent.CoreBonusController.CoreBonuses.length }})
+            {{ $t('activeMode.runner.common.sections.bonuses', { count: mech.Parent.CoreBonusController.CoreBonuses.length }) }}
           </div>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -197,7 +197,7 @@
             <v-icon icon="cc:talent"
               class="mt-n1"
               start />
-            Pilot Talents ({{ mech.Parent.TalentsController.Talents.length }})
+            {{ $t('activeMode.runner.common.sections.talents', { count: mech.Parent.TalentsController.Talents.length }) }}
           </div>
         </v-expansion-panel-title>
         <v-expansion-panel-text>
@@ -236,13 +236,13 @@
       </v-expansion-panel>
     </v-expansion-panels>
 
-    <div class="text-cc-overline mt-4 text-disabled">Core</div>
+    <div class="text-cc-overline mt-4 text-disabled">{{ $t('activeMode.runner.common.sections.core') }}</div>
     <mech-core-panel :mech="mech"
       :owner="combatant"
       :encounter-instance="encounterInstance"
       @deploy="deploy($event)" />
 
-    <div class="text-cc-overline mt-4 text-disabled">Loadout</div>
+    <div class="text-cc-overline mt-4 text-disabled">{{ $t('activeMode.runner.common.sections.loadout') }}</div>
     <mech-combat-loadout :encounter-instance="encounterInstance"
       :owner="combatant"
       :mech="mech"

@@ -7,7 +7,7 @@
         color="accent"
         prepend-icon="mdi-clock-end"
         @click="props.onClick($event)">
-        End Round
+        {{ $t('activeMode.runner.endRound.btn') }}
       </v-btn>
     </template>
     <template #default="{ isActive }">
@@ -19,7 +19,7 @@
             <v-icon icon="mdi-clock-end"
               class="mt-n1 ml-2"
               start />
-            Confirm End Round
+            {{ $t('activeMode.runner.endRound.confirmTitle') }}
           </div>
           <v-spacer />
           <v-btn icon
@@ -32,7 +32,7 @@
             color="error"
             icon="mdi-alert"
             variant="outlined"
-            title="You have remaining actions!">
+            :title="$t('activeMode.runner.endRound.remainingActions')">
             <v-row class="my-1 mx-4 px-2 text-text bg-panel"
               justify="space-around">
               <v-col v-if="controller.CanActivate('protocol')"
@@ -70,18 +70,18 @@
               </v-col>
             </v-row>
             <div class="heading text-center">
-              Ending the round will forfeit any unused actions.
+              {{ $t('activeMode.runner.endRound.forfeitWarning') }}
             </div>
           </cc-alert>
 
           <div v-if="nextRoundAlerts">
             <v-divider class="my-4" />
 
-            <div class="text-cc-overline mt-2">Next Round:</div>
+            <div class="text-cc-overline mt-2">{{ $t('activeMode.runner.endRound.nextRound') }}</div>
             <div class="my-1">
               <div class="mx-4 px-2 text-text bg-panel">
                 <b class="text-secondary">{{ controller.CombatName }}</b>
-                will lose the following statuses:
+                {{ $t('activeMode.runner.endRound.loseStatuses') }}
                 <div v-for="(s, index) in getTimeoutStatuses()"
                   :key="`timeout-${index}`"
                   class="px-2 text-text bg-panel">
@@ -91,29 +91,21 @@
                       class="mt-n1" />
                     {{ s.status.Name }}
                   </b>
-                  at the
-                  <b class="text-accent">
-                    {{ s.expires.EndsOn }} of
-                    your turn
-                  </b>
+                  {{ $t('activeMode.runner.endRound.expiresAt', { EndsOn: s.expires.EndsOn }) }}
                 </div>
               </div>
               <div v-for="(s, index) in getTimeoutStatuses(true)"
                 :key="`timeout-custom-${index}`"
                 class="my-1 mx-4 px-2 text-text bg-panel">
                 <b class="text-secondary">{{ controller.CombatName }}</b>
-                will lose the following statuses:
+                {{ $t('activeMode.runner.endRound.loseStatuses') }}
                 <div v-for="(s, sIdx) in getTimeoutStatuses()"
                   :key="`timeout-custom-inner-${sIdx}`"
                   class="my-1 mx-4 px-2 text-text bg-panel">
                   <b class="text-accent text-uppercase">
                     {{ s.status.Name }}
                   </b>
-                  at the
-                  <b class="text-accent">
-                    {{ s.expires.EndsOn }} of
-                    your turn
-                  </b>
+                  {{ $t('activeMode.runner.endRound.expiresAt', { EndsOn: s.expires.EndsOn }) }}
                 </div>
               </div>
             </div>
@@ -121,11 +113,7 @@
             <div v-for="(b, index) in braced"
               :key="`braced-${index}`"
               class="my-1 mx-4 px-2 text-text bg-panel">
-              You exit
-              <b class="text-accent">BRACED</b>
-              and enter
-              <b class="text-warning">BRACE COOLDOWN</b>
-              state.
+              {{ $t('activeMode.runner.endRound.bracedExit') }}
             </div>
           </div>
 
@@ -134,7 +122,7 @@
             block
             prepend-icon="mdi-check-all"
             @click="endRound(isActive)">
-            End Round
+            {{ $t('activeMode.runner.endRound.btn') }}
           </cc-button>
         </v-card-text>
       </v-card>

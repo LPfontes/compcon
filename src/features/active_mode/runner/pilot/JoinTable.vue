@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="heading h1">Tables</div>
+    <div class="heading h1">{{ $t('activeMode.tables.title') }}</div>
     <div>
       <v-tooltip location="top" open-delay="300">
         <template #activator="{ props }">
@@ -13,7 +13,7 @@
               color="accent" />
           </v-btn>
         </template>
-        <span>Sort by Online Status</span>
+        <span>{{ $t('activeMode.tables.sort.status') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top" open-delay="300">
@@ -27,7 +27,7 @@
               color="accent" />
           </v-btn>
         </template>
-        <span>Sort by Name</span>
+        <span>{{ $t('activeMode.tables.sort.name') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top" open-delay="300">
@@ -41,7 +41,7 @@
               size="large" />
           </v-btn>
         </template>
-        <span>Sort by GM</span>
+        <span>{{ $t('activeMode.tables.sort.gm') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top" open-delay="300">
@@ -55,7 +55,7 @@
               size="large" />
           </v-btn>
         </template>
-        <span>Sort by Last Online</span>
+        <span>{{ $t('activeMode.tables.sort.lastOnline') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top" open-delay="300">
@@ -69,7 +69,7 @@
               size="large" />
           </v-btn>
         </template>
-        <span>Sort by Next Session</span>
+        <span>{{ $t('activeMode.tables.sort.nextSession') }}</span>
       </v-tooltip>
     </div>
     <cc-panel v-for="table in tables" :key="table.name" class="my-4" tile flat>
@@ -83,7 +83,7 @@
           color="success"
           size="x-small"
           class="mt-n2 ml-2 text-cc-overline success-pulse">
-          Online
+          {{ $t('activeMode.tables.online') }}
         </v-chip>
       </div>
       <v-divider class="mb-1" />
@@ -92,7 +92,7 @@
         <v-col>
           <div>
             <span class="text-cc-overline mr-1">
-              GM
+              {{ $t('activeMode.tables.gm') }}
               <cc-slashes />
             </span>
             <v-tooltip location="top">
@@ -106,13 +106,13 @@
               <b>{{ table.gm.name }}</b>
               <v-divider class="my-1" />
               <div class="text-cc-overline" :class="table.gm.online ? 'text-success' : 'text-grey'">
-                {{ table.gm.online ? 'Online' : 'Offline' }}
+                {{ table.gm.online ? $t('activeMode.tables.online') : $t('activeMode.tables.offline') }}
               </div>
             </v-tooltip>
           </div>
           <p>
             <span class="text-cc-overline mr-1">
-              Players
+              {{ $t('activeMode.tables.players') }}
               <cc-slashes />
             </span>
             <v-tooltip v-for="p in table.players" :key="p.name" location="top">
@@ -126,7 +126,7 @@
               <b>{{ p.name }} ({{ p.callsign }})</b>
               <v-divider class="my-1" />
               <div class="text-cc-overline" :class="p.online ? 'text-success' : 'text-grey'">
-                {{ p.online ? 'Online' : 'Offline' }}
+                {{ p.online ? $t('activeMode.tables.online') : $t('activeMode.tables.offline') }}
               </div>
             </v-tooltip>
           </p>
@@ -134,7 +134,7 @@
           <div v-if="!table.online">
             <p>
               <span class="text-cc-overline">
-                Last Online
+                {{ $t('activeMode.tables.lastOnline') }}
                 <cc-slashes />
               </span>
               {{
@@ -147,7 +147,7 @@
             </p>
             <p>
               <span class="text-cc-overline">
-                Next Session
+                {{ $t('activeMode.tables.nextSession') }}
                 <cc-slashes />
               </span>
               {{
@@ -155,12 +155,12 @@
                   dateStyle: 'full',
                 })
               }}
-              at 8 PM CDT
+              {{ $t('activeMode.tables.nextSessionAt', { time: '8 PM CDT' }) }}
             </p>
           </div>
           <div>
             <div class="text-cc-overline mt-2">
-              Currently Running
+              {{ $t('activeMode.tables.currentlyRunning') }}
               <cc-slashes />
             </div>
             <v-card class="pa-2 text-center" variant="flat" tile color="panel">
@@ -219,9 +219,9 @@
             </div>
           </v-card>
           <div class="text-cc-overline text-center mt-1">
-            Callsign
+            {{ $t('activeMode.tables.callsign') }}
             <br />
-            Active Mech
+            {{ $t('activeMode.tables.activeMech') }}
           </div>
         </v-col>
       </v-row>
@@ -233,7 +233,7 @@
         prepend-icon="mdi-lan"
         class="mb-1"
         to="/active-mode/pilot-runner">
-        Connect
+        {{ $t('activeMode.tables.connect') }}
       </cc-button>
       <cc-button
         v-else
@@ -243,19 +243,19 @@
         disabled
         prepend-icon="mdi-network-off"
         class="mb-1">
-        GM OFFLINE
+        {{ $t('activeMode.tables.gmOffline') }}
       </cc-button>
     </cc-panel>
     <v-row dense>
       <v-col offset="6">
         <cc-text-field
-          label="Add Table"
-          placeholder="Table Connect Code"
+          :label="$t('activeMode.tables.addTable')"
+          :placeholder="$t('activeMode.tables.tableCode')"
           color="primary"
           variant="outlined" />
       </v-col>
       <v-col cols="auto">
-        <cc-button color="primary" class="mb-1">Search</cc-button>
+        <cc-button color="primary" class="mb-1">{{ $t('activeMode.tables.search') }}</cc-button>
       </v-col>
     </v-row>
 
@@ -263,11 +263,9 @@
 
     <v-expansion-panels>
       <v-expansion-panel class="my-6" tile elevation="0">
-        <v-expansion-panel-title class="text-cc-overline">Archived Tables</v-expansion-panel-title>
+        <v-expansion-panel-title class="text-cc-overline">{{ $t('activeMode.tables.archived.title') }}</v-expansion-panel-title>
         <v-expansion-panel-text>
-          completed/closed tables with history, after action reports, etc.
-          <br />
-          These should be printable/exportable and converted into narrative elements or similar.
+          {{ $t('activeMode.tables.archived.desc') }}
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
