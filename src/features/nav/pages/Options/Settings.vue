@@ -374,54 +374,65 @@
   export default {
     name: 'OptionsSettings',
     emits: ['show-message'],
-    data: () => ({
-      importDialog: false,
-      fileValue: null as any,
-      deleteDialog: false,
-      strategy: 'append',
-      stagedImportData: null as any,
-      isV2File: false,
-      importLoading: false,
-      v2BackupData: null as any,
-      logLevel: {
-        name: 'Warning',
-        level: 3,
-        detail: 'Record warning and error messages (recommended)',
-      },
-      logLevels: [
-        {
-          name: 'Debug',
-          key: 'debug',
-          level: 1,
-          detail: 'Record all log messages (very slow)',
-        },
-        {
-          name: 'Info',
-          key: 'info',
-          level: 2,
-          detail: 'Record info, warning, and error messages',
-        },
-        {
+    data() {
+      return {
+        importDialog: false,
+        fileValue: null as any,
+        deleteDialog: false,
+        strategy: 'append',
+        stagedImportData: null as any,
+        isV2File: false,
+        importLoading: false,
+        v2BackupData: null as any,
+        logLevel: {
           name: 'Warning',
-          key: 'warn',
           level: 3,
           detail: 'Record warning and error messages (recommended)',
         },
-        { name: 'Error', key: 'error', level: 4, detail: 'Record only error messages' },
-      ],
-      fonts: [
-        { label: 'Inter (v3 default)', value: 'inter' },
-        { label: 'Noto Sans (v3 alt)', value: 'noto' },
-        { label: 'Helvetica (v2 default)', value: 'helvetica' },
-        { label: 'OpenDyslexic (experimental)', value: 'opendyslexic' },
-      ],
-    }),
+      };
+    },
     computed: {
       mobile() {
         return this.$vuetify.display.mdAndDown
       },
       user() {
         return UserStore().User
+      },
+      logLevels() {
+        return [
+          {
+            name: this.$t('options.settings.logLevels.debug'),
+            key: 'debug',
+            level: 1,
+            detail: this.$t('options.settings.logLevels.debugDetail'),
+          },
+          {
+            name: this.$t('options.settings.logLevels.info'),
+            key: 'info',
+            level: 2,
+            detail: this.$t('options.settings.logLevels.infoDetail'),
+          },
+          {
+            name: this.$t('options.settings.logLevels.warn'),
+            key: 'warn',
+            level: 3,
+            detail: this.$t('options.settings.logLevels.warnDetail'),
+          },
+          {
+            name: this.$t('options.settings.logLevels.error'),
+            key: 'error',
+            level: 4,
+            detail: this.$t('options.settings.logLevels.errorDetail'),
+          },
+        ];
+      },
+      fonts() {
+        return [
+          { label: this.$t('options.settings.fonts.inter'), value: 'inter' },
+          { label: this.$t('options.settings.fonts.noto'), value: 'noto' },
+          { label: this.$t('options.settings.fonts.helvetica'), value: 'helvetica' },
+          { label: this.$t('options.settings.fonts.opendyslexic'), value: 'opendyslexic' },
+        ];
       },
       userViewExotics: {
         get: function () {
@@ -521,7 +532,7 @@
           this.stagedImportData = null
           this.isV2File = false
           this.$notify({
-            title: 'Unable to read file',
+            title: this.$t('options.settings.import.readError') as string,
             text: `ERROR: ${err}`,
             data: { color: 'error', icon: 'mdi-database-off-outline' },
           })
@@ -533,28 +544,45 @@
           if (this.isV2File) {
             const result = await processFullBackup(this.stagedImportData)
             const parts = [] as string[]
-            if (result.pilotsImported) parts.push(`${result.pilotsImported} pilot(s) imported`)
-            if (result.pilotsBackedUp) parts.push(`${result.pilotsBackedUp} pilot(s) pending LCPs`)
-            if (result.npcsImported) parts.push(`${result.npcsImported} NPC(s) imported`)
-            if (result.npcsBackedUp) parts.push(`${result.npcsBackedUp} NPC(s) pending LCPs`)
+            if (result.pilotsImported)
+              parts.push(this.$t('options.settings.import.pilots', { count: result.pilotsImported }))
+            if (result.pilotsBackedUp)
+              parts.push(
+                this.$t('options.settings.import.pilotsPending', { count: result.pilotsBackedUp })
+              )
+            if (result.npcsImported)
+              parts.push(this.$t('options.settings.import.npcs', { count: result.npcsImported }))
+            if (result.npcsBackedUp)
+              parts.push(
+                this.$t('options.settings.import.npcsPending', { count: result.npcsBackedUp })
+              )
             if (result.encountersImported)
-              parts.push(`${result.encountersImported} encounter(s) imported`)
+              parts.push(
+                this.$t('options.settings.import.encounters', { count: result.encountersImported })
+              )
             if (result.encountersBackedUp)
-              parts.push(`${result.encountersBackedUp} encounter(s) pending NPCs`)
-            if (result.lcpsImported) parts.push(`${result.lcpsImported} content pack(s) installed`)
+              parts.push(
+                this.$t('options.settings.import.encountersPending', {
+                  count: result.encountersBackedUp,
+                })
+              )
+            if (result.lcpsImported)
+              parts.push(this.$t('options.settings.import.lcps', { count: result.lcpsImported }))
             this.$notify({
-              title: 'v2 backup imported',
-              text: parts.length ? parts.join(', ') + '.' : 'No data found.',
+              title: this.$t('options.settings.import.v2Success') as string,
+              text: parts.length
+                ? parts.join(', ') + '.'
+                : (this.$t('options.settings.import.noData') as string),
               data: { icon: 'mdi-database-arrow-left-outline' },
             })
           } else {
             await importAll(this.stagedImportData, this.strategy === 'overwrite')
             this.$notify({
-              title: 'Data import successful',
+              title: this.$t('options.settings.import.v3Success') as string,
               text:
                 this.strategy === 'overwrite'
-                  ? 'All existing data has been replaced with imported data.'
-                  : 'Imported data has been merged with existing data.',
+                  ? (this.$t('options.settings.import.overwriteText') as string)
+                  : (this.$t('options.settings.import.mergeText') as string),
               data: { icon: 'mdi-database-arrow-left-outline' },
             })
           }
@@ -564,7 +592,7 @@
           close()
         } catch (err) {
           this.$notify({
-            title: 'Unable to import data',
+            title: this.$t('options.settings.import.importError') as string,
             text: `ERROR: ${err}`,
             data: { color: 'error', icon: 'mdi-database-off-outline' },
           })

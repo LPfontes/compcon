@@ -1,31 +1,31 @@
 <template>
   <div>
-    <cc-heading type="h3" center class="my-3">Reset Password</cc-heading>
+    <cc-heading type="h3" center class="my-3">{{ $t('auth.resetHeading') }}</cc-heading>
     <v-row justify="center">
       <v-col lg="6" cols="12">
-        <cc-text-field v-model="email" label="E-Mail Address" color="primary" />
+        <cc-text-field v-model="email" :label="$t('auth.emailLabel')" color="primary" />
       </v-col>
     </v-row>
     <div class="mt-4 text-center">
       <cc-button color="secondary" :disabled="!email" :loading="loading" @click="reset()">
-        Send Password Reset E-Mail
+        {{ $t('auth.sendResetEmail') }}
       </cc-button>
     </div>
     <v-slide-x-transition>
       <v-card-text v-if="sent">
         <v-divider class="mb-4" />
         <cc-heading center type="h3" dense class="my-4">
-          Password reset code sent to {{ email }}
+          {{ $t('auth.codeSentTo', { email: email }) }}
         </cc-heading>
         <v-row align="center" justify="center">
           <v-col lg="4" cols="12">
-            <cc-text-field v-model="code" color="primary" label="Password Reset Code" />
+            <cc-text-field v-model="code" color="primary" :label="$t('auth.codeLabel')" />
           </v-col>
           <v-col lg="6" cols="12">
             <cc-text-field
               v-model="newPass"
               color="primary"
-              label="New Password"
+              :label="$t('auth.newPassLabel')"
               :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
               :type="show ? 'text' : 'password'"
               :rules="[rules.passLength]"
@@ -38,7 +38,7 @@
             :disabled="!email || !newPass"
             :loading="loading"
             @click="setNewPassword()">
-            Set New Password
+            {{ $t('auth.setNewPass') }}
           </cc-button>
         </div>
       </v-card-text>
@@ -46,7 +46,7 @@
     <v-row justify="center">
       <v-col cols="auto">
         <v-btn variant="text" color="accent" class="mt-1" @click="$emit('set-state', 'sign-in')">
-          Cancel
+          {{ $t('auth.cancel') }}
         </v-btn>
       </v-col>
     </v-row>
@@ -99,17 +99,23 @@ async function handleConfirmResetPassword({
 
 export default {
   name: 'AuthPasswordReset',
-  data: () => ({
-    loading: false,
-    sent: false,
-    email: '',
-    show: false,
-    newPass: '',
-    code: '',
-    rules: {
-      passLength: (v) => (v && v.length >= 6) || 'Minimum 6 characters',
+  data() {
+    return {
+      loading: false,
+      sent: false,
+      email: '',
+      show: false,
+      newPass: '',
+      code: '',
+    };
+  },
+  computed: {
+    rules() {
+      return {
+        passLength: (v: string) => (v && v.length >= 6) || (this.$t('auth.minChars') as string),
+      };
     },
-  }),
+  },
   methods: {
     reset() {
       this.loading = true;
@@ -122,7 +128,7 @@ export default {
           logger.error(`Error sending reset password email: ${err}`, this, err);
           this.loading = false;
           this.sent = false;
-          this.$notify(`Unable to send reset e-mail: ${err.message}`, 'error');
+          this.$notify(this.$t('auth.sendError', { message: err.message }) as string, 'error');
         });
     },
     setNewPassword() {
@@ -137,13 +143,13 @@ export default {
           this.$notify({
             icon: 'mdi-check',
             color: 'success',
-            title: 'Success',
-            text: 'Password changed successfully.',
+            title: this.$t('auth.success') as string,
+            text: this.$t('auth.passChanged') as string,
           });
           this.$emit('set-state', 'sign-in');
         })
         .catch((err) => {
-          this.$notify(`Unable to change password: ${err.message}`, 'error');
+          this.$notify(this.$t('auth.changeError', { message: err.message }) as string, 'error');
           this.loading = false;
         });
     },

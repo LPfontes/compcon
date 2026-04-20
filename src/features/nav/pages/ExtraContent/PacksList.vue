@@ -1,6 +1,6 @@
 <template>
   <div v-if="contentPacks.length === 0">
-    <cc-alert color="primary">No content packs installed.</cc-alert>
+    <cc-alert color="primary">{{ $t('contentManager.packs.noPacks') }}</cc-alert>
   </div>
   <div v-else>
     <v-data-table v-model:expanded="expandedRows"
@@ -19,7 +19,7 @@
           @update:model-value="toggleActive(item.ID, item.Active)" />
         <cc-tooltip v-else
           icon="mdi-alert">
-          This pack is missing one or more dependencies and cannot be activated.
+          {{ $t('contentManager.packs.missingDeps') }}
         </cc-tooltip>
       </template>
       <template #item.v3="{ item }">
@@ -31,8 +31,7 @@
               mdi-check
             </v-icon>
           </template>
-          This content pack is compatible with the latest version of COMP/CON and supports v3
-          features.
+          {{ $t('contentManager.packs.v3Compatible') }}
         </v-tooltip>
         <v-tooltip v-else
           max-width="300px">
@@ -42,9 +41,7 @@
               mdi-cancel
             </v-icon>
           </template>
-          This content pack uses the v2 content format. It will function correctly but will lack
-          features of v3-compatible packs. COMP/CON will not be able to manage effects or statuses
-          from this pack in Active Mode.
+          {{ $t('contentManager.packs.v2Compatible') }}
         </v-tooltip>
       </template>
       <template #item.deleteAction="{ item }">
@@ -59,17 +56,16 @@
           </template>
           <v-card>
             <v-card-text>
-              This will remove this pack and all of its contents from COMP/CON. User data that
-              relies on this content will remain available. Are you sure you want to continue?
+              {{ $t('contentManager.packs.deleteConfirm') }}
             </v-card-text>
             <v-divider />
             <v-card-actions>
-              <v-btn size="small">CANCEL</v-btn>
+              <v-btn size="small">{{ $t('contentManager.packs.cancel') }}</v-btn>
               <v-btn size="small"
                 color="error"
                 class="ml-auto"
                 @click="deletePack(item.ID)">
-                CONFIRM
+                {{ $t('contentManager.packs.confirm') }}
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -88,7 +84,7 @@
         size="small"
         color="error"
         @click="deleteAll">
-        Delete All
+        {{ $t('contentManager.packs.deleteAll') }}
       </cc-button>
     </div>
   </div>
@@ -108,11 +104,11 @@ export default {
     expandedRows: [] as any[],
     initHeaders: [
       { title: '', key: 'data-table-expand' },
-      { title: 'Active', value: 'toggleActive', sortable: false },
-      { title: 'Name', value: 'Name' },
-      { title: 'Author', value: 'Author' },
-      { title: 'Version', value: 'Version' },
-      { title: 'v3', value: 'v3' },
+      { title: this.$t('contentManager.packs.headers.active'), value: 'toggleActive', sortable: false },
+      { title: this.$t('contentManager.packs.headers.name'), value: 'Name' },
+      { title: this.$t('contentManager.packs.headers.author'), value: 'Author' },
+      { title: this.$t('contentManager.packs.headers.version'), value: 'Version' },
+      { title: this.$t('contentManager.packs.headers.v3'), value: 'v3' },
       { title: '', value: 'deleteAction', sortable: false },
     ],
     loading: false,
@@ -134,12 +130,14 @@ export default {
         await CompendiumStore().togglePackActive(packID)
         this.$notify({
           color: 'success',
-          text: `Successfully ${!state ? 'activated' : 'deactivated'} pack.`,
+          text: this.$t('contentManager.packs.notify.statusSuccess', {
+            status: !state ? this.$t('contentManager.packs.notify.activated') : this.$t('contentManager.packs.notify.deactivated')
+          }) as string,
         })
       } catch (e) {
         this.$notify({
           color: 'error',
-          text: `Unable to activate LCP: ${e}`,
+          text: this.$t('contentManager.packs.notify.error', { e }) as string,
         })
       }
     },
@@ -151,7 +149,7 @@ export default {
       await CompendiumStore().deleteAllContentPacks()
       this.$notify({
         color: 'success',
-        text: 'Successfully deleted all content packs.',
+        text: this.$t('contentManager.packs.notify.deletedAll') as string,
       })
       this.loading = false
     },

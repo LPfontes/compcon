@@ -10,7 +10,7 @@
         <template #title>
           <v-row dense>
             <v-col>
-              <div class="text-caption font-weight-bold my-1">NOTIFICATIONS</div>
+              <div class="text-caption font-weight-bold my-1">{{ $t('cloud.management.notifications') }}</div>
             </v-col>
             <v-col cols="auto">
               <v-chip size="small"
@@ -28,27 +28,23 @@
       <v-col cols="12"
         md="6">
         <cc-heading is-title
-          text="CC-ID"
-          tooltip="Your unique account ID. This is used to identify your account in the cloud and may be
-          requested for troubleshooting purposes." />
+          :text="$t('cloud.management.ccId')"
+          :tooltip="$t('cloud.management.ccIdTooltip')" />
         {{ cognito.userId }}
       </v-col>
       <v-col cols="12"
         md="6">
         <cc-heading is-title
-          text="Account Email"
-          tooltip="This is the e-mail address associated with your account. You can use this to log in to
-            COMP/CON, Nautilus, and other Massif apps. This address is only visible to you and and
-            <b>will not</b>
-            be shown to other users in active mode or in shared data." />
+          :text="$t('cloud.management.accountEmail')"
+          :tooltip="$t('cloud.management.accountEmailTooltip')" />
 
         {{ cognito.signInDetails.loginId }}
       </v-col>
       <v-col cols="12"
         md="6">
         <cc-heading is-title
-          text="CC-username"
-          tooltip="This is an <b>optional</b> field that you can use to set a custom name for your account. This username <b>will</b> be visible to other users in active mode and when sharing data." />
+          :text="$t('cloud.management.ccUsername')"
+          :tooltip="$t('cloud.management.ccUsernameTooltip')" />
 
         <v-row dense
           align="center">
@@ -76,13 +72,13 @@
       <v-col cols="12"
         md="6">
         <cc-heading is-title
-          text="Account Details" />
+          :text="$t('cloud.management.accountDetails')" />
         <div class="text-caption">
-          <b>Account created (v3):</b>
+          <b>{{ $t('cloud.management.createdV3') }}</b>
           <i class="text-accent ml-1">{{ new Date(Number(meta.CreatedAt)).toLocaleString() }}</i>
         </div>
         <div class="text-caption">
-          <b>Last updated:</b>
+          <b>{{ $t('cloud.management.lastUpdated') }}</b>
           <i class="text-accent ml-1">{{ new Date(Number(meta.UpdatedAt)).toLocaleString() }}</i>
         </div>
       </v-col>
@@ -102,13 +98,13 @@
     </div>
 
     <cc-heading small
-      line>Change password</cc-heading>
+      line>{{ $t('cloud.management.changePassword') }}</cc-heading>
     <v-row dense
       align="center">
       <v-col cols="12"
         md="">
         <cc-text-field v-model="oldPass"
-          label="Old Password"
+          :label="$t('cloud.management.oldPassword')"
           color="primary"
           variant="outlined"
           :type="showOld ? 'text' : 'password'"
@@ -118,7 +114,7 @@
       <v-col cols="12"
         md="">
         <cc-text-field v-model="newPass"
-          label="New Password"
+          :label="$t('cloud.management.newPassword')"
           color="primary"
           variant="outlined"
           :type="showNew ? 'text' : 'password'"
@@ -132,33 +128,33 @@
             :disabled="!oldPass || !newPass || oldPass === newPass"
             :loading="loading"
             @click="changePass">
-            Submit
+            {{ $t('cloud.management.submit') }}
           </cc-button>
         </div>
       </v-col>
     </v-row>
 
     <cc-heading small
-      line>Change Account E-Mail</cc-heading>
+      line>{{ $t('cloud.management.changeEmail') }}</cc-heading>
     <v-row dense
       align="center">
       <v-col cols="12"
         md="">
         <cc-text-field v-model="newEmail"
-          label="New E-Mail"
+          :label="$t('cloud.management.newEmail')"
           color="primary"
           variant="outlined" />
       </v-col>
       <v-col cols="12"
         md="">
         <cc-text-field v-model="newEmailConfirm"
-          label="Confirm New E-Mail"
+          :label="$t('cloud.management.confirmNewEmail')"
           color="primary"
           variant="outlined" />
       </v-col>
       <v-col cols="auto">
         <div class="text-right">
-          <cc-modal title="Change Account E-Mail"
+          <cc-modal :title="$t('cloud.management.changeEmail')"
             shrink
             max-width="50vw">
             <template #activator="{ open }">
@@ -166,7 +162,7 @@
                 :disabled="!newEmail || newEmail !== newEmailConfirm"
                 :loading="loading"
                 @click="sendVerify(open)">
-                Submit
+                {{ $t('cloud.management.submit') }}
               </cc-button>
             </template>
             <template #default="{ close }">
@@ -175,15 +171,14 @@
                 <v-progress-circular indeterminate
                   size="80"
                   class="my-2" />
-                <div class="text-cc-overline">working...</div>
+                <div class="text-cc-overline">{{ $t('cloud.management.working') }}</div>
               </div>
               <div v-else>
                 <p class="mb-3">
-                  A verification e-mail has been sent to {{ newEmail }}. Please check your inbox and
-                  enter the verification code below to finalize your changes.
+                  {{ $t('cloud.management.emailSentText', { email: newEmail }) }}
                 </p>
                 <cc-text-field v-model="verifyCode"
-                  label="Verification Code"
+                  :label="$t('cloud.management.verificationCode')"
                   color="primary"
                   variant="outlined"
                   autocomplete="one-time-code" />
@@ -196,7 +191,7 @@
                     :disabled="!verifyCode"
                     :loading="loading"
                     @click="close">
-                    Cancel
+                    {{ $t('cloud.management.cancel') }}
                   </cc-button>
                 </v-col>
                 <v-col>
@@ -206,7 +201,7 @@
                     :disabled="!verifyCode"
                     :loading="loading"
                     @click="resetEmail(close)">
-                    Reset
+                    {{ $t('cloud.management.reset') }}
                   </cc-button>
                 </v-col>
                 <v-col>
@@ -216,7 +211,7 @@
                     :disabled="!verifyCode"
                     :loading="loading"
                     @click="completeVerify">
-                    Confirm
+                    {{ $t('cloud.management.confirm') }}
                   </cc-button>
                 </v-col>
               </v-row>
@@ -231,14 +226,14 @@
       :loading="loading"
       class="my-12"
       @click="ccSignOut">
-      Sign Out
+      {{ $t('cloud.management.signOut') }}
       <template #info>
         <v-icon icon="mdi-logout" />
       </template>
     </cc-button>
 
     <div class="text-right">
-      <cc-modal title="Account Deletion"
+      <cc-modal :title="$t('cloud.management.accountDeletion')"
         max-width="50vw"
         shrink>
         <template #activator="{ open }">
@@ -246,7 +241,7 @@
             color="error"
             prepend-icon="mdi-skull"
             @click="open">
-            Delete Cloud Account
+            {{ $t('cloud.management.deleteAccount') }}
           </cc-button>
         </template>
         <template #default="{ isActive }">
@@ -279,28 +274,27 @@ export default {
   name: 'AccountManagement',
   components: { DeleteAccount, PatreonCard, ItchCard, CloudNotificationList, V2CloudMigrationPanel },
   emits: ['set-state'],
-  data: () => ({
-    loading: false,
-    showAccountMigration: true,
-    nameLoading: false,
-    nameDirty: false,
-    showError: false,
-    error: '',
-    iid: '',
-    username: '',
-    oldPass: '',
-    showOld: false,
-    newPass: '',
-    showNew: false,
-    newEmail: '',
-    newEmailConfirm: '',
-    sendingVerify: false,
-    verifyCode: '',
-    rules: {
-      passLength: (v) => (v && v.length >= 6) || 'Minimum 6 characters',
-    },
-    authedUser: null,
-  }),
+  data() {
+    return {
+      loading: false,
+      showAccountMigration: true,
+      nameLoading: false,
+      nameDirty: false,
+      showError: false,
+      error: '',
+      iid: '',
+      username: '',
+      oldPass: '',
+      showOld: false,
+      newPass: '',
+      showNew: false,
+      newEmail: '',
+      newEmailConfirm: '',
+      sendingVerify: false,
+      verifyCode: '',
+      authedUser: null,
+    };
+  },
 
   computed: {
     cognito() {
@@ -309,10 +303,15 @@ export default {
     meta() {
       return UserStore().UserMetadata;
     },
+    rules() {
+      return {
+        passLength: (v: string) => (v && v.length >= 6) || (this.$t('cloud.management.minChars') as string),
+      };
+    },
     passMatch() {
       return () =>
         (this.oldPass && this.newPass && this.oldPass !== this.newPass) ||
-        'Password must be different';
+        (this.$t('cloud.management.passMatch') as string);
     },
     user() {
       return UserStore().User;
@@ -340,8 +339,8 @@ export default {
           if (!token) throw new Error('No token available')
           await navigator.clipboard.writeText(token)
           this.$notify({
-            title: 'JWT Copied',
-            text: 'ID token copied to clipboard',
+            title: this.$t('cloud.management.jwtCopied') as string,
+            text: this.$t('cloud.management.jwtCopiedText') as string,
             data: { icon: 'mdi-key', color: 'success-darken-2' },
           })
         } catch (err) {
@@ -356,8 +355,8 @@ export default {
     copy(str: string) {
       navigator.clipboard.writeText(str);
       this.$notify({
-        title: `Data Copied`,
-        text: `Copied ${str} to clipboard`,
+        title: this.$t('cloud.management.dataCopied') as string,
+        text: this.$t('cloud.management.copiedToClipboard', { str }) as string,
         data: { icon: 'mdi-clipboard-text-outline', color: 'success-darken-2' },
       });
     },
@@ -367,15 +366,15 @@ export default {
       try {
         await updatePassword({ oldPassword: this.oldPass, newPassword: this.newPass });
         this.$notify({
-          title: 'Update complete',
-          text: 'User password changed',
+          title: this.$t('cloud.management.updateComplete') as string,
+          text: this.$t('cloud.management.passChanged') as string,
           data: { color: 'success' },
         });
       } catch (err) {
         logger.error(`Failed to change password: ${err}`, this, err);
         this.$notify({
-          title: 'Password update failed',
-          text: 'The server returned an error',
+          title: this.$t('cloud.management.updateFailed') as string,
+          text: this.$t('cloud.management.serverError') as string,
           data: { color: 'error' },
         });
       }
@@ -387,8 +386,8 @@ export default {
       try {
         await updateUserAttributes({ userAttributes: { email: this.newEmail } });
         this.$notify({
-          title: 'Verification e-mail sent',
-          text: 'Please check your inbox for the verification code',
+          title: this.$t('cloud.management.emailSentTitle') as string,
+          text: this.$t('cloud.management.emailSentCheck') as string,
           data: { color: 'success' },
         });
         open();
@@ -396,8 +395,8 @@ export default {
       } catch (err) {
         logger.error(`Failed to initiate email change: ${err}`, this, err);
         this.$notify({
-          title: 'Failed to initiate email change',
-          text: 'The server returned an error',
+          title: this.$t('cloud.management.updateFailed') as string,
+          text: this.$t('cloud.management.serverError') as string,
           data: { color: 'error' },
         });
       }
@@ -407,8 +406,8 @@ export default {
       signOut()
         .then(() => {
           this.$notify({
-            title: 'Sign Out Successful',
-            text: 'Auth service reports successful logout',
+            title: this.$t('cloud.management.signOutSuccess') as string,
+            text: this.$t('cloud.management.signOutMsg') as string,
             data: { color: 'success' },
           });
           UserStore().signOut();
@@ -426,14 +425,14 @@ export default {
       const res = await updateUser(this.cognito.userId, { [backendKeys[key] || key]: this.meta[key] });
       if (res && res.status === 200) {
         this.$notify({
-          title: 'Update complete',
-          text: 'User data updated',
+          title: this.$t('cloud.management.updateComplete') as string,
+          text: this.$t('cloud.management.userDataUpdated') as string,
           data: { color: 'success' },
         });
       } else {
         this.$notify({
-          title: 'Update failed',
-          text: 'The server returned an error',
+          title: this.$t('cloud.management.updateFailed') as string,
+          text: this.$t('cloud.management.serverError') as string,
           data: { color: 'error' },
         });
       }
@@ -449,15 +448,15 @@ export default {
           confirmationCode: this.verifyCode,
         });
         this.$notify({
-          title: 'E-mail change complete',
-          text: 'Your e-mail address has been changed',
+          title: this.$t('cloud.management.emailChangeComplete') as string,
+          text: this.$t('cloud.management.emailChangeChanged') as string,
           data: { color: 'success' },
         });
       } catch (err) {
         logger.error(`Failed to initiate email change: ${err}`, this, err);
         this.$notify({
-          title: 'E-mail change failed',
-          text: 'The server returned an error',
+          title: this.$t('cloud.management.updateFailed') as string,
+          text: this.$t('cloud.management.serverError') as string,
           data: { color: 'error' },
         });
       } finally {
@@ -471,8 +470,8 @@ export default {
       this.newEmail = '';
       this.newEmailConfirm = '';
       this.$notify({
-        title: 'E-mail change cancelled',
-        text: 'The e-mail change has been cancelled',
+        title: this.$t('cloud.management.emailChangeCancelled') as string,
+        text: this.$t('cloud.management.emailChangeCancelledMsg') as string,
         data: { color: 'info' },
       });
     },

@@ -16,19 +16,14 @@
         </v-chip>
       </v-progress-linear>
 
-      <p class="px-2">
-        COMP/CON is currently using {{ bytesToSize(size.usage) }} of {{ bytesToSize(size.quota) }},
-        or
-        <b class="text-accent">{{ ((size.usage / size.quota) * 100).toFixed(3) }}%</b>
-        of your available storage. This includes space reserved by COMP/CON for app management.
-      </p>
+      <p class="px-2" v-html="$t('options.storage.usageText', { usage: bytesToSize(size.usage), quota: bytesToSize(size.quota), percent: ((size.usage / size.quota) * 100).toFixed(3) })" />
 
       <div class="mb-4">
         <cc-heading is-title
-          text="Storage Settings" />
+          :text="$t('options.storage.settings')" />
         <cc-heading is-title
           small
-          text="Storage Thresholds" />
+          :text="$t('options.storage.thresholds')" />
         <v-range-slider v-model="storageRange"
           thumb-label
           hide-details
@@ -42,7 +37,7 @@
           class="mt-2">
           <v-col>
             <v-text-field v-model.number="storageRange[0]"
-              label="Warning threshold (%)"
+              :label="$t('options.storage.warningThreshold')"
               type="number"
               min="0"
               :max="storageRange[1]"
@@ -54,7 +49,7 @@
           </v-col>
           <v-col>
             <v-text-field v-model.number="storageRange[1]"
-              label="Max threshold (%)"
+              :label="$t('options.storage.maxThreshold')"
               type="number"
               :min="storageRange[0]"
               max="100"
@@ -65,24 +60,14 @@
               @change="updateUserStorage" />
           </v-col>
         </v-row>
-        <div class="text-caption text-right text-stark">
-          COMP/CON will display a warning message when {{ storageRange[0].toFixed(2) }}% of
-          available system storage (
-          <b class="text-accent">{{ bytesToSize((storageRange[0] / 100) * size.quota) }}</b>
-          ) has been used
-        </div>
-        <div class="text-caption text-right text-stark">
-          COMP/CON will prevent the creation of new data after {{ storageRange[1].toFixed(2) }}% of
-          available system storage (
-          <b class="text-accent">{{ bytesToSize((storageRange[1] / 100) * size.quota) }}</b>
-          ) has been used
-        </div>
+        <div class="text-caption text-right text-stark" v-html="$t('options.storage.warningHint', { percent: storageRange[0].toFixed(2), size: bytesToSize((storageRange[0] / 100) * size.quota) })" />
+        <div class="text-caption text-right text-stark" v-html="$t('options.storage.maxHint', { percent: storageRange[1].toFixed(2), size: bytesToSize((storageRange[1] / 100) * size.quota) })" />
       </div>
 
       <div class="mb-8">
         <cc-heading is-title
           small
-          text="Auto-delete" />
+          :text="$t('options.storage.autoDelete')" />
 
         <cc-select v-model="deleteDays"
           :items="deleteDaySelections"
@@ -90,32 +75,20 @@
           density="compact"
           @update:model-value="updateDeleteDays()" />
         <div class="text-caption text-right text-stark">
-          <span v-if="!deleteDays">
-            COMP/CON will <b class="text-accent">never</b> automatically delete data marked for
-            deletion.
-          </span>
-          <span v-else>
-            COMP/CON will permanently delete data after it has been marked as deleted for at least
-            <b class="text-accent">{{ deleteDays }} days.</b>
-            This will not affect items not already marked for deletion.
-          </span>
+          <span v-if="!deleteDays" v-html="$t('options.storage.neverDelete')" />
+          <span v-else v-html="$t('options.storage.autoDeleteText', { days: deleteDays })" />
         </div>
       </div>
     </v-card-text>
     <v-card-text v-else
       class="flavor-text">
-      COMP/CON is unable to access device storage. This may be due to a browser setting or
-      extension. COMP/CON will fall back to using local storage, which is limited to 5MB. This may
-      result in COMP/CON being unable to save data. Please check your browser settings, or allow
-      COMP/CON to access "Persistent Storage" if prompted. If you are using a browser extension that
-      blocks storage access, please disable it for COMP/CON. If neither of these options work,
-      please consider downloading COMP/CON as a PWA.
+      {{ $t('options.storage.noAccess') }}
     </v-card-text>
 
     <v-divider class="my-4" />
 
     <cc-heading is-title
-      text="Deleted Items (local data only)" />
+      :text="$t('options.storage.deletedItems')" />
     <v-card-text>
       <deleted-items />
     </v-card-text>
@@ -123,7 +96,7 @@
     <v-divider class="my-4" />
 
     <cc-heading is-title
-      text="User Data" />
+      :text="$t('options.storage.userData')" />
     <user-data-viewer />
 
     <v-dialog v-model="deleteDialog"
@@ -137,7 +110,7 @@
             append-icon="mdi-alert-outline"
             prepend-icon="mdi-alert-outline"
             v-bind="props">
-            Clear All Data
+            {{ $t('options.storage.clearAll') }}
           </cc-button>
         </div>
       </template>
@@ -150,19 +123,12 @@
             icon="mdi-alert-circle"
             border="bottom"
             class="my-3">
-            <span class="heading h2">WARNING // WARNING // WARNING</span>
+            <span class="heading h2">{{ $t('options.storage.warningTitle') }}</span>
           </v-alert>
           <p class="text-center heading h2 text-text">
-            This will delete
-            <b class="text-accent">ALL</b>
-            local COMP/CON data.
-            <br />
-            This
-            <b class="text-accent">cannot</b>
-            be undone.
-            <br />
-            <br />
-            <b class="text-accent">Are you sure you want to continue?</b>
+            <span v-html="$t('options.storage.deleteConfirm1')" /><br />
+            <span v-html="$t('options.storage.deleteConfirm2')" /><br /><br />
+            <span v-html="$t('options.storage.deleteConfirm3')" />
           </p>
         </v-card-text>
         <v-divider />
@@ -171,7 +137,7 @@
             variant="text"
             large
             @click="deleteDialog = false">
-            Dismiss
+            {{ $t('options.storage.dismiss') }}
           </v-btn>
           <v-spacer />
           <v-btn color="error"
@@ -180,7 +146,7 @@
             <v-icon start
               size="x-large"
               icon="mdi-alert-outline" />
-            Delete All User Data
+            {{ $t('options.storage.deleteAllButton') }}
             <v-icon end
               size="x-large"
               icon="mdi-alert-outline" />
@@ -201,40 +167,33 @@ import { UserStore } from '@/stores';
 export default {
   name: 'OptionsStorage',
   components: { DeletedItems, UserDataViewer },
-  data: () => ({
-    importDialog: false,
-    fileValue: null,
-    deleteDialog: false,
-    storageRange: [0, 0],
-    deleteDays: 0,
-    size: {} as StorageEstimate,
-    data: {
-      pilots: { title: 'Pilots', length: 0 },
-      npcs: { title: 'NPCs', length: 0 },
-      encounters: { title: 'Encounters', length: 0 },
-      campaigns: { title: 'Campaigns', length: 0 },
-      characters: { title: 'Characters', length: 0 },
-      locations: { title: 'Locations', length: 0 },
-      factions: { title: 'Factions', length: 0 },
-      content: { title: 'LCPs', length: 0 },
-      images: { title: 'Local Images', length: 0 },
-    },
-    deleteDaySelections: [
-      { title: 'Never', value: 0 },
-      { title: '1 Week', value: 7 },
-      { title: '2 Weeks', value: 14 },
-      { title: '1 Month', value: 30 },
-      { title: '3 Months', value: 90 },
-      { title: '6 Months', value: 180 },
-      { title: '1 Year', value: 365 },
-    ],
-  }),
+  data() {
+    return {
+      importDialog: false,
+      fileValue: null,
+      deleteDialog: false,
+      storageRange: [0, 0] as [number, number],
+      deleteDays: 0,
+      size: {} as StorageEstimate,
+    };
+  },
   computed: {
     user() {
       return UserStore().User;
     },
     mobile() {
       return this.$vuetify.display.mdAndDown;
+    },
+    deleteDaySelections() {
+      return [
+        { title: this.$t('options.storage.never'), value: 0 },
+        { title: this.$t('options.storage.week'), value: 7 },
+        { title: this.$t('options.storage.weeks'), value: 14 },
+        { title: this.$t('options.storage.month'), value: 30 },
+        { title: this.$t('options.storage.months3'), value: 90 },
+        { title: this.$t('options.storage.months6'), value: 180 },
+        { title: this.$t('options.storage.year'), value: 365 },
+      ];
     },
   },
   async created() {
@@ -247,12 +206,6 @@ export default {
 
     this.size = { usage: actualUsage, quota: est.quota };
 
-    for (const db of Object.keys(this.data)) {
-      const len = await this.GetLength(db);
-      if (len) {
-        this.data[db].length = len;
-      }
-    }
 
     if (!est.usage || !est.quota) {
       logger.info(`navigator storage estimate: ${est.usage} / ${est.quota}`, this);
@@ -264,8 +217,14 @@ export default {
   },
   methods: {
     bytesToSize(bytes: number) {
-      const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-      if (bytes === 0) return '0 Bytes';
+      const sizes = [
+        this.$t('common.units.bytes'),
+        this.$t('common.units.kb'),
+        this.$t('common.units.mb'),
+        this.$t('common.units.gb'),
+        this.$t('common.units.tb'),
+      ];
+      if (bytes === 0) return `0 ${sizes[0]}`;
       const i = Math.floor(Math.log(bytes) / Math.log(1024));
       if (i === 0) return `${bytes} ${sizes[i]})`;
       return `${(bytes / 1024 ** i).toFixed(1)} ${sizes[i]}`;

@@ -10,35 +10,35 @@
         style="height: 100%">
         <main-btn icon="cc:compendium"
           :to="'/srd'"
-          help="Equipment Database"
+          :help="$t('mainMenu.compendiumHelp')"
           @hover="ccLog('compendium')">
-          Compendium
+          {{ $t('mainMenu.compendium') }}
         </main-btn>
         <main-btn icon="cc:pilot"
           :to="'/pilot_management'"
-          help="Manage Pilots"
+          :help="$t('mainMenu.pilotHelp')"
           @hover="ccLog('pilot')">
-          Pilot Roster
+          {{ $t('mainMenu.pilotRoster') }}
         </main-btn>
         <main-btn icon="cc:encounter"
           :to="'/gm'"
-          help="Manage Campaigns, Encounters, and NPCs"
+          :help="$t('mainMenu.gmHelp')"
           @hover="ccLog('gm')">
-          GM Toolkit
+          {{ $t('mainMenu.gmToolkit') }}
         </main-btn>
         <main-btn icon="cc:campaign"
           :to="'/active-mode'"
-          help="Run an Encounter or Active Character Sheet"
+          :help="$t('mainMenu.activeHelp')"
           @hover="ccLog('encounter')">
-          Active Mode
+          {{ $t('mainMenu.activeMode') }}
         </main-btn>
         <main-btn icon="cc:content_manager"
-          help="Import Content Packs"
+          :help="$t('mainMenu.contentHelp')"
           @hover="ccLog('content')"
           @clicked="extraContentModal = true">
-          Content Manager
+          {{ $t('mainMenu.contentManager') }}
           <v-tooltip v-if="hasV2Backups"
-            text="v2 imports awaiting resolution">
+            :text="$t('mainMenu.v2Waiting')">
             <template #activator="{ props }">
               <v-icon v-bind="props"
                 icon="mdi-alert"
@@ -63,7 +63,7 @@
         align="center">
         <v-col cols="auto"
           class="text-center mr-1">
-          <cc-modal title="Cloud Account"
+          <cc-modal :title="$t('mainMenu.cloudAccount')"
             icon="mdi-cloud-sync">
             <template #activator="{ open }">
               <cc-button size="small"
@@ -72,7 +72,7 @@
                 :prepend-icon="isLoggedIn ? 'mdi-cloud-sync' : 'mdi-cloud-off-outline'"
                 class="mr-2"
                 @click="open">
-                <span>{{ isLoggedIn ? 'Connected' : 'Log In' }}</span>
+                <span>{{ isLoggedIn ? $t('mainMenu.connected') : $t('mainMenu.logIn') }}</span>
               </cc-button>
             </template>
             <sign-in />
@@ -88,7 +88,7 @@
           <v-row dense
             justify="space-between">
             <v-col cols="auto">
-              <cc-modal title="Options"
+              <cc-modal :title="$t('mainMenu.options')"
                 icon="mdi-cog">
                 <template #activator="{ open }">
                   <cc-button size="small"
@@ -96,7 +96,7 @@
                     color="highlight"
                     @mouseenter="ccLog('options')"
                     @click="open">
-                    Options
+                    {{ $t('mainMenu.options') }}
                   </cc-button>
                 </template>
                 <options-page />
@@ -104,7 +104,7 @@
             </v-col>
 
             <v-col cols="auto">
-              <cc-dialog title="About"
+              <cc-dialog :title="$t('mainMenu.about')"
                 icon="mdi-information">
                 <template #activator="{ open }">
                   <cc-button size="small"
@@ -112,7 +112,7 @@
                     color="highlight"
                     @mouseenter="ccLog('about')"
                     @click="open">
-                    About
+                    {{ $t('mainMenu.about') }}
                   </cc-button>
                 </template>
                 <about-page />
@@ -120,7 +120,7 @@
             </v-col>
 
             <v-col cols="auto">
-              <cc-modal title="Credits"
+              <cc-modal :title="$t('mainMenu.credits')"
                 icon="cc:gms">
                 <template #activator="{ open }">
                   <cc-button size="small"
@@ -128,7 +128,7 @@
                     color="highlight"
                     @mouseenter="ccLog('credits')"
                     @click="open">
-                    Credits
+                    {{ $t('mainMenu.credits') }}
                   </cc-button>
                 </template>
                 <credits-page />
@@ -136,7 +136,7 @@
             </v-col>
 
             <v-col cols="auto">
-              <cc-modal title="Help"
+              <cc-modal :title="$t('mainMenu.help')"
                 icon="mdi-help-circle">
                 <template #activator="{ open }">
                   <cc-button size="small"
@@ -144,7 +144,7 @@
                     color="highlight"
                     @mouseenter="ccLog('help')"
                     @click="open">
-                    Help
+                    {{ $t('mainMenu.help') }}
                   </cc-button>
                 </template>
                 <help-page />
@@ -157,7 +157,7 @@
                 size="small"
                 variant="tonal"
                 href="https://www.patreon.com/compcon">
-                Support This Project
+                {{ $t('mainMenu.supportProject') }}
               </cc-button>
             </v-col>
           </v-row>
@@ -229,52 +229,52 @@ export default {
         case 'compendium':
           (this.$refs['log'] as any).print(
             'man compendium',
-            'Browse the database of LANCER frames, equipment, and rules'
+            this.$t('mainMenu.logs.compendium')
           );
           break;
         case 'pilot':
           (this.$refs['log'] as any).print(
             'man pilot-sheet',
-            'Create and manage pilots and their mechs, print character sheets, and enable active play mode'
+            this.$t('mainMenu.logs.pilot')
           );
           break;
         case 'gm':
           (this.$refs['log'] as any).print(
             'man gm-tools',
-            'Build and manage NPCs and encounters, and run missions with NPCs and pilots'
+            this.$t('mainMenu.logs.gm')
           );
           break;
         case 'campaign':
-          (this.$refs['log'] as any).print('man campaigns', 'work in progress');
+          (this.$refs['log'] as any).print('man campaigns', this.$t('mainMenu.logs.wip'));
           break;
         case 'content':
           (this.$refs['log'] as any).print(
             'man homebrew',
-            'Manage and create COMP/CON expansion data'
+            this.$t('mainMenu.logs.content')
           );
           break;
         case 'encounter':
           (this.$refs['log'] as any).print(
             'man activemode',
-            'GM an Encounter, open or continue an Active Character Sheet, or create or join a cloud-based Table (coming soon!)'
+            this.$t('mainMenu.logs.encounter')
           );
           break;
         case 'options':
           (this.$refs['log'] as any).print(
             'compcon -settings --verbose',
-            'Open the options manager'
+            this.$t('mainMenu.logs.options')
           );
           break;
         case 'about':
-          (this.$refs['log'] as any).print('compcon --v', 'About COMP/CON');
+          (this.$refs['log'] as any).print('compcon --v', this.$t('mainMenu.logs.about'));
           break;
         case 'help':
-          (this.$refs['log'] as any).print('compcon --h', 'Open the COMP/CON help page');
+          (this.$refs['log'] as any).print('compcon --h', this.$t('mainMenu.logs.help'));
           break;
         case 'update':
           (this.$refs['log'] as any).print(
             'gms-upm compcon changelog -l',
-            'View COMP/CON changelog and latest updates'
+            this.$t('mainMenu.logs.update')
           );
           break;
         default:

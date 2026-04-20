@@ -8,7 +8,7 @@
         md="4"
         class="px-3 py-4">
         <v-file-input v-model="value"
-          placeholder="Select an .LCP file"
+          :placeholder="$t('contentManager.install.placeholder')"
           variant="outlined"
           type="file"
           accept=".lcp"
@@ -31,7 +31,7 @@
             <v-icon icon="mdi-tray-arrow-down" />
           </template>
 
-          <span>Install</span>
+          <span>{{ $t('contentManager.install.install') }}</span>
         </cc-button>
         <v-progress-linear v-if="installing"
           indeterminate
@@ -40,7 +40,7 @@
           color="warning"
           class="my-3">
           <span class="text-caption">
-            The following content pack(s) are already installed and will be replaced:
+            {{ $t('contentManager.install.alreadyInstalled') }}
           </span>
           <div v-for="pack in contentPacks.filter((x) => packAlreadyInstalled(x))"
             :key="pack.id"
@@ -56,7 +56,7 @@
                 class="elevation-0">
                 <v-icon start
                   icon="mdi-arrow-up" />
-                Upgrade from {{ alreadyInstalledVersion(pack) }} to {{ pack.manifest.version }}
+                {{ $t('contentManager.install.upgrade', { v1: alreadyInstalledVersion(pack), v2: pack.manifest.version }) }}
               </v-chip>
               <v-chip v-else-if="gradeType(pack) === 'downgrade'"
                 color="error"
@@ -65,12 +65,12 @@
                 class="elevation-0">
                 <v-icon start
                   icon="mdi-arrow-down" />
-                Downgrade to {{ pack.manifest.version }}
+                {{ $t('contentManager.install.downgrade', { v: pack.manifest.version }) }}
               </v-chip>
               <i v-else>
                 <v-icon class="pb-1"
                   icon="mdi-swap-horizontal" />
-                No change ({{ pack.manifest.version }} to {{ pack.manifest.version }})
+                {{ $t('contentManager.install.noChange', { v: pack.manifest.version }) }}
               </i>
             </div>
           </div>
@@ -80,9 +80,7 @@
           color="warning"
           class="my-3">
           <span class="text-caption">
-            The following content has not been registered as v3 compatible. These packs will still
-            work, but
-            will not be able to take advantage of v3 features, especially in active mode.
+            {{ $t('contentManager.install.v3Warning') }}
           </span>
           <div v-for="pack in contentPacks.filter((x) => !x.manifest.v3)"
             :key="pack.id"
@@ -97,14 +95,13 @@
           color="error"
           class="my-3">
           <span class="text-caption">
-            The following content pack(s) have uninstalled dependencies and cannot be installed yet.
-            They will be skipped:
+            {{ $t('contentManager.install.missingDeps') }}
           </span>
           <div v-for="pack in contentPacks.filter((x) => uninstalledDependencies(x).length > 0)"
             :key="pack.id"
             class="text-caption">
             <b>{{ pack.manifest.name }}</b>
-            by {{ pack.manifest.author }} requires
+            by {{ pack.manifest.author }} {{ $t('contentManager.install.requires') }}
             <div v-for="dep in uninstalledDependencies(pack)"
               :key="dep.id"
               class="text-caption">
@@ -122,7 +119,7 @@
           <cc-alert v-if="installing"
             type="info"
             class="mt-3">
-            Installing {{ contentPacks.length }} content pack(s)...
+            {{ $t('contentManager.install.installing', { count: contentPacks.length }) }}
           </cc-alert>
         </v-fade-transition>
 
@@ -152,14 +149,14 @@
                 "
               class="transition-swing"
               transition="slide-y-reverse-transition">
-              A pack with this same name and author is already installed.
+              {{ $t('contentManager.install.duplicateAlert') }}
               <span v-if="gradeType(contentPack) === 'upgrade'">
-                It will be upgraded to v.{{ contentPack.manifest.version }}
+                {{ $t('contentManager.install.willBeUpgraded', { v: contentPack.manifest.version }) }}
               </span>
               <span v-else-if="gradeType(contentPack) === 'downgrade'">
-                It will be downgraded to {{ contentPack.manifest.version }}
+                {{ $t('contentManager.install.willBeDowngraded', { v: contentPack.manifest.version }) }}
               </span>
-              <span v-else>It will be replaced by this copy.</span>
+              <span v-else>{{ $t('contentManager.install.willBeReplaced') }}</span>
             </v-alert>
             <v-alert v-show="uninstalledDependencies(contentPack).length > 0 && !installing"
               flat
@@ -167,7 +164,7 @@
               color="error"
               class="transition-swing"
               transition="slide-y-reverse-transition">
-              This LCP requires the following content to be installed before it can be added:
+              {{ $t('contentManager.install.requiresAlert') }}
               <div v-for="dep in uninstalledDependencies(contentPack)"
                 :key="dep.id"
                 class="text-caption">
@@ -186,7 +183,7 @@
           <div v-else
             key="nopack"
             class="text-center my-6">
-            <div class="heading h3 font-italic text-disabled">No content pack selected</div>
+            <div class="heading h3 font-italic text-disabled">{{ $t('contentManager.install.noPackSelected') }}</div>
           </div>
         </v-fade-transition>
       </v-col>
@@ -245,9 +242,9 @@ export default {
       window.open(link, '_blank');
     },
     parseVersion(version) {
-      if (version.includes('*')) return 'any version';
+      if (version.includes('*')) return this.$t('contentManager.install.anyVersion');
       if (version.includes('=')) return version.replace('=', '');
-      return version + ' or later';
+      return version + ' ' + this.$t('contentManager.install.orLater');
     },
     async fileChange(event) {
       const files = event.target.files;
@@ -340,8 +337,8 @@ export default {
       this.value = null;
 
       this.$notify({
-        title: 'Success',
-        text: 'Content packs installed successfully',
+        title: this.$t('contentManager.install.notify.success') as string,
+        text: this.$t('contentManager.install.notify.successText') as string,
         data: { color: 'success' },
       });
     },
@@ -375,8 +372,8 @@ export default {
           e
         );
         this.$notify({
-          title: 'Error',
-          text: `Removed ${pack.manifest.name || pack.manifest.title || 'unknown LCP'} from import -- invalid version string breaks semver`,
+          title: this.$t('contentManager.install.notify.error') as string,
+          text: this.$t('contentManager.install.notify.removedInvalid', { name: pack.manifest.name || pack.manifest.title || 'unknown LCP' }) as string,
           data: { color: 'error' },
         });
         return 'error';

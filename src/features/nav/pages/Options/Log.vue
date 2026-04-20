@@ -1,7 +1,7 @@
 <template>
   <v-container :class="!mobile && 'px-12'">
     <div class="text-caption">
-      Log level:
+      {{ $t('options.log.level') }}:
       <b class="text-uppercase">{{ logger.level }}</b>
     </div>
     <v-expansion-panels multiple
@@ -28,7 +28,7 @@
         <v-expansion-panel-text class="bg-background">
           <v-row>
             <v-col>
-              <div class="heading h3">TRACE</div>
+              <div class="heading h3">{{ $t('options.log.trace') }}</div>
               <v-divider />
               <ul v-if="Array.isArray(item.trace)">
                 <li v-for="(t, idxt) in item.trace"
@@ -41,7 +41,7 @@
 
             </v-col>
             <v-col>
-              <div class="heading h3">CALLER</div>
+              <div class="heading h3">{{ $t('options.log.caller') }}</div>
               <v-divider />
               <div v-if="item.caller">
                 <div class="text-accent font-weight-bold">
@@ -51,7 +51,7 @@
                   style="white-space: pre-wrap; word-break: break-all">{{ safeStringify(sanitizeCaller(item.caller)) }}</pre>
               </div>
               <div v-else
-                class="text-center text-disabled"><i>no data</i></div>
+                class="text-center text-disabled"><i>{{ $t('options.log.noData') }}</i></div>
             </v-col>
           </v-row>
         </v-expansion-panel-text>
@@ -62,7 +62,7 @@
       <v-btn size="small"
         :disabled="!history.length"
         @click="exportLog()">
-        Export Log
+        {{ $t('options.log.export') }}
         <v-icon end
           icon="mdi-file-download" />
       </v-btn>
@@ -105,7 +105,7 @@ export default {
       return `${formattedHours}:${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds} ${period}`;
     },
     formatTrace(t: string) {
-      if (!t) return 'no data';
+      if (!t) return this.$t('options.log.noData') as string;
       return (
         t
           .replace('(', '')
@@ -120,7 +120,7 @@ export default {
       navigator.clipboard.writeText(text);
       this.$notify({
         type: 'success',
-        text: 'Log entry copied to clipboard',
+        text: this.$t('options.log.copied') as string,
       });
     },
     exportLog() {

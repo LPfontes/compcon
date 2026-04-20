@@ -7,10 +7,8 @@
       color="panel">
       <v-toolbar-title>
         <cc-heading is-title
-          text="Remote Backups"
-          tooltip="This tool will capture a snapshot of your local COMP/CON data and store it in a cloud
-              archive. You can use this to restore your COMP/CON data to a previous state. This
-              feature is only available to Patreon supporters." />
+          :text="$t('cloud.archive.title')"
+          :tooltip="$t('cloud.archive.titleTooltip')" />
       </v-toolbar-title>
       <v-spacer />
       <v-tooltip v-if="hasArchiveAccess"
@@ -25,9 +23,9 @@
           </v-btn>
         </template>
         <div class="text-center">
-          Reload Data
+          {{ $t('cloud.archive.reloadData') }}
           <br />
-          (This does not sync)
+          {{ $t('cloud.archive.noSync') }}
         </div>
       </v-tooltip>
     </v-toolbar>
@@ -35,13 +33,13 @@
       <cc-alert color="text"
         icon="mdi-information-outline"
         variant="outlined"
-        title="You do not have access to remote backups.">
-        Due to the server costs associated the creation and storage of backup data, this feature is
-        only available to Patreon subscribers. If you would like access to automated cloud backups,
-        please consider
-        <a href="https://www.patreon.com/compcon"
-          target="_blank">subscribing</a>
-        to support the development of COMP/CON and gain access to additional features.
+        :title="$t('cloud.archive.noAccessTitle')">
+        <i18n-t keypath="cloud.archive.noAccessText" tag="span">
+          <template #sub>
+            <a href="https://www.patreon.com/compcon"
+              target="_blank">{{ $t('cloud.archive.subscribing') }}</a>
+          </template>
+        </i18n-t>
       </cc-alert>
     </v-card-text>
     <div v-else>
@@ -71,8 +69,8 @@
             </template>
             <div class="text-center"
               v-text="!item.preserve
-                ? 'Prevent this item from being automatically pruned. Preserved archives will still count towards size and space limitations.'
-                : 'Remove auto-delete protections on this item'
+                ? $t('cloud.archive.preventPrune')
+                : $t('cloud.archive.removePruneProtection')
                 " />
           </v-tooltip>
         </template>
@@ -91,7 +89,7 @@
                     <v-icon size="x-large"
                       v-bind="props">mdi-undo-variant</v-icon>
                   </template>
-                  <div class="text-center">Revert COMP/CON to this backup</div>
+                  <div class="text-center">{{ $t('cloud.archive.revertTooltip') }}</div>
                 </v-tooltip>
               </v-btn>
             </template>
@@ -100,7 +98,7 @@
                 <v-toolbar flat
                   color="primary">
                   <v-toolbar-title>
-                    <span class="heading h3">Revert COMP/CON</span>
+                    <span class="heading h3">{{ $t('cloud.archive.revertTitle') }}</span>
                   </v-toolbar-title>
                   <v-spacer />
                   <v-btn icon
@@ -109,24 +107,21 @@
                   </v-btn>
                 </v-toolbar>
                 <v-card-text>
-                  This will replace your current COMP/CON data with the data from this archive. This
-                  action cannot be automatically undone, so it is strongly recommended that you
-                  create a new archive before proceeding.
+                  {{ $t('cloud.archive.revertText') }}
                   <br />
                   <br />
-                  This tool only affects your local data. It will not affect any data stored in the
-                  cloud.
+                  {{ $t('cloud.archive.revertLocalOnly') }}
                 </v-card-text>
                 <v-divider />
                 <v-card-actions>
                   <v-btn variant="text"
-                    @click="isActive.value = false">Cancel</v-btn>
+                    @click="isActive.value = false">{{ $t('cloud.archive.cancel') }}</v-btn>
                   <v-spacer />
                   <v-btn variant="elevated"
                     color="accent"
                     :loading="loading"
                     @click="revertCC(item)">
-                    Load Archive
+                    {{ $t('cloud.archive.loadArchive') }}
                   </v-btn>
                 </v-card-actions>
               </v-card>
@@ -147,7 +142,7 @@
                 <v-icon size="x-large">mdi-download</v-icon>
               </v-btn>
             </template>
-            <div class="text-center">Download Copy</div>
+            <div class="text-center">{{ $t('cloud.archive.downloadCopy') }}</div>
           </v-tooltip>
 
           <v-dialog max-width="600px">
@@ -163,7 +158,7 @@
                     <v-icon size="x-large"
                       v-bind="props">mdi-delete-outline</v-icon>
                   </template>
-                  <div class="text-center">Delete Archive</div>
+                  <div class="text-center">{{ $t('cloud.archive.deleteArchive') }}</div>
                 </v-tooltip>
               </v-btn>
             </template>
@@ -172,7 +167,7 @@
                 <v-toolbar flat
                   color="error">
                   <v-toolbar-title>
-                    <span class="heading h3">Delete Archive</span>
+                    <span class="heading h3">{{ $t('cloud.archive.deleteArchive') }}</span>
                   </v-toolbar-title>
                   <v-spacer />
                   <v-btn icon
@@ -181,21 +176,21 @@
                   </v-btn>
                 </v-toolbar>
                 <v-card-text>
-                  Are you sure you want to delete this archive? This action cannot be undone.
+                  {{ $t('cloud.archive.deleteConfirm') }}
                   <v-checkbox v-model="skipDeleteWarning"
-                    label="Do not show this warning again"
+                    :label="$t('cloud.archive.skipDeleteWarning')"
                     hide-details />
                 </v-card-text>
                 <v-divider />
                 <v-card-actions>
                   <v-btn variant="text"
-                    @click="isActive.value = false">Cancel</v-btn>
+                    @click="isActive.value = false">{{ $t('cloud.archive.cancel') }}</v-btn>
                   <v-spacer />
                   <v-btn variant="elevated"
                     color="error"
                     :loading="loading"
                     @click="deleteArchive(item)">
-                    Delete
+                    {{ $t('cloud.archive.delete') }}
                   </v-btn>
                 </v-card-actions>
               </v-card>
@@ -210,10 +205,10 @@
         :disabled="working || cloudStorageFull"
         :loading="working"
         @click="createNew()">
-        Create New Backup
+        {{ $t('cloud.archive.createNew') }}
         <template v-if="cloudStorageFull"
           #subtitle>
-          Cloud storage is full! Unable to create new archives.
+          {{ $t('cloud.archive.storageFull') }}
         </template>
         <template #options>
           <v-card tile
@@ -222,35 +217,32 @@
             <v-toolbar density="compact"
               color="primary"
               tile>
-              <div class="heading h3 px-2">Archive Settings</div>
+              <div class="heading h3 px-2">{{ $t('cloud.archive.archiveSettings') }}</div>
             </v-toolbar>
             <v-card-text>
               <div class="text-caption mb-4">
-                COMP/CON can create and save a backup of your data at the selected interval. These
-                archives can be used to roll back your data to a previous state.
+                {{ $t('cloud.archive.archiveSettingsText') }}
               </div>
 
               <cc-select v-model="settings.autoBackupFrequency"
-                label="Auto Backup Frequency"
+                :label="$t('cloud.archive.autoBackupFreq')"
                 :items="backupFrequency"
                 :loading="updateLoading" />
 
               <v-divider class="my-4" />
 
               <div class="text-caption mb-4">
-                COMP/CON will automatically delete old archives to save space. This process runs
-                whenever a new archive is created, or can be manually triggered by clicking the
-                Prune Items button below.
+                {{ $t('cloud.archive.pruneText') }}
               </div>
 
               <div></div>
               <cc-select v-model="settings.autoBackupLimit"
-                label="Item Limit"
+                :label="$t('cloud.archive.itemLimit')"
                 :loading="updateLoading"
                 :items="pruneOptions"
                 :details="pruneOptions.find((o) => o.value === pruneSetting)?.subtitle" />
 
-              <div class="mt-4">Storage Limit</div>
+              <div class="mt-4">{{ $t('cloud.archive.storageLimit') }}</div>
               <v-slider v-model="settings.autoBackupPrunePct"
                 :max="99"
                 :min="1"
@@ -259,8 +251,7 @@
                 color="accent"
                 hide-details />
               <div class="text-caption text-right mt-n2"
-                v-text="`Delete old archives if cloud archives take up more than ${settings.autoBackupPrunePct}% of your total cloud storage limit`
-                  " />
+                v-text="$t('cloud.archive.storagePruneLabel', { pct: settings.autoBackupPrunePct })" />
             </v-card-text>
             <v-divider />
             <v-card-actions>
@@ -268,8 +259,8 @@
               <v-btn :loading="loading"
                 :disabled="!prunableItemCount"
                 @click="prune">
-                <span v-if="prunableItemCount">Prune {{ prunableItemCount }} Items</span>
-                <span v-else>Nothing to Prune</span>
+                <span v-if="prunableItemCount">{{ $t('cloud.archive.pruneCount', { count: prunableItemCount }) }}</span>
+                <span v-else>{{ $t('cloud.archive.nothingToPrune') }}</span>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -292,30 +283,30 @@ export default {
     updateLoading: false,
     working: false,
     headers: [
-      { title: 'Created', key: 'created' },
-      { title: 'Source', key: 'source' },
-      { title: 'Size', key: 'size' },
-      { title: 'Preserve', key: 'preserve' },
+      { title: this.$t('cloud.archive.headers.created'), key: 'created' },
+      { title: this.$t('cloud.archive.headers.source'), key: 'source' },
+      { title: this.$t('cloud.archive.headers.size'), key: 'size' },
+      { title: this.$t('cloud.archive.headers.preserve'), key: 'preserve' },
       { title: '', key: 'actions', sortable: false, width: '155px' },
     ],
     pruneSetting: 30,
     pruneOptions: [
-      { title: 'Keep All', subtitle: 'Do not automatically delete any archives.', value: -1 },
-      { title: 'Last 30', subtitle: 'Keep the 30 newest archives.', value: 30 },
-      { title: 'Last 10', subtitle: 'Keep the 10 newest archives.', value: 10 },
-      { title: 'Last 5', subtitle: 'Keep the 5 newest archives.', value: 5 },
+      { title: this.$t('cloud.archive.options.keepAll'), subtitle: this.$t('cloud.archive.options.keepAllSub'), value: -1 },
+      { title: this.$t('cloud.archive.options.last30'), subtitle: this.$t('cloud.archive.options.last30Sub'), value: 30 },
+      { title: this.$t('cloud.archive.options.last10'), subtitle: this.$t('cloud.archive.options.last10Sub'), value: 10 },
+      { title: this.$t('cloud.archive.options.last5'), subtitle: this.$t('cloud.archive.options.last5Sub'), value: 5 },
       {
-        title: 'Most Recent Only',
-        subtitle: 'Keep only the most recent archive.',
+        title: this.$t('cloud.archive.options.mostRecent'),
+        subtitle: this.$t('cloud.archive.options.mostRecentSub'),
         value: 1,
       },
     ],
     backupFrequency: [
-      { title: 'Off', value: 'none' },
-      { title: 'On App Start', value: 'appstart' },
-      { title: 'Daily', value: 'daily' },
-      { title: 'Weekly', value: 'weekly' },
-      { title: 'Monthly', value: 'monthly' },
+      { title: this.$t('cloud.archive.options.off'), value: 'none' },
+      { title: this.$t('cloud.archive.options.appStart'), value: 'appstart' },
+      { title: this.$t('cloud.archive.options.daily'), value: 'daily' },
+      { title: this.$t('cloud.archive.options.weekly'), value: 'weekly' },
+      { title: this.$t('cloud.archive.options.monthly'), value: 'monthly' },
     ],
     prunePct: 50,
   }),
@@ -370,9 +361,9 @@ export default {
       if (cooldown + cooldownTime > Date.now()) {
         this.$notify({
           title: 'Cloud Archive',
-          text: `You must wait ${Math.ceil(
-            (cooldown + cooldownTime - Date.now()) / 1000
-          )} seconds before creating a new archive.`,
+          text: this.$t('cloud.archive.waitCooldown', {
+            n: Math.ceil((cooldown + cooldownTime - Date.now()) / 1000)
+          }) as string,
           data: { icon: 'mdi-clock', type: 'error' },
         });
         this.working = false;

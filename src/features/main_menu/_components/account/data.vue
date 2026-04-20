@@ -13,16 +13,19 @@
       </v-chip>
     </v-progress-linear>
     <div class="text-center flavor-text">
-      DATA USAGE
+      {{ $t('cloud.data.usage') }}
       <cc-slashes />
-      {{ (cloudUseMb >= 1 ? cloudUseMb : cloudUseKb).toFixed(2) }}
-      {{ cloudUseMb >= 1 ? 'MB' : 'KB' }} of {{ cloudMaxMb.toFixed(2) }} MB
+      {{ $t('cloud.data.usageOf', {
+        used: (cloudUseMb >= 1 ? cloudUseMb : cloudUseKb).toFixed(2),
+        unit: (cloudUseMb >= 1 ? 'MB' : 'KB'),
+        max: cloudMaxMb.toFixed(2)
+      }) }}
       <cc-button size="small"
         variant="tonal"
         color="info"
         prepend-icon="mdi-star"
         class="my-1">
-        Upgrade
+        {{ $t('cloud.data.upgrade') }}
       </cc-button>
     </div>
     <br />
@@ -35,7 +38,7 @@
     <div class="my-8 text-right">
       <cc-button color="primary"
         :loading="resetting"
-        @click="resetMigration()">Reset Account Migration Tool</cc-button>
+        @click="resetMigration()">{{ $t('cloud.data.resetMigration') }}</cc-button>
     </div>
   </v-container>
 </template>

@@ -3,17 +3,19 @@
     <div class="packsList"
       style="min-height: 300px">
       <div class="heading h2 text-stark mt-3 px-2">
-        Official
-        <a href="https://massifpress.com/shop"
-          target="_blank">MASSIF PRESS</a>
-        Content
+        <i18n-t keypath="contentManager.directory.official" tag="span">
+          <template #link>
+            <a href="https://massifpress.com/shop"
+              target="_blank">MASSIF PRESS</a>
+          </template>
+        </i18n-t>
       </div>
       <massif-lcp-table :packs="massifPacks"
         :loading="loading" />
       <v-divider class="my-6" />
       <div class="heading h2 text-stark mt-3 px-2">
-        LANCER Community Content
-        <cc-dialog title="LANCER Community Content Packs">
+        {{ $t('contentManager.directory.community') }}
+        <cc-dialog :title="$t('contentManager.directory.communityTitle')">
           <template #activator="{ open }">
             <v-icon size="x-small"
               class="mt-n1 fade-select"
@@ -22,28 +24,26 @@
             </v-icon>
           </template>
           <v-card-text>
-            COMP/CON is proud to collaborate with the LANCER community in making these unofficial
-            content packs available. They are offered as-is at the discretion of the author.
+            {{ $t('contentManager.directory.communityInfo') }}
             <br />
-            If you are interested in creating your own homebrew LANCER content, or submitting your
-            content to be featured in this directory, please
-            <a href="https://github.com/massif-press/lancer-data#lancer-community-content-packs"
-              target="_blank">
-              click here.
-            </a>
+            <i18n-t keypath="contentManager.directory.communityCreate" tag="span">
+              <template #click>
+                <a href="https://github.com/massif-press/lancer-data#lancer-community-content-packs"
+                  target="_blank">
+                  {{ $t('contentManager.directory.clickHere') }}
+                </a>
+              </template>
+            </i18n-t>
           </v-card-text>
         </cc-dialog>
       </div>
       <cc-alert>
-        In-app downloading and automatic subscription to community LCP updates are not yet
-        supported. Once
-        the author support tools are available, community LCPs will be migrated to v3 and will be
-        able to
-        take advantage of the same update and subscription mechanisms as official Massif Press
-        content
-        packs. Follow the <a href="https://www.patreon.com/compcon"
-          target="blank">development blog</a> to
-        stay up to date on progress.
+        <i18n-t keypath="contentManager.directory.downloadWarning" tag="span">
+          <template #blog>
+            <a href="https://www.patreon.com/compcon"
+              target="blank">{{ $t('contentManager.directory.devBlog') }}</a>
+          </template>
+        </i18n-t>
       </cc-alert>
     </div>
     <community-table :packs="communityPacks"

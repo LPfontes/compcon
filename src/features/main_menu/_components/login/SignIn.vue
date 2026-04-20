@@ -17,18 +17,18 @@
                 color="secondary"
                 prepend-icon="mdi-clipboard-text-outline"
                 @click="copyLog">
-                Copy Log
+                {{ $t('auth.copyLog') }}
               </v-btn>
             </div>
             <v-row dense>
               <v-col>
-                <cc-button variant="tonal" block color="primary" @click="abort">abort</cc-button>
+                <cc-button variant="tonal" block color="primary" @click="abort">{{ $t('auth.abort') }}</cc-button>
               </v-col>
               <v-col>
-                <cc-button variant="tonal" block color="primary" @click="retry">retry</cc-button>
+                <cc-button variant="tonal" block color="primary" @click="retry">{{ $t('auth.retry') }}</cc-button>
               </v-col>
               <v-col>
-                <cc-button variant="tonal" block color="primary" @click="fail">fail</cc-button>
+                <cc-button variant="tonal" block color="primary" @click="fail">{{ $t('auth.fail') }}</cc-button>
               </v-col>
             </v-row>
           </div>
@@ -40,7 +40,7 @@
         <form @submit.prevent="signIn" @keyup.enter="signIn">
         <v-row class="mt-1">
           <v-col lg="6" cols="12">
-            <div class="text-cc-overline pl-3">E-Mail</div>
+            <div class="text-cc-overline pl-3">{{ $t('auth.email') }}</div>
             <cc-text-field
               v-model="email"
               icon="mdi-email-outline"
@@ -50,7 +50,7 @@
               autocomplete="username" />
           </v-col>
           <v-col lg="6" cols="12">
-            <div class="text-cc-overline pl-3">Password</div>
+            <div class="text-cc-overline pl-3">{{ $t('auth.password') }}</div>
             <cc-text-field
               v-model="password"
               icon="mdi-lock-outline"
@@ -70,7 +70,7 @@
             :loading="loading"
             :disabled="loading || !email || !password"
             @click="signIn">
-            Sign In
+            {{ $t('auth.signIn') }}
           </cc-button>
           <cc-button
             color="accent"
@@ -79,7 +79,7 @@
             class="mt-2"
             variant="outlined"
             @click="$emit('set-state', 'sign-up')">
-            Create Account
+            {{ $t('auth.signUp') }}
           </cc-button>
         </div>
         </form>
@@ -90,7 +90,7 @@
             prepend-icon="mdi-email-check"
             color="primary"
             @click="$emit('reverify')">
-            Verify E-Mail
+            {{ $t('auth.verifyEmail') }}
           </cc-button>
           <v-spacer />
           <cc-button
@@ -99,7 +99,7 @@
             prepend-icon="mdi-lock-reset"
             color="primary"
             @click="$emit('set-state', 'reset')">
-            Password Recovery
+            {{ $t('auth.forgotPassword') }}
           </cc-button>
         </v-footer>
       </div>
@@ -132,7 +132,7 @@ export default {
   methods: {
     async signIn() {
       this.signingIn = true;
-      await this.addLoginLog('Connecting to COMP/CON authentication service...');
+      await this.addLoginLog(this.$t('auth.connecting') as string);
 
       this.loading = true;
       const userEmail = this.email.trim();
@@ -146,70 +146,70 @@ export default {
         });
       } catch (error: any) {
         if (error.name === 'UserAlreadyAuthenticatedException') {
-          await this.addLoginLog('Auth service reports user is already signed in', true);
-          await this.addLoginLog('Attempting to continue...', true);
+          await this.addLoginLog(this.$t('auth.alreadySignedIn') as string, true);
+          await this.addLoginLog(this.$t('auth.attemptingContinue') as string, true);
           signInResult = { isSignedIn: true };
           break si_attempt;
         }
         this.showError = true;
-        await this.addLoginLog('Auth service reports failure to connect', true);
-        await this.addLoginLog('Error: ' + error.message, true);
+        await this.addLoginLog(this.$t('auth.connectionFailed') as string, true);
+        await this.addLoginLog(this.$t('auth.error', { message: error.message }), true);
         return;
       }
 
       if (!signInResult.isSignedIn) {
         this.showError = true;
-        await this.addLoginLog('Auth service reports failure to connect', true);
-        await this.addLoginLog('Error: sign-in failed', true);
+        await this.addLoginLog(this.$t('auth.connectionFailed') as string, true);
+        await this.addLoginLog(this.$t('auth.error', { message: 'sign-in failed' }), true);
         return;
       }
 
-      await this.addLoginLog('Auth service connection established');
+      await this.addLoginLog(this.$t('auth.connectionEstablished') as string);
 
       try {
         await UserStore().setCognito();
-        await this.addLoginLog('User credentials verified');
+        await this.addLoginLog(this.$t('auth.credentialsVerified') as string);
       } catch (error: any) {
         logger.error(`Error verifying user credentials: ${error}`, this, error);
         this.showError = true;
-        await this.addLoginLog('Failed to verify user credentials', true);
-        await this.addLoginLog('Error: ' + error.message, true);
+        await this.addLoginLog(this.$t('auth.failedRetrieve') as string, true);
+        await this.addLoginLog(this.$t('auth.error', { message: error.message }), true);
         return;
       }
 
-      await this.addLoginLog('Requesting user information...');
+      await this.addLoginLog(this.$t('auth.requestingInfo') as string);
 
       try {
         await UserStore().getUserMetadata();
-        await this.addLoginLog('COMP/CON user information received');
-        await this.addLoginLog('Retrieving user session...');
+        await this.addLoginLog(this.$t('auth.infoReceived') as string);
+        await this.addLoginLog(this.$t('auth.retrievingSession') as string);
       } catch (error: any) {
         this.showError = true;
-        await this.addLoginLog('Failed to retrieve user data', true);
-        await this.addLoginLog('Error: ' + error.message, true);
+        await this.addLoginLog(this.$t('auth.failedRetrieve') as string, true);
+        await this.addLoginLog(this.$t('auth.error', { message: error.message }), true);
         return;
       }
 
       if (!Object.keys(UserStore().UserMetadata).length) {
         this.showError = true;
-        this.error = 'User data not found or could not be created';
+        this.error = this.$t('auth.dataNotFound') as string;
         return;
       }
 
-      await this.addLoginLog('Collecting user data...');
+      await this.addLoginLog(this.$t('auth.collectingData') as string);
       try {
         await UserStore().setMetadataFromDynamo();
-        await this.addLoginLog('Updating local metadata...');
+        await this.addLoginLog(this.$t('auth.updatingMetadata') as string);
       } catch (error: any) {
         this.showError = true;
-        await this.addLoginLog('Failed to set metadata', true);
-        await this.addLoginLog('Error: ' + error.message, true);
+        await this.addLoginLog(this.$t('auth.failedMetadata') as string, true);
+        await this.addLoginLog(this.$t('auth.error', { message: error.message }), true);
         return;
       }
 
       await UserStore().checkV2CloudMigration();
 
-      await this.addLoginLog('Redirecting to account menu...');
+      await this.addLoginLog(this.$t('auth.redirecting') as string);
 
       await setTimeout(() => {}, 2000);
 

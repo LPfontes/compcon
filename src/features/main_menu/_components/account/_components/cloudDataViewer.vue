@@ -6,10 +6,8 @@
       color="panel">
       <v-toolbar-title>
         <cc-heading is-title
-          text="Data Viewer"
-          tooltip="This is a view of your COMP/CON data, stored both locally and in the cloud. You can
-              use this tool to manage the state of your data, and to sync changes between your local
-              data and the cloud." />
+          :text="$t('cloud.dataViewer.title')"
+          :tooltip="$t('cloud.dataViewer.titleTooltip')" />
       </v-toolbar-title>
       <v-spacer />
       <v-tooltip max-width="300px"
@@ -26,9 +24,9 @@
           </div>
         </template>
         <div class="text-center">
-          Reload Data
+          {{ $t('cloud.dataViewer.reloadData') }}
           <br />
-          (This does not sync)
+          {{ $t('cloud.dataViewer.noSync') }}
         </div>
       </v-tooltip>
       <template #extension>
@@ -37,7 +35,7 @@
           variant="outlined"
           color="primary"
           icon="mdi-magnify"
-          placeholder="Search"
+          :placeholder="$t('cloud.dataViewer.search')"
           width="350px"
           clearable />
         <v-spacer />
@@ -46,9 +44,9 @@
             <v-tooltip max-width="300px"
               location="top">
               <template #activator="{ props }">
-                <span v-bind="props">Data</span>
+                <span v-bind="props">{{ $t('cloud.dataViewer.tabs.data') }}</span>
               </template>
-              <div class="text-center">PC and GM data stored in your COMP/CON account.</div>
+              <div class="text-center">{{ $t('cloud.dataViewer.tabs.dataTooltip') }}</div>
             </v-tooltip>
           </v-tab>
           <v-divider vertical />
@@ -56,10 +54,10 @@
             <v-tooltip max-width="300px"
               location="top">
               <template #activator="{ props }">
-                <span v-bind="props">Images</span>
+                <span v-bind="props">{{ $t('cloud.dataViewer.tabs.images') }}</span>
               </template>
               <div class="text-center">
-                All image data you have uploaded to your COMP/CON account.
+                {{ $t('cloud.dataViewer.tabs.imagesTooltip') }}
               </div>
             </v-tooltip>
           </v-tab>
@@ -68,10 +66,10 @@
             <v-tooltip max-width="300px"
               location="top">
               <template #activator="{ props }">
-                <span v-bind="props">Remote Items</span>
+                <span v-bind="props">{{ $t('cloud.dataViewer.tabs.remote') }}</span>
               </template>
               <div class="text-center">
-                Remote Items are items imported from other users via share codes.
+                {{ $t('cloud.dataViewer.tabs.remoteTooltip') }}
               </div>
             </v-tooltip>
           </v-tab>
@@ -80,9 +78,9 @@
             <v-tooltip max-width="300px"
               location="top">
               <template #activator="{ props }">
-                <span v-bind="props">Campaigns</span>
+                <span v-bind="props">{{ $t('cloud.dataViewer.tabs.campaigns') }}</span>
               </template>
-              <div class="text-center">Published campaigns imported from via share codes.</div>
+              <div class="text-center">{{ $t('cloud.dataViewer.tabs.campaignsTooltip') }}</div>
             </v-tooltip>
           </v-tab>
         </v-tabs>
@@ -92,7 +90,7 @@
       v-model="search"
       variant="outlined"
       prepend-inner-icon="mdi-magnify"
-      label="Search"
+      :label="$t('cloud.dataViewer.search')"
       single-line
       density="compact"
       class="mx-1"
@@ -118,11 +116,11 @@
         <cc-alert color="secondary"
           class="ma-4"
           dense>
-          Published campaigns are managed in the
+          {{ $t('cloud.dataViewer.campaignsAlert') }}
           <cc-button size="x-small"
             class="mx-1"
             to="/srd?tab=2">
-            Campaign Library
+            {{ $t('cloud.dataViewer.campaignLibrary') }}
           </cc-button>
         </cc-alert>
       </v-window-item>

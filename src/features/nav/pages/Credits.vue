@@ -1,16 +1,16 @@
 <template>
   <v-container>
-    <div class="heading h2 mb-1">LANCER by:</div>
+    <div class="heading h2 mb-1">{{ $t('credits.lancerBy') }}</div>
     <v-row>
       <dev-badge v-for="(c, cIdx) in credits.writers" :key="`writer-${cIdx}`"
         :info="c" />
     </v-row>
-    <div class="heading h2 mt-4 mb-1">COMP/CON by:</div>
+    <div class="heading h2 mt-4 mb-1">{{ $t('credits.ccBy') }}</div>
     <v-row>
       <dev-badge v-for="(c, cIdx) in credits.lead_devs" :key="`lead-${cIdx}`"
         :info="c" />
     </v-row>
-    <div class="heading h3 mt-4 mb-1">With:</div>
+    <div class="heading h3 mt-4 mb-1">{{ $t('credits.with') }}</div>
     <v-row dense>
       <dev-badge v-for="(c, cIdx) in credits.devs1" :key="`dev1-${cIdx}`"
         :info="c" />
@@ -19,23 +19,23 @@
       <dev-badge v-for="(c, cIdx) in credits.devs2" :key="`dev2-${cIdx}`"
         :info="c" />
     </v-row>
-    <div class="heading h2 mt-4 mb-1">Graphic design by:</div>
+    <div class="heading h2 mt-4 mb-1">{{ $t('credits.graphicsBy') }}</div>
     <v-row dense>
       <dev-badge v-for="(c, cIdx) in credits.graphics" :key="`graphic-${cIdx}`"
         :info="c" />
     </v-row>
-    <div class="heading h2 mt-4 mb-1">Additional art by:</div>
+    <div class="heading h2 mt-4 mb-1">{{ $t('credits.artBy') }}</div>
     <v-row dense>
       <dev-badge v-for="(c, cIdx) in credits.art" :key="`art-${cIdx}`"
         :info="c" />
     </v-row>
     <div class="text-center mt-8">
       <span class="heading h3">
-        The continued development of COMP/CON would not be possible without the generous
-        <a v-html-safe="'support'"
-          target="_blank"
-          href="https://www.patreon.com/compcon" />
-        of:
+        <i18n-t keypath="credits.patreonMsg" tag="span">
+          <template #sub>
+            <a target="_blank" href="https://www.patreon.com/compcon">{{ $t('credits.support') }}</a>
+          </template>
+        </i18n-t>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
       <div v-for="t in tiers" :key="t"
         class="mb-6">
         <cc-title small
-          class="my-2">{{ t.toUpperCase() }} TIER</cc-title>
+          class="my-2">{{ $t('credits.tier', { tier: t.toUpperCase() }) }}</cc-title>
         <v-row align="center"
           justify="space-around"
           dense>

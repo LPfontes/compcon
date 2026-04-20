@@ -1,9 +1,9 @@
 <template>
   <v-container class="text-center">
-    <cc-heading type="h3" center>VERIFY E-MAIL ADDRESS</cc-heading>
+    <cc-heading type="h3" center>{{ $t('auth.verifyHeading') }}</cc-heading>
     <div class="my-2">
-      <div v-if="preFill">A verification code was sent to</div>
-      <div v-else>Send a verification code to:</div>
+      <div v-if="preFill">{{ $t('auth.codeSent') }}</div>
+      <div v-else>{{ $t('auth.sendTo') }}</div>
       <v-row dense justify="center" align="center">
         <v-col cols="12" sm="6" lg="4">
           <v-text-field
@@ -20,13 +20,13 @@
           color="accent"
           class="mt-2"
           @click="resend()">
-          {{ preFill ? 'Re-send' : 'Send' }} Verification Code
+          {{ preFill ? $t('auth.resend') : $t('auth.send') }} {{ $t('auth.codeLabel') }}
         </cc-button>
       </div>
       <v-fade-transition>
         <div v-if="!preFill" class="text-center mt-1">
           <v-btn size="x-small" flat tile :disabled="!verifyEmail" @click="preFill = true">
-            I already have a verification code
+            {{ $t('auth.alreadyHaveCode') }}
           </v-btn>
         </div>
       </v-fade-transition>
@@ -35,12 +35,12 @@
     <v-fade-transition>
       <div v-if="preFill">
         <v-divider class="my-4" />
-        Input the verification code to finish creating your account
+        {{ $t('auth.inputCode') }}
         <v-row dense justify="center">
           <v-col cols="12" sm="6" lg="4">
             <v-text-field
               v-model="verify"
-              label="Verification Code"
+              :label="$t('auth.codeLabel')"
               density="compact"
               variant="outlined"
               class="my-1"
@@ -54,13 +54,13 @@
             :disabled="!verify || !verifyEmail"
             class="my-4"
             @click="confirm">
-            Confirm Verification Code
+            {{ $t('auth.confirmCode') }}
           </cc-button>
         </div>
       </div>
     </v-fade-transition>
     <cc-button variant="text" color="accent" @click="$emit('set-state', 'sign-in')">
-      Cancel
+      {{ $t('auth.cancel') }}
     </cc-button>
     <v-scroll-y-transition leave-absolute hide-on-leave>
       <cc-alert
@@ -118,12 +118,12 @@ export default {
 
         if (isSignUpComplete) {
           this.loading = false;
-          this.$notify('User Account created successfully. Redirecting to Sign-In.');
+          this.$notify(this.$t('auth.successCreated') as string);
           this.$emit('set-state', 'sign-in');
         } else {
           this.loading = false;
           this.showError = true;
-          this.error = 'Error confirming account. Please try again.';
+          this.error = this.$t('auth.confirmError') as string;
         }
       } catch (error: any) {
         logger.error(`error confirming sign up: ${error}`, this);
@@ -135,7 +135,7 @@ export default {
       try {
         const res = await resendSignUpCode({ username: this.verifyEmail });
 
-        this.$notify(`New verification e-mail sent to ${this.verifyEmail}`);
+        this.$notify(this.$t('auth.resendSuccess', { email: this.verifyEmail }) as string);
 
         this.sentCode = true;
         this.preFill = true;

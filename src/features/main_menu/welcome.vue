@@ -10,14 +10,15 @@
         <v-col cols="auto">
           <div :style="!mobile && 'min-width: 600px'"
             style="max-width: 600px">
-            <cc-toolbar title="CC.SYSADMIN// NOTIFY"
+            <cc-toolbar :title="$t('mainMenu.welcome.title')"
               color="primary"
               icon="cc:gms"
               class="border-b-sm"
               @close="panel = false">
               <template #toolbar-items>
                 <v-tooltip max-width="300"
-                  location="top">
+                  location="top"
+                  :text="$t('mainMenu.welcome.markAllRead')">
                   <template #activator="{ props }">
                     <span v-bind="props">
                       <cc-button tile
@@ -26,7 +27,7 @@
                         @click="markAllAsRead" />
                     </span>
                   </template>
-                  <span>Mark all messages as Read</span>
+                  <span>{{ $t('mainMenu.welcome.markAllRead') }}</span>
                 </v-tooltip>
               </template>
             </cc-toolbar>
@@ -76,7 +77,7 @@
                     color="accent"
                     size="x-small"
                     @click="ack(m)">
-                    Mark as Read
+                    {{ $t('mainMenu.welcome.markRead') }}
                   </cc-button>
                 </v-window-item>
               </v-window>

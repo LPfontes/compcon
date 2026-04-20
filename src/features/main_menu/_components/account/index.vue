@@ -3,10 +3,10 @@
     modal
     fixed>
     <template #tabs>
-      <v-tab>Account Management</v-tab>
-      <v-tab>Cloud Data</v-tab>
-      <v-tab>Content Subscriptions</v-tab>
-      <v-tab>Content Publishing</v-tab>
+      <v-tab>{{ $t('cloud.tabs.management') }}</v-tab>
+      <v-tab>{{ $t('cloud.tabs.data') }}</v-tab>
+      <v-tab>{{ $t('cloud.tabs.subscriptions') }}</v-tab>
+      <v-tab>{{ $t('cloud.tabs.publishing') }}</v-tab>
     </template>
     <v-window-item>
       <Management @set-state="$emit('set-state', $event)" />

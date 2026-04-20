@@ -23,23 +23,23 @@
         justify="space-around"
         style="height: 100%">
         <mobile-btn icon="cc:compendium"
-          title="Compendium"
+          :title="$t('mainMenu.compendium')"
           :to="'/srd'" />
         <mobile-btn icon="cc:pilot"
-          title="Roster"
-          text="Manage Pilots"
+          :title="$t('mainMenu.roster')"
+          :text="$t('mainMenu.pilotHelp')"
           :to="'/pilot_management'" />
         <mobile-btn v-if="landscape"
           icon="cc:encounter"
-          title="GM Toolkit"
-          text="Manage Pilots"
+          :title="$t('mainMenu.gmToolkit')"
+          :text="$t('mainMenu.gmHelp')"
           :to="'/gm'" />
         <mobile-btn icon="cc:content_manager"
-          title="Content"
+          :title="$t('mainMenu.content')"
           @clicked="extraContentModal = true" />
         <extra-content v-model="extraContentModal" />
         <mobile-btn icon="cc:campaign"
-          title="Active Mode"
+          :title="$t('mainMenu.activeMode')"
           :to="'/active-mode'" />
       </v-row>
     </div>
@@ -50,7 +50,7 @@
         align="center"
         justify="space-around">
         <v-col cols="auto">
-          <cc-modal title="Cloud Account"
+          <cc-modal :title="$t('mainMenu.cloudAccount')"
             icon="mdi-cloud-sync">
             <template #activator="{ open }">
               <cc-button v-if="landscape"
@@ -60,7 +60,7 @@
                 :variant="isLoggedIn ? '' : 'outlined'"
                 :color="isLoggedIn ? 'success' : ''"
                 @click="open">
-                {{ isLoggedIn ? 'Connected' : 'Sign In' }}
+                {{ isLoggedIn ? $t('mainMenu.connected') : $t('mainMenu.signIn') }}
               </cc-button>
 
               <cc-button v-else
@@ -80,14 +80,14 @@
           class="mr-2" />
 
         <v-col cols="auto">
-          <cc-modal title="Options"
+          <cc-modal :title="$t('mainMenu.options')"
             icon="mdi-cog">
             <template #activator="{ open }">
               <cc-button class="text-uppercase pa-0"
                 size="small"
                 variant="text"
                 @click="open">
-                Options
+                {{ $t('mainMenu.options') }}
               </cc-button>
             </template>
             <options-page />
@@ -95,14 +95,14 @@
         </v-col>
 
         <v-col cols="auto">
-          <cc-modal title="About"
+          <cc-modal :title="$t('mainMenu.about')"
             icon="mdi-information">
             <template #activator="{ open }">
               <cc-button class="text-uppercase pa-0"
                 size="small"
                 variant="text"
                 @click="open">
-                About
+                {{ $t('mainMenu.about') }}
               </cc-button>
             </template>
             <about-page />
@@ -110,14 +110,14 @@
         </v-col>
 
         <v-col cols="auto">
-          <cc-modal title="Credits"
+          <cc-modal :title="$t('mainMenu.credits')"
             icon="cc:gms">
             <template #activator="{ open }">
               <cc-button class="text-uppercase pa-0"
                 size="small"
                 variant="text"
                 @click="open">
-                Credits
+                {{ $t('mainMenu.credits') }}
               </cc-button>
             </template>
             <credits-page />
@@ -125,14 +125,14 @@
         </v-col>
 
         <v-col cols="auto">
-          <cc-modal title="Help"
+          <cc-modal :title="$t('mainMenu.help')"
             icon="mdi-help-circle">
             <template #activator="{ open }">
               <cc-button class="text-uppercase pa-0"
                 size="small"
                 variant="text"
                 @click="open">
-                Help
+                {{ $t('mainMenu.help') }}
               </cc-button>
             </template>
             <help-page />

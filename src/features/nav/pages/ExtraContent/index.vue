@@ -1,6 +1,6 @@
 <template>
   <cc-solo-modal v-model="modal"
-    title="Content Pack Management"
+    :title="$t('contentManager.title')"
     icon="cc:content_manager">
     <cc-tabs modal
       fixed>
@@ -8,22 +8,22 @@
         <v-tab>
           <v-icon start
             icon="mdi-list-box" />
-          Content Packs
+          {{ $t('contentManager.tabs.packs') }}
         </v-tab>
         <v-tab>
           <v-icon start
             icon="mdi-download" />
-          Install .LCP File
+          {{ $t('contentManager.tabs.install') }}
         </v-tab>
         <v-tab>
           <v-icon start
             icon="mdi-format-list-text" />
-          LCP Directory
+          {{ $t('contentManager.tabs.directory') }}
         </v-tab>
         <v-tab>
           <v-icon start
             icon="mdi-list-status" />
-          Content Config.
+          {{ $t('contentManager.tabs.config') }}
         </v-tab>
       </template>
       <v-window-item>

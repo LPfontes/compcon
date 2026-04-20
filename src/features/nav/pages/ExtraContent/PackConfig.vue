@@ -1,24 +1,22 @@
 <template>
   <v-card-text :style="mobile ? 'margin-top: 14px' : 'margin-top: 16px'">
-    <div class="heading h2">Content Configurations</div>
+    <div class="heading h2">{{ $t('contentManager.config.title') }}</div>
     <cc-alert class="mt-4 bg-panel pr-12 mb-4"
       color="info"
       prominent
       variant="text">
       <p class="text-text">
-        Content configurations allow you to create and manage sets of LCPs that can be applied to
-        Pilots and NPCs that allow or limit selections to specific content. Pilots and NPCs without
-        configurations set will have access to all installed and activated LCPs
+        {{ $t('contentManager.config.info') }}
       </p>
 
       <p class="text-text mt-2">
-        These configurations can be applied to Pilots and NPCs in their options menus.
+        {{ $t('contentManager.config.applyInfo') }}
       </p>
     </cc-alert>
 
     <div v-if="!user.LcpConfigs.length"
       class="text-disabled text-center">
-      <i>No configurations found.</i>
+      <i>{{ $t('contentManager.config.noConfigs') }}</i>
     </div>
     <v-card v-for="(config, index) in user.LcpConfigs"
       v-else
@@ -44,7 +42,7 @@
           </v-col>
           <v-col cols="auto">
             <v-tooltip location="top"
-              text="Delete this configuration">
+              :text="$t('contentManager.config.deleteConfig')">
               <template #activator="{ props }">
                 <v-btn color="error"
                   size="40"
@@ -60,18 +58,18 @@
           </v-col>
         </v-row>
 
-        <div class="text-text text-cc-overline">LCPs in this configuration:</div>
+        <div class="text-text text-cc-overline">{{ $t('contentManager.config.lcpsInConfig') }}</div>
 
         <v-card v-if="!config.packList.length"
           flat
           tile
           color="background"
           class="text-center pa-4">
-          <i>
-            No LCPs added. Only content from the
-            <b class="text-accent">Lancer Core Book</b>
-            will be available.
-          </i>
+          <i18n-t keypath="contentManager.config.noLcps" tag="i">
+            <template #lancer>
+              <b class="text-accent">{{ $t('contentManager.config.lancerCore') }}</b>
+            </template>
+          </i18n-t>
         </v-card>
 
         <div v-else
@@ -87,11 +85,11 @@
             </v-col>
             <v-col>
               <span class="heading">{{ lcp.packName }}</span>
-              <span class="text-disabled"> by {{ lcp.packAuthor }}</span>
+              <span class="text-disabled"> {{ $t('contentManager.config.byAuthor', { author: lcp.packAuthor }) }}</span>
             </v-col>
             <v-col cols="auto">
               <v-tooltip location="top"
-                text="Remove this pack from the configuration">
+                :text="$t('contentManager.config.removePack')">
                 <template #activator="{ props }">
                   <v-btn color="error"
                     size="30"
@@ -121,7 +119,7 @@
               item-title="Name"
               min-width="300px"
               max-width="400px"
-              label="Add LCP"
+              :label="$t('contentManager.config.addLcp')"
               @update:model-value="AddPack(config)" />
           </v-col>
           <v-col cols="auto"
@@ -149,13 +147,13 @@
             <span v-if="config.packList.length">
               {{config.packList.map(x => x.packName).join(' // ')}} LCPs
             </span>
-            <span v-else>Lancer Core Book content only</span>
+            <span v-else>{{ $t('contentManager.config.coreOnly') }}</span>
           </div>
         </v-col>
         <v-col cols="auto"
           class="ml-auto">
           <v-tooltip location="top"
-            text="Edit this configuration">
+            :text="$t('contentManager.config.editConfig')">
             <template #activator="{ props }">
               <v-btn color="primary"
                 size="40"
@@ -178,7 +176,7 @@
       block
       @click="user.AddConfig()">
       <v-icon left>mdi-plus</v-icon>
-      Create Configuration
+      {{ $t('contentManager.config.createConfig') }}
     </cc-button>
   </v-card-text>
 </template>

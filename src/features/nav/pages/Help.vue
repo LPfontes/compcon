@@ -9,7 +9,7 @@
           href="https://github.com/massif-press/compcon/wiki/Frequently-Asked-Questions"
           color="info"
         >
-          Frequently Asked Questions
+          {{ $t('help.faq') }}
         </cc-button>
       </v-col>
       <v-col>
@@ -20,7 +20,7 @@
           href="https://github.com/massif-press/compcon/wiki/FAQ%3A-Troubleshooting"
           color="info"
         >
-          Troubleshooting FAQ
+          {{ $t('help.troubleshooting') }}
         </cc-button>
       </v-col>
     </v-row>
@@ -33,7 +33,7 @@
           href="https://github.com/massif-press/compcon/issues/new/choose"
           color="primary"
         >
-          Report a Bug
+          {{ $t('help.reportBug') }}
         </cc-button>
       </v-col>
 
@@ -45,7 +45,7 @@
           href="https://github.com/massif-press/compcon/issues/new/choose"
           color="primary"
         >
-          Suggest a Feature
+          {{ $t('help.suggestFeature') }}
         </cc-button>
       </v-col>
       <v-col>
@@ -57,7 +57,7 @@
           color="primary"
           class="text-white"
         >
-          Discussion Forum
+          {{ $t('help.discussions') }}
         </cc-button>
       </v-col>
       <v-col>
@@ -69,7 +69,7 @@
           color="primary"
           class="text-white"
         >
-          Project Wiki
+          {{ $t('help.wiki') }}
         </cc-button>
       </v-col>
     </v-row>
@@ -79,76 +79,55 @@
       <br />
       // FEATURE IN DEVELOPMENT //
     </p> -->
-    <cc-heading is-title text="Quick FAQ" />
+    <cc-heading is-title :text="$t('help.quickFaq')" />
     <v-row class="body-text text-text">
       <v-col cols="12" md="6">
-        <cc-panel title="Where are the NPCs?">
-          If you bought the Lancer Core Book, you'll find a downloadable data
-          package that contains all Core NPC data on the Lancer Core Book's
-          itch.io page, which you can access through the Content Manager. You
-          can use the Content Manager's
-          <b>Install LCP</b>
-          tab to import the package and start building and running encounters.
+        <cc-panel :title="$t('help.whereNpcs')">
+          <span v-html="$t('help.whereNpcsText')"></span>
         </cc-panel>
       </v-col>
       <v-col cols="12" md="6">
         <cc-panel
-          title="How do I add content from Lancer expansions to COMP/CON?"
+          :title="$t('help.howAddContent')"
         >
-          Official LANCER content can be found on
-          <a target="_blank" href="https://massif-press.itch.io/"
-            >Massif Press's itch.io page.</a
-          >
-          Player-facing LCP content for COMP/CON can be found in the
-          <b>Download demo</b>
-          section for any Massif Press publication; GM-facing content (i.e.
-          NPCs) can be purchased alongside the PDF content. Links to this
-          content (and featured community content) can also be found in the
-          Content Manager's
-          <b>LCP Directory</b>
-          .
+          <i18n-t keypath="help.howAddContentText" tag="span">
+            <template #itch>
+              <a target="_blank" href="https://massif-press.itch.io/"
+                >{{ $t('help.massifItch') }}</a>
+            </template>
+          </i18n-t>
         </cc-panel>
       </v-col>
     </v-row>
     <v-row class="body-text text-text">
       <v-col cols="12" md="6">
-        <cc-panel title="How do I see Exotic Items in the Compendium?">
-          To prevent spoilers for players, COMP/CON defaults to hiding Exotic
-          Items. To change their visibility, you can use COMP/CON's
-          <b>Options</b>
-          menu, and can enable the
-          <b>"Show Exotic items in the Compendium"</b>
-          toggle.
+        <cc-panel :title="$t('help.howExotic')">
+          <span v-html="$t('help.howExoticText')"></span>
         </cc-panel>
       </v-col>
       <v-col cols="12" md="6">
-        <cc-panel title="Do I need to pay to make a COMP/CON cloud account?">
-          COMP/CON Cloud Accounts are free for all users. For Patreon
-          supporters, cloud accounts gain access to additional features, such as
-          the expanded cloud storage and additional active table instances.
+        <cc-panel :title="$t('help.needPay')">
+          {{ $t('help.needPayText') }}
         </cc-panel>
       </v-col>
     </v-row>
     <br />
-    <cc-heading is-title text="Additional Help" />
+    <cc-heading is-title :text="$t('help.additionalHelp')" />
     <p class="body-text">
-      The
-      <a
-        v-html-safe="`COMP/CON FAQ`"
-        target="_blank"
-        href="https://github.com/massif-press/compcon/wiki/Frequently-Asked-Questions"
-        tabindex="0"
-      />
-      may have an answer to your question! If you still can't find what you're
-      looking for, please stop by
-      <a
-        v-html-safe="`the unofficial LANCER discord`"
-        target="_blank"
-        href="https://discord.gg/rwcpzsU"
-        tabindex="0"
-      />
-      (and specifically the #comp-con channel) with your questions or comments
-      for the developers.
+      <i18n-t keypath="help.additionalHelpText" tag="span">
+        <template #faq>
+          <a
+            target="_blank"
+            href="https://github.com/massif-press/compcon/wiki/Frequently-Asked-Questions"
+            >{{ $t('help.faq') }}</a>
+        </template>
+        <template #discord>
+          <a
+            target="_blank"
+            href="https://discord.gg/rwcpzsU"
+            >{{ $t('help.lancerDiscord') }}</a>
+        </template>
+      </i18n-t>
     </p>
 
     <!-- <h3 class="heading text-accent">Video Guide</h3>

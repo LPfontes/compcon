@@ -21,5 +21,6 @@ export const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR'>({
   messages: {
     en: en,
     'pt-BR': ptBR,
+    pt: ptBR,
   },
 })

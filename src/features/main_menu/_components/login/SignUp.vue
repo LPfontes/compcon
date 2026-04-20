@@ -4,33 +4,26 @@
       prominent
       icon="mdi-information-outline"
       variant="outlined"
-      title="COMP/CON Cloud Account">
+      :title="$t('auth.signUpTitle')">
       <div class="text-text">
         <p>
-          The e-mail address you input will be used to send you a confirmation code to finalize
-          the
-          creation of your account. From there, your e-mail will only be used to log in to your
-          COMP/CON account.
+          {{ $t('auth.signUpText1') }}
         </p>
         <p class="my-1">
-          We are committed to keeping your e-mail address confidential. We do not sell, rent, or
-          lease
-          contact data or lists to third parties, and we will never provide your personal
-          information
-          to any third party individual, government agency, or company at any time, for any reason.
+          {{ $t('auth.signUpText2') }}
         </p>
       </div>
     </cc-alert>
     <cc-heading type="h3"
       center
-      class="my-2">Create Account</cc-heading>
+      class="my-2">{{ $t('auth.signUp') }}</cc-heading>
 
     <div class="my-4">
       <v-row justify="center"
         align="center">
         <v-col lg="6"
           cols="12">
-          <div class="text-cc-overline pl-3">E-Mail</div>
+          <div class="text-cc-overline pl-3">{{ $t('auth.email') }}</div>
           <cc-text-field v-model="email"
             icon="mdi-email-outline"
             color="primary"
@@ -38,7 +31,7 @@
         </v-col>
         <v-col lg="6"
           cols="12">
-          <div class="text-cc-overline pl-3">Password</div>
+          <div class="text-cc-overline pl-3">{{ $t('auth.password') }}</div>
           <cc-text-field v-model="password"
             icon="mdi-lock-outline"
             color="primary"
@@ -57,12 +50,12 @@
         :loading="loading"
         :disabled="!submitOk"
         @click="createAccount">
-        submit
+        {{ $t('auth.submit') }}
       </cc-button>
       <cc-button variant="text"
         color="error"
         @click="$emit('set-state', 'sign-in')">
-        Cancel
+        {{ $t('auth.cancel') }}
       </cc-button>
     </div>
 
@@ -92,28 +85,32 @@ import { useMobile } from '@/mixins/useMobile';
 export default {
   name: 'SignUp',
   mixins: [useMobile],
-  data: () => ({
-    showError: false,
-    error: '',
-    loading: false,
-    show: false,
-    email: '',
-    password: '',
-    rules: {
-      required: (value) => !!value || 'Required.',
-      min: (v) => v.length >= 6 || 'Min 6 characters',
-      emailMatch: (v) =>
-        !v ||
-        /^\w+([.-]?\w+)*(\+\w+([.-]?\w+)*)?@\w+([.-]?\w+)*(\.\w{2,6})+$/.test(v) ||
-        'E-mail must be valid',
-    },
-  }),
+  data() {
+    return {
+      showError: false,
+      error: '',
+      loading: false,
+      show: false,
+      email: '',
+      password: '',
+    };
+  },
   computed: {
     submitOk() {
       return (
         /^\w+([.-]?\w+)*(\+\w+([.-]?\w+)*)?@\w+([.-]?\w+)*(\.\w{2,6})+$/.test(this.email) &&
         this.password.length >= 6
       );
+    },
+    rules() {
+      return {
+        required: (value: any) => !!value || (this.$t('auth.required') as string),
+        min: (v: string) => v.length >= 6 || (this.$t('auth.minChars') as string),
+        emailMatch: (v: string) =>
+          !v ||
+          /^\w+([.-]?\w+)*(\+\w+([.-]?\w+)*)?@\w+([.-]?\w+)*(\.\w{2,6})+$/.test(v) ||
+          (this.$t('auth.emailValid') as string),
+      };
     },
   },
   methods: {
