@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'active-table-configuration',
+  name: 'ActiveTableConfiguration',
   data: () => ({
     table: {
       name: 'New Table',

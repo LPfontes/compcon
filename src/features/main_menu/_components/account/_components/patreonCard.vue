@@ -30,11 +30,11 @@
     title="Membership Benefits"
     max-width="800">
     <template #activator="{ open }">
-      <v-card @click="open"
-        variant="outlined"
+      <v-card variant="outlined"
         tile
         flat
-        style="border-color: rgb(var(--v-theme-patreon))">
+        style="border-color: rgb(var(--v-theme-patreon))"
+        @click="open">
         <div class="bg-patreon text-caption"
           style="letter-spacing: 4px !important">
           <cc-slashes />
@@ -70,9 +70,9 @@
     </template>
 
     <v-card-text>
-      <v-card flat
-        v-for="t in tiers"
+      <v-card v-for="t in tiers"
         :key="t.title"
+        flat
         :disabled="missingTier(t.title)"
         class="mb-6">
         <v-row dense>
@@ -112,7 +112,7 @@ import { authPatreon } from '@/user/oauth';
 import { NoPatreonTierError } from '@/user/store/OAuthService';
 
 export default {
-  name: 'patreon-card',
+  name: 'PatreonCard',
   data: () => ({
     dialog: false,
     loadPatreon: false,

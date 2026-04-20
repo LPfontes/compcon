@@ -76,7 +76,7 @@ import PageBreak from '@/features/pilot_management/Print/components/PageBreak.vu
 import { Encounter } from '@/classes/encounter/Encounter';
 
 export default {
-  name: 'combined-print',
+  name: 'CombinedPrint',
   components: {
     Layout,
     OptionsDialog,
@@ -103,14 +103,14 @@ export default {
       card: [],
     } as any,
   }),
-  created() {
-    if (!this.id) return;
-    this.selectedEncounter = EncounterStore().Encounters.find((p) => p.ID === this.id) as Encounter;
-  },
   computed: {
     allEncounters() {
       return EncounterStore().Encounters.filter((x) => !x.SaveController.IsDeleted);
     },
+  },
+  created() {
+    if (!this.id) return;
+    this.selectedEncounter = EncounterStore().Encounters.find((p) => p.ID === this.id) as Encounter;
   },
   methods: {
     print() {

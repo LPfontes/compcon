@@ -45,7 +45,7 @@ export default {
   }),
   computed: {
     weapons() {
-      let items = CompendiumStore().MechWeapons;
+      const items = CompendiumStore().MechWeapons;
 
       return orderBy(
         items.filter((x) => !x.IsHidden),

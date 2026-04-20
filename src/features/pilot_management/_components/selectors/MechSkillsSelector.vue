@@ -63,8 +63,8 @@ import { Pilot } from '@/class'
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  mixins: [useMobile],
   name: 'MechSkillsSelector',
+  mixins: [useMobile],
   props: {
     pilot: { type: Pilot, required: true },
   },

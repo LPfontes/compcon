@@ -1,9 +1,12 @@
 <template>
-  <cc-tabs fixed modal>
+  <cc-tabs
+    fixed
+    modal
+  >
     <template #tabs>
-      <v-tab>Settings</v-tab>
-      <v-tab>Storage</v-tab>
-      <v-tab>Log</v-tab>
+      <v-tab>{{ $t('options.tabs.settings') }}</v-tab>
+      <v-tab>{{ $t('options.tabs.storage') }}</v-tab>
+      <v-tab>{{ $t('options.tabs.log') }}</v-tab>
     </template>
     <v-window-item>
       <settings />
@@ -18,12 +21,12 @@
 </template>
 
 <script lang="ts">
-import Settings from './Settings.vue';
-import Storage from './Storage.vue';
-import Log from './Log.vue';
+  import Settings from './Settings.vue'
+  import Storage from './Storage.vue'
+  import Log from './Log.vue'
 
-export default {
-  name: 'options',
-  components: { Settings, Storage, Log },
-};
+  export default {
+    name: 'Options',
+    components: { Settings, Storage, Log },
+  }
 </script>

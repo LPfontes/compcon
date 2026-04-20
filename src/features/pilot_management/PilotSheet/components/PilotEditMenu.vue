@@ -156,13 +156,13 @@ import { useMobile } from '@/mixins/useMobile';
 // import { RemoteSyncItem } from '@/cloud/item_sync';
 
 export default {
-  mixins: [useMobile],
   name: 'EditMenu',
   components: {
     StatblockDialog,
     CloneDialog,
     LcpConfigSelector,
   },
+  mixins: [useMobile],
   props: {
     pilot: {
       type: Pilot,

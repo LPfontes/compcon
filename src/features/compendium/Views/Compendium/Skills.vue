@@ -16,7 +16,7 @@ import { Skill } from '@/class';
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'skills',
+  name: 'Skills',
 
   data: () => ({
     headers: [

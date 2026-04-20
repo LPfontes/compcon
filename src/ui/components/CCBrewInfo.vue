@@ -2,7 +2,7 @@
   <v-menu offset-y
     open-on-hover
     max-width="600px">
-    <template v-slot:activator="{ props }">
+    <template #activator="{ props }">
       <v-icon v-if="controller.Brews.length"
         v-bind="props"
         icon="cc:compendium"
@@ -81,7 +81,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-brew-info',
+  name: 'CcBrewInfo',
   props: {
     controller: {
       type: Object,

@@ -30,7 +30,7 @@
 import { Damage } from '@/class';
 
 export default {
-  name: 'cc-damage-element',
+  name: 'CcDamageElement',
   props: {
     damage: {
       type: Array,

@@ -1,7 +1,7 @@
 <template>
   <cc-alert density="compact" :color="action.Color">
     <v-row dense align="center">
-      <v-col cols="auto" v-if="!hideIcon">
+      <v-col v-if="!hideIcon" cols="auto">
         <v-icon size="large" :icon="action.Icon" />
       </v-col>
       <v-col cols="auto">
@@ -23,7 +23,7 @@
 import ActionBase from './_actionBase.vue';
 
 export default {
-  name: 'action-panel',
+  name: 'ActionPanel',
   components: { ActionBase },
   props: {
     action: {

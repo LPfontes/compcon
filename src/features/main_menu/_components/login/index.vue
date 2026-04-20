@@ -35,7 +35,7 @@ import SignedIn from './SignedIn.vue';
 import { UserStore } from '@/stores';
 
 export default {
-  name: 'login-auth',
+  name: 'LoginAuth',
   components: { SignIn, PasswordReset, SignUp, Verify, SignedIn },
   data: () => ({
     state: 'sign-in',

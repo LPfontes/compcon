@@ -14,7 +14,7 @@ import * as CardItems from './gmItemCards';
 import { IStatContainer } from '@/classes/components/combat/stats/IStatContainer';
 
 export default {
-  name: 'gm-item-card',
+  name: 'GmItemCard',
   props: {
     item: { type: Object, required: true },
     big: { type: Boolean },

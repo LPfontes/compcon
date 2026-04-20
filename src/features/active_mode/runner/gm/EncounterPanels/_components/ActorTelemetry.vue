@@ -133,11 +133,6 @@ export default {
     enableJustify: true,
     lineWidth: 60,
   }),
-  mounted() {
-    if (this.$vuetify.display.smAndDown) {
-      this.enableJustify = false;
-    }
-  },
   computed: {
     summary() {
       const t = this.actor.CombatController.CombatLog.Telemetry;
@@ -145,6 +140,11 @@ export default {
       out += CombatLog.FormatTelemetry(t, this.enableJustify, this.lineWidth);
 
       return out
+    }
+  },
+  mounted() {
+    if (this.$vuetify.display.smAndDown) {
+      this.enableJustify = false;
     }
   },
   methods: {

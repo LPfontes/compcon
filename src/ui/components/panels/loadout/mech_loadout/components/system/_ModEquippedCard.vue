@@ -46,13 +46,12 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'mod-equipped-card',
+  name: 'ModEquippedCard',
   components: {
     SlotCardBase,
     EquipmentOptions,
   },
-  emits: ['remove'],
+  mixins: [useMobile],
   props: {
     mech: {
       type: Object,
@@ -75,6 +74,7 @@ export default {
     },
     readonly: { type: Boolean },
   },
+  emits: ['remove'],
   data: () => ({
     hide: false,
   }),

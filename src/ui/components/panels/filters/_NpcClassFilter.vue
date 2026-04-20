@@ -14,7 +14,7 @@
         label="Role"
         :items="roles"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
 </template>
@@ -31,11 +31,11 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'npc-class-filter',
+  name: 'NpcClassFilter',
+  emits: ['set-filters'],
   data: () => ({
     roleFilter: [],
   }),
-  emits: ['set-filters'],
   computed: {
     roles() {
       return _.uniqBy(CompendiumStore().NpcClasses, 'Role')

@@ -36,7 +36,7 @@ import TalentEmblem from './_TalentEmblem.vue';
 import TalentRankContents from './_TalentRankContents.vue';
 
 export default {
-  name: 'talent-micro',
+  name: 'TalentMicro',
   components: { TalentEmblem, TalentRankContents },
   props: {
     talent: { type: Object, required: true },

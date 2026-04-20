@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-action-card',
+  name: 'CcActionCard',
   props: {
     item: { type: Object, required: true },
     notes: { type: Boolean },

@@ -66,8 +66,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
-  mixins: [useMobile],
   name: 'AchievementItem',
+  mixins: [useMobile],
   props: {
     item: {
       type: Object,

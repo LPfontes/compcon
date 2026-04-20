@@ -6,7 +6,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'reserve-card',
+  name: 'ReserveCard',
   components: { InfoCardBase },
   props: {
     item: {

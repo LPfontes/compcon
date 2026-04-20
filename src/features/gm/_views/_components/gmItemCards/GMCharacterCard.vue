@@ -15,8 +15,7 @@
 import GmCardBase from './_GMCardBase.vue';
 
 export default {
-  name: 'gm-character-card',
-  emits: ['open'],
+  name: 'GmCharacterCard',
   components: { GmCardBase },
   props: {
     item: { type: Object, required: true },
@@ -25,5 +24,6 @@ export default {
     grouping: { type: [Object, String], required: false, default: '' },
     sorting: { type: Object, required: false, default: '' },
   },
+  emits: ['open'],
 };
 </script>

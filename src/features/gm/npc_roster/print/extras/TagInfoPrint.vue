@@ -34,7 +34,7 @@ import { Unit } from '@/classes/npc/unit/Unit';
 import * as _ from 'lodash-es';
 
 export default {
-  name: 'tag-info-print',
+  name: 'TagInfoPrint',
   props: {
     npcs: {
       type: Array,

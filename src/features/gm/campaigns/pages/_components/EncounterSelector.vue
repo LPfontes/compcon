@@ -24,12 +24,12 @@ import { EncounterStore } from '@/stores';
 import GmEncounterListItem from '@/features/gm/_views/_components/gmItemCards/GMEncounterListItem.vue';
 
 export default {
-  name: 'campaign-encounter-selector',
+  name: 'CampaignEncounterSelector',
   components: { GmEncounterListItem },
+  emits: ['select', 'close'],
   data: () => ({
     search: '',
   }),
-  emits: ['select', 'close'],
   computed: {
     encounters() {
       return EncounterStore()

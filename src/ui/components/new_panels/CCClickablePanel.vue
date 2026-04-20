@@ -47,7 +47,7 @@
 
 <script>
 export default {
-  name: 'cc-clickable-panel',
+  name: 'CcClickablePanel',
   props: {
     color: {
       type: String,

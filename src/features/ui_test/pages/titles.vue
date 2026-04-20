@@ -68,7 +68,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ui-test-titles',
+  name: 'UiTestTitles',
   data: () => ({
     headingType: 'minor',
     color: '',

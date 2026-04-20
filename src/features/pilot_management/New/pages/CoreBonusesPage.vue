@@ -40,7 +40,7 @@ import CoreBonusSelector from '../../_components/selectors/CoreBonusSelector.vue
 import { Pilot } from '@/class';
 
 export default {
-  name: 'talents-page',
+  name: 'TalentsPage',
   components: {
     StepperContent,
     CoreBonusSelector,

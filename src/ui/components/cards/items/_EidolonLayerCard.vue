@@ -58,7 +58,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-eidolon-layer-card',
+  name: 'CcEidolonLayerCard',
   props: {
     item: {
       type: Object,

@@ -40,7 +40,7 @@
 import { EquippableMount, MountType } from '@/class';
 
 export default {
-  name: 'sh-lock-dialog',
+  name: 'ShLockDialog',
   props: {
     mech: {
       type: Object,

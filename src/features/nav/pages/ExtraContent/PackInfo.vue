@@ -59,11 +59,11 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'PackInfo',
+  components: { PackInfoCard },
+  mixins: [useMobile],
   props: {
     pack: { type: Object as PropType<IContentPack>, required: true },
   },
-  components: { PackInfoCard },
 };
 </script>

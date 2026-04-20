@@ -121,8 +121,8 @@
           </v-col>
         </v-row>
         <v-chip
-          v-else
           v-for="t in pilot.TalentsController.Talents"
+          v-else
           :key="t.Talent.ID"
           label
           variant="outlined"
@@ -147,8 +147,8 @@
         </v-row>
 
         <v-chip
-          v-else
           v-for="b in pilot.CoreBonusController.CoreBonuses"
+          v-else
           :key="b.ID"
           label
           variant="outlined"
@@ -203,9 +203,9 @@
             <div class="text-right mb-n2">
               <v-chip
                 v-for="t in a.Tags"
+                v-show="showTag(t.ID)"
                 :key="t.ID"
                 size="x-small"
-                v-show="showTag(t.ID)"
                 label
                 variant="outlined"
                 class="ml-1 bg-white">
@@ -243,9 +243,9 @@
             <div class="text-right" style="position: absolute; bottom: 10px; right: 5px">
               <v-chip
                 v-for="t in w.Tags"
+                v-show="showTag(t.ID)"
                 :key="t.ID"
                 size="x-small"
-                v-show="showTag(t.ID)"
                 label
                 variant="outlined"
                 class="mx-1 bh-white">
@@ -280,8 +280,8 @@
           <div class="text-right">
             <v-chip
               v-for="t in g.Tags"
-              :key="t.ID"
               v-show="showTag(t.ID)"
+              :key="t.ID"
               size="x-small"
               label
               variant="outlined"
@@ -331,14 +331,14 @@ import PrintDeployable from '../../components/PrintDeployable.vue';
 import { usePrintOptions } from '../_usePrintOptions';
 
 export default {
-  name: 'pilot-print',
-  mixins: [usePrintOptions],
+  name: 'PilotPrint',
   components: {
     blankLine,
     notes,
     PrintAction,
     PrintDeployable,
   },
+  mixins: [usePrintOptions],
   props: {
     pilot: {
       type: Object,

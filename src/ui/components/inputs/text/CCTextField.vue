@@ -48,7 +48,7 @@
         <template #append>
           <v-menu v-if="$slots.options"
             offset-y>
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-btn size="32"
                 :color="color"
                 icon
@@ -79,7 +79,7 @@
           <v-tooltip v-if="tooltip"
             location="top"
             max-width="300px">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-icon v-bind="props"
                 class="fade-select mx-1"
                 :icon="tooltipIcon || 'mdi-information-slab-box-outline'" />
@@ -141,11 +141,11 @@ export default {
     hideDetails: { type: [Boolean, String] },
     modelModifiers: { default: () => ({}) },
   },
+  emits: ['update:model-value', 'click-append-inner'],
   data: () => ({
     isFocused: false,
     isHovering: false,
   }),
-  emits: ['update:model-value', 'click-append-inner'],
 };
 </script>
 

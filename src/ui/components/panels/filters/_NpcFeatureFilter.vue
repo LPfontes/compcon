@@ -14,7 +14,7 @@
         label="Item Type"
         :items="types"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="originFilter"
@@ -28,7 +28,7 @@
         label="Origin"
         :items="origins"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
 </template>
@@ -45,12 +45,12 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'npc-class-filter',
+  name: 'NpcClassFilter',
+  emits: ['set-filters'],
   data: () => ({
     originFilter: [],
     typeFilter: [],
   }),
-  emits: ['set-filters'],
   computed: {
     origins() {
       return _.uniqBy(CompendiumStore().NpcFeatures, 'Origin').map((x) => ({

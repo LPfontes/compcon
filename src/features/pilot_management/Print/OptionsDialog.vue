@@ -93,7 +93,7 @@
 import PrintOptionSelect from './PrintOptionSelect.vue';
 
 export default {
-  name: 'print-options-dialog',
+  name: 'PrintOptionsDialog',
   components: { PrintOptionSelect },
 
   props: {
@@ -135,17 +135,6 @@ export default {
       { title: 'Include Status/Condition Cards', icon: 'cc:eclipse' },
     ],
   }),
-  created() {
-    this.$emit('set', this.options);
-  },
-  methods: {
-    show() {
-      (this.$refs.dialog as any).show();
-    },
-    hide() {
-      (this.$refs.dialog as any).hide();
-    },
-  },
   computed: {
     pilotIncludeOptions() {
       switch (this.options.layout.title) {
@@ -228,6 +217,17 @@ export default {
             { title: 'Downtime Quick Reference' },
           ];
       }
+    },
+  },
+  created() {
+    this.$emit('set', this.options);
+  },
+  methods: {
+    show() {
+      (this.$refs.dialog as any).show();
+    },
+    hide() {
+      (this.$refs.dialog as any).hide();
     },
   },
 };

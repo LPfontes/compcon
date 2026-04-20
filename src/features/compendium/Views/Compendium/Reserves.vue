@@ -15,7 +15,7 @@ import { CompendiumStore } from '@/stores';
 import { orderBy } from 'lodash-es';
 
 export default {
-  name: 'reserves',
+  name: 'Reserves',
 
   data: () => ({
     headers: [

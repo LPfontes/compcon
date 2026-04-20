@@ -136,8 +136,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'CcOrgItem',
+  mixins: [useMobile],
   props: {
     org: {
       type: Object,

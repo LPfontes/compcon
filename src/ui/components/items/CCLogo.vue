@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="source.Svg"
-    class="d-inline-block"
     v-html-safe="cleanSvg(source.Svg)"
+    class="d-inline-block"
     :style="{
       width: iconSize,
       height: iconSize,
@@ -10,8 +10,8 @@
     }" />
   <div
     v-else-if="isLinkedSvg"
-    class="d-inline-block"
     v-html-safe="svgContent"
+    class="d-inline-block"
     :style="{
       width: iconSize,
       height: iconSize,
@@ -43,7 +43,7 @@ enum sizeMap {
 }
 
 export default {
-  name: 'cc-logo',
+  name: 'CcLogo',
   props: {
     source: {
       type: Object,
@@ -73,24 +73,6 @@ export default {
     corsSafe: false,
     svgContent: '',
   }),
-  watch: {
-    'source.Logo': {
-      immediate: true,
-      handler(newLogo) {
-        if (newLogo) {
-          fetch(newLogo)
-            .then((res) => res.text())
-            .then((text) => {
-              text = text.replace(/fill:#/g, ``);
-              this.svgContent = this.sizeSvg(text);
-            })
-            .catch(() => {
-              this.svgContent = '';
-            });
-        }
-      },
-    },
-  },
   computed: {
     iconSize(): string {
       if (this.width) {
@@ -107,6 +89,24 @@ export default {
     },
     isLinkedSvg(): boolean {
       return this.source.Logo && this.source.Logo.endsWith('svg');
+    },
+  },
+  watch: {
+    'source.Logo': {
+      immediate: true,
+      handler(newLogo) {
+        if (newLogo) {
+          fetch(newLogo)
+            .then((res) => res.text())
+            .then((text) => {
+              text = text.replace(/fill:#/g, ``);
+              this.svgContent = this.sizeSvg(text);
+            })
+            .catch(() => {
+              this.svgContent = '';
+            });
+        }
+      },
     },
   },
   methods: {

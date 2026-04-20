@@ -3,8 +3,8 @@
   <cc-relationship-item
     v-for="(r, idx) in item.NarrativeController.Relationships"
     :key="`relationship-${idx}`"
-    :item="r"
     :ref="'relationship' + idx"
+    :item="r"
     :origin-item="item"
     editable
     @delete="removeRelationship(idx)" />
@@ -31,7 +31,7 @@
 import { NarrativeStore } from '../store/narrative_store';
 
 export default {
-  name: 'relationship-editor',
+  name: 'RelationshipEditor',
   props: {
     item: {
       type: Object,

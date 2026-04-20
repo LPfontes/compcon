@@ -65,11 +65,11 @@
           </v-progress-linear>
           <div v-if="clock.Description">
             <div class="text-caption mb-n1">DESCRIPTION</div>
-            <div class="ml-2" v-html-safe="clock.Description" />
+            <div v-html-safe="clock.Description" class="ml-2" />
           </div>
           <div v-if="clock.Resolution">
             <div class="text-caption mb-n1">RESOLUTION</div>
-            <div class="ml-2" v-html-safe="clock.Resolution" />
+            <div v-html-safe="clock.Resolution" class="ml-2" />
           </div>
         </v-col>
         <v-col v-if="!print && !dense && !readonly" cols="auto">
@@ -162,8 +162,8 @@
             <v-col cols="auto">
               <div>
                 <cc-checkbox
-                  label="GM Only"
                   v-model="clock.GmOnly"
+                  label="GM Only"
                   tooltip="Marking a field or item 'GM Only' will hide it from player-facing exports
                         and print output"></cc-checkbox>
               </div>
@@ -195,7 +195,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-clock',
+  name: 'CcClock',
   props: {
     size: { type: Number, required: false, default: 100 },
     clock: { type: Object, required: true },

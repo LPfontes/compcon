@@ -14,7 +14,7 @@ import { CompendiumStore } from '@/stores';
 import { License } from '@/class';
 
 export default {
-  name: 'licenses',
+  name: 'Licenses',
 
   data: () => ({
     headers: [

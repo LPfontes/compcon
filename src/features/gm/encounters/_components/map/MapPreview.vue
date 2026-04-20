@@ -10,18 +10,18 @@
 
 <script>
 export default {
-  name: 'square-map-editor',
-  data: () => ({
-    cellSize: 20,
-    canvas: null,
-    context: null,
-  }),
+  name: 'SquareMapEditor',
   props: {
     map: {
       type: Object,
       required: false,
     },
   },
+  data: () => ({
+    cellSize: 20,
+    canvas: null,
+    context: null,
+  }),
   watch: {
     map: {
       handler() {
@@ -115,7 +115,7 @@ export default {
           const h = Math.sqrt(3) * s;
 
           let x = 2 * (col * ((3 / 2) * s));
-          let y = row * 0.5 * h;
+          const y = row * 0.5 * h;
 
           if (row % 2 === 1) {
             x += 1.5 * s;
@@ -157,7 +157,7 @@ export default {
           const w = Math.sqrt(3) * s;
           const h = 2 * s;
 
-          let y = row * s * 1.5;
+          const y = row * s * 1.5;
           let x = col * w;
 
           if (row % 2 === 1) x += 0.5 * w;

@@ -14,9 +14,8 @@
 import SectionEditIcon from './SectionEditIcon.vue';
 
 export default {
-  name: 'section-header',
+  name: 'SectionHeader',
   components: { SectionEditIcon },
-  emits: ['edit'],
   props: {
     editable: {
       type: Boolean,
@@ -31,5 +30,6 @@ export default {
       required: true,
     },
   },
+  emits: ['edit'],
 };
 </script>

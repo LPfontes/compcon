@@ -33,7 +33,7 @@ const keymap = {
 };
 
 export default {
-  name: 'frame-card-content',
+  name: 'FrameCardContent',
   components: { CCardBase },
   props: {
     item: { type: Object, required: true },

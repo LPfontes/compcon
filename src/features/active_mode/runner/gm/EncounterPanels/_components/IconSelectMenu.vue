@@ -22,7 +22,7 @@
           <v-container>
             <v-row>
               <v-col v-for="i in icons" :key="i" cols="1" class="d-flex justify-center">
-                <v-btn flat tile icon @click="selectIcon(i)" :color="i === icon ? 'primary' : ''">
+                <v-btn flat tile icon :color="i === icon ? 'primary' : ''" @click="selectIcon(i)">
                   <v-icon :size="36">{{ i }}</v-icon>
                 </v-btn>
               </v-col>

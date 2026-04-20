@@ -39,7 +39,7 @@ import EquipmentDetails from '../../_EquipmentDetails.vue';
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  name: 'mod-inset',
+  name: 'ModInset',
   components: { EquipmentHeader, EquipmentDetails },
   mixins: [useMobile],
   props: {

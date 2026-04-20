@@ -40,11 +40,8 @@
 <script>
 import { useMobile } from '@/mixins/useMobile';
 export default {
-  inheritAttrs: false,
   mixins: [useMobile],
-  data: () => ({
-    dialog: false,
-  }),
+  inheritAttrs: false,
   props: {
     title: {
       type: String,
@@ -87,6 +84,9 @@ export default {
     },
   },
   emits: ['activate'],
+  data: () => ({
+    dialog: false,
+  }),
   methods: {
     open() {
       this.dialog = true;

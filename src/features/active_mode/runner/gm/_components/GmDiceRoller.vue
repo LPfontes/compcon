@@ -192,10 +192,10 @@
             <cc-button color="success"
               size="small"
               block
-              @click="rollDice"
               :disabled="!diceToRoll.length"
               class="mt-2"
-              prepend-icon="mdi-dice-d20">
+              prepend-icon="mdi-dice-d20"
+              @click="rollDice">
               Roll Dice
             </cc-button>
           </div>
@@ -219,8 +219,8 @@
           <div style="max-height: 300px; overflow-y: scroll">
             <div v-for="(n, index) in encounter.RollHistory"
               :key="`roll-${index}`"
-              class="text-cc-overline bg-panel mb-1 pa-1"
-              v-html-safe="n" />
+              v-html-safe="n"
+              class="text-cc-overline bg-panel mb-1 pa-1" />
           </div>
         </v-col>
       </v-row>
@@ -235,6 +235,9 @@ import { last, set } from 'lodash-es';
 
 export default {
   name: 'GmDiceRoller',
+  components: {
+    DiceRollInterface
+  },
   props: {
     selected: {
       type: Object,
@@ -244,9 +247,6 @@ export default {
       type: Object,
       required: true,
     }
-  },
-  components: {
-    DiceRollInterface
   },
   data: () => ({
     diceToRoll: [{ type: 'd20', accuracy: 0, bonus: 0 }],

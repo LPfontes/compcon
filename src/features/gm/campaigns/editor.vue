@@ -13,8 +13,8 @@
       <v-main style="padding-bottom: 45px; overflow: scroll">
         <v-fade-transition leave-absolute>
           <component
-            v-if="itemComponent"
             :is="itemComponent"
+            v-if="itemComponent"
             :campaign="campaign"
             :item="selected"
             @delete="deleteCampaignPage(selected)"
@@ -26,8 +26,8 @@
   <v-dialog v-if="campaign" v-model="previewDialog" fullscreen>
     <v-card class="pb-6">
       <component
-        v-if="previewItemComponent"
         :is="previewItemComponent"
+        v-if="previewItemComponent"
         :campaign="campaign"
         :item="selected" />
       <div
@@ -69,9 +69,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'campaign-editor',
+  name: 'CampaignEditor',
   components: { campaignEditorSidebar, Overview, Page, Credits, ContentPage },
+  mixins: [useMobile],
   props: {
     id: { type: String, required: true },
   },

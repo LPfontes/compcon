@@ -118,6 +118,7 @@ export default {
     PilotPanel,
   },
   mixins: [useMobile],
+  inheritAttrs: false,
   props: {
     combatant: {
       type: Object,
@@ -132,7 +133,6 @@ export default {
     sheet: { type: Object, required: false },
     pc: { type: [Object, String], required: false },
   },
-  inheritAttrs: false,
   emits: ['deselect'],
   data: () => ({
     view: 'mech', // default view

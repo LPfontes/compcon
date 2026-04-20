@@ -10,7 +10,7 @@
 
 <script lang="ts">
 export default {
-  name: 'gm-card-sort-chip-display',
+  name: 'GmCardSortChipDisplay',
   props: {
     sorting: { type: [Object, String], required: false, default: '' },
     controller: { type: Object, required: false },

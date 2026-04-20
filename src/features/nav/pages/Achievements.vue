@@ -138,8 +138,8 @@
           variant="outlined"
           class="mt-2">
           <template #selection="{ item, index }">
-            <v-chip size="small"
-              v-if="index < (mobile ? 7 : 11)">
+            <v-chip v-if="index < (mobile ? 7 : 11)"
+              size="small">
               <span>{{ item.title }}</span>
             </v-chip>
             <span v-if="index === (mobile ? 7 : 11)"
@@ -150,7 +150,7 @@
 
           <template #prepend-item>
             <v-list-item title="Select All">
-              <template v-slot:prepend>
+              <template #prepend>
                 <v-checkbox-btn :model-value="showLabels.length === labels.length"
                   :indeterminate="showLabels.length > 0 && showLabels.length < labels.length"
                   @click="setAllLabels()" />
@@ -207,8 +207,8 @@
           color="exotic"
           variant="outlined"
           append-inner-icon="mdi-plus"
-          @click-append-inner="addAchievement()"
-          icon="mdi-barcode-scan" />
+          icon="mdi-barcode-scan"
+          @click-append-inner="addAchievement()" />
       </v-col>
     </v-row>
     <v-container class="pt-1"
@@ -319,11 +319,12 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'AchievementsViewer',
   components: {
     AchievementItem,
   },
+  mixins: [useMobile],
+  emits: ['close'],
   data: () => ({
     showRarity: [0, 1, 2, 3],
     showLock: [0, 1],
@@ -345,10 +346,6 @@ export default {
     addCode: '',
     achLoading: false,
   }),
-  emits: ['close'],
-  mounted() {
-    this.showLabels = this.labels;
-  },
   computed: {
     user() {
       return UserStore().User;
@@ -422,6 +419,9 @@ export default {
     allUnlockedSecret() {
       return this.achievements.filter((x) => x.Unlocked && x.Secret);
     },
+  },
+  mounted() {
+    this.showLabels = this.labels;
   },
   methods: {
     setAllLabels() {

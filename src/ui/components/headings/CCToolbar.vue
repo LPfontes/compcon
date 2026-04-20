@@ -21,7 +21,7 @@ import minor from './toolbars/cc_toolbar_minor.vue';
 import major from './toolbars/cc_toolbar_major.vue';
 
 export default {
-  name: 'cc-toolbar',
+  name: 'CcToolbar',
   props: {
     type: { type: String, default: 'minor' },
     title: { type: String },

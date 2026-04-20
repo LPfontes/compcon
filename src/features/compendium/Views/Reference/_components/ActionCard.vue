@@ -38,7 +38,7 @@
 
 <script lang="ts">
 export default {
-  name: 'action-card',
+  name: 'ActionCard',
   props: {
     action: {
       type: Object,

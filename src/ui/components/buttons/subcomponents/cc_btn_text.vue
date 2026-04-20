@@ -21,7 +21,7 @@
     </v-btn>
 
     <v-menu v-if="hasOptions" offset-y>
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn
           icon
           variant="text"
@@ -41,7 +41,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-btn-std',
+  name: 'CcBtnStd',
   props: {
     color: { type: String },
     disabled: { type: Boolean },

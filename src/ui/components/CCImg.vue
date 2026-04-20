@@ -1,9 +1,8 @@
 <template>
   <v-img
     v-if="!loadFailed"
-    :src="image"
     :key="src"
-    @error="handleImageError"
+    :src="image"
     :cover="cover"
     :aspect-ratio="aspectRatio"
     :position="position"
@@ -13,7 +12,8 @@
     :max-height="maxHeight"
     :min-height="minHeight"
     :contain="contain"
-    :style="style">
+    :style="style"
+    @error="handleImageError">
     <slot />
   </v-img>
 </template>
@@ -76,16 +76,16 @@ export default {
     imageUrl: '',
     loadFailed: false,
   }),
+  computed: {
+    image() {
+      return this.imageUrl;
+    },
+  },
   watch: {
     src(newVal) {
       if (this.imageUrl?.startsWith('blob:')) URL.revokeObjectURL(this.imageUrl);
       this.imageUrl = newVal;
       this.loadFailed = false;
-    },
-  },
-  computed: {
-    image() {
-      return this.imageUrl;
     },
   },
   created() {

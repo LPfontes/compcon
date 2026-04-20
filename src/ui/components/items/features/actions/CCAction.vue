@@ -18,7 +18,7 @@ import ActionHover from './_actionHover.vue';
 import ActionButton from './_actionButton.vue';
 
 export default {
-  name: 'cc-action',
+  name: 'CcAction',
   components: { ActionPanel, ActionPopup, ActionHover, ActionButton },
   props: {
     action: {

@@ -1,0 +1,88 @@
+{
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "loading": "Carregando..."
+  },
+  "nav": {
+    "navigateBack": "Voltar",
+    "navigateForward": "Avançar",
+    "mainMenu": "Menu Principal",
+    "compendium": "Compêndio",
+    "pilotManagement": "Gestão de Pilotos",
+    "activeMode": "Modo Ativo",
+    "quickReference": "Referência Rápida",
+    "cloudAccount": "Conta na Nuvem",
+    "achievements": "Conquistas",
+    "offline": "Desconectado",
+    "gm": {
+      "npcRoster": "Lista de NPCs",
+      "encounters": "Encontros",
+      "narrative": "Elementos Narrativos",
+      "campaigns": "Gerenciador de Campanhas"
+    },
+    "menu": {
+      "manageContent": "Gerenciar Conteúdo",
+      "options": "Configurações",
+      "about": "Sobre",
+      "credits": "Créditos",
+      "help": "Ajuda",
+      "support": "Apoiar COMP/CON"
+    },
+    "storage": {
+      "warning": "AVISO",
+      "alert": "ALERTA",
+      "warningText": "COMP/CON excedeu o limite de aviso de armazenamento.",
+      "maxText": "COMP/CON excedeu o limite máximo de armazenamento.",
+      "noSaveText": "NENHUM ITEM NOVO SERÁ SALVO ATÉ QUE O LIMITE SEJA AUMENTADO OU DADOS SEJAM EXCLUÍDOS.",
+      "moreDetails": "Mais detalhes estão disponíveis na aba <b>Armazenamento</b> do Menu de Configurações.",
+      "storageTab": "Armazenamento",
+      "limitExceeded": "LIMITE DE ARMAZENAMENTO EXCEDIDO"
+    }
+  },
+  "options": {
+    "tabs": {
+      "settings": "Configurações",
+      "storage": "Armazenamento",
+      "log": "Logs"
+    },
+    "settings": {
+      "showUpdateMessages": "Exibir Mensagens de Atualização",
+      "showExoticItems": "Exibir itens Exóticos no Compêndio",
+      "showExoticTooltip": "Habilitar esta opção pode revelar spoilers de campanhas, é recomendado deixar DESABILITADO se você não for o Mestre",
+      "theme": "Tema",
+      "font": "Fonte",
+      "language": "Idioma / Language",
+      "communityThemes": "Temas da comunidade por",
+      "logLevel": "Nível de Log",
+      "errorReporting": "Relatório de Erros",
+      "errorReportingDesc": "O relatório de erros permite que dados anônimos sejam enviados ao desenvolvedor para ajudar a identificar e corrigir bugs e outros problemas.",
+      "errorReportingPii": "Nenhuma informação pessoal identificável é coletada neste nível.",
+      "enhancedReporting": "Relatório de erros aprimorado",
+      "enhancedReportingDesc": "O relatório de erros aprimorado envia dados adicionais ao desenvolvedor, incluindo",
+      "enhancedReportingPii": "informações não-anônimas, especificamente endereço IP e ID de usuário",
+      "enhancedReportingNotNecessary": "Isto <b>não é necessário</b> a menos que você esteja ativamente trabalhando com o desenvolvedor para resolver um problema específico e tenha sido solicitado a habilitar isso.",
+      "enabled": "ativado",
+      "disabled": "desativado",
+      "createBackup": "Criar Backup de Dados",
+      "createBackupTooltip": "COMP/CON depende do armazenamento seguro do seu navegador para salvar e carregar dados. Geralmente, esses dados estão seguros contra exclusão, mas certas configurações ou utilitários do navegador podem, às vezes, apagar esses dados, resultando em perda. É uma boa prática fazer backup de tempos em tempos.",
+      "downloadV2Backup": "Baixar Backup do v2 Armazenado",
+      "downloadV2Tooltip": "O COMP/CON salvou um backup completo dos seus dados do COMP/CON v2. Isso pode ser importado no app v2 em old.compcon.app.",
+      "loadBackup": "Carregar Backup de Dados",
+      "loadBackupTooltip": "Arquivos .compcon são arquivos de exportação em massa que contêm todos os seus dados locais. Você pode criar um usando o botão 'Criar Backup de Dados'. Use esta opção para carregar arquivos de backup que você criou ou obteve de outra fonte. É recomendado criar um backup antes de carregar um arquivo .compcon, especialmente de terceiros.",
+      "importStrategy": "// Estratégia de Importação",
+      "mergeStrategy": "Mesclar com dados existentes",
+      "overwriteStrategy": "Substituir todos os dados existentes",
+      "mergeWarning": "COMP/CON tentará mesclar os dados de importação com os seus dados existentes.",
+      "overwriteWarning": "A estratégia de substituição (overwrite) vai apagar todos os seus dados locais atuais e colocar os do arquivo importado, e não pode ser desfeita. É altamente recomendado criar um backup antes de usar esta opção.",
+      "warning": "Atenção",
+      "selectFile": "Selecionar Arquivo .compcon",
+      "v2BackupDetected": "Backup v2 Detectado",
+      "v2BackupText1": "Este é um arquivo de backup do COMP/CON v2. Ele será processado usando o sistema de importação v2: pacotes de conteúdo serão instalados primeiro, depois pilotos, NPCs e encontros. Itens que exigem LCPs não presentes neste backup serão salvos como pendentes no Content Manager.",
+      "v2BackupText2": "Importações de backup v2 são sempre processadas com a estratégia de 'Mesclar' (append).",
+      "importV2": "Importar Backup v2",
+      "confirmImport": "Confirmar Importação"
+    }
+  }
+}

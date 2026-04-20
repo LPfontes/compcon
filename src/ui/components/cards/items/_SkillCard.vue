@@ -6,7 +6,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'cc-background-card',
+  name: 'CcBackgroundCard',
   components: { InfoCardBase },
   props: {
     item: {

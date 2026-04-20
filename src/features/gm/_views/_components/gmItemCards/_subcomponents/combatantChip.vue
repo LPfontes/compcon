@@ -49,7 +49,7 @@
 
 <script lang="ts">
 export default {
-  name: 'combatant-chip',
+  name: 'CombatantChip',
   props: {
     item: { type: Object, required: true },
   },

@@ -124,7 +124,7 @@ import StatEditor from '@/features/gm/_components/StatEditor.vue';
 import LayerSelector from './LayerSelector.vue';
 
 export default {
-  name: 'eidolon-layers',
+  name: 'EidolonLayers',
   components: { LayerSelector, StatEditor },
   props: {
     item: { type: Object, required: true },

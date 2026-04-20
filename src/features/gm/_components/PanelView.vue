@@ -18,7 +18,7 @@
 
 <script lang="ts">
 export default {
-  name: 'panel-view',
+  name: 'PanelView',
   props: {
     noBorder: { type: Boolean },
   },

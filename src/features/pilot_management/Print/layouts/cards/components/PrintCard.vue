@@ -15,6 +15,6 @@
 
 <script lang="ts">
 export default {
-  name: 'print-card',
+  name: 'PrintCard',
 };
 </script>

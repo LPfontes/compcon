@@ -1,7 +1,7 @@
 <template>
   <cc-modal :title="item.Name" :icon="item.Icon" :color="item.Color" shrink>
     <template #activator="{ open }">
-      <div @click="open" class="clickable">
+      <div class="clickable" @click="open">
         <v-hover>
           <template #default="{ props, isHovering }">
             <cc-panel
@@ -12,14 +12,14 @@
               :color="isHovering ? 'panel' : 'surface'"
               class="item-description">
               <div
-                style="max-height: 40vh; overflow: hidden; text-overflow: ellipsis"
                 v-html-safe="
                   item.Terse ||
                   item.Effect ||
                   item.Description ||
                   item.Activation ||
                   `${item.Source || ''} ${item.ItemType}`
-                " />
+                "
+                style="max-height: 40vh; overflow: hidden; text-overflow: ellipsis" />
             </cc-panel>
           </template>
         </v-hover>

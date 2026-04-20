@@ -22,7 +22,7 @@
       <cc-tooltip v-if="tooltip" :icon="tooltipIcon" :text="tooltip" end />
     </v-btn>
     <v-menu v-if="$slots.options" offset-y>
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn
           icon
           variant="tonal"
@@ -42,7 +42,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-btn-std',
+  name: 'CcBtnStd',
   props: {
     color: { type: String },
     pipColor: { type: String },

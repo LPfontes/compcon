@@ -23,8 +23,8 @@ import PageBreak from '../../components/PageBreak.vue';
 import { usePrintLayout } from '../_usePrintLayout';
 
 export default {
-  name: 'terse-print',
-  mixins: [usePrintLayout],
+  name: 'TersePrint',
   components: { PilotPrint, BondsPrint, MechPrint, PageBreak },
+  mixins: [usePrintLayout],
 };
 </script>

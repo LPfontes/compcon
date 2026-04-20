@@ -4,16 +4,16 @@
     color="primary"
     mandatory
     style="height: 20px; margin-top: -6px; width: 100%">
-    <v-btn value="100" key="100" size="small" style="width: 25%">
+    <v-btn key="100" value="100" size="small" style="width: 25%">
       <v-icon size="x-large" icon="mdi-size-s" />
     </v-btn>
-    <v-btn value="200" key="200" size="small" style="width: 25%">
+    <v-btn key="200" value="200" size="small" style="width: 25%">
       <v-icon size="x-large" icon="mdi-size-m" />
     </v-btn>
-    <v-btn value="300" key="300" size="small" style="width: 25%">
+    <v-btn key="300" value="300" size="small" style="width: 25%">
       <v-icon size="x-large" icon="mdi-size-l" />
     </v-btn>
-    <v-btn value="450" key="450" size="small" style="width: 25%">
+    <v-btn key="450" value="450" size="small" style="width: 25%">
       <v-icon size="x-large" icon="mdi-size-xl" />
     </v-btn>
   </v-btn-toggle>
@@ -50,10 +50,10 @@
         <template #default="{ isActive }">
           <v-card style="position: relative">
             <v-btn
-              @click="isActive.value = false"
               icon
               color="primary"
-              style="position: fixed; top: 8px; right: 8px; z-index: 9">
+              style="position: fixed; top: 8px; right: 8px; z-index: 9"
+              @click="isActive.value = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
             <v-img :src="`${distributor}/${item.uri}`" />
@@ -111,7 +111,7 @@ import logger from '@/user/logger';
 const distributor = import.meta.env.VITE_APP_USERDATA_DISTRIBUTOR || '';
 
 export default {
-  name: 'cloud-item-data-tab',
+  name: 'CloudItemDataTab',
   components: {
     DiffViewer,
   },
@@ -125,6 +125,7 @@ export default {
       default: false,
     },
   },
+  emits: ['refresh'],
   data: () => ({
     tab: 'Images',
     itemSize: '200',
@@ -165,7 +166,6 @@ export default {
       },
     },
   },
-  emits: ['refresh'],
   methods: {
     async downloadImage(url) {
       const filename = url.split('/').pop();

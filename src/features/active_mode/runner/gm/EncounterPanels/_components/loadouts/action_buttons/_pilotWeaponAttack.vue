@@ -46,15 +46,15 @@ import EffectApplicator from '@/ui/components/chips/_activeeffect/EffectApplicat
 
 export default {
   name: 'MechWeaponAttack',
+  components: {
+    EffectApplicator,
+  },
   props: {
     event: { type: WeaponAttackEvent, required: true },
     weapon: { type: PilotWeapon, required: true },
     owner: { type: Object, required: true },
     encounter: { type: Object, required: true },
     isAdditionalAux: { type: Boolean, default: false },
-  },
-  components: {
-    EffectApplicator,
   },
   computed: {
     isPilotSheet() {

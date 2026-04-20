@@ -13,7 +13,7 @@
 
 <script lang="ts">
 export default {
-  name: 'sitrep-chip',
+  name: 'SitrepChip',
   props: {
     sitrep: { type: Object, required: true },
     size: { type: String, default: 'x-small' },

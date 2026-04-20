@@ -35,11 +35,11 @@
         </v-checkbox-btn>
       </div>
       <v-spacer />
-      <v-row no-gutters
-        v-if="!readonly"
+      <v-row v-if="!readonly"
+        no-gutters
         align="center">
-        <v-col cols="auto"
-          v-if="!dense"
+        <v-col v-if="!dense"
+          cols="auto"
           class="heading pl-3 pr-3">Roll</v-col>
         <v-col cols="auto">
           <v-menu>
@@ -140,8 +140,8 @@
             </v-card>
           </v-menu>
         </v-col>
-        <v-col cols="auto"
-          v-if="!noDelete">
+        <v-col v-if="!noDelete"
+          cols="auto">
           <v-menu offset-x
             left>
             <template #activator="{ props }">
@@ -217,7 +217,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-rollable-table',
+  name: 'CcRollableTable',
   props: {
     table: { type: Object, required: true },
     color: { type: String, required: false, default: 'primary' },

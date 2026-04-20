@@ -10,7 +10,7 @@ import AuthorSubscriptions from './_components/authorSubscriptions.vue';
 import LcpSubscriptions from './_components/lcpSubscriptions.vue';
 
 export default {
-  name: 'cloud-subscriptions',
+  name: 'CloudSubscriptions',
   components: { LcpSubscriptions, AuthorSubscriptions },
   computed: {
     mobile() {

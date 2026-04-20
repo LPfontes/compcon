@@ -7,10 +7,10 @@
     tile
     style="width: 100%; height: 30px">
     <v-menu offset-y :close-on-content-click="false" max-width="500px">
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn v-bind="props" size="small" style="width: 50%">
           <v-tooltip text="Content Packs" location="top">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <span v-bind="props">
                 <v-icon size="x-large" icon="cc:content_manager" start />
                 <v-chip size="x-small">
@@ -25,7 +25,7 @@
         <v-card-text>
           <v-list>
             <v-list-item tile title="Select All">
-              <template v-slot:prepend>
+              <template #prepend>
                 <v-checkbox-btn
                   :model-value="lcpFilter.length === lcps.length"
                   :indeterminate="lcpFilter.length > 0 && lcpFilter.length < lcps.length"
@@ -33,12 +33,12 @@
               </template>
             </v-list-item>
             <v-divider />
-            <v-list-item tile v-for="lcp in lcps" :key="`lcp-${lcp}`" :title="<any>lcp">
-              <template v-slot:prepend>
+            <v-list-item v-for="lcp in lcps" :key="`lcp-${lcp}`" tile :title="<any>lcp">
+              <template #prepend>
                 <v-checkbox-btn
                   :value="lcp"
                   :model-value="modelValue"
-                  @update:modelValue="$emit('update:modelValue', $event)" />
+                  @update:model-value="$emit('update:modelValue', $event)" />
               </template>
             </v-list-item>
           </v-list>
@@ -47,10 +47,10 @@
     </v-menu>
 
     <v-menu offset-y :close-on-content-click="false" width="500px">
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn v-bind="props" size="small" style="width: 50%">
           <v-tooltip text="Item Filters" location="top">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <span v-bind="props">
                 <v-icon size="large" icon="mdi-filter" start />
                 <v-chip size="x-small">
@@ -80,7 +80,7 @@
 
 <script lang="ts">
 export default {
-  name: 'browser-view-toggle',
+  name: 'BrowserViewToggle',
   props: {
     modelValue: {
       type: Array,

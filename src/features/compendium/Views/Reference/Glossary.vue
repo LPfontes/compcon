@@ -42,8 +42,8 @@
         :style="`padding: 16px 64px 16px 64px`"
         style="height: calc(100vh - 65px) !important; overflow-y: scroll">
         <div v-for="(e, index) in glossary"
-          :key="`glossary-item-${index}`"
           :id="`e_${e.name.replace(/\W/g, '')}`"
+          :key="`glossary-item-${index}`"
           class="my-5">
           <cc-titled-panel :icon="icon || ''"
             :title="e.name"
@@ -62,7 +62,7 @@ import * as _ from 'lodash-es';
 import { glossary } from '@massif/lancer-data';
 
 export default {
-  name: 'glossary',
+  name: 'Glossary',
   data: () => ({
     showNav: null,
     array: glossary,

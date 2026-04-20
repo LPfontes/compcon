@@ -32,7 +32,7 @@
 <script lang="ts">
 import { NavStore } from '@/stores';
 export default {
-  name: 'temp-language-selector',
+  name: 'TempLanguageSelector',
   data: () => ({
     languages: [
       {

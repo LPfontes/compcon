@@ -80,7 +80,7 @@ import { Encounter } from '@/classes/encounter/Encounter';
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'gm-environment-editor',
+  name: 'GmEnvironmentEditor',
   props: {
     item: { type: Object, required: true },
     readonly: { type: Boolean, default: false },

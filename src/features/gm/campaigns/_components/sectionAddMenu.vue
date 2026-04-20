@@ -46,7 +46,7 @@
 
 <script lang="ts">
 export default {
-  name: 'section-add-menu',
+  name: 'SectionAddMenu',
   props: {
     item: {
       type: Object,

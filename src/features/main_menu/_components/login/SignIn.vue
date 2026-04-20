@@ -2,8 +2,8 @@
   <v-container>
     <v-fade-transition>
       <div v-if="signingIn" class="flavor-text">
-        <v-row no-gutters v-for="(l, lIdx) in loginLog" :key="`log-${lIdx}`">
-          <v-col cols="12" md="" v-html-safe="l.str" />
+        <v-row v-for="(l, lIdx) in loginLog" :key="`log-${lIdx}`" no-gutters>
+          <v-col v-html-safe="l.str" cols="12" md="" />
           <v-col cols="12" md="auto">
             <i class="text-caption text-disabled ml-3">{{ l.time }}</i>
           </v-col>
@@ -15,8 +15,8 @@
                 size="x-small"
                 variant="tonal"
                 color="secondary"
-                @click="copyLog"
-                prepend-icon="mdi-clipboard-text-outline">
+                prepend-icon="mdi-clipboard-text-outline"
+                @click="copyLog">
                 Copy Log
               </v-btn>
             </div>
@@ -113,7 +113,7 @@ import logger from '@/user/logger';
 import { signIn } from 'aws-amplify/auth';
 
 export default {
-  name: 'auth-sign-in',
+  name: 'AuthSignIn',
   data: () => ({
     email: '',
     password: '',

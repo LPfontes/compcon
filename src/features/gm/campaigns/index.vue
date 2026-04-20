@@ -22,8 +22,8 @@
           class="text-center text-disabled pa-5">
           <i>No data</i>
         </div>
-        <v-card v-else
-          v-for="(c, i) in campaigns"
+        <v-card v-for="(c, i) in campaigns"
+          v-else
           :key="c.ID"
           class="px-2 py-3"
           elevation="0"
@@ -61,7 +61,7 @@
                     Delete
                   </cc-button>
                 </template>
-                <template v-slot:default="{ isActive }">
+                <template #default="{ isActive }">
                   <v-card>
                     <v-toolbar color="error-darken-3">
                       <v-toolbar-title>
@@ -226,7 +226,7 @@ import { CampaignStore } from '@/stores';
 import logger from '@/user/logger';
 
 export default {
-  name: 'campaign-landing',
+  name: 'CampaignLanding',
   components: { CampaignBookshelf },
   data: () => ({
     slide: null,

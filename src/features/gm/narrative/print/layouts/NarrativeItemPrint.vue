@@ -23,9 +23,9 @@
 
     <v-row dense class="no-print-break">
       <v-col>
-        <div v-if="item.Description" class="pl-3" v-html-safe="item.Description" />
+        <div v-if="item.Description" v-html-safe="item.Description" class="pl-3" />
       </v-col>
-      <v-col cols="4" v-if="options.include.some((x) => x.title === 'Include Image')">
+      <v-col v-if="options.include.some((x) => x.title === 'Include Image')" cols="4">
         <div
           :style="`background-image: url('${item.Portrait}');`"
           style="height: 300px; width: 100%; background-position: top 0%; background-size: cover" />
@@ -99,9 +99,9 @@
         class="text-caption px-2 no-print-break">
         <div class="font-weight-bold text-caption" v-text="t.Title" />
         <div v-html-safe="t.Description" class="pl-2" />
-        <v-row dense
-          v-for="(r, ri) in t.Results"
-          :key="`result-${ri}`">
+        <v-row v-for="(r, ri) in t.Results"
+          :key="`result-${ri}`"
+          dense>
           <v-col cols="auto">
             <b>{{ r.min }}-{{ r.max }}</b>
           </v-col>
@@ -129,7 +129,7 @@ import BlankLine from '@/features/gm/npc_roster/print/components/blank/line.vue'
 import Notes from '@/features/gm/npc_roster/print/components/blank/notes.vue';
 
 export default {
-  name: 'item-print',
+  name: 'ItemPrint',
   components: {
     BlankLine,
     Notes,

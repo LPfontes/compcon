@@ -14,11 +14,11 @@
     </template>
     <template #default>
       <cc-panel v-for="(log, index) in summary"
+        :key="index"
         color="background"
         class="mb-2"
         style="position: relative;"
-        :title="log.title"
-        :key="index">
+        :title="log.title">
         <div style="font-family: 'Consolas'; font-size: 14px; white-space: pre-wrap;">
           {{ log.text }}
         </div>
@@ -84,9 +84,9 @@ export default {
   },
   computed: {
     summary() {
-      let out = [] as { title: string; text: string }[];
+      const out = [] as { title: string; text: string }[];
       this.actor.CombatController.CombatLog.History.forEach((log, index) => {
-        let stringSummary = log.action ? new ActionSummary(log.action).Summarize(this.actor.ID) : log.event || 'No summary available.';
+        const stringSummary = log.action ? new ActionSummary(log.action).Summarize(this.actor.ID) : log.event || 'No summary available.';
         out.push({
           title: `${new Date(log.timestamp).toLocaleString()} — Round ${log.round}, Action ${index + 1}`,
           text: stringSummary,

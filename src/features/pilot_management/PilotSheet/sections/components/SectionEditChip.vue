@@ -19,7 +19,7 @@
 
 <script lang="ts">
 export default {
-  name: 'section-edit-chip',
+  name: 'SectionEditChip',
   props: {
     highlight: {
       type: Boolean,

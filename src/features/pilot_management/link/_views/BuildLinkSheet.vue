@@ -180,7 +180,7 @@
 import MechStatItem from '../_components/MechStatItem.vue';
 
 export default {
-  name: 'pilot-link-build',
+  name: 'PilotLinkBuild',
   components: {
     MechStatItem,
   },

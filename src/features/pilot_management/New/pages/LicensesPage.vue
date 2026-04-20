@@ -41,7 +41,7 @@ import LicenseSelector from '../../_components/selectors/LicenseSelector.vue';
 import { Pilot } from '@/class';
 
 export default {
-  name: 'talents-page',
+  name: 'TalentsPage',
   components: {
     StepperContent,
     LicenseSelector,

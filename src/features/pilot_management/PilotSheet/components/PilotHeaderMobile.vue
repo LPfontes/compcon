@@ -131,7 +131,7 @@ import LevelEditDialog from './LevelEditDialog.vue';
 import { Pilot } from '@/class';
 
 export default {
-  name: 'pilot-header',
+  name: 'PilotHeader',
   components: { LevelEditDialog, PilotRegistrationCard },
   props: {
     pilot: { type: Pilot, required: true },

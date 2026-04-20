@@ -1,11 +1,11 @@
 <template>
-  <v-col cols="auto"
-    v-if="event.Save">
+  <v-col v-if="event.Save"
+    cols="auto">
     <v-row no-gutters
       class="text-cc-overline text-disabled">
       <v-col> {{ event.Save }} Save</v-col>
-      <v-col cols="auto"
-        v-if="event.SaveHalf && !!event.Targets[0]">Half</v-col>
+      <v-col v-if="event.SaveHalf && !!event.Targets[0]"
+        cols="auto">Half</v-col>
     </v-row>
     <div v-for="(s, idx) in event.Targets"
       :key="`target-${idx}`">

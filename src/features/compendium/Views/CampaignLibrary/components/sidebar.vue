@@ -58,7 +58,7 @@ import IndentedList from './IndentedList.vue';
 import exportAsJson from '@/util/jsonExport';
 
 export default {
-  name: 'campaign-editor-sidebar',
+  name: 'CampaignEditorSidebar',
   components: { IndentedList },
   props: {
     campaign: { type: Object, required: true },
@@ -68,13 +68,13 @@ export default {
     lastSave: '',
     selected: null,
   }),
-  created() {
-    this.lastSave = this.campaign.SaveController.LastModified;
-  },
   computed: {
     dirty() {
       return this.lastSave !== this.campaign.SaveController.LastModified;
     },
+  },
+  created() {
+    this.lastSave = this.campaign.SaveController.LastModified;
   },
   methods: {
     setPage(type: string) {

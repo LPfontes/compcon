@@ -98,13 +98,13 @@ import SectionHeader from '../../components/SectionHeader.vue';
 import * as _ from 'lodash-es';
 
 export default {
-  name: 'clone-block',
+  name: 'CloneBlock',
+  components: { SectionHeader },
   props: {
     hideQuirks: { type: Boolean },
     readonly: { type: Boolean },
     pilot: { type: Object, required: true },
   },
-  components: { SectionHeader },
   methods: {
     setQuirk() {
       if (!this.pilot.Callsign.includes('※')) this.pilot.Callsign += '※';

@@ -51,14 +51,12 @@
 import PrintOptionSelect from './PrintOptionSelect.vue';
 
 export default {
-  name: 'print-options-dialog',
+  name: 'PrintOptionsDialog',
   components: { PrintOptionSelect },
-  watch: {
+  props: {
     options: {
-      handler() {
-        this.$emit('set', this.options);
-      },
-      deep: true,
+      type: Object,
+      required: true,
     },
   },
   data: () => ({
@@ -71,20 +69,6 @@ export default {
       { title: 'Landscape', icon: 'mdi-file-document-multiple' },
     ],
   }),
-  props: {
-    options: {
-      type: Object,
-      required: true,
-    },
-  },
-  methods: {
-    show() {
-      (this.$refs.dialog as any).show();
-    },
-    hide() {
-      (this.$refs.dialog as any).hide();
-    },
-  },
   computed: {
     includeOptions() {
       switch (this.options.layout.title) {
@@ -107,6 +91,22 @@ export default {
         default:
           return [{ title: 'Relevant Tag Reference' }];
       }
+    },
+  },
+  watch: {
+    options: {
+      handler() {
+        this.$emit('set', this.options);
+      },
+      deep: true,
+    },
+  },
+  methods: {
+    show() {
+      (this.$refs.dialog as any).show();
+    },
+    hide() {
+      (this.$refs.dialog as any).hide();
     },
   },
 };

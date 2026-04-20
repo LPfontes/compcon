@@ -16,7 +16,7 @@
 
 <script lang="ts">
 export default {
-  name: 'nav-item',
+  name: 'NavItem',
   props: {
     to: {
       type: String,

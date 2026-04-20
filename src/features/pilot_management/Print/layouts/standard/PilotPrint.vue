@@ -167,8 +167,8 @@
                   class="d-inline-block mt-2" />
 
                 <div v-else
-                  class="heading h2"
-                  v-html-safe="pilot.MechSkillsController.MechSkills.Hull" />
+                  v-html-safe="pilot.MechSkillsController.MechSkills.Hull"
+                  class="heading h2" />
               </v-col>
               <v-col>
                 <div class="font-weight-bold caption text-primary mb-n2 text-primary">AGILITY</div>
@@ -178,8 +178,8 @@
                   class="d-inline-block mt-2" />
 
                 <div v-else
-                  class="heading h2"
-                  v-html-safe="pilot.MechSkillsController.MechSkills.Agi" />
+                  v-html-safe="pilot.MechSkillsController.MechSkills.Agi"
+                  class="heading h2" />
               </v-col>
               <v-col>
                 <div class="font-weight-bold caption text-primary mb-n2">SYSTEMS</div>
@@ -189,8 +189,8 @@
                   class="d-inline-block mt-2" />
 
                 <div v-else
-                  class="heading h2"
-                  v-html-safe="pilot.MechSkillsController.MechSkills.Sys" />
+                  v-html-safe="pilot.MechSkillsController.MechSkills.Sys"
+                  class="heading h2" />
               </v-col>
               <v-col>
                 <div class="font-weight-bold caption text-primary mb-n2">ENGINEERING</div>
@@ -200,8 +200,8 @@
                   class="d-inline-block mt-2" />
 
                 <div v-else
-                  class="heading h2"
-                  v-html-safe="pilot.MechSkillsController.MechSkills.Eng" />
+                  v-html-safe="pilot.MechSkillsController.MechSkills.Eng"
+                  class="heading h2" />
               </v-col>
             </v-row>
           </v-col>
@@ -213,8 +213,8 @@
           <v-col>
             <div class="text-caption text-primary">SKILL TRIGGERS</div>
             <div class="text-left">
-              <v-row dense
-                v-if="blank"
+              <v-row v-if="blank"
+                dense
                 class="mt-n2">
                 <v-col v-for="n in 8"
                   :key="`skill-${n}`"
@@ -230,8 +230,8 @@
                   </v-row>
                 </v-col>
               </v-row>
-              <v-chip v-else
-                v-for="s in pilot.SkillsController.Skills"
+              <v-chip v-for="s in pilot.SkillsController.Skills"
+                v-else
                 :key="s.Skill.ID"
                 label
                 variant="outlined"
@@ -303,8 +303,8 @@
       class="mt-n6">
       <v-col>
         <div class="text-caption mb-n2 mt-1 text-primary">TALENTS</div>
-        <v-row dense
-          v-if="blank">
+        <v-row v-if="blank"
+          dense>
           <v-col v-for="n in 12"
             :key="`talent-${n}`"
             :cols="6">
@@ -366,8 +366,8 @@
       class="text-caption mb-n2 mt-2 text-primary">
       CORE BONUSES
     </div>
-    <v-row dense
-      v-if="blank">
+    <v-row v-if="blank"
+      dense>
       <v-col v-for="n in 4"
         :key="`cb-${n}`"
         :cols="landscape ? (hasPilotOption('Pilot Portrait') ? 6 : 3) : 6
@@ -377,8 +377,8 @@
       </v-col>
     </v-row>
 
-    <v-row v-else-if="pilot.CoreBonusController.CoreBonuses.length"
-      v-for="b in pilot.CoreBonusController.CoreBonuses"
+    <v-row v-for="b in pilot.CoreBonusController.CoreBonuses"
+      v-else-if="pilot.CoreBonusController.CoreBonuses.length"
       :key="b.ID"
       dense
       justify="space-between"
@@ -501,8 +501,8 @@
     <v-row dense
       justify="space-between"
       class="mt-n2 caption">
-      <v-col v-if="hasPilotOption('Extra Equipment Space')"
-        v-for="n in 3"
+      <v-col v-for="n in 3"
+        v-if="hasPilotOption('Extra Equipment Space')"
         :key="`equip-${n}`"
         style="position: relative"
         cols="12">
@@ -620,8 +620,8 @@
     </div>
   </fieldset>
 
-  <div v-if="hasPilotOption('Separate Talent Detail')"
-    v-for="t in pilot.TalentsController.Talents"
+  <div v-for="t in pilot.TalentsController.Talents"
+    v-if="hasPilotOption('Separate Talent Detail')"
     :key="t.Talent.ID"
     dense
     justify="space-between"
@@ -662,8 +662,7 @@ import tagBlock from '../../components/TagBlock.vue';
 import { usePrintOptions } from '../_usePrintOptions';
 
 export default {
-  name: 'pilot-print',
-  mixins: [usePrintOptions],
+  name: 'PilotPrint',
   components: {
     blankLine,
     notes,
@@ -671,6 +670,7 @@ export default {
     PrintAction,
     PrintDeployable,
   },
+  mixins: [usePrintOptions],
   props: {
     pilot: {
       type: Object,

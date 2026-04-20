@@ -8,7 +8,7 @@
     @back="$emit('back')">
     <pilot-registration-card :pilot="pilot" :pilot-ready="pilotReady" />
     <br />
-    <v-alert type="error" variant="outlined" tile v-if="!pilotReady">
+    <v-alert v-if="!pilotReady" type="error" variant="outlined" tile>
       <span class="stat-text text-accent">
         WARNING: Submission for IDENT record {{ pilot.ID }} has the following issue(s):
       </span>
@@ -77,7 +77,7 @@ import { Pilot } from '@/classes/pilot/Pilot';
 import { PilotStore } from '@/stores';
 
 export default {
-  name: 'confirm-page',
+  name: 'ConfirmPage',
   components: { PilotRegistrationCard, StepperContent },
   props: {
     pilot: {

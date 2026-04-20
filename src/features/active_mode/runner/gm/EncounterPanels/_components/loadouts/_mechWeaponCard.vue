@@ -176,8 +176,8 @@
             </v-col>
 
             <v-col v-for="p in item.Profiles"
-              :key="p.ID"
               v-show="item.Profiles.length > 1"
+              :key="p.ID"
               class="mr-4"
               cols="auto">
               <div v-if="p.Tags.length">

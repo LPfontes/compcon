@@ -7,11 +7,11 @@ import using_compcon from '@/assets/srd/lib/using_compcon.json';
 import SrdView from './_components/SrdView.vue';
 
 export default {
-  name: 'using-compcon',
-  inheritAttrs: false,
+  name: 'UsingCompcon',
   components: {
     SrdView,
   },
+  inheritAttrs: false,
   props: {
     preScroll: {
       type: String,

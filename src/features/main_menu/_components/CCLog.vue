@@ -43,7 +43,7 @@ import { UserStore } from '@/stores';
 import { UserProfile } from '@/user';
 
 export default {
-  name: 'cc-log',
+  name: 'CcLog',
   data: () => ({
     typer: {},
     title: [],

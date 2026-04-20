@@ -49,7 +49,7 @@ import ImageBlock from './components/ImageBlock.vue';
 import { Pilot } from '@/class';
 
 export default {
-  name: 'narrative-view',
+  name: 'NarrativeView',
   components: {
     SkillBlock,
     DtResourcesBlock,

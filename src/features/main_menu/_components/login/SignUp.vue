@@ -90,8 +90,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'SignUp',
   mixins: [useMobile],
-  name: 'sign-up',
   data: () => ({
     showError: false,
     error: '',

@@ -18,7 +18,7 @@ import StatusCards from './StatusCards.vue';
 import { Pilot, Mech } from '@/class';
 
 export default {
-  name: 'standard-print',
+  name: 'StandardPrint',
   components: {
     PilotPrint,
     MechPrint,

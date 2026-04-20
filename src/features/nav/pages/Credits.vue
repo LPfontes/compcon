@@ -87,9 +87,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'Credits',
   components: { DevBadge },
+  mixins: [useMobile],
   data: () => ({
     credits: credits,
     patrons: [] as any[],

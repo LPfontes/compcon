@@ -11,7 +11,7 @@
 import GmCardBase from './_GMCardBase.vue';
 
 export default {
-  name: 'gm-doodad-card',
+  name: 'GmDoodadCard',
   components: { GmCardBase },
   props: {
     item: { type: Object, required: true },

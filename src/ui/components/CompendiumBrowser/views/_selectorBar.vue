@@ -193,6 +193,7 @@ ChartJS.register(
 
 export default {
   name: 'SelectorScatter',
+  components: { Bar },
   props: {
     items: {
       type: Array,
@@ -230,7 +231,6 @@ export default {
       default: 1,
     },
   },
-  components: { Bar },
   data: () => ({
     xAxis: { title: '', value: '' },
     mfTab: 0,
@@ -238,9 +238,6 @@ export default {
     licenseTab: 0,
     sort: '',
   }),
-  created() {
-    this.xAxis = this.axes[0];
-  },
   computed: {
     axes() {
       switch ((this.items[0] as CompendiumItem).ItemType) {
@@ -311,7 +308,7 @@ export default {
       return _.groupBy(this.items, 'LcpName');
     },
     options(): any {
-      let o = {
+      const o = {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
@@ -384,6 +381,9 @@ export default {
 
       return o;
     },
+  },
+  created() {
+    this.xAxis = this.axes[0];
   },
   methods: {
     sortItems(items) {

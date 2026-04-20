@@ -40,7 +40,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cascade-check',
+  name: 'CascadeCheck',
   props: {
     mech: { type: Object, required: true },
   },

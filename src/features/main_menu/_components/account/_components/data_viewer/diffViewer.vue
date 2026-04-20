@@ -145,10 +145,10 @@ export default {
       default: false,
     },
   },
+  emits: ['close', 'take-local', 'take-cloud'],
   data: () => ({
     diff: null,
   }),
-  emits: ['close', 'take-local', 'take-cloud'],
   computed: {
     localNewer() {
       if (!this.local?.id) return false;
@@ -168,7 +168,7 @@ export default {
       let aIdx = 0;
       let bIdx = 0;
 
-      let result = [];
+      const result = [];
 
       const addedStyle =
         'background-color: rgba(0, 255, 0, 0.2); padding: 0 2px 0 2px; border-radius: 3px; color: #AED581;';

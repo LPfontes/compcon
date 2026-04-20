@@ -36,9 +36,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'action-hover',
+  name: 'ActionHover',
   components: { ActionBase },
+  mixins: [useMobile],
   props: {
     action: {
       type: Object,

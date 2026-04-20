@@ -17,8 +17,8 @@
       <div class="text-text">{{ t.Detail }}</div>
     </v-col>
 
-    <v-col cols="auto"
-      v-if="getRoundsRemaining(t) > 0">
+    <v-col v-if="getRoundsRemaining(t) > 0"
+      cols="auto">
       <v-menu>
         <template #activator="{ props }">
           <v-avatar v-bind="props"
@@ -96,7 +96,7 @@
 import { TimedEffect } from '@/classes/components/feature/active_effects/TimedEffect';
 
 export default {
-  name: 'timed-effect-panel',
+  name: 'TimedEffectPanel',
   props: {
     item: {
       type: Object,

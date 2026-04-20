@@ -7,9 +7,9 @@
         :color="color"
         :class="mobile ? 'px-3 py-1' : 'pa-2'"
         tile
-        @click="$router.push(to)"
         style="clip-path: polygon(20px 0, 100% 0, 100% 100%, 0 100%, 0 20px)"
-        :disabled="disabled">
+        :disabled="disabled"
+        @click="$router.push(to)">
         <v-row align="center">
           <v-col cols="auto">
             <v-icon class="icn" :size="mobile ? 40 : 50" :color="`${color} lighten-1`">
@@ -30,8 +30,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
-  mixins: [useMobile],
   name: 'CompendiumPageButton',
+  mixins: [useMobile],
   props: {
     name: {
       type: String,

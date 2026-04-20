@@ -69,20 +69,20 @@ import SkillSelector from '../../_components/selectors/SkillSelector.vue';
 import { Pilot } from '@/class';
 
 export default {
-  name: 'skills-page',
+  name: 'SkillsPage',
   components: {
     StepperContent,
     SkillSelector,
   },
-  data: () => ({
-    suggestedSet: false,
-  }),
   props: {
     pilot: {
       type: Object,
       required: true,
     },
   },
+  data: () => ({
+    suggestedSet: false,
+  }),
   computed: {
     canContinue(): boolean {
       return !this.pilot.SkillsController.IsMissingSkills;

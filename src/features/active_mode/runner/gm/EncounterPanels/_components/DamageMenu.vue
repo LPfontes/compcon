@@ -194,8 +194,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'DamageMenu',
+  mixins: [useMobile],
   props: {
     controller: {
       type: Object,

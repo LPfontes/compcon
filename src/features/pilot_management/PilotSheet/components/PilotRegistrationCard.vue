@@ -89,8 +89,8 @@
               </span>
               <v-chip
                 v-for="s in pilot.SkillsController.Skills"
-                :key="s.Skill.ID"
                 v-else
+                :key="s.Skill.ID"
                 color="accent"
                 class="ma-1"
                 variant="outlined"
@@ -108,8 +108,8 @@
               </span>
               <v-chip
                 v-for="t in pilot.TalentsController.Talents"
-                :key="t.Talent.ID"
                 v-else
+                :key="t.Talent.ID"
                 color="accent"
                 class="ma-1"
                 variant="outlined"
@@ -163,7 +163,7 @@
 import { mission } from '@/io/Generators';
 
 export default {
-  name: 'pilot-registration-card',
+  name: 'PilotRegistrationCard',
   props: {
     pilot: {
       type: Object,

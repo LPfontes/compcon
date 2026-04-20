@@ -10,6 +10,6 @@
 
 <script lang="ts">
 export default {
-  name: 'no-data-block',
+  name: 'NoDataBlock',
 };
 </script>

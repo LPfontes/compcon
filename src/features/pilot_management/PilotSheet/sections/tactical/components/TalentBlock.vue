@@ -41,7 +41,7 @@ import { Pilot } from '@/class';
 import { UserStore } from '@/stores';
 
 export default {
-  name: 'skill-block',
+  name: 'SkillBlock',
   components: { SectionHeader, SectionEditChip, NoDataBlock, TalentSelector },
   props: {
     pilot: {

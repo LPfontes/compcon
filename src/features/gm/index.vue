@@ -6,6 +6,6 @@
 
 <script lang="ts">
 export default {
-  name: 'encounter-toolkit',
+  name: 'EncounterToolkit',
 };
 </script>

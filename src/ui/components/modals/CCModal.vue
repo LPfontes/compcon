@@ -2,8 +2,8 @@
   <slot name="activator" v-bind="{ modal, open, close }"></slot>
 
   <v-dialog
-    v-model="modal"
     :id="id"
+    v-model="modal"
     :fullscreen="fullscreen || mobile"
     :max-width="mobile ? '100vw' : maxWidth"
     :min-height="mobile ? '100vh' : shrink ? '' : '95vh'"
@@ -41,23 +41,23 @@
         <v-card-actions style="min-height: 36px !important; height: 36px !important">
           <v-btn
             v-if="cancelAction"
+            color="error"
+            text
             @click="
               $emit('cancel');
               modal = false;
-            "
-            color="error"
-            text>
+            ">
             Cancel
           </v-btn>
           <v-spacer />
           <v-btn
             v-if="confirmAction"
+            color="primary"
+            text
             @click="
               $emit('confirm');
               modal = false;
-            "
-            color="primary"
-            text>
+            ">
             Confirm
           </v-btn>
         </v-card-actions>
@@ -69,11 +69,8 @@
 <script>
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcModal',
   mixins: [useMobile],
-  name: 'cc-modal',
-  data: () => ({
-    modal: false,
-  }),
   props: {
     title: {
       type: String,
@@ -124,6 +121,9 @@ export default {
     minWidth: { type: [String, Number] },
   },
   emits: ['cancel', 'confirm'],
+  data: () => ({
+    modal: false,
+  }),
   methods: {
     open() {
       this.modal = true;

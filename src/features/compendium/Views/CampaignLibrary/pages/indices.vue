@@ -35,7 +35,7 @@ import PageContentContainer from './containers/campaignContentContainer.vue';
 import TocItem from '../components/TocItem.vue';
 
 export default {
-  name: 'campaign-overview-page',
+  name: 'CampaignOverviewPage',
   components: { PageContentContainer, TocItem },
   props: {
     campaign: { type: Object, required: true },

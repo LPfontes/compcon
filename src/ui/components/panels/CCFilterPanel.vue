@@ -44,18 +44,18 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-filter-panel',
+  name: 'CcFilterPanel',
   props: {
     itemType: {
       type: String,
       required: true,
     },
   },
+  emits: ['set-filters'],
   data: () => ({
     filterCount: 0,
     panel: false,
   }),
-  emits: ['set-filters'],
   methods: {
     clearFilters() {
       (this.$refs.controls as any).clear();

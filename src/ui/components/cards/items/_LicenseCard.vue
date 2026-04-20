@@ -6,8 +6,8 @@
       align="center"
       class="mt-n5">
       <v-col v-for="n in item.MaxRank"
-        :key="`rank-${n}`"
         v-show="item.Unlocks[n - 1].length"
+        :key="`rank-${n}`"
         cols="4">
         <div class="text-center">
           <p class="pt-1 mb-1">
@@ -27,7 +27,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'license-card',
+  name: 'LicenseCard',
   components: { InfoCardBase },
   props: {
     item: {

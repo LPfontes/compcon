@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-tag-card',
+  name: 'CcTagCard',
   props: {
     item: { type: Object, required: true },
     notes: { type: Boolean },

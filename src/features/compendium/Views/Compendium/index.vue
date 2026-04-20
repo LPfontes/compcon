@@ -104,8 +104,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'compendium-home',
+  name: 'CompendiumHome',
   components: { SearchBar, CompendiumPageButton },
+  mixins: [useMobile],
 };
 </script>

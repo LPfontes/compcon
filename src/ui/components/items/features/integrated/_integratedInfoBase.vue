@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: 'integrated-info-base',
+  name: 'IntegratedInfoBase',
   props: {
     item: {
       type: Object,

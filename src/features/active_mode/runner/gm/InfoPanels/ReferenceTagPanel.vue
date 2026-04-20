@@ -53,9 +53,6 @@ export default {
   data: () => ({
     allTags: [],
   }),
-  mounted() {
-    this.allTags = CompendiumStore().Tags
-  },
   computed: {
     actorTags() {
       if (this.pc) return this.getActorTags(this.selected);
@@ -79,6 +76,9 @@ export default {
       });
       return _.uniqBy(tags, 'ID');
     },
+  },
+  mounted() {
+    this.allTags = CompendiumStore().Tags
   },
   methods: {
     getActorTags(actor) {

@@ -12,8 +12,10 @@
       :item="selected"
       hide-toolbar
       @exit="exit()">
-      <builder slot="upper"
+      <template #upper>
+<builder 
         :item="selected" />
+</template>
     </editor>
     <v-row v-else-if="!eidolonAccess"
       style="height: 85vh">
@@ -56,18 +58,9 @@ import { ref, onUnmounted } from 'vue';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'eidolon-roster',
+  name: 'EidolonRoster',
   components: { GmSplitView, Editor, Builder, NoGmItem },
-  setup() {
-    const npcStore = NpcStore();
-    const eidolons = ref(npcStore.getEidolons.filter((x) => !x.SaveController.IsDeleted));
-    const unsub = npcStore.$subscribe(() => {
-      eidolons.value = npcStore.getEidolons.filter((x) => !x.SaveController.IsDeleted);
-    });
-    onUnmounted(unsub);
-    return { npcStore, eidolons };
-  },
+  mixins: [useMobile],
   props: {
     id: {
       type: String,
@@ -78,6 +71,15 @@ export default {
       required: false,
       default: 'collection',
     },
+  },
+  setup() {
+    const npcStore = NpcStore();
+    const eidolons = ref(npcStore.getEidolons.filter((x) => !x.SaveController.IsDeleted));
+    const unsub = npcStore.$subscribe(() => {
+      eidolons.value = npcStore.getEidolons.filter((x) => !x.SaveController.IsDeleted);
+    });
+    onUnmounted(unsub);
+    return { npcStore, eidolons };
   },
   data: () => ({
     selected: null as Eidolon | null,

@@ -28,8 +28,8 @@
         </v-row>
 
         <cc-combat-action-chip v-for="a in bonus.Actions"
-          :key="a.ID"
           v-if="!expanded"
+          :key="a.ID"
           :action="a"
           :owner="owner"
           class="mt-1"
@@ -46,8 +46,8 @@
         </cc-combat-action-chip>
 
         <deploy-button v-for="d in bonus.Deployables"
-          :key="d.ID"
           v-if="!expanded"
+          :key="d.ID"
           :deployable="d"
           :actor="mech"
           @deploy="$emit('deploy', d)" />
@@ -78,9 +78,9 @@
 import { useMobile } from '@/mixins/useMobile';
 import DeployButton from './_deployButton.vue';
 export default {
-  mixins: [useMobile],
-  name: 'mech-mount-bonus-card',
+  name: 'MechMountBonusCard',
   components: { DeployButton },
+  mixins: [useMobile],
   props: {
     bonus: {
       type: Object,

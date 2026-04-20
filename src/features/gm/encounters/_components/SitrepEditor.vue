@@ -197,7 +197,7 @@ import { Sitrep, SitrepInstance } from '@/classes/encounter/Sitrep';
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'gm-sitrep-editor',
+  name: 'GmSitrepEditor',
   props: {
     item: { type: Object, required: true },
     readonly: { type: Boolean, default: false },

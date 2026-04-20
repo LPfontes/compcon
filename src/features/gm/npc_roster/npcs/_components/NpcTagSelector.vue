@@ -36,8 +36,8 @@
           :title="t.name"
           :subtitle="t.description"
           :prepend-icon="t.icon"
-          @click="item.Tag = t.name"
-          :disabled="tagDisabled(t)" />
+          :disabled="tagDisabled(t)"
+          @click="item.Tag = t.name" />
       </v-list>
     </v-card>
   </v-menu>
@@ -47,7 +47,7 @@
 import npcTags from '@/assets/npc_tags.json';
 
 export default {
-  name: 'npc-class-selector',
+  name: 'NpcClassSelector',
   props: {
     item: { type: Object, required: true },
     readonly: { type: Boolean, default: false },

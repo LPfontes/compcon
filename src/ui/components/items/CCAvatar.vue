@@ -7,7 +7,7 @@ import { GetBlob } from '@/io/Storage';
 import { Preview } from 'vue-advanced-cropper';
 
 export default {
-  name: 'cc-avatar',
+  name: 'CcAvatar',
   components: {
     Preview,
   },

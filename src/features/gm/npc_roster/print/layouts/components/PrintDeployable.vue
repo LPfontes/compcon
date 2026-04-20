@@ -4,68 +4,68 @@
       <v-row justify="center" dense class="text-center">
         <v-col v-if="(d as any).getStat('Size', tier)" cols="auto">
           <div
-            class="caption font-weight-bold"
             v-html-safe="
               `Size ${
                 (d as any).getStat('Size', tier) === 0.5 ? '½' : (d as any).getStat('Size', tier)
               }`
-            " />
+            "
+            class="caption font-weight-bold" />
         </v-col>
         <v-col v-if="(d as any).Armor" cols="auto">
-          <div class="caption" v-html-safe="`<b>Armor</b>: ${(d as any).getStat('Armor', tier)}`" />
+          <div v-html-safe="`<b>Armor</b>: ${(d as any).getStat('Armor', tier)}`" class="caption" />
         </v-col>
         <v-col
           v-if="(d as any).getStat('HP', tier) || (d as any).getStat('Size', tier)"
           cols="auto">
           <div
-            class="caption"
             v-html-safe="
               `<b>HP</b>: ${
                 (d as any).getStat('HP', tier)
                   ? (d as any).getStat('HP', tier).toString().replace(/[{}]/gim, '')
                   : parseFloat((d as any).getStat('Size', tier) || 0.5) * 10
               }`
-            " />
+            "
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).Evasion" cols="auto">
           <div
-            class="caption"
-            v-html-safe="`<b>Evasion:</b> ${(d as any).getStat('Evasion', tier) || 10}`" />
+            v-html-safe="`<b>Evasion:</b> ${(d as any).getStat('Evasion', tier) || 10}`"
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).EDefense" cols="auto">
           <div
-            class="caption"
-            v-html-safe="`<b>E-Defense:</b> ${(d as any).getStat('EDefense', tier)}`" />
+            v-html-safe="`<b>E-Defense:</b> ${(d as any).getStat('EDefense', tier)}`"
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).Heatcap" cols="auto">
           <div
-            class="caption"
-            v-html-safe="`<b>Heat Capacity:</b> ${(d as any).getStat('Heatcap', tier)}`" />
+            v-html-safe="`<b>Heat Capacity:</b> ${(d as any).getStat('Heatcap', tier)}`"
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).Sensor" cols="auto">
           <div
-            class="caption"
-            v-html-safe="`<b>Sensor Range:</b> ${(d as any).getStat('Sensor', tier)}`" />
+            v-html-safe="`<b>Sensor Range:</b> ${(d as any).getStat('Sensor', tier)}`"
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).TechAttack" cols="auto">
           <div
-            class="caption"
-            v-html-safe="`<b>Tech Attack:</b> ${(d as any).getStat('TechAttack', tier)}`" />
+            v-html-safe="`<b>Tech Attack:</b> ${(d as any).getStat('TechAttack', tier)}`"
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).Repcap" cols="auto">
           <div
-            class="caption"
-            v-html-safe="`<b>Repair Capacity:</b> ${(d as any).getStat('Repcap', tier)}`" />
+            v-html-safe="`<b>Repair Capacity:</b> ${(d as any).getStat('Repcap', tier)}`"
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).Save" cols="auto">
-          <div class="caption" v-html-safe="`<b>Save Target:</b> ${(d as any).getStat('Save', tier)}`" />
+          <div v-html-safe="`<b>Save Target:</b> ${(d as any).getStat('Save', tier)}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).Speed" cols="auto">
-          <div class="caption" v-html-safe="`<b>Speed:</b> ${(d as any).getStat('Speed', tier)}`" />
+          <div v-html-safe="`<b>Speed:</b> ${(d as any).getStat('Speed', tier)}`" class="caption" />
         </v-col>
       </v-row>
       <div>
-        <p class="caption mb-0 px-2" v-html-safe="(d as any).getDetail(tier)" />
+        <p v-html-safe="(d as any).getDetail(tier)" class="caption mb-0 px-2" />
       </div>
       <div v-if="(d as any).Actions.length">
         <print-action :actions="(d as any).Actions" />
@@ -78,7 +78,7 @@
 import PrintAction from './PrintAction.vue';
 
 export default {
-  name: 'print-deployable',
+  name: 'PrintDeployable',
   components: { PrintAction },
   props: {
     deployables: {

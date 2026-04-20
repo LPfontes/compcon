@@ -26,7 +26,7 @@
 
 <script lang="ts">
 export default {
-  name: 'mobile-btn',
+  name: 'MobileBtn',
   props: {
     to: { type: String, required: false, default: '' },
     title: { type: String, required: true },

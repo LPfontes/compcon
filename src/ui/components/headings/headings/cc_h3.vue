@@ -6,7 +6,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-h3',
+  name: 'CcH3',
   props: {
     color: { type: String },
     dense: { type: Boolean, default: false },

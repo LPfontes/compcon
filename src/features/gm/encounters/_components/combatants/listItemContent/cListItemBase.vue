@@ -88,13 +88,14 @@ import CombatantSettingsMenu from '../_components/combatantSettingsMenu.vue';
 import StatChips from '../../../../_views/_components/gmItemCards/_subcomponents/statChips.vue';
 
 export default {
-  name: 'gm-unit-list-item',
+  name: 'GmUnitListItem',
   components: { StatChips, CombatantSettingsMenu },
   props: {
     item: { type: Object, required: true },
     odd: { type: Boolean },
     readonly: { type: Boolean, default: false },
   },
+  emits: ['remove', 'open'],
   data: () => ({
     deleteMenu: false,
   }),
@@ -108,6 +109,5 @@ export default {
       this.$emit('remove', this.item);
     },
   },
-  emits: ['remove', 'open'],
 };
 </script>

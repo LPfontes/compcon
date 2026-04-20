@@ -10,7 +10,7 @@
       <v-spacer />
     </v-toolbar>
     <v-card-text class="py-2 px-4">
-      <p v-text="status.Terse" class="text-center font-weight-bold body-text" />
+      <p class="text-center font-weight-bold body-text" v-text="status.Terse" />
       <v-divider class="my-1" />
       <p v-html-safe="status.Effects" />
     </v-card-text>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'cc-panel',
+  name: 'CcPanel',
   props: {
     status: {
       type: Object,

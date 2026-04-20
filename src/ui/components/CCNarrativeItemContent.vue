@@ -32,7 +32,7 @@ import { CollectionItem } from '@/classes/narrative/CollectionItem';
 import { NarrativeStore } from '@/stores';
 
 export default {
-  name: 'cc-narrative-item-content',
+  name: 'CcNarrativeItemContent',
   props: {
     item: {
       type: Object,

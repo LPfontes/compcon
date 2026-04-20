@@ -71,8 +71,8 @@
         v-model="selection"
         :items="reloadOptions"
         size="small" />
-      <menu-input hide-input
-        :key="controller.ID"
+      <menu-input :key="controller.ID"
+        hide-input
         :active-effect="action"
         :encounter="encounter"
         :disabled="!selection"
@@ -90,6 +90,9 @@ import MenuInput from '@/ui/components/chips/_activeeffect/_ae_menu_input.vue';
 
 export default {
   name: 'InvadeButton',
+  components: {
+    MenuInput,
+  },
   props: {
     action: {
       type: Object,
@@ -104,9 +107,7 @@ export default {
       required: true,
     },
   },
-  components: {
-    MenuInput,
-  },
+  emits: ['activate'],
   data: () => ({
     selection: null,
   }),
@@ -136,7 +137,6 @@ export default {
     },
 
   },
-  emits: ['activate'],
   methods: {
     apply(close) {
       this.controller.toggleCombatAction(this.action.Activation);

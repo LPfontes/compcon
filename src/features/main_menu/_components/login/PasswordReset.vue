@@ -98,7 +98,7 @@ async function handleConfirmResetPassword({
 }
 
 export default {
-  name: 'auth-password-reset',
+  name: 'AuthPasswordReset',
   data: () => ({
     loading: false,
     sent: false,

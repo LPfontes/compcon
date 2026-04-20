@@ -51,8 +51,8 @@
         <div class="heading h5"
           v-text="s.Origin" />
         <v-divider />
-        <p class="py-2"
-          v-html-safe="s.Detail" />
+        <p v-html-safe="s.Detail"
+          class="py-2" />
       </v-tooltip>
     </div>
   </div>
@@ -64,8 +64,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'CcSynergyDisplay',
   mixins: [useMobile],
-  name: 'cc-synergy-display',
   props: {
     item: {
       type: Object,

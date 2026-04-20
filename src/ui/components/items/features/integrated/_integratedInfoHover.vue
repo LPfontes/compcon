@@ -26,7 +26,7 @@
 import integratedInfoBase from './_integratedInfoBase.vue';
 
 export default {
-  name: 'integrated-info-hover',
+  name: 'IntegratedInfoHover',
   components: { integratedInfoBase },
   props: {
     item: {

@@ -30,7 +30,7 @@
 import * as _ from 'lodash-es';
 
 export default {
-  name: 'tag-info-print',
+  name: 'TagInfoPrint',
   props: {
     pilot: {
       type: Object,

@@ -18,8 +18,8 @@
       <no-data-block v-if="!pilot.SkillsController.Skills.length" />
       <cc-skill-item
         v-for="s in pilot.SkillsController.Skills"
-        :key="s.Skill.ID"
         v-else
+        :key="s.Skill.ID"
         :bonus="s.Bonus"
         :skill="s.Skill"
         pilot />
@@ -37,9 +37,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'skill-block',
+  name: 'SkillBlock',
   components: { SectionEditChip, SectionHeader, NoDataBlock, SkillSelector },
+  mixins: [useMobile],
   props: {
     pilot: {
       type: Object,

@@ -81,9 +81,9 @@ const _ModEquippedCard = markRaw(ModEquippedCard);
 
 
 export default {
-  mixins: [useMobile],
-  name: 'systems-block',
+  name: 'SystemsBlock',
   components: { SystemSlotCard, ModEquippedCard, SystemSelector },
+  mixins: [useMobile],
   props: {
     mech: {
       type: Object,
@@ -103,15 +103,6 @@ export default {
     additionalSystem: false,
     systemItems: [] as any[],
   }),
-  watch: {
-    mech: {
-      immediate: true,
-      deep: true,
-      handler() {
-        this.updateSystemItems();
-      },
-    },
-  },
   computed: {
     moddedWeapons() {
       return this.mech.MechLoadoutController.ActiveLoadout.Weapons.filter((x) => x.Mod);
@@ -121,6 +112,15 @@ export default {
     },
     integratedSystems() {
       return this.mech.MechLoadoutController.ActiveLoadout.IntegratedSystems;
+    },
+  },
+  watch: {
+    mech: {
+      immediate: true,
+      deep: true,
+      handler() {
+        this.updateSystemItems();
+      },
     },
   },
   methods: {

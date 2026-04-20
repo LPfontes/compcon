@@ -12,8 +12,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcTitle',
   mixins: [useMobile],
-  name: 'cc-title',
   props: {
     textColor: { type: String, default: 'accent' },
     text: { type: String, default: '' },

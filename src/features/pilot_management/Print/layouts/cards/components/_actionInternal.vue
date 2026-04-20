@@ -33,7 +33,7 @@
 
 <script lang="ts">
 export default {
-  name: 'print-action-internal',
+  name: 'PrintActionInternal',
   props: {
     action: {
       type: Object,

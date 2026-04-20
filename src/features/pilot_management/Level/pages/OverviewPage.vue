@@ -71,7 +71,7 @@
 import StepperContent from '../../_components/StepperContent.vue';
 
 export default {
-  name: 'overview-page',
+  name: 'OverviewPage',
   components: { StepperContent },
   props: {
     pilot: {

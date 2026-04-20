@@ -1,6 +1,6 @@
 <template>
   <cc-compendium-browser :items="templates"
-    :itemType="'NpcTemplate'"
+    :item-type="'NpcTemplate'"
     :table-headers="headers"
     :options="options">
     <template #header>

@@ -3,16 +3,16 @@
     <v-navigation-drawer style="position: fixed" width="320">
       <v-list density="compact" slim color="primary" class="my-6 text-link">
         <div v-for="(item, index) in content" :key="`section-${index}`" :value="index" class="my-3">
-          <v-list-item @click="scrollTo(item)" class="py-0">
+          <v-list-item class="py-0" @click="scrollTo(item)">
             <span class="heading h3">{{ getLangItem(item, 'title') }}</span>
           </v-list-item>
           <v-list-item
-            v-if="(item as any).children"
             v-for="(child, childIdx) in (item as any).children"
+            v-if="(item as any).children"
             :key="`child-nav-${childIdx}`"
             class="pl-8 my-n2"
-            @click="scrollTo(child)"
-            :title="getLangItem(child, 'title')" />
+            :title="getLangItem(child, 'title')"
+            @click="scrollTo(child)" />
         </div>
       </v-list>
     </v-navigation-drawer>
@@ -26,8 +26,8 @@
         </div>
         <div
           v-for="(item, index) in content"
-          :key="`content-${index}`"
           :id="`e_${(item as any).title.en.replace(/\W/g, '')}`"
+          :key="`content-${index}`"
           class="px-12">
           <cc-title
             v-if="mobile"
@@ -48,8 +48,8 @@
           <div v-html-safe="getLangItem(item, 'content')" class="content" />
           <div
             v-for="(child, childIdx) in (item as any).children"
-            :key="`child-${childIdx}`"
-            :id="`e_${child.title.en.replace(/\W/g, '')}`">
+            :id="`e_${child.title.en.replace(/\W/g, '')}`"
+            :key="`child-${childIdx}`">
             <h3
               class="text-accent mt-4"
               :class="mobile ? 'ml-n2' : 'ml-n5'"
@@ -57,8 +57,8 @@
             <div v-html-safe="getLangItem(child, 'content')" class="content" />
             <div
               v-for="(subchild, subIdx) in (child as any).children"
-              :key="`subchild-${subIdx}`"
-              :id="`e_${subchild.title.en.replace(/\W/g, '')}`">
+              :id="`e_${subchild.title.en.replace(/\W/g, '')}`"
+              :key="`subchild-${subIdx}`">
               <b class="text-accent ml-n2" v-text="getLangItem(subchild, 'title')" />
               <div v-html-safe="getLangItem(subchild, 'content')" class="content" />
             </div>
@@ -75,8 +75,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'UsingCompcon',
   mixins: [useMobile],
-  name: 'using-compcon',
   inheritAttrs: false,
   props: {
     title: {
@@ -94,15 +94,15 @@ export default {
   data: () => ({
     open: [],
   }),
-  mounted() {
-    if (this.preScroll) {
-      this.scrollTo(this.preScroll);
-    } else window.scrollTo({ top: 0 });
-  },
   computed: {
     lang() {
       return NavStore().Language;
     },
+  },
+  mounted() {
+    if (this.preScroll) {
+      this.scrollTo(this.preScroll);
+    } else window.scrollTo({ top: 0 });
   },
 
   methods: {

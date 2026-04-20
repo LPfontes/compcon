@@ -13,7 +13,7 @@
 <script lang="ts">
 import CCardBase from './_cCardBase.vue';
 export default {
-  name: 'core-bonus-card-content',
+  name: 'CoreBonusCardContent',
   components: { CCardBase },
   props: {
     item: { type: Object, required: true },

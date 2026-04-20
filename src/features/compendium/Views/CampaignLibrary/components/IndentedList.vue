@@ -3,13 +3,13 @@
     <template v-for="(item, index) in <any[]>items" :key="`item-${index}`">
       <div v-if="item" class="my-1" :style="{ marginLeft: `${level * 6}px` }">
         <v-btn
-          @click="$emit('clicked', item)"
           variant="tonal"
           :color="selected === item ? 'secondary' : ''"
           :size="level === 0 ? 'small' : 'x-small'"
           stacked
           :height="calcHeight(item)"
-          width="100%">
+          width="100%"
+          @click="$emit('clicked', item)">
           <span>
             <span v-if="item.Parent && item.SectionType.toLowerCase() !== 'section'">
               {{ item.ItemNumber }}.
@@ -31,8 +31,7 @@
 
 <script lang="ts">
 export default {
-  name: 'indented-list',
-  emits: ['clicked'],
+  name: 'IndentedList',
   props: {
     items: {
       type: Array,
@@ -48,6 +47,7 @@ export default {
       required: false,
     },
   },
+  emits: ['clicked'],
   methods: {
     calcHeight(item: any) {
       const len = item.Title.length;

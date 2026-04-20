@@ -27,7 +27,7 @@
 import EquipmentCardBase from './_EquipmentCardBase.vue';
 
 export default {
-  name: 'cc-pilot-weapon-card',
+  name: 'CcPilotWeaponCard',
   components: { EquipmentCardBase },
   props: {
     item: {

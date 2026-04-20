@@ -64,7 +64,7 @@
 
 <script lang="ts">
 export default {
-  name: 'collection-info',
+  name: 'CollectionInfo',
   props: {
     collection: {
       type: Object,
@@ -76,7 +76,7 @@ export default {
   }),
   methods: {
     sortedChangelog(changelog: string) {
-      let log = JSON.parse(changelog).sort((a: any, b: any) => b.version - a.version);
+      const log = JSON.parse(changelog).sort((a: any, b: any) => b.version - a.version);
       if (!this.showMore) {
         return log.slice(0, 3);
       } else {

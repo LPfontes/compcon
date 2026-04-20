@@ -66,8 +66,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcFrameCard',
   mixins: [useMobile],
-  name: 'cc-frame-card',
   props: {
     item: { type: Object, required: true },
     notes: { type: Boolean },

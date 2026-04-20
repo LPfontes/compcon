@@ -31,7 +31,7 @@ import { CompendiumStore } from '@/stores';
 import card from './components/PrintCard.vue';
 
 export default {
-  name: 'pilot-print',
+  name: 'PilotPrint',
   components: {
     card,
   },

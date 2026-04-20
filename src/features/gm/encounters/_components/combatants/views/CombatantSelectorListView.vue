@@ -113,12 +113,12 @@ import * as _ from 'lodash-es';
 import { Npc } from '@/classes/npc/Npc';
 
 export default {
-  name: 'combatant-selector-list-view',
+  name: 'CombatantSelectorListView',
   components: { UnitEditor, DoodadEditor, EidolonEditor },
-  emits: ['select'],
   props: {
     encounter: { type: Object, required: true },
   },
+  emits: ['select'],
   data: () => ({
     selected: null,
     editorReady: false,
@@ -127,17 +127,6 @@ export default {
     showNav: true,
     search: '',
   }),
-  watch: {
-    selected(newVal: any) {
-      if (!newVal) return;
-      const newType = newVal.ItemType.toLowerCase();
-      if (newType !== this._lastSelectedType) {
-        this.editorReady = false;
-        this._lastSelectedType = newType;
-        setTimeout(() => { this.editorReady = true; }, 0);
-      }
-    },
-  },
   computed: {
     mobile() {
       return this.$vuetify.display.mdAndDown;
@@ -154,6 +143,17 @@ export default {
     },
     npcsByFolder() {
       return _.groupBy(this.filteredNpcs, 'FolderController.Folder');
+    },
+  },
+  watch: {
+    selected(newVal: any) {
+      if (!newVal) return;
+      const newType = newVal.ItemType.toLowerCase();
+      if (newType !== this._lastSelectedType) {
+        this.editorReady = false;
+        this._lastSelectedType = newType;
+        setTimeout(() => { this.editorReady = true; }, 0);
+      }
     },
   },
   methods: {

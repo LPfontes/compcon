@@ -23,7 +23,7 @@
 import { DamageType } from '@/class';
 
 export default {
-  name: 'cc-damage-type-picker',
+  name: 'CcDamageTypePicker',
   props: {
     allowedTypes: {
       type: Array,
@@ -37,6 +37,11 @@ export default {
       availableTypes: [] as string[],
       selected: '',
     };
+  },
+  created(): void {
+    this.availableTypes = this.allowedTypes.length
+      ? this.damageTypes().filter((x) => this.allowedTypes.includes(x))
+      : this.damageTypes().filter((x) => x !== 'Variable');
   },
   methods: {
     damageTypes(): string[] {
@@ -54,11 +59,6 @@ export default {
       this.$emit('select', t);
       this.hide();
     },
-  },
-  created(): void {
-    this.availableTypes = this.allowedTypes.length
-      ? this.damageTypes().filter((x) => this.allowedTypes.includes(x))
-      : this.damageTypes().filter((x) => x !== 'Variable');
   },
 };
 </script>

@@ -7,11 +7,11 @@ import combat from '@/assets/srd/lib/combat.json';
 import SrdView from './_components/SrdView.vue';
 
 export default {
-  name: 'combat',
-  inheritAttrs: false,
+  name: 'Combat',
   components: {
     SrdView,
   },
+  inheritAttrs: false,
   props: {
     preScroll: {
       type: String,

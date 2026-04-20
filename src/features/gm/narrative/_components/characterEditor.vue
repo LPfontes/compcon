@@ -7,7 +7,7 @@
     @delete="deleteItem()"
     @export="exportItem($event)"
     @copy="dupe()">
-    <template v-slot:builder>
+    <template #builder>
       <v-row dense class="my-n4" align="center">
         <cc-remote-hover :item="item" />
 
@@ -38,23 +38,23 @@
       <v-row class="mb-4">
         <v-col>
           <cc-text-field
+            v-model="item.Title"
             :readonly="isRemote"
             color="primary"
             variant="outlined"
-            label="Title"
-            v-model="item.Title" />
+            label="Title" />
         </v-col>
         <v-col>
           <cc-text-field
+            v-model="item.Alias"
             :readonly="isRemote"
             color="primary"
             variant="outlined"
-            label="Alias"
-            v-model="item.Alias" />
+            label="Alias" />
         </v-col>
       </v-row>
     </template>
-    <template v-slot:stats>
+    <template #stats>
       <v-divider class="mt-4 mb-1" />
       <relationship-editor :readonly="isRemote" :item="item" />
       <narrative-block :readonly="isRemote" :item="item" />
@@ -71,7 +71,7 @@ import RelationshipEditor from '../../_components/RelationshipEditor.vue';
 import exportAsJson from '@/util/jsonExport';
 
 export default {
-  name: 'gm-character-editor-base',
+  name: 'GmCharacterEditorBase',
   components: { EditorBase, RelationshipEditor, NarrativeBlock },
   props: {
     item: { type: Object, required: true },

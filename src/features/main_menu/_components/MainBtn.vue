@@ -3,14 +3,14 @@
     <div style="height: 70px">
       <div
         class="btn-main"
+        tabindex="0"
         @mouseenter="$emit('hover')"
         @mouseover="mouseOver = true"
         @mouseleave="mouseOver = false"
         @focusin="mouseOver = true"
         @focusout="mouseOver = false"
         @click="doAction"
-        @keydown.enter="doAction"
-        tabindex="0">
+        @keydown.enter="doAction">
         <div class="unskew heading">
           <v-icon size="50" class="ml-n4 mt-n3">{{ icon }}</v-icon>
           <slot />
@@ -27,7 +27,7 @@
 
 <script lang="ts">
 export default {
-  name: 'main-btn',
+  name: 'MainBtn',
   props: {
     to: {
       type: String,

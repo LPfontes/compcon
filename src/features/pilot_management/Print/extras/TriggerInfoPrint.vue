@@ -21,7 +21,7 @@
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'tag-info-print',
+  name: 'TagInfoPrint',
   props: {
     pilot: {
       type: Object,

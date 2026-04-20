@@ -17,7 +17,7 @@
 <script lang="ts">
 import CCardBase from './_cCardBase.vue';
 export default {
-  name: 'weapon-card-content',
+  name: 'WeaponCardContent',
   components: { CCardBase },
   props: {
     item: { type: Object, required: true },

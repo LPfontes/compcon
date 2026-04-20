@@ -126,7 +126,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ref-stress-table',
+  name: 'RefStressTable',
   data() {
     return {
       dialog: false,

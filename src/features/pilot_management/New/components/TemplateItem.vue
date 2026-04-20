@@ -140,8 +140,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'TemplateItem',
   mixins: [useMobile],
-  name: 'template-item',
   props: {
     template: { type: Object, required: true },
     isSelected: { type: Boolean },

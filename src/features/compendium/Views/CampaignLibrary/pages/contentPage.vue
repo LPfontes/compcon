@@ -22,7 +22,7 @@
 import PageContentContainer from './containers/campaignContentContainer.vue';
 
 export default {
-  name: 'campaign-content-page',
+  name: 'CampaignContentPage',
   components: { PageContentContainer },
   props: {
     item: { type: Object, required: true },

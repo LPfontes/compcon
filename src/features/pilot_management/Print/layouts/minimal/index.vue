@@ -23,8 +23,8 @@ import PageBreak from '../../components/PageBreak.vue';
 import { usePrintLayout } from '../_usePrintLayout';
 
 export default {
-  name: 'minimal-print',
-  mixins: [usePrintLayout],
+  name: 'MinimalPrint',
   components: { PilotPrint, BondsPrint, MechPrint, PageBreak },
+  mixins: [usePrintLayout],
 };
 </script>

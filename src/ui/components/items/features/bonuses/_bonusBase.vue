@@ -6,7 +6,7 @@
 
 <script lang="ts">
 export default {
-  name: 'bonus-base',
+  name: 'BonusBase',
   props: {
     bonus: {
       type: Object,

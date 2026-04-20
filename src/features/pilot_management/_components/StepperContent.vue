@@ -33,8 +33,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'StepperContent',
   mixins: [useMobile],
-  name: 'stepper-content',
   props: {
     noConfirm: {
       type: Boolean,

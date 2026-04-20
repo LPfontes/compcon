@@ -51,7 +51,7 @@
 import { Rules } from '@/class';
 
 export default {
-  name: 'level-edit-dialog',
+  name: 'LevelEditDialog',
   props: {
     pilot: {
       type: Object,
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     setLevel() {
-      this.pilot.Level = (this.newLevel as Number) || 0;
+      this.pilot.Level = (this.newLevel as number) || 0;
       this.pilot.IsLevelEdit = true;
       this.$emit('close');
     },

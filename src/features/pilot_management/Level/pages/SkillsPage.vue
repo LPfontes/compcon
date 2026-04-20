@@ -40,7 +40,7 @@ import { Pilot } from '@/class';
 import StepperContent from '../../_components/StepperContent.vue';
 
 export default {
-  name: 'skills-page',
+  name: 'SkillsPage',
   components: { SkillSelector, StepperContent },
   props: {
     pilot: {

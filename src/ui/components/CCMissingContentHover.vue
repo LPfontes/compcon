@@ -40,7 +40,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-brew-info',
+  name: 'CcBrewInfo',
   props: {
     item: {
       type: Object,

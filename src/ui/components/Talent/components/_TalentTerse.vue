@@ -41,7 +41,7 @@
         <div v-if="showFull" class="flavor-text mb-2 px-3">{{ talent.Terse }}</div>
         <div v-else style="height: 30px" />
         <v-row align="center" justify="space-around" class="text-center" density="compact">
-          <v-col v-for="n in 3" :key="`rank-${n}`" v-show="showFull || (!showFull && rank && Number(rank) >= n)">
+          <v-col v-for="n in 3" v-show="showFull || (!showFull && rank && Number(rank) >= n)" :key="`rank-${n}`">
             <v-menu open-on-hover top offset-y open-delay="100">
               <template #activator="{ props }">
                 <v-btn
@@ -121,7 +121,7 @@ import TalentEmblem from './_TalentEmblem.vue';
 import TalentRankContents from './_TalentRankContents.vue';
 
 export default {
-  name: 'talent-terse',
+  name: 'TalentTerse',
   components: { TalentEmblem, TalentRankContents },
   props: {
     hideLocked: { type: Boolean },

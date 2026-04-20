@@ -186,9 +186,9 @@
           v-text="t.Title" />
         <div v-html-safe="t.Description"
           class="pl-2" />
-        <v-row dense
-          v-for="(r, ri) in t.Results"
-          :key="`result-${ri}`">
+        <v-row v-for="(r, ri) in t.Results"
+          :key="`result-${ri}`"
+          dense>
           <v-col cols="auto">
             <b>{{ r.min }}-{{ r.max }}</b>
           </v-col>
@@ -226,7 +226,7 @@ import { Npc } from '@/classes/npc/Npc';
 import * as _ from 'lodash-es';
 
 export default {
-  name: 'combined-print',
+  name: 'CombinedPrint',
   components: {
     Notes,
     BlankLine,

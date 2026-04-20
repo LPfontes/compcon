@@ -14,7 +14,7 @@ import { Stats } from '@/classes/components/combat/stats/Stats';
 import CCardBase from './_cCardBase.vue';
 
 export default {
-  name: 'eidolon-layer-content',
+  name: 'EidolonLayerContent',
   components: { CCardBase },
   props: {
     item: { type: Object, required: true },

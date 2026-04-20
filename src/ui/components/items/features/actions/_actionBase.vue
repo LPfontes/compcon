@@ -33,7 +33,7 @@
 
 <script lang="ts">
 export default {
-  name: 'action-base',
+  name: 'ActionBase',
   props: {
     action: {
       type: Object,
@@ -44,6 +44,7 @@ export default {
       required: false,
     },
   },
+  emits: ['close'],
   computed: {
     show() {
       return (
@@ -55,6 +56,5 @@ export default {
       );
     },
   },
-  emits: ['close'],
 };
 </script>

@@ -30,8 +30,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcBaseChip',
   mixins: [useMobile],
-  name: 'cc-base-chip',
   props: {
     color: {
       type: String,

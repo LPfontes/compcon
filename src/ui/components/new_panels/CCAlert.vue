@@ -8,8 +8,8 @@
     :color="color"
     flat>
     <v-row no-gutters>
-      <v-col cols="auto"
-        v-if="icon && prominent && !mobile">
+      <v-col v-if="icon && prominent && !mobile"
+        cols="auto">
         <v-icon size="60"
           class="mt-2 ml-2"
           :color="iconColor">{{ icon }}</v-icon>
@@ -19,8 +19,8 @@
           class="heading h3 px-4">
           <v-row dense
             align="center">
-            <v-col cols="auto"
-              v-if="icon && (!prominent || mobile)">
+            <v-col v-if="icon && (!prominent || mobile)"
+              cols="auto">
               <v-icon :icon="icon" />
             </v-col>
             <v-col cols="auto">
@@ -49,8 +49,8 @@
 <script>
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcPanel',
   mixins: [useMobile],
-  name: 'cc-panel',
   props: {
     color: {
       type: String,

@@ -21,9 +21,9 @@
           <td v-text="key.replace('_', '')" />
           <td v-if="key === '_options'">
             <v-row dense>
-              <v-col cols="4"
-                v-for="viewKey in Object.keys(user[key].views)"
-              :key="viewKey">
+              <v-col v-for="viewKey in Object.keys(user[key].views)"
+                :key="viewKey"
+              cols="4">
                 {{ viewKey }}:
                 <b class="text-accent">{{ user[key].views[viewKey] }}</b>
               </v-col>
@@ -54,8 +54,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'DeletedItems',
   mixins: [useMobile],
-  name: 'deleted-items',
   data: () => ({
     resetDialog: false,
   }),

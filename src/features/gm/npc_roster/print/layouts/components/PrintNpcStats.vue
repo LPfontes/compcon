@@ -25,7 +25,7 @@ import line from '../../components/blank/line.vue';
 import { Bonus } from '@/classes/components';
 
 export default {
-  name: 'npc-stat-print',
+  name: 'NpcStatPrint',
   components: { blankLine: line },
   props: {
     item: { type: Object, required: true },

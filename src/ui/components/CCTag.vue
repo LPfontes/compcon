@@ -2,8 +2,8 @@
   <v-tooltip max-width="350px" location="top" :open-on-click="mobile" :open-on-hover="!mobile">
     <template #activator="{ props }">
       <v-chip
-        v-bind="props"
         v-show="!tag.IsHidden"
+        v-bind="props"
         class="ma-1 cc-tag-clip pl-4 pr-2"
         :color="getColor"
         tile
@@ -24,8 +24,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
-  mixins: [useMobile],
   name: 'CCTag',
+  mixins: [useMobile],
   props: {
     size: {
       type: String,

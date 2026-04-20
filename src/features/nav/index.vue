@@ -1,206 +1,263 @@
 <template>
-  <v-app-bar v-if="!hide"
+  <v-app-bar
+    v-if="!hide"
     app
     color="primary"
     :class="!mobile && 'clipped-large'"
     class="no-print"
     density="compact"
     :height="mobile ? '40' : '58'"
-    style="z-index: 998">
+    style="z-index: 998"
+  >
     <div v-if="standalone">
-      <v-tooltip location="bottom"
-        open-delay="500ms">
+      <v-tooltip
+        location="bottom"
+        open-delay="500ms"
+      >
         <template #activator="{ props }">
-          <v-btn icon
+          <v-btn
+            icon
             :size="mobile ? 'large' : 'x-large'"
             v-bind="props"
-            @click="$router.go(-1)">
+            @click="$router.go(-1)"
+          >
             <v-icon icon="mdi-arrow-left" />
           </v-btn>
         </template>
-        <span>Navigate Back</span>
+        <span>{{ $t('nav.navigateBack') }}</span>
       </v-tooltip>
 
-      <v-tooltip location="bottom"
-        open-delay="500ms">
+      <v-tooltip
+        location="bottom"
+        open-delay="500ms"
+      >
         <template #activator="{ props }">
-          <v-btn icon
+          <v-btn
+            icon
             :size="mobile ? 'large' : 'x-large'"
             v-bind="props"
-            @click="$router.go(1)">
+            @click="$router.go(1)"
+          >
             <v-icon icon="mdi-arrow-right" />
           </v-btn>
         </template>
-        <span>Navigate Forward</span>
+        <span>{{ $t('nav.navigateForward') }}</span>
       </v-tooltip>
-      <v-divider v-if="!mobile"
+      <v-divider
+        v-if="!mobile"
         vertical
-        class="mx-1" />
+        class="mx-1"
+      />
     </div>
 
-    <cc-button :size="mobile ? 'large' : 'x-large'"
+    <cc-button
+      :size="mobile ? 'large' : 'x-large'"
       icon="mdi-home"
-      tooltip="Main Menu"
+      :tooltip="$t('nav.mainMenu')"
       tooltip-location="bottom"
-      @click="$router.push({ name: 'main-menu' })" />
+      @click="$router.push({ name: 'main-menu' })"
+    />
 
     &nbsp;
 
-    <cc-button :size="mobile ? 'large' : 'x-large'"
+    <cc-button
+      :size="mobile ? 'large' : 'x-large'"
       icon="mdi-book"
-      tooltip="Compendium"
+      :tooltip="$t('nav.compendium')"
       tooltip-location="bottom"
-      @click="$router.push({ path: '/srd' })" />
+      @click="$router.push({ path: '/srd' })"
+    />
 
     &nbsp;
 
-    <cc-button :size="mobile ? 'large' : 'x-large'"
+    <cc-button
+      :size="mobile ? 'large' : 'x-large'"
       icon="cc:pilot"
-      tooltip="Pilot Management"
+      :tooltip="$t('nav.pilotManagement')"
       tooltip-location="bottom"
-      @click="$router.push({ path: '/pilot_management' })" />
+      @click="$router.push({ path: '/pilot_management' })"
+    />
 
     &nbsp;
 
-    <v-menu location="bottom"
-      open-on-hover>
+    <v-menu
+      location="bottom"
+      open-on-hover
+    >
       <template #activator="{ props }">
         <span v-bind="props">
-          <cc-button :size="mobile ? 'large' : 'x-large'"
+          <cc-button
+            :size="mobile ? 'large' : 'x-large'"
             icon="cc:encounter"
-            @click="$router.push({ path: '/gm' })" />
+            @click="$router.push({ path: '/gm' })"
+          />
         </span>
       </template>
-      <v-list density="compact"
-        class="text-caption pa-0">
-        <v-list-item slim
-          @click="$router.push({ path: '/gm/npcs' })">
-          NPC Roster
+      <v-list
+        density="compact"
+        class="text-caption pa-0"
+      >
+        <v-list-item
+          slim
+          @click="$router.push({ path: '/gm/npcs' })"
+        >
+          {{ $t('nav.gm.npcRoster') }}
         </v-list-item>
-        <v-list-item slim
-          @click="$router.push({ path: '/gm/encounters' })">
-          Encounters
+        <v-list-item
+          slim
+          @click="$router.push({ path: '/gm/encounters' })"
+        >
+          {{ $t('nav.gm.encounters') }}
         </v-list-item>
-        <v-list-item slim
-          @click="$router.push({ path: '/gm/narrative' })">
-          Narrative Elements
+        <v-list-item
+          slim
+          @click="$router.push({ path: '/gm/narrative' })"
+        >
+          {{ $t('nav.gm.narrative') }}
         </v-list-item>
-        <v-list-item slim
-          @click="$router.push({ path: '/gm/campaigns' })">
-          Campaign Manager
+        <v-list-item
+          slim
+          @click="$router.push({ path: '/gm/campaigns' })"
+        >
+          {{ $t('nav.gm.campaigns') }}
         </v-list-item>
       </v-list>
     </v-menu>
 
     &nbsp;
 
-    <cc-button :size="mobile ? 'large' : 'x-large'"
+    <cc-button
+      :size="mobile ? 'large' : 'x-large'"
       icon="cc:campaign"
-      tooltip="Active Mode"
+      :tooltip="$t('nav.activeMode')"
       tooltip-location="bottom"
-      @click="$router.push({ path: '/active-mode' })" />
+      @click="$router.push({ path: '/active-mode' })"
+    />
 
     &nbsp;
 
-    <v-tooltip location="bottom"
-      open-delay="500ms">
+    <v-tooltip
+      location="bottom"
+      open-delay="500ms"
+    >
       <template #activator="{ props }">
         <span v-bind="props">
-          <cc-button :size="mobile ? 'large' : 'x-large'"
+          <cc-button
+            :size="mobile ? 'large' : 'x-large'"
             icon="mdi-contain"
-            @click="refModal = true"></cc-button>
+            @click="refModal = true"
+          ></cc-button>
         </span>
       </template>
-      <span>Quick Reference</span>
+      <span>{{ $t('nav.quickReference') }}</span>
     </v-tooltip>
 
     &nbsp;
 
-    <cc-solo-modal v-model="refModal"
-      title="Quick Reference">
+    <cc-solo-modal
+      v-model="refModal"
+      :title="$t('nav.quickReference')"
+    >
       <reference is-modal />
     </cc-solo-modal>
 
-    <v-divider v-if="!mobile"
+    <v-divider
+      v-if="!mobile"
       vertical
-      class="ml-4 mr-1" />
+      class="ml-4 mr-1"
+    />
 
     <v-toolbar-title v-if="!mobile">
       <span v-if="StorageWarning">
-        <v-tooltip location="bottom"
-          max-width="300px">
+        <v-tooltip
+          location="bottom"
+          max-width="300px"
+        >
           <template #activator="{ props }">
-            <v-icon v-bind="props"
+            <v-icon
+              v-bind="props"
               color="warning"
               icon="mdi-database-alert"
-              start />
+              start
+            />
           </template>
           <span>
-            <v-chip color="warning"
+            <v-chip
+              color="warning"
               variant="elevated"
-              size="x-small">
-              WARNING
+              size="x-small"
+            >
+              {{ $t('nav.storage.warning') }}
             </v-chip>
-            COMP/CON has exceeded the storage warning threshold. More details are available in the
-            <b>Storage</b>
-            tab of the Options Menu.
+            {{ $t('nav.storage.warningText') }}
+            <span v-html="$t('nav.storage.moreDetails')"></span>
           </span>
         </v-tooltip>
       </span>
       <span v-else-if="StorageMax">
-        <v-tooltip location="bottom"
-          max-width="300px">
+        <v-tooltip
+          location="bottom"
+          max-width="300px"
+        >
           <template #activator="{ props }">
-            <v-icon v-bind="props"
+            <v-icon
+              v-bind="props"
               color="error"
               icon="mdi-database-off"
-              start />
+              start
+            />
           </template>
           <span>
-            <v-chip color="error"
+            <v-chip
+              color="error"
               variant="elevated"
-              size="x-small">
-              ALERT
+              size="x-small"
+            >
+              {{ $t('nav.storage.alert') }}
             </v-chip>
-            COMP/CON has exceeded the maximum storage threshold.
+            {{ $t('nav.storage.maxText') }}
 
             <v-alert color="error">
-              <b>NO NEW ITEMS WILL BE SAVED UNTIL THE LIMIT IS INCREASED OR DATA IS DELETED.</b>
+              <b>{{ $t('nav.storage.noSaveText') }}</b>
             </v-alert>
-            More details are available in the
-            <b>Storage</b>
-            tab of the Options Menu.
+            <span v-html="$t('nav.storage.moreDetails')"></span>
           </span>
         </v-tooltip>
-        <v-dialog v-model="storageFullDialog"
-          width="780px">
+        <v-dialog
+          v-model="storageFullDialog"
+          width="780px"
+        >
           <v-card>
-            <v-toolbar color="error"
-              class="heading h2">
+            <v-toolbar
+              color="error"
+              class="heading h2"
+            >
               <v-toolbar-title>
-                <v-icon icon="mdi-database-off"
-                  start />
-                STORAGE LIMIT EXCEEDED
+                <v-icon
+                  icon="mdi-database-off"
+                  start
+                />
+                {{ $t('nav.storage.limitExceeded') }}
               </v-toolbar-title>
               <v-spacer />
-              <v-btn icon
-                @click="storageFullDialog = false">
+              <v-btn
+                icon
+                @click="storageFullDialog = false"
+              >
                 <v-icon>mdi-close</v-icon>
               </v-btn>
             </v-toolbar>
             <v-card-text>
               <p>
-                COMP/CON has exceeded the maximum storage threshold.
+                {{ $t('nav.storage.maxText') }}
                 <br />
                 <br />
                 <b class="text-accent">
-                  NO NEW ITEMS WILL BE SAVED UNTIL THE LIMIT IS INCREASED OR DATA IS DELETED.
+                  {{ $t('nav.storage.noSaveText') }}
                 </b>
                 <br />
                 <br />
-                More details are available in the
-                <b>Storage</b>
-                tab of the Options Menu.
+                <span v-html="$t('nav.storage.moreDetails')"></span>
               </p>
             </v-card-text>
           </v-card>
@@ -208,8 +265,10 @@
       </span>
       <span v-if="!mobile">
         <span class="heading">COMP/CON</span>
-        <span class="flavor-text text-white"
-          style="opacity: 0.4">
+        <span
+          class="flavor-text text-white"
+          style="opacity: 0.4"
+        >
           &nbsp;{{ appVersion }}
         </span>
       </span>
@@ -217,209 +276,243 @@
 
     <v-spacer />
 
-    <v-chip v-if="!isOnline"
+    <v-chip
+      v-if="!isOnline"
       color="warning"
       size="small"
       prepend-icon="mdi-wifi-off"
-      class="mr-2">
-      Offline
+      class="mr-2"
+    >
+      {{ $t('nav.offline') }}
     </v-chip>
 
     <v2-auto />
 
     <search-component />
 
-    <v-divider v-if="!portrait"
+    <v-divider
+      v-if="!portrait"
       vertical
-      class="mx-1" />
+      class="mx-1"
+    />
 
     <v-tooltip location="bottom">
       <template #activator="{ props }">
-        <cc-modal title="Cloud Account"
-          icon="mdi-cloud-sync-outline">
+        <cc-modal
+          :title="$t('nav.cloudAccount')"
+          icon="mdi-cloud-sync-outline"
+        >
           <template #activator="{ open }">
-            <cc-button v-bind="props"
+            <cc-button
+              v-bind="props"
               class="mx-1"
               :size="mobile ? 'small' : ''"
               icon="mdi-cloud-sync-outline"
-              @click="open" />
-            <v-badge :model-value="notifications.length > 0"
+              @click="open"
+            />
+            <v-badge
+              :model-value="notifications.length > 0"
               dot
               color="secondary"
-              :content="notifications.length" />
+              :content="notifications.length"
+            />
           </template>
           <cloud-page />
         </cc-modal>
       </template>
-      Cloud Account
+      {{ $t('nav.cloudAccount') }}
     </v-tooltip>
 
-    <v-divider v-if="!mobile"
+    <v-divider
+      v-if="!mobile"
       vertical
-      class="mx-1" />
+      class="mx-1"
+    />
 
     <v-tooltip location="bottom">
       <template #activator="{ props }">
-        <cc-modal title="Achievements"
-          icon="cc:achievement_1">
+        <cc-modal
+          :title="$t('nav.achievements')"
+          icon="cc:achievement_1"
+        >
           <template #activator="{ open }">
-            <cc-button v-bind="props"
+            <cc-button
+              v-bind="props"
               class="mx-1"
               :size="mobile ? 'small' : ''"
               icon="cc:achievement_1"
               :disabled="UserStoreLoading"
-              @click="open" />
+              @click="open"
+            />
           </template>
           <template #default="{ close }">
             <achievements-page @close="close()" />
           </template>
         </cc-modal>
       </template>
-      Achievements
+      {{ $t('nav.achievements') }}
     </v-tooltip>
 
-    <v-divider v-if="!mobile"
+    <v-divider
+      v-if="!mobile"
       vertical
-      class="mx-1" />
+      class="mx-1"
+    />
 
     <v-menu>
       <template #activator="{ props }">
-        <cc-button class="mx-1"
+        <cc-button
+          class="mx-1"
           :size="mobile ? 'small' : ''"
           icon="mdi-dots-vertical"
-          @click="props.onClick($event)" />
+          @click="props.onClick($event)"
+        />
       </template>
 
       <v-list density="compact">
-        <v-list-item @click.stop="contentModal = true">Manage Content</v-list-item>
+        <v-list-item @click.stop="contentModal = true">
+          {{ $t('nav.menu.manageContent') }}
+        </v-list-item>
         <content-page v-model="contentModal" />
-        <cc-modal title="options"
-          icon="mdi-cog">
+        <cc-modal
+          :title="$t('nav.menu.options')"
+          icon="mdi-cog"
+        >
           <template #activator="{ open }">
-            <v-list-item @click.stop="open">Options</v-list-item>
+            <v-list-item @click.stop="open">{{ $t('nav.menu.options') }}</v-list-item>
           </template>
           <options-page />
         </cc-modal>
-        <cc-modal title="about"
-          icon="mdi-information-outline">
+        <cc-modal
+          :title="$t('nav.menu.about')"
+          icon="mdi-information-outline"
+        >
           <template #activator="{ open }">
-            <v-list-item @click.stop="open">About</v-list-item>
+            <v-list-item @click.stop="open">{{ $t('nav.menu.about') }}</v-list-item>
           </template>
           <about-page />
         </cc-modal>
-        <cc-modal title="title"
-          icon="cc:gms">
+        <cc-modal
+          :title="$t('nav.menu.credits')"
+          icon="cc:gms"
+        >
           <template #activator="{ open }">
-            <v-list-item @click.stop="open">Credits</v-list-item>
+            <v-list-item @click.stop="open">{{ $t('nav.menu.credits') }}</v-list-item>
           </template>
           <credits-page />
         </cc-modal>
-        <cc-modal title="title"
-          icon="mdi-help-circle-outline">
+        <cc-modal
+          :title="$t('nav.menu.help')"
+          icon="mdi-help-circle-outline"
+        >
           <template #activator="{ open }">
-            <v-list-item @click.stop="open">Help</v-list-item>
+            <v-list-item @click.stop="open">{{ $t('nav.menu.help') }}</v-list-item>
           </template>
           <help-page />
         </cc-modal>
         <v-divider />
-        <v-list-item target="_blank"
-          href="https://www.patreon.com/compcon">
-          Support COMP/CON
+        <v-list-item
+          target="_blank"
+          href="https://www.patreon.com/compcon"
+        >
+          {{ $t('nav.menu.support') }}
         </v-list-item>
       </v-list>
     </v-menu>
 
-    <v-spacer v-if="!mobile"
-      style="max-width: 20px" />
+    <v-spacer
+      v-if="!mobile"
+      style="max-width: 20px"
+    />
   </v-app-bar>
 </template>
 
 <script lang="ts">
-import HelpPage from './pages/Help.vue'
-import AboutPage from './pages/About.vue'
-import CreditsPage from './pages/Credits.vue'
-import OptionsPage from './pages/Options/index.vue'
-import ContentPage from './pages/ExtraContent/index.vue'
-import CloudPage from './pages/Cloud.vue'
-import AchievementsPage from './pages/Achievements.vue'
+  import HelpPage from './pages/Help.vue'
+  import AboutPage from './pages/About.vue'
+  import CreditsPage from './pages/Credits.vue'
+  import OptionsPage from './pages/Options/index.vue'
+  import ContentPage from './pages/ExtraContent/index.vue'
+  import CloudPage from './pages/Cloud.vue'
+  import AchievementsPage from './pages/Achievements.vue'
 
-import Reference from '../compendium/Views/Reference/Reference.vue'
+  import Reference from '../compendium/Views/Reference/Reference.vue'
 
-import { UserStore } from '@/stores'
-import { useOnlineStatus } from '@/composables/useOnlineStatus'
+  import { UserStore } from '@/stores'
+  import { useOnlineStatus } from '@/composables/useOnlineStatus'
 
-import SearchComponent from './search/index.vue'
-import V2Auto from './pages/ExtraContent/components/v2Auto.vue'
+  import SearchComponent from './search/index.vue'
+  import V2Auto from './pages/ExtraContent/components/v2Auto.vue'
 
-export default {
-  name: 'CcNav',
-  components: {
-    HelpPage,
-    AboutPage,
-    CreditsPage,
-    OptionsPage,
-    ContentPage,
-    CloudPage,
-    AchievementsPage,
-    Reference,
-    SearchComponent,
-    V2Auto,
-  },
-  props: {
-    pilotManagement: { type: Boolean },
-    encounter: { type: Boolean },
-  },
-  setup() {
-    const { isOnline } = useOnlineStatus()
-    return { isOnline }
-  },
-  data: () => ({
-    aboutDialog: false,
-    helpDialog: false,
-    optionsDialog: false,
-    contentModal: false,
-    storageWarningDialog: false,
-    storageFullDialog: false,
-    qrDialog: false,
-    hasCmdKey: false,
-    refModal: false,
-  }),
-  computed: {
-    hide(): boolean {
-      if (this.$route.path === '/') return true
-      return false
+  export default {
+    name: 'CcNav',
+    components: {
+      HelpPage,
+      AboutPage,
+      CreditsPage,
+      OptionsPage,
+      ContentPage,
+      CloudPage,
+      AchievementsPage,
+      Reference,
+      SearchComponent,
+      V2Auto,
     },
-    landscape(): boolean {
-      return this.$vuetify.display.mdAndDown
+    props: {
+      pilotManagement: { type: Boolean },
+      encounter: { type: Boolean },
     },
-    portrait(): boolean {
-      return this.$vuetify.display.xs
+    setup() {
+      const { isOnline } = useOnlineStatus()
+      return { isOnline }
     },
-    mobile() {
-      return this.portrait
+    data: () => ({
+      aboutDialog: false,
+      helpDialog: false,
+      optionsDialog: false,
+      contentModal: false,
+      storageWarningDialog: false,
+      storageFullDialog: false,
+      qrDialog: false,
+      hasCmdKey: false,
+      refModal: false,
+    }),
+    computed: {
+      hide(): boolean {
+        if (this.$route.path === '/') return true
+        return false
+      },
+      landscape(): boolean {
+        return this.$vuetify.display.mdAndDown
+      },
+      portrait(): boolean {
+        return this.$vuetify.display.xs
+      },
+      mobile() {
+        return this.portrait
+      },
+      StorageWarning(): boolean {
+        return UserStore().StorageWarning
+      },
+      StorageMax(): boolean {
+        return UserStore().StorageFull
+      },
+      appVersion(): string {
+        return APP_VERSION || 'dev'
+      },
+      notifications() {
+        return UserStore().CloudNotifications
+      },
+      standalone(): boolean {
+        return window.matchMedia('(display-mode: standalone)').matches
+      },
+      UserStoreLoading(): boolean {
+        return UserStore().IsLoading
+      },
     },
-    StorageWarning(): boolean {
-      return UserStore().StorageWarning
+    created() {
+      this.hasCmdKey = navigator.userAgent.includes('Mac')
+      this.storageFullDialog = this.StorageMax
     },
-    StorageMax(): boolean {
-      return UserStore().StorageFull
-    },
-    appVersion(): string {
-      return APP_VERSION || 'dev'
-    },
-    notifications() {
-      return UserStore().CloudNotifications
-    },
-    standalone(): boolean {
-      return window.matchMedia('(display-mode: standalone)').matches
-    },
-    UserStoreLoading(): boolean {
-      return UserStore().IsLoading
-    },
-  },
-  created() {
-    this.hasCmdKey = navigator.userAgent.includes('Mac')
-    this.storageFullDialog = this.StorageMax
-  },
-}
+  }
 </script>

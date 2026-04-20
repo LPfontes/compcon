@@ -57,8 +57,8 @@
       justify="space-between"
       class="pt-4">
       <v-col v-for="(q, i) in bc.Bond.Questions"
-        :key="`question-${i}`"
-        v-show="bc.Answers[i]">
+        v-show="bc.Answers[i]"
+        :key="`question-${i}`">
         <div class="text-overline mt-n5"
           style="line-height: 12px">{{ q.question }}</div>
         <div class="text-left caption"
@@ -119,8 +119,8 @@
       style="line-height: 0">
       OTHER CLOCKS
     </div>
-    <v-row v-if="!blank"
-      v-for="(b, index) in bc.Clocks"
+    <v-row v-for="(b, index) in bc.Clocks"
+      v-if="!blank"
       :key="`clock-${index}`"
       density="compact"
       justify="space-between"
@@ -191,8 +191,8 @@
             {{ p.name }}
             {{ p.veteran ? '(VETERAN POWER)' : p.master ? '(MASTER POWER)' : '' }}
           </legend>
-          <div class="pa-1 mt-n1"
-            v-html-safe="p.description" />
+          <div v-html-safe="p.description"
+            class="pa-1 mt-n1" />
         </fieldset>
       </v-col>
     </v-row>
@@ -203,7 +203,7 @@
 import blankLine from '../components/blank/line.vue';
 
 export default {
-  name: 'bonds-print',
+  name: 'BondsPrint',
   components: {
     blankLine,
   },

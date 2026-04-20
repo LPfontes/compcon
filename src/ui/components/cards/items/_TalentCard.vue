@@ -8,7 +8,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'talent-card',
+  name: 'TalentCard',
   components: { InfoCardBase },
   props: {
     item: {

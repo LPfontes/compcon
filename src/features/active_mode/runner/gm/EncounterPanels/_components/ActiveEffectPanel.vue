@@ -130,8 +130,8 @@
         :owner="item"
         :encounter="encounter" />
     </v-col>
-    <v-col cols="auto"
-      v-if="hidden > 0">
+    <v-col v-if="hidden > 0"
+      cols="auto">
       <v-chip size="x-small"
         class="pa-2"
         flat
@@ -144,7 +144,7 @@
 
 <script>
 export default {
-  name: 'active-effect-panel',
+  name: 'ActiveEffectPanel',
   props: {
     item: {
       type: Object,

@@ -1,6 +1,6 @@
 <template>
-  <v-col :cols="cols"
-    v-if="event.ResistEvents.length">
+  <v-col v-if="event.ResistEvents.length"
+    :cols="cols">
     <v-row v-for="(r, index) in event.ResistEvents"
       :key="`resist-${index}`"
       no-gutters>

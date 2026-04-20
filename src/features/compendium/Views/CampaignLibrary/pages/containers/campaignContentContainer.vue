@@ -44,7 +44,7 @@ import NarrativeContent from '@/features/gm/campaigns/pages/_components/Narrativ
 import EncounterContent from '@/features/gm/campaigns/pages/_components/EncounterContent.vue';
 
 export default {
-  name: 'campaign-page-content-container',
+  name: 'CampaignPageContentContainer',
   components: { NarrativeContent, EncounterContent },
   props: { item: { type: Object, required: true } },
   data: () => ({

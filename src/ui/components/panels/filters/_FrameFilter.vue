@@ -13,7 +13,7 @@
         :items="manufacturers"
         clearable
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="typeFilter"
@@ -27,7 +27,7 @@
         label="Role"
         :items="mechTypes"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="mountFilter"
@@ -41,7 +41,7 @@
         label="Has Mount"
         :items="mountTypes"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="sizeFilter"
@@ -55,7 +55,7 @@
         label="Size"
         :items="sizes"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="licenseFilter"
@@ -69,7 +69,7 @@
         label="License"
         :items="licenses"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
 </template>
@@ -87,7 +87,8 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'frame-filter',
+  name: 'FrameFilter',
+  emits: ['set-filters'],
   data: () => ({
     sourceFilter: [],
     typeFilter: [],
@@ -95,7 +96,6 @@ export default {
     sizeFilter: [],
     licenseFilter: [],
   }),
-  emits: ['set-filters'],
   computed: {
     manufacturers(): Manufacturer[] {
       return CompendiumStore()

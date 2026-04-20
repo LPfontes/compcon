@@ -1,7 +1,7 @@
 <template>
   <cc-share-code-importer
     ref="importer"
-    importType="collection"
+    import-type="collection"
     title="Add New Subscription"
     @set-query-result="queryResult = $event">
     <template #result>
@@ -27,7 +27,7 @@ import { UserStore } from '@/stores';
 import CollectionInfo from './collectionInfo.vue';
 
 export default {
-  name: 'share-code-dialog',
+  name: 'ShareCodeDialog',
   components: { CollectionInfo },
   data: () => ({
     queryResult: null as any,

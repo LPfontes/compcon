@@ -47,8 +47,11 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'CCItemModal',
+  components: {
+    ItemCardLink,
+  },
+  mixins: [useMobile],
   props: {
     item: {
       type: Object,
@@ -72,9 +75,6 @@ export default {
       default: '',
     },
     smallBtn: { type: Boolean },
-  },
-  components: {
-    ItemCardLink,
   },
   computed: {
     wide() {

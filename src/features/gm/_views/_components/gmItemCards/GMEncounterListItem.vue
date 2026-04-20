@@ -69,7 +69,7 @@ import EnvironmentChip from './_subcomponents/envChip.vue';
 import CombatantChip from './_subcomponents/combatantChip.vue';
 
 export default {
-  name: 'gm-location-list-item',
+  name: 'GmLocationListItem',
   components: { SortChips, MapPreview, SitrepChip, EnvironmentChip, CombatantChip },
   props: {
     item: { type: Object, required: true },

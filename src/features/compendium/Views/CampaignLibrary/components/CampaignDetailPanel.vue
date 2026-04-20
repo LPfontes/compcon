@@ -1,7 +1,7 @@
 <template>
   <div v-if="campaign != null">
     <v-row dense>
-      <v-col cols="12" md="5" v-if="campaign.cover_image_url">
+      <v-col v-if="campaign.cover_image_url" cols="12" md="5">
         <v-img :src="campaign.cover_image_url" :max-height="mobile ? '200px' : '500px'" cover />
       </v-col>
       <v-col>
@@ -30,14 +30,14 @@
             {{ campaign.ll[0] }}-{{ campaign.ll[1] }}
           </div>
           <v-card variant="outlined" class="mx-auto pa-2" color="panel">
-            <p class="text-text" v-html-safe="campaign.description" />
+            <p v-html-safe="campaign.description" class="text-text" />
           </v-card>
           <div class="text-right my-1 px-2">
             <a :href="campaign.website" target="_blank">
               {{ campaign.website }}
             </a>
             <v-row dense justify="end">
-              <v-col cols="auto" v-for="(e, index) in campaign.author_contact" :key="`contact-${index}`">
+              <v-col v-for="(e, index) in campaign.author_contact" :key="`contact-${index}`" cols="auto">
                 <cc-chip>
                   {{ e.service }}
                   <cc-slashes class="mx-1" />
@@ -56,8 +56,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CampaignDetailPanel',
   mixins: [useMobile],
-  name: 'campaign-detail-panel',
   props: {
     campaign: Object,
   },

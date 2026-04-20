@@ -3,14 +3,14 @@
     <div v-if="title" class="heading h3 text-accent pb-2">{{ title }}</div>
     <div v-else style="height: 8px" />
     <v-item-group
-      :modelValue="modelValue"
-      @update:modelValue="$emit('update:model-value', $event)"
+      :model-value="modelValue"
       :mandatory="mandatory"
       :multiple="multiple"
+      @update:model-value="$emit('update:model-value', $event)"
     >
       <v-row justify="space-around" align="center">
         <v-col v-for="i in items" :key="(i as any).title" style="min-width: 16vw">
-          <v-item :value="i" v-slot="{ isSelected, toggle }">
+          <v-item v-slot="{ isSelected, toggle }" :value="i">
             <v-card
               :color="isSelected ? 'accent' : ''"
               class="d-flex align-center text-center"
@@ -40,8 +40,7 @@
 
 <script lang="ts">
 export default {
-  name: 'print-option-select',
-  emits: ['update:model-value'],
+  name: 'PrintOptionSelect',
   props: {
     modelValue: {
       type: [Object, Array],
@@ -68,5 +67,6 @@ export default {
       required: false,
     },
   },
+  emits: ['update:model-value'],
 };
 </script>

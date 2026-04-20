@@ -6,8 +6,8 @@
       <cc-button size="x-small"
         icon="mdi-bell"
         variant="outlined"
-        @click="menu = !menu"
-        v-bind="props"></cc-button>
+        v-bind="props"
+        @click="menu = !menu"></cc-button>
       <v-badge v-if="itemCount"
         color="warning"
         class="ml-1 mb-4"

@@ -10,8 +10,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'UsingCompcon',
   mixins: [useMobile],
-  name: 'using-compcon',
   props: {
     title: {
       type: String,

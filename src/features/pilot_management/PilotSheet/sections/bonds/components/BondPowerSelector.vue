@@ -164,8 +164,8 @@ import { CompendiumStore } from '@/stores'
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  mixins: [useMobile],
   name: 'BondPowerSelectMenu',
+  mixins: [useMobile],
   props: {
     pilot: { type: Object, required: true },
   },

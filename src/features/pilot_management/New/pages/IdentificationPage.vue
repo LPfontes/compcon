@@ -267,9 +267,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'identification-page',
+  name: 'IdentificationPage',
   components: { StepperContent, BackgroundSelector },
+  mixins: [useMobile],
   props: {
     pilot: {
       type: Object,
@@ -277,11 +277,11 @@ export default {
     },
     groupID: { type: String },
   },
+  emits: ['set', 'templates', 'next', 'done'],
   data: () => ({
     bioDialog: false,
     appearanceDialog: false,
   }),
-  emits: ['set', 'templates', 'next', 'done'],
   methods: {
     async randomCallsign() {
       const generatedCallsign = await callsign();

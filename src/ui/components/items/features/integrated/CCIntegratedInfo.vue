@@ -17,7 +17,7 @@ import integratedInfoPanel from './_integratedInfoPanel.vue';
 import integratedInfoPopup from './_integratedInfoPopup.vue';
 
 export default {
-  name: 'cc-integrated-info',
+  name: 'CcIntegratedInfo',
   components: { integratedInfoHover, integratedInfoPanel, integratedInfoPopup },
   props: {
     item: {

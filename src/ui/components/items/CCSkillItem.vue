@@ -34,7 +34,7 @@
 
 <script lang="ts">
 export default {
-  name: 'skill-item',
+  name: 'SkillItem',
   props: {
     bonus: {
       type: Number,

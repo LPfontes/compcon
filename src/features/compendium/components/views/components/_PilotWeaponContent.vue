@@ -35,7 +35,7 @@
 <script lang="ts">
 import CCardBase from './_cCardBase.vue';
 export default {
-  name: 'gear-card-content',
+  name: 'GearCardContent',
   components: { CCardBase },
   props: {
     item: { type: Object, required: true },

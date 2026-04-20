@@ -140,6 +140,9 @@ import BaseTargetSelector from '@/ui/components/chips/_activeeffect/_shared/Base
 
 export default {
   name: 'StatusConditionSelector',
+  components: {
+    BaseTargetSelector,
+  },
   props: {
     controller: {
       type: Object,
@@ -149,9 +152,6 @@ export default {
       type: Object,
       required: true,
     },
-  },
-  components: {
-    BaseTargetSelector,
   },
   data: () => ({
     customInflict: '',

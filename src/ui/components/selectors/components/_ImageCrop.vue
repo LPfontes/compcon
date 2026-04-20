@@ -35,10 +35,20 @@ import { Cropper, Preview } from 'vue-advanced-cropper';
 import 'vue-advanced-cropper/dist/style.css';
 
 export default {
-  name: 'image-crop',
+  name: 'ImageCrop',
   components: {
     Cropper,
     Preview,
+  },
+  props: {
+    src: {
+      type: String,
+      required: true,
+    },
+    imgKey: {
+      type: String,
+      required: false,
+    },
   },
   emits: ['confirm', 'hide'],
   data: () => ({
@@ -50,16 +60,6 @@ export default {
       aspectRatio: 1,
     },
   }),
-  props: {
-    src: {
-      type: String,
-      required: true,
-    },
-    imgKey: {
-      type: String,
-      required: false,
-    },
-  },
   methods: {
     change({ coordinates, image }) {
       this.result = {

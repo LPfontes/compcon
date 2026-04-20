@@ -34,44 +34,44 @@
     </template>
     <v-container>
       <template #default>
-        <v-window-item value="ident" :key="0">
+        <v-window-item :key="0" value="ident">
           <identification-page
             :pilot="pilot"
-            :groupID="groupID"
+            :group-i-d="groupID"
             @done="onDone()"
             @next="step = 'skills'"
             @templates="step = 'templates'"
             @set="pilot[$event.attr] = $event.val" />
         </v-window-item>
-        <v-window-item value="skills" :key="1">
+        <v-window-item :key="1" value="skills">
           <skills-page :pilot="pilot" @next="step = 'talents'" @back="step = 'ident'" />
         </v-window-item>
-        <v-window-item value="talents" :key="2">
+        <v-window-item :key="2" value="talents">
           <talents-page :pilot="pilot" @next="step = 'mechskills'" @back="step = 'skills'" />
         </v-window-item>
-        <v-window-item value="mechskills" :key="3">
+        <v-window-item :key="3" value="mechskills">
           <mech-skills-page
             :pilot="pilot"
             @next="step = pilot.Level > 0 ? 'licenses' : 'confirm'"
             @back="step = 'talents'" />
         </v-window-item>
-        <v-window-item value="licenses" :key="4">
+        <v-window-item :key="4" value="licenses">
           <licenses-page
             :pilot="pilot"
             @next="step = pilot.Level > 2 ? 'corebonuses' : 'confirm'"
             @back="step = 'mechskills'" />
         </v-window-item>
-        <v-window-item value="corebonuses" :key="5">
+        <v-window-item :key="5" value="corebonuses">
           <core-bonuses-page :pilot="pilot" @next="step = 'confirm'" @back="step = 'licenses'" />
         </v-window-item>
-        <v-window-item value="confirm" :key="6">
+        <v-window-item :key="6" value="confirm">
           <confirm-page
             :pilot="pilot"
-            :groupID="groupID"
+            :group-i-d="groupID"
             @back="pilot.Level < 2 ? 'corebonuses' : pilot.Level > 0 ? 'licenses' : 'mechskills'"
             @done="onDone()" />
         </v-window-item>
-        <v-window-item value="templates" :key="7">
+        <v-window-item :key="7" value="templates">
           <templates-page :pilot="pilot" @next="step = 'confirm'" @back="step = 'ident'" />
         </v-window-item>
       </template>
@@ -93,7 +93,7 @@ import CcConfirm from '@/ui/notification/CCConfirm.vue';
 import logger from '@/user/logger';
 
 export default {
-  name: 'new-pilot-wizard',
+  name: 'NewPilotWizard',
   components: {
     IdentificationPage,
     SkillsPage,
@@ -104,6 +104,28 @@ export default {
     ConfirmPage,
     TemplatesPage,
     CcConfirm,
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.done) {
+      next();
+    } else {
+      (this.$refs as any).confirm
+        .open(
+          'EXIT REGISTRATION',
+          'Are you sure you want to exit the Pilot Registration process? Your pilot will be discarded.'
+        )
+        .then((confirmed) => {
+          if (confirmed) {
+            next();
+          } else {
+            next(false);
+          }
+        })
+        .catch((error) => {
+          logger.error(`Error in confirm dialog: ${error}`, this, error);
+          next(false);
+        });
+    }
   },
   props: {
     groupID: {
@@ -130,28 +152,6 @@ export default {
       this.done = true;
       this.$router.push(`/pilot/${this.pilot.ID}`);
     },
-  },
-  beforeRouteLeave(to, from, next) {
-    if (this.done) {
-      next();
-    } else {
-      (this.$refs as any).confirm
-        .open(
-          'EXIT REGISTRATION',
-          'Are you sure you want to exit the Pilot Registration process? Your pilot will be discarded.'
-        )
-        .then((confirmed) => {
-          if (confirmed) {
-            next();
-          } else {
-            next(false);
-          }
-        })
-        .catch((error) => {
-          logger.error(`Error in confirm dialog: ${error}`, this, error);
-          next(false);
-        });
-    }
   },
 };
 </script>

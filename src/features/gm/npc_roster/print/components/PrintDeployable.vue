@@ -10,50 +10,50 @@
       <v-row justify="center" dense class="text-center">
         <v-col v-if="(d as any).size" cols="auto">
           <div
-            class="caption font-weight-bold"
-            v-html-safe="`Size ${(d as any).size === 0.5 ? '½' : (d as any).size}`" />
+            v-html-safe="`Size ${(d as any).size === 0.5 ? '½' : (d as any).size}`"
+            class="caption font-weight-bold" />
         </v-col>
         <v-col v-if="(d as any).armor" cols="auto">
-          <div class="caption" v-html-safe="`<b>Armor</b>: ${(d as any).armor}`" />
+          <div v-html-safe="`<b>Armor</b>: ${(d as any).armor}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).hp || (d as any).size" cols="auto">
           <div
-            class="caption"
             v-html-safe="
               `<b>HP</b>: ${
                 (d as any).hp
                   ? (d as any).hp.toString().replace(/[{}]/gim, '')
                   : parseFloat((d as any).size || 0.5) * 10
               }`
-            " />
+            "
+            class="caption" />
         </v-col>
         <v-col v-if="(d as any).size" cols="auto">
-          <div class="caption" v-html-safe="`<b>Evasion:</b> ${(d as any).evasion || 10}`" />
+          <div v-html-safe="`<b>Evasion:</b> ${(d as any).evasion || 10}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).edef" cols="auto">
-          <div class="caption" v-html-safe="`<b>E-Defense:</b> ${(d as any).edef}`" />
+          <div v-html-safe="`<b>E-Defense:</b> ${(d as any).edef}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).heatcap" cols="auto">
-          <div class="caption" v-html-safe="`<b>Heat Capacity:</b> ${(d as any).heatcap}`" />
+          <div v-html-safe="`<b>Heat Capacity:</b> ${(d as any).heatcap}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).sensor" cols="auto">
-          <div class="caption" v-html-safe="`<b>Sensor Range:</b> ${(d as any).sensor}`" />
+          <div v-html-safe="`<b>Sensor Range:</b> ${(d as any).sensor}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).tech_attack" cols="auto">
-          <div class="caption" v-html-safe="`<b>Tech Attack:</b> ${(d as any).tech_attack}`" />
+          <div v-html-safe="`<b>Tech Attack:</b> ${(d as any).tech_attack}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).repcap" cols="auto">
-          <div class="caption" v-html-safe="`<b>Repair Capacity:</b> ${(d as any).repcap}`" />
+          <div v-html-safe="`<b>Repair Capacity:</b> ${(d as any).repcap}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).save" cols="auto">
-          <div class="caption" v-html-safe="`<b>Save Target:</b> ${(d as any).save}`" />
+          <div v-html-safe="`<b>Save Target:</b> ${(d as any).save}`" class="caption" />
         </v-col>
         <v-col v-if="(d as any).speed" cols="auto">
-          <div class="caption" v-html-safe="`<b>Speed:</b> ${(d as any).speed}`" />
+          <div v-html-safe="`<b>Speed:</b> ${(d as any).speed}`" class="caption" />
         </v-col>
       </v-row>
       <div>
-        <p class="caption mb-0 px-2" v-html-safe="(d as any).detail" />
+        <p v-html-safe="(d as any).detail" class="caption mb-0 px-2" />
       </div>
       <div v-if="actions(d).length">
         <print-action :actions="actions(d)" />
@@ -68,7 +68,7 @@ import { Action } from '@/classes/Action';
 import PrintAction from './PrintAction.vue';
 
 export default {
-  name: 'print-deployable',
+  name: 'PrintDeployable',
   components: { PrintAction },
   props: {
     deployables: {

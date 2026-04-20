@@ -7,7 +7,7 @@
     @delete="deleteItem()"
     @export="exportItem($event)"
     @copy="dupe()">
-    <template v-slot:builder>
+    <template #builder>
       <v-row dense class="my-n4" align="center">
         <cc-remote-hover :item="item" />
 
@@ -25,7 +25,7 @@
         </v-col>
       </v-row>
     </template>
-    <template v-slot:stats>
+    <template #stats>
       <v-divider class="mt-4 mb-1" />
       <relationship-editor :readonly="isRemote" :item="item" />
       <narrative-block :readonly="isRemote" :item="item" />
@@ -42,7 +42,7 @@ import RelationshipEditor from '../../_components/RelationshipEditor.vue';
 import exportAsJson from '@/util/jsonExport';
 
 export default {
-  name: 'gm-location-editor-base',
+  name: 'GmLocationEditorBase',
   components: { EditorBase, RelationshipEditor, NarrativeBlock },
   props: {
     item: { type: Object, required: true },

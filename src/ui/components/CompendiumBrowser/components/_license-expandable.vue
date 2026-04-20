@@ -60,8 +60,8 @@
         :ranked="isRanked"
         :rank="isRanked ? getControllerRank(item) : undefined" />
 
-      <v-row dense
-        v-if="selectable">
+      <v-row v-if="selectable"
+        dense>
         <v-slide-x-transition>
           <v-col cols="12"
             md="auto">

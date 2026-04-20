@@ -35,7 +35,7 @@ const findNearest = (target, arr) => {
 };
 
 export default {
-  name: 'hex-map-vertical-editor',
+  name: 'HexMapVerticalEditor',
   props: {
     sizeX: {
       type: Number,
@@ -127,7 +127,7 @@ export default {
           const w = Math.sqrt(3) * s;
           const h = 2 * s;
 
-          let y = row * s * 1.5;
+          const y = row * s * 1.5;
           let x = col * w;
 
           const coord = `${col + 1},${row + 1}`;

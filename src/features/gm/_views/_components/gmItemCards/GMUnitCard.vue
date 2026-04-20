@@ -28,7 +28,7 @@
 <script lang="ts">
 import GmCardBase from './_GMCardBase.vue';
 export default {
-  name: 'gm-unit-card',
+  name: 'GmUnitCard',
   components: { GmCardBase },
   props: {
     item: { type: Object, required: true },

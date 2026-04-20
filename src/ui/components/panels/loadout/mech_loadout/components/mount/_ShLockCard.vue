@@ -9,6 +9,6 @@
 
 <script lang="ts">
 export default {
-  name: 'sh-lock-card',
+  name: 'ShLockCard',
 };
 </script>

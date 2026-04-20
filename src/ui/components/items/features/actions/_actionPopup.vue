@@ -22,7 +22,7 @@
 import ActionBase from './_actionBase.vue';
 
 export default {
-  name: 'action-popup',
+  name: 'ActionPopup',
   components: { ActionBase },
   props: {
     action: {

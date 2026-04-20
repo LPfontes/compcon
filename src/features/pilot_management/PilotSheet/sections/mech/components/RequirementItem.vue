@@ -28,7 +28,7 @@
         <b v-else>{{ license.name }} RANK {{ license.rank }}</b>
         <v-divider class="my-1" />
         <div class="text-cc-overline text-disabled">Required for:</div>
-        <cc-chip size="small" v-for="(item, index) in license.items" :key="`item-${index}`" class="ma-1">{{ item }}</cc-chip>
+        <cc-chip v-for="(item, index) in license.items" :key="`item-${index}`" size="small" class="ma-1">{{ item }}</cc-chip>
       </v-card-text>
     </v-card>
   </v-menu>
@@ -37,8 +37,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'RequirementItem',
   mixins: [useMobile],
-  name: 'requirement-item',
   props: {
     license: {
       type: Object,

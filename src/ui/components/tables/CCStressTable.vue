@@ -24,16 +24,16 @@
                 <template #activator="{ props }">
                   <v-btn v-bind="props" icon @click="rolls.splice(n - 1, 1)">
                     <v-icon
+                      v-html-safe="`mdi-dice-${rolls[n - 1]}`"
                       x-large
-                      :color="rolls[n - 1] === 1 ? 'error' : 'stark'"
-                      v-html-safe="`mdi-dice-${rolls[n - 1]}`" />
+                      :color="rolls[n - 1] === 1 ? 'error' : 'stark'" />
                   </v-btn>
                 </template>
               </v-tooltip>
             </div>
             <div v-for="n in totalRolls - rolls.length" :key="`empty-${n}`" class="d-inline">
               <v-btn icon size="x-large" disabled>
-                <v-icon size="x-large" v-html-safe="'mdi-checkbox-blank-outline'" />
+                <v-icon v-html-safe="'mdi-checkbox-blank-outline'" size="x-large" />
               </v-btn>
             </div>
             <br />
@@ -59,7 +59,7 @@
                   color="primary"
                   icon
                   @click="rolls.push(n)">
-                  <v-icon class="die-hover" size="55px" v-html-safe="`mdi-dice-${n}`" />
+                  <v-icon v-html-safe="`mdi-dice-${n}`" class="die-hover" size="55px" />
                 </v-btn>
               </div>
               <div v-else key="tr02">
@@ -132,7 +132,8 @@
                 ? 'Your mech is <b>exposed</b> until you take action to remove the condition.'
                 : 'Your mech must pass a engineering check or suffer a reactor meltdown at the end of 1d6 turns after this one (rolled by the GM). You can reverse it by taking a full action and repeating this check. Even on a successful check, your mech suffers from the <b>exposed</b> condition until you take action to remove it.'
             " />
-          <div slot="confirm-button">
+          <template #confirm-button>
+<div >
             <div v-if="mech.CurrentStress >= 3">
               <v-btn color="success" large @click="applyPPD()">confirm</v-btn>
             </div>
@@ -141,6 +142,7 @@
               <v-btn color="success" large @click="applyPPD">succeed check</v-btn>
             </div>
           </div>
+</template>
           <cascade-check :mech="mech" />
         </table-window-item>
 

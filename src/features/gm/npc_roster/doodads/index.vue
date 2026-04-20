@@ -48,15 +48,6 @@ import { ref, onUnmounted } from 'vue';
 export default {
   name: 'DoodadRoster',
   components: { GmSplitView, Editor, Builder, NoGmItem },
-  setup() {
-    const npcStore = NpcStore();
-    const doodads = ref(npcStore.getDoodads.filter((x) => !x.SaveController.IsDeleted));
-    const unsub = npcStore.$subscribe(() => {
-      doodads.value = npcStore.getDoodads.filter((x) => !x.SaveController.IsDeleted);
-    });
-    onUnmounted(unsub);
-    return { npcStore, doodads };
-  },
   props: {
     id: {
       type: String,
@@ -67,6 +58,15 @@ export default {
       required: false,
       default: 'collection',
     },
+  },
+  setup() {
+    const npcStore = NpcStore();
+    const doodads = ref(npcStore.getDoodads.filter((x) => !x.SaveController.IsDeleted));
+    const unsub = npcStore.$subscribe(() => {
+      doodads.value = npcStore.getDoodads.filter((x) => !x.SaveController.IsDeleted);
+    });
+    onUnmounted(unsub);
+    return { npcStore, doodads };
   },
   data: () => ({
     selected: null as Doodad | null,

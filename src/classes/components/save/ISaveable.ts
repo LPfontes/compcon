@@ -9,7 +9,7 @@ interface ISaveable {
   StorageType: string;
 
   Clone(): ISaveable;
-  Serialize(): Object;
+  Serialize(): object;
 }
 
 export type { ISaveable };

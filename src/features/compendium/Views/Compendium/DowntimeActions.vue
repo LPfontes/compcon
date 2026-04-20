@@ -16,7 +16,7 @@ import lancerdata from '@massif/lancer-data';
 import { orderBy } from 'lodash-es';
 
 export default {
-  name: 'downtimeActions',
+  name: 'DowntimeActions',
 
   data: () => ({
     headers: [

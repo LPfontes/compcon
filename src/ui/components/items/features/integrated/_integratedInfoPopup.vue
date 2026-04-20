@@ -13,7 +13,7 @@
 import integratedInfoBase from './_integratedInfoBase.vue';
 
 export default {
-  name: 'integrated-info-popup',
+  name: 'IntegratedInfoPopup',
   components: { integratedInfoBase },
   props: {
     item: {

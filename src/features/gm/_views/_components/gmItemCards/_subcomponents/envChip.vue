@@ -15,7 +15,7 @@
 
 <script lang="ts">
 export default {
-  name: 'environment-chip',
+  name: 'EnvironmentChip',
   props: {
     environment: { type: Object, required: true },
     size: { type: String, default: 'x-small' },

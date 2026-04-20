@@ -44,7 +44,7 @@ import StepperContent from '../../_components/StepperContent.vue';
 import CoreBonusSelector from '../../_components/selectors/CoreBonusSelector.vue';
 
 export default {
-  name: 'core-bonus-page',
+  name: 'CoreBonusPage',
   components: { StepperContent, CoreBonusSelector },
   props: {
     pilot: {

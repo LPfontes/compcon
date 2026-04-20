@@ -18,8 +18,8 @@
       :bonus="b" />
     <sh-lock-card v-if="mount.IsLocked" />
     <weapon-slot-card v-for="(s, index) in mount.Slots"
-      :key="`slot-${index}`"
       v-if="!mount.IsLocked"
+      :key="`slot-${index}`"
       :weapon-slot="s"
       :mech="mech"
       :mount="mount"

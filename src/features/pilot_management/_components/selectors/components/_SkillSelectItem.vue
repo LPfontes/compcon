@@ -40,8 +40,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'SkillSelectItem',
   mixins: [useMobile],
-  name: 'skill-select-item',
   props: {
     skill: {
       type: Object,

@@ -1,8 +1,8 @@
 <template>
   <v-card variant="outlined" color="error" class="py-1" :max-width="width" style="font-size: 13px">
     <v-row
-      v-if="!controller.OtherError"
       v-for="b in controller.Brews"
+      v-if="!controller.OtherError"
       :key="b.LcpName"
       dense
       align="center"
@@ -84,7 +84,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-brew-info',
+  name: 'CcBrewInfo',
   props: {
     controller: {
       type: Object,

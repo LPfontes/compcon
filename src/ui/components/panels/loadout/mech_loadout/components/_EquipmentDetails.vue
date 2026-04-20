@@ -47,8 +47,8 @@
       </v-col>
 
       <v-col v-for="(p, index) in item.Profiles"
-        :key="`profile-${index}`"
         v-show="item.Profiles.length > 1"
+        :key="`profile-${index}`"
         class="mr-4"
         cols="auto">
         <div v-if="p.Tags.length">

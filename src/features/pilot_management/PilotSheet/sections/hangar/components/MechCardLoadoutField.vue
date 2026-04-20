@@ -15,8 +15,8 @@
       <div class="mt-1" />
       <span v-for="(item, i) in loadoutSystems" :key="`system-${i}`">
         {{ Number(i) > 0 ? ' - ' : '' }}
-        <span class="text-text"
-          v-html-safe="item" />
+        <span v-html-safe="item"
+          class="text-text" />
       </span>
     </div>
   </fieldset>
@@ -25,7 +25,7 @@
 
 <script lang="ts">
 export default {
-  name: 'mech-card-loadout-field',
+  name: 'MechCardLoadoutField',
   props: {
     mech: { type: Object, required: true }
   },

@@ -84,9 +84,9 @@
         <v-row dense
           justify="end">
           <v-col cols="auto">
-            <v-checkbox density="compact"
-              label="Show Deleted"
-              v-model="showDeleted" />
+            <v-checkbox v-model="showDeleted"
+              density="compact"
+              label="Show Deleted" />
           </v-col>
         </v-row>
       </v-col>
@@ -148,13 +148,13 @@
             subtitle="This action cannot be undone"
             prepend-icon="mdi-exclamation-thick"
             :disabled="!selected.length"
-            @click="deleteItemsPermanent()"
-            base-color="error" />
+            base-color="error"
+            @click="deleteItemsPermanent()" />
           <v-list-item v-if="showDeleteConfirm"
             title="Cancel Permanent Deletion"
             prepend-icon="mdi-cancel"
-            @click="showDeleteConfirm = false"
-            base-color="accent" />
+            base-color="accent"
+            @click="showDeleteConfirm = false" />
         </v-list>
       </v-col>
     </v-row>

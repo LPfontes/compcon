@@ -9,7 +9,7 @@
 import SectionHeader from '../../components/SectionHeader.vue';
 
 export default {
-  name: 'license-requirements-block',
+  name: 'LicenseRequirementsBlock',
   components: { SectionHeader },
   props: {
     mech: {

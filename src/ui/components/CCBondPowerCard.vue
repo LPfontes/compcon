@@ -51,8 +51,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
   export default {
-  mixins: [useMobile],
     name: 'CcBondInfo',
+  mixins: [useMobile],
     props: {
       power: { type: Object, required: true },
       flexHeight: { type: Boolean },

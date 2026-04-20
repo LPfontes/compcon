@@ -106,7 +106,7 @@ import { PilotStore } from '@/stores';
 import { Pilot } from '@/class';
 
 export default {
-  name: 'level-wizard',
+  name: 'LevelWizard',
   components: {
     OverviewPage,
     SkillsPage,

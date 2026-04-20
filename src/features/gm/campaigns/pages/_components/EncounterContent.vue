@@ -21,7 +21,7 @@
           <v-window v-model="mapTab">
             <v-window-item>
               <v-card style="height: 100%" variant="outlined">
-                <map-preview ref="mapPreview" v-if="item.Map" :map="item.Map" />
+                <map-preview v-if="item.Map" ref="mapPreview" :map="item.Map" />
                 <v-row
                   v-else
                   style="min-height: 22vw; max-width: 100%"
@@ -41,7 +41,7 @@
       </v-col>
     </v-row>
 
-    <v-card variant="tonal" class="ma-2"><p class="pa-2" v-html-safe="item.Description" /></v-card>
+    <v-card variant="tonal" class="ma-2"><p v-html-safe="item.Description" class="pa-2" /></v-card>
 
     <combatant-editor :encounter="item" readonly />
 
@@ -56,7 +56,7 @@
     <div class="text-text px-4">
       <v-card v-for="(t, index) in item.NarrativeController.TextItems" :key="`text-${index}`" variant="plain">
         <div class="heading mt-1">{{ t.header }}</div>
-        <p class="pl-4" v-html-safe="t.body" />
+        <p v-html-safe="t.body" class="pl-4" />
       </v-card>
       <cc-clock
         v-for="(c, index) in item.NarrativeController.Clocks"
@@ -82,7 +82,7 @@ import MapPreview from '@/features/gm/encounters/_components/map/MapPreview.vue'
 import CombatantEditor from '@/features/gm/encounters/_components/combatants/CombatantEditor.vue';
 
 export default {
-  name: 'narrative-content',
+  name: 'NarrativeContent',
   components: { MapPreview, CombatantEditor },
   props: {
     data: { type: Object, required: true },

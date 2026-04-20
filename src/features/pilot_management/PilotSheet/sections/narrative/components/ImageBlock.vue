@@ -18,7 +18,7 @@
 <script lang="ts">
 import { Pilot } from '@/class';
 export default {
-  name: 'image-block',
+  name: 'ImageBlock',
   props: {
     pilot: {
       type: Pilot,

@@ -3,9 +3,9 @@
     <v-divider />
     <v-chip
       v-for="t in (tags as any[])"
+      v-show="showTag(t.ID)"
       :key="t.ID"
       size="x-small"
-      v-show="showTag(t.ID)"
       label
       variant="outlined"
       class="bg-white"
@@ -19,7 +19,7 @@
 
 <script lang="ts">
 export default {
-  name: 'print-action',
+  name: 'PrintAction',
   props: {
     tags: {
       type: Array,

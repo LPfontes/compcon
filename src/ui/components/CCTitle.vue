@@ -12,8 +12,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
-  mixins: [useMobile],
   name: 'CCTitle',
+  mixins: [useMobile],
   props: {
     block: {
       type: Boolean,

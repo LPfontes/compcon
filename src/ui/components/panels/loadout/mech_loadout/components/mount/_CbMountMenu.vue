@@ -65,7 +65,7 @@ import { useMobile } from '@/mixins/useMobile'
 import { manufacturerColor } from '../_utils'
 
 export default {
-  name: 'cb-mount-menu',
+  name: 'CbMountMenu',
   mixins: [useMobile],
   props: {
     mech: {

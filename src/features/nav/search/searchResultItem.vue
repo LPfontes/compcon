@@ -18,7 +18,7 @@ import { unCamelCase } from '@/classes/utility/accent_fold';
 import { IndexItem, NavStore } from '@/stores';
 
 export default {
-  name: 'search-result-item',
+  name: 'SearchResultItem',
   props: {
     indexItem: {
       type: Object,

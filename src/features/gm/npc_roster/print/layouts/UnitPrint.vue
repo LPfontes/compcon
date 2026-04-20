@@ -40,9 +40,9 @@
           :item="npc"
           :bonuses="npc.FeatureController.Bonuses"
           :tier="npc.NpcClassController.Tier" />
-        <div v-if="npc.Description" class="mt-1 pl-3" v-html-safe="npc.Description" />
+        <div v-if="npc.Description" v-html-safe="npc.Description" class="mt-1 pl-3" />
       </v-col>
-      <v-col cols="4" v-if="options.include.some((x) => x.title === 'Include Image')">
+      <v-col v-if="options.include.some((x) => x.title === 'Include Image')" cols="4">
         <div
           :style="`background-image: url('${npc.Portrait}');`"
           style="height: 300px; width: 100%; background-position: top 0%; background-size: cover" />
@@ -120,7 +120,7 @@
         class="text-caption px-2 no-print-break">
         <div class="font-weight-bold text-caption" v-text="t.Title" />
         <div v-html-safe="t.Description" class="pl-2" />
-        <v-row dense v-for="(r, ri) in t.Results" :key="`result-${ri}`">
+        <v-row v-for="(r, ri) in t.Results" :key="`result-${ri}`" dense>
           <v-col cols="auto">
             <b>{{ r.min }}-{{ r.max }}</b>
           </v-col>
@@ -151,7 +151,7 @@ import NpcFeaturePrint from './components/NpcFeaturePrint.vue';
 import PrintNpcStats from './components/PrintNpcStats.vue';
 
 export default {
-  name: 'npc-print',
+  name: 'NpcPrint',
   components: {
     blankLine,
     notes,

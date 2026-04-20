@@ -13,7 +13,7 @@
 import GmCardBase from './_GMCardBase.vue';
 
 export default {
-  name: 'gm-faction-card',
+  name: 'GmFactionCard',
   components: { GmCardBase },
   props: {
     item: { type: Object, required: true },

@@ -27,8 +27,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcBackgroundCard',
   mixins: [useMobile],
-  name: 'cc-background-card',
   props: {
     item: {
       type: Object,

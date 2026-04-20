@@ -17,7 +17,7 @@
 import integratedInfoBase from './_integratedInfoBase.vue';
 
 export default {
-  name: 'integrated-info-panel',
+  name: 'IntegratedInfoPanel',
   components: { integratedInfoBase },
   props: {
     item: {

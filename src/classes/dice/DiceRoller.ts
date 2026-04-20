@@ -117,7 +117,7 @@ class D20RollResult implements Id20RollResult {
 
       for (let i = 0; i < this.rawAccuracyRolls.length; i++) {
         if (i > 0) accstr += ', '
-        let rr = this.rawAccuracyRolls[i]
+        const rr = this.rawAccuracyRolls[i]
         if (Math.abs(rr) === Math.abs(this.accuracyResult) && !kept) {
           accstr += `<b>${rr}</b><sub>k</sub> `
           kept = true
@@ -210,7 +210,7 @@ class DamageRollResult implements IDamageRollResult {
     let out = this._critical ? 'Critical Damage Roll: ' : 'Damage Roll: '
     for (let i = 0; i < this.rawDieRolls.length; i++) {
       if (i > 0) out += '+ '
-      let rc = this.rollClassifications[i]
+      const rc = this.rollClassifications[i]
       if (this._critical && rc === 'high') out += `<b>${this.rawDieRolls[i]}</b><sub>k</sub> `
       else if (this._critical && rc === 'low')
         out += `<i class="text-disabled">${this.rawDieRolls[i]}</i><sub>d</sub> `

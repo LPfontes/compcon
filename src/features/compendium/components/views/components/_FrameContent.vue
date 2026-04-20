@@ -17,7 +17,7 @@
 import CCardBase from './_cCardBase.vue';
 
 export default {
-  name: 'frame-card-content',
+  name: 'FrameCardContent',
   components: { CCardBase },
   props: {
     item: { type: Object, required: true },

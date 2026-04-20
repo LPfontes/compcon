@@ -171,6 +171,12 @@ import NpcWeaponAttack from './_npcWeaponAttack.vue';
 
 export default {
   name: 'NpcSkirmishButton',
+  components: {
+    MenuInput,
+    ApplyButton,
+    StagedPanel,
+    NpcWeaponAttack
+  },
   props: {
     action: {
       type: Object,
@@ -189,19 +195,10 @@ export default {
       required: false,
     },
   },
-  components: {
-    MenuInput,
-    ApplyButton,
-    StagedPanel,
-    NpcWeaponAttack
-  },
   data: () => ({
     event: null as WeaponAttackEvent | null,
     selectedWeapon: null as NpcWeapon | null,
   }),
-  created() {
-    this.reset();
-  },
   computed: {
     available() {
       return this.canActivate && this.canUse;
@@ -242,6 +239,9 @@ export default {
       return [this.event]
     },
 
+  },
+  created() {
+    this.reset();
   },
   methods: {
     reset(clearAction = false) {

@@ -1,6 +1,6 @@
 <template>
   <cc-compendium-browser :items="bonuses"
-    :itemType="'CoreBonus'"
+    :item-type="'CoreBonus'"
     :table-headers="headers"
     :options="options">
     <template #header>

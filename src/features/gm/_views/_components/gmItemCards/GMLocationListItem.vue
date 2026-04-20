@@ -18,7 +18,7 @@ import SortChips from './_subcomponents/sortChips.vue';
 import GmListItemBase from './_GMListItemBase.vue';
 
 export default {
-  name: 'gm-location-list-item',
+  name: 'GmLocationListItem',
   components: { SortChips, GmListItemBase },
   props: {
     item: { type: Object, required: true },

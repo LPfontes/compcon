@@ -1,6 +1,6 @@
 <template>
   <v-fade-transition leave-absolute>
-    <div v-if="!editing" class="d-inline-block" key="str" style="position: relative">
+    <div v-if="!editing" key="str" class="d-inline-block" style="position: relative">
       <span style="width: fit-content">
         <slot />
       </span>
@@ -33,7 +33,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-short-string-editor',
+  name: 'CcShortStringEditor',
   props: {
     placeholder: { type: String, required: false },
     large: { type: Boolean },

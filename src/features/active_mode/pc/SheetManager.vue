@@ -150,11 +150,11 @@
                 :title="`${e.Name} - LOGS AND TELEMETRY`">
                 <template #activator="{ open }">
                   <cc-button size="small"
-                    @click="open()"
                     color="primary"
                     disabled
                     block
-                    tooltip="Review the combat log and battlefield telemetry from this sheet and optionally save it to your pilot's history.">Save
+                    tooltip="Review the combat log and battlefield telemetry from this sheet and optionally save it to your pilot's history."
+                    @click="open()">Save
                     Pilot History</cc-button>
                   <div class="text-cc-overline text-disabled">Feature in development (v3.1)</div>
                 </template>
@@ -256,11 +256,11 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'SheetManager',
   components: {
     SheetItem,
   },
+  mixins: [useMobile],
   data: () => ({
     sort: 'Updated',
     asc: true,

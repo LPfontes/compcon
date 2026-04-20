@@ -6,8 +6,8 @@
         <v-row align="center" justify="space-around">
           <v-col>
             <cc-select
-              autocomplete
               v-model="compareFrames"
+              autocomplete
               :items="getComparableFrames"
               item-title="Name"
               return-object
@@ -47,9 +47,9 @@ import { useMobile } from '@/mixins/useMobile';
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
 export default {
-  mixins: [useMobile],
   name: 'FrameCombatChart',
   components: { Radar, FrameStatblock },
+  mixins: [useMobile],
   props: {
     frame: {
       type: Object,

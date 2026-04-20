@@ -20,8 +20,8 @@
         <v-fade-transition leave-absolute>
           <div :style="`padding-left: ${!mobile && showNav ? '256px' : 0}; padding-bottom: 45px`">
             <component
-              v-if="itemComponent"
               :is="itemComponent"
+              v-if="itemComponent"
               :campaign="campaign"
               :item="selected" />
           </div>
@@ -43,9 +43,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'campaign-viewer',
+  name: 'CampaignViewer',
   components: { sidebar, Credits, Page, Indices },
+  mixins: [useMobile],
   props: {
     id: { type: String, required: true },
   },
@@ -55,11 +55,6 @@ export default {
     selected: null,
     campaign: null as any,
   }),
-  async created() {
-    await CampaignStore().LoadCampaigns();
-    const data = CampaignStore().CampaignCollection.find((c) => c.id === this.id);
-    this.campaign = new Campaign(data);
-  },
 
   computed: {
     itemComponent() {
@@ -75,6 +70,11 @@ export default {
     currentPage() {
       return this.componentType;
     },
+  },
+  async created() {
+    await CampaignStore().LoadCampaigns();
+    const data = CampaignStore().CampaignCollection.find((c) => c.id === this.id);
+    this.campaign = new Campaign(data);
   },
   methods: {
     setPage(type) {

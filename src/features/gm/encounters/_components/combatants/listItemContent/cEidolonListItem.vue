@@ -21,7 +21,7 @@
 import cListItemBase from './cListItemBase.vue';
 
 export default {
-  name: 'gm-eidolon-list-item',
+  name: 'GmEidolonListItem',
   components: { cListItemBase },
   props: {
     item: { type: Object, required: true },

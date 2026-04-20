@@ -12,7 +12,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-heading-minor',
+  name: 'CcHeadingMinor',
   props: {
     color: { type: String, default: '' },
     density: { type: String, default: '' },

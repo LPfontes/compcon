@@ -53,7 +53,7 @@ const getPackID = async function (manifest: IContentPackManifest): Promise<strin
 }
 
 async function getZipFiles(zip: JSZip): Promise<string[]> {
-  let out = [] as string[]
+  const out = [] as string[]
   zip.forEach(function (relativePath) {
     out.push(relativePath)
   })

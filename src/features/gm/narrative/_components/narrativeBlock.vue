@@ -55,7 +55,7 @@
 import SectionEditor from '../../_components/SectionEditor.vue';
 
 export default {
-  name: 'gm-narrative-block',
+  name: 'GmNarrativeBlock',
   components: { SectionEditor },
   props: {
     item: { type: Object, required: true },

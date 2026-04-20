@@ -7,7 +7,7 @@ import { CompendiumStore } from '@/stores';
 import ActionCard from './components/ActionCard.vue';
 
 export default {
-  name: 'pilot-print',
+  name: 'PilotPrint',
   components: {
     ActionCard,
   },

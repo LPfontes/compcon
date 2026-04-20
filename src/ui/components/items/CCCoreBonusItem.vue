@@ -90,7 +90,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-core-bonus-item',
+  name: 'CcCoreBonusItem',
   props: {
     bonus: {
       type: Object,

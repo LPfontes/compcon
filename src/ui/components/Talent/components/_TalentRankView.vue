@@ -19,10 +19,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'talent-full',
+  name: 'TalentFull',
   components: { TalentEmblem, TalentRankContents },
-  emits: ['expand', 'add', 'remove'],
+  mixins: [useMobile],
   props: {
     hideLocked: { type: Boolean },
     talent: { type: Object, required: true },
@@ -33,6 +32,7 @@ export default {
     inColumn: { type: Boolean },
     rank: { type: [Number, String], required: false, default: null },
   },
+  emits: ['expand', 'add', 'remove'],
   data: () => ({
     showAll: false,
   }),

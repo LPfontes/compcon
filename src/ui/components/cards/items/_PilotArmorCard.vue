@@ -24,7 +24,7 @@
 import EquipmentCardBase from './_EquipmentCardBase.vue';
 
 export default {
-  name: 'pilot-armor-card',
+  name: 'PilotArmorCard',
   components: { EquipmentCardBase },
   props: {
     item: {

@@ -14,7 +14,7 @@
         chips
         clearable
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="tagFilter"
@@ -30,7 +30,7 @@
         item-value="ID"
         multiple
         item-title="Name"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="weaponTypeFilter"
@@ -43,7 +43,7 @@
         variant="outlined"
         label="Weapon Type"
         :items="weaponTypes"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="weaponSizeFilter"
@@ -56,7 +56,7 @@
         variant="outlined"
         label="Required Mount"
         :items="weaponSizes"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="attackTypeFilter"
@@ -70,7 +70,7 @@
         label="Attack Type"
         :items="attackTypes"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="damageTypeFilter"
@@ -84,7 +84,7 @@
         label="Damage Type"
         :items="damageTypes"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="llFilter"
@@ -98,7 +98,7 @@
         variant="outlined"
         label="License Level"
         :items="[0, 1, 2, 3]"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
   <v-divider class="my-4" />
@@ -118,7 +118,7 @@
         divided
         density="compact"
         style="height: 30px"
-        @update:modelValue="updateFilters()">
+        @update:model-value="updateFilters()">
         <v-btn value="less"
           size="small">Less Than</v-btn>
         <v-btn value="eq"
@@ -150,7 +150,7 @@
           sp++;
         updateFilters();
         "
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
       <v-btn size="x-small"
         variant="plain"
         @click="
@@ -177,7 +177,8 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'frame-filter',
+  name: 'FrameFilter',
+  emits: ['set-filters'],
   data: () => ({
     sourceFilter: [] as any[],
     tagFilter: [],
@@ -189,7 +190,6 @@ export default {
     sp: 0,
     spType: '',
   }),
-  emits: ['set-filters'],
   computed: {
     manufacturers(): any[] {
       return CompendiumStore()

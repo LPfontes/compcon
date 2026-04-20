@@ -1,5 +1,5 @@
 <template>
-  <v-hover #default="{ isHovering, props }">
+  <v-hover v-slot="{ isHovering, props }">
     <div class="top-element"
       style="display: block; position: relative"
       v-bind="props">
@@ -51,7 +51,7 @@
         <template #append>
           <v-menu v-if="$slots.options"
             offset-y>
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-btn size="32"
                 :color="color"
                 icon
@@ -76,7 +76,7 @@
           <v-tooltip v-if="tooltip"
             location="top"
             max-width="300px">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-icon v-bind="props"
                 class="fade-select mr-1 ml-3"
                 :icon="tooltipIcon || 'mdi-information-slab-box-outline'" />
@@ -139,10 +139,10 @@ export default {
     readonly: { type: Boolean },
     optionsIcon: { type: String },
   },
+  emits: ['update:model-value'],
   data: () => ({
     isFocused: false,
   }),
-  emits: ['update:model-value'],
   methods: {
     setVal(val: string | number) {
       const value = max([min([val, this.max]), this.min]);

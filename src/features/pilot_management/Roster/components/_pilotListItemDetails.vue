@@ -48,7 +48,7 @@
 import { Pilot } from '@/class';
 
 export default {
-  name: 'pilot-list-item-details',
+  name: 'PilotListItemDetails',
   props: {
     pilot: { type: Object, required: true }
   }

@@ -12,7 +12,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-tiered-attribute',
+  name: 'CcTieredAttribute',
   props: {
     title: { type: String, required: true },
     arr: { type: Array, required: true },

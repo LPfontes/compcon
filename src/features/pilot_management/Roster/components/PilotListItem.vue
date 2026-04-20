@@ -212,12 +212,12 @@
 import { useMobile } from '@/mixins/useMobile';
 
   export default {
-  mixins: [useMobile],
     name: 'PilotListItem',
     components: {
       EditMenu,
       PilotListItemDetails,
     },
+  mixins: [useMobile],
     props: {
       pilot: {
         type: Pilot,

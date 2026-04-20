@@ -5,7 +5,7 @@
     :items-per-page="-1"
     hide-default-footer
     style="width: 100%">
-    <template v-slot:item="{ item }">
+    <template #item="{ item }">
       <tr :id="item.ID">
         <td v-for="h in <any[]>headers" :key="h.key"
           class="text-left px-2"
@@ -145,7 +145,7 @@ import { License } from '@/class';
 import { NpcClass } from '@/classes/npc/class/NpcClass';
 
 export default {
-  name: 'selector-table',
+  name: 'SelectorTable',
   props: {
     headers: {
       type: Array,

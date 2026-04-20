@@ -14,8 +14,8 @@
       CLASS {{ item.Class }}
     </template>
     <v-chip
-      v-if="!item.BrewController.IsUnableToLoad"
       v-for="l in item.Layers"
+      v-if="!item.BrewController.IsUnableToLoad"
       :key="l.ID"
       label
       prepend-icon="mdi-layers"
@@ -29,7 +29,7 @@
 import GmListItemBase from './_GMListItemBase.vue';
 
 export default {
-  name: 'gm-doodad-list-item',
+  name: 'GmDoodadListItem',
   components: { GmListItemBase },
   props: {
     item: { type: Object, required: true },

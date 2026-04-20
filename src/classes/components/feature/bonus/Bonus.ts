@@ -145,7 +145,7 @@ class Bonus {
 
     // replace: sum of replace bonuses becomes the new base
     const replaces = all.filter(b => b.Replace)
-    let val = replaces.length
+    const val = replaces.length
       ? replaces.reduce((sum, b) => sum + this.Evaluate(b, source), 0)
       : base
 

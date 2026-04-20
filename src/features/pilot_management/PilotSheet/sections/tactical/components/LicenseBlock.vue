@@ -1,7 +1,7 @@
 <template>
   <div>
     <section-header title="Licenses">
-      <cc-modal title="Set Pilot Licenses" icon="cc:frame" ref="licenseSelector">
+      <cc-modal ref="licenseSelector" title="Set Pilot Licenses" icon="cc:frame">
         <template #activator="{ open }">
           <section-edit-chip
             v-if="!pilot.IsRemote"
@@ -42,9 +42,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'license-block',
+  name: 'LicenseBlock',
   components: { SectionHeader, SectionEditChip, NoDataBlock, LicenseSelector },
+  mixins: [useMobile],
   props: {
     pilot: {
       type: Object,

@@ -338,9 +338,9 @@ import { CompendiumStore } from '@/stores'
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  mixins: [useMobile],
   name: 'BondsView',
   components: { BondSelector, BondPowerSelector, SectionHeader, SectionEditChip },
+  mixins: [useMobile],
   props: {
     pilot: {
       type: Object,

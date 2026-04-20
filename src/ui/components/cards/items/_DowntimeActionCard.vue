@@ -24,7 +24,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-downtime-action-card',
+  name: 'CcDowntimeActionCard',
   props: {
     item: {
       type: Object,

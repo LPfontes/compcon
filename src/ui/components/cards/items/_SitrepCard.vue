@@ -34,7 +34,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'cc-sitrep-card',
+  name: 'CcSitrepCard',
   components: { InfoCardBase },
   props: {
     item: { type: Object, required: true },

@@ -6,7 +6,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'cc-environment-card',
+  name: 'CcEnvironmentCard',
   components: { InfoCardBase },
   props: {
     item: {

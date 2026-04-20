@@ -85,26 +85,26 @@
           <v-col>
             <div class="font-weight-bold caption text-primary">HULL</div>
 
-            <div class="heading"
-              v-html-safe="pilot.MechSkillsController.MechSkills.Hull" />
+            <div v-html-safe="pilot.MechSkillsController.MechSkills.Hull"
+              class="heading" />
           </v-col>
           <v-col>
             <div class="font-weight-bold caption text-primary text-primary">AGI</div>
 
-            <div class="heading"
-              v-html-safe="pilot.MechSkillsController.MechSkills.Agi" />
+            <div v-html-safe="pilot.MechSkillsController.MechSkills.Agi"
+              class="heading" />
           </v-col>
           <v-col>
             <div class="font-weight-bold caption text-primary">SYS</div>
 
-            <div class="heading"
-              v-html-safe="pilot.MechSkillsController.MechSkills.Sys" />
+            <div v-html-safe="pilot.MechSkillsController.MechSkills.Sys"
+              class="heading" />
           </v-col>
           <v-col>
             <div class="font-weight-bold caption text-primary">ENG</div>
 
-            <div class="heading"
-              v-html-safe="pilot.MechSkillsController.MechSkills.Eng" />
+            <div v-html-safe="pilot.MechSkillsController.MechSkills.Eng"
+              class="heading" />
           </v-col>
         </v-row>
       </card>
@@ -225,16 +225,16 @@
               <v-card variant="tonal"
                 class="py-2">
                 <v-icon icon="mdi-shield-outline" />
-                <span v-text="`+${a.Armor(pilot) || 0}`"
-                  class="heading h3" />
+                <span class="heading h3"
+                  v-text="`+${a.Armor(pilot) || 0}`" />
               </v-card>
             </v-col>
             <v-col cols="6">
               <v-card variant="tonal"
                 class="py-2">
                 <v-icon icon="mdi-heart-outline" />
-                <span v-text="`+${a.HPBonus(pilot) || 0}`"
-                  class="heading h3" />
+                <span class="heading h3"
+                  v-text="`+${a.HPBonus(pilot) || 0}`" />
               </v-card>
             </v-col>
             <v-col cols="4">
@@ -242,8 +242,8 @@
                 class="py-2">
                 <v-icon icon="cc:edef"
                   class="mt-n1" />
-                <span v-text="`${a.EDefense(pilot) || 'N/A'} `"
-                  class="heading h3" />
+                <span class="heading h3"
+                  v-text="`${a.EDefense(pilot) || 'N/A'} `" />
               </v-card>
             </v-col>
             <v-col cols="4">
@@ -251,16 +251,16 @@
                 class="py-2">
                 <v-icon icon="cc:evasion"
                   class="mt-n1" />
-                <span v-text="`${a.Evasion(pilot) || 'N/A'} `"
-                  class="heading h3" />
+                <span class="heading h3"
+                  v-text="`${a.Evasion(pilot) || 'N/A'} `" />
               </v-card>
             </v-col>
             <v-col cols="4">
               <v-card variant="tonal"
                 class="py-2">
                 <v-icon icon="mdi-arrow-right-bold-hexagon-outline" />
-                <span v-text="`${a.Speed(pilot) || 'N/A'} `"
-                  class="heading h3" />
+                <span class="heading h3"
+                  v-text="`${a.Speed(pilot) || 'N/A'} `" />
               </v-card>
             </v-col>
           </v-row>
@@ -408,7 +408,7 @@ import TagBlock from './components/TagBlock.vue';
 import TalentEmblem from '@/ui/components/Talent/components/_TalentEmblem.vue';
 
 export default {
-  name: 'pilot-print',
+  name: 'PilotPrint',
   components: {
     blankLine,
     ActionCard,

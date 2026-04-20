@@ -74,8 +74,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
   export default {
-  mixins: [useMobile],
     name: 'CcSwitch',
+  mixins: [useMobile],
     props: {
       modelValue: {
         type: Boolean,

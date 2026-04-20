@@ -10,7 +10,7 @@
           <span class="heading h3">{{ selectedWord }}</span>
         </v-card-title>
         <v-divider />
-        <v-card-text class="py-2 mb-6" v-html-safe="selectedDefinition" />
+        <v-card-text v-html-safe="selectedDefinition" class="py-2 mb-6" />
         <div class="panel-footer text-center bg-panel">{{ mobile ? 'TAP' : 'CLICK' }} TO CLOSE</div>
       </v-card>
     </v-bottom-sheet>
@@ -37,8 +37,8 @@ export default {
   },
   computed: {
     highlightedText() {
-      let words = dictionary.flatMap((entry) => entry.keys.map((key) => key.toLowerCase()));
-      let regex = new RegExp(`\\b(${words.join('|')})\\b`, 'gi');
+      const words = dictionary.flatMap((entry) => entry.keys.map((key) => key.toLowerCase()));
+      const regex = new RegExp(`\\b(${words.join('|')})\\b`, 'gi');
       return this.text.replace(regex, (match) => {
         return `<span class='cc-dictionary-word' data-word='${match.toLowerCase()}'>${match}</span>`;
       });
@@ -48,7 +48,7 @@ export default {
     handleClick(event) {
       if (event.target.classList.contains('cc-dictionary-word')) {
         this.selectedWord = event.target.dataset.word;
-        let entry = dictionary.find((entry) =>
+        const entry = dictionary.find((entry) =>
           entry.keys.some((key) => key.toLowerCase() === this.selectedWord)
         );
         this.selectedDefinition = entry ? entry.definition : 'Definition not found.';

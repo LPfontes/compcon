@@ -34,7 +34,7 @@ import NoDataBlock from '../../components/NoDataBlock.vue';
 import CoreBonusSelector from '@/features/pilot_management/_components/selectors/CoreBonusSelector.vue';
 
 export default {
-  name: 'skill-block',
+  name: 'SkillBlock',
   components: { SectionHeader, NoDataBlock, SectionEditChip, CoreBonusSelector },
   props: {
     pilot: {

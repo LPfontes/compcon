@@ -130,7 +130,7 @@
             <v-icon v-bind="props" icon="mdi-palette" class="mx-2 fade-select" />
           </v-badge>
         </template>
-        <template v-slot:default="{ isActive }">
+        <template #default="{ isActive }">
           <v-card>
             <v-tabs v-model="colorTab" grow>
               <v-tab>Theme-Aware Colors</v-tab>
@@ -143,7 +143,7 @@
                     <i>These colors will change based on the user's selected COMP/CON theme</i>
                   </div>
                   <v-row dense justify="center" align="center">
-                    <v-col cols="3" v-for="color in colorSelections" :key="color">
+                    <v-col v-for="color in colorSelections" :key="color" cols="3">
                       <v-card
                         class="pa-2 pr-4 text-capitalize text-caption"
                         :color="color"
@@ -163,7 +163,7 @@
                         change based on the user's selected COMP/CON theme
                       </i>
                     </div>
-                    <v-col cols="3" v-for="color in colorPalette" :key="color">
+                    <v-col v-for="color in colorPalette" :key="color" cols="3">
                       <v-card
                         class="pa-2 pr-4 text-capitalize text-caption"
                         :color="color"
@@ -250,7 +250,7 @@ import NarrativeContentContainer from './NarrativeContentContainer.vue';
 import EncounterContainer from './EncounterContainer.vue';
 
 export default {
-  name: 'campaign-page-content-container',
+  name: 'CampaignPageContentContainer',
   components: { NarrativeContentContainer, EncounterContainer },
   props: { item: { type: Object, required: true } },
   data: () => ({

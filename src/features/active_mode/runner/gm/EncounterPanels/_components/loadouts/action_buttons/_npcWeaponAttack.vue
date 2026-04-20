@@ -54,16 +54,16 @@ import EffectApplicator from '@/ui/components/chips/_activeeffect/EffectApplicat
 
 export default {
   name: 'MechWeaponAttack',
+  components: {
+    EffectApplicator,
+    NpcModInset,
+  },
   props: {
     event: { type: WeaponAttackEvent, required: true },
     weapon: { type: NpcWeapon, required: true },
     owner: { type: Object, required: true },
     encounter: { type: Object, required: true },
     isAdditionalAux: { type: Boolean, default: false },
-  },
-  components: {
-    EffectApplicator,
-    NpcModInset,
   },
   computed: {
     mods() {

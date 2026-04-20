@@ -7,7 +7,7 @@
     offset-x
     nudge-bottom="-200px">
     <template #activator="{ props }">
-      <v-btn icon @click.stop="menu = true" v-bind="props">
+      <v-btn icon v-bind="props" @click.stop="menu = true">
         <v-icon icon="mdi-dice-multiple" />
       </v-btn>
     </template>
@@ -266,7 +266,7 @@
 import { DiceRoller } from '@/classes/dice/DiceRoller';
 
 export default {
-  name: 'cc-dice-menu',
+  name: 'CcDiceMenu',
   props: {
     title: { type: String, required: false },
     preset: { type: String, required: false },

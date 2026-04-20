@@ -12,11 +12,11 @@
           <p v-html-safe="action.Detail" class="my-1" />
 
           <div v-if="action.Table" class="pb-2">
-            <v-row dense v-for="(result, index) in action.Table.results" :key="`result-${index}`" class="mb-n2">
-              <v-col cols="1" v-if="result.min === result.max" class="text-center">
+            <v-row v-for="(result, index) in action.Table.results" :key="`result-${index}`" dense class="mb-n2">
+              <v-col v-if="result.min === result.max" cols="1" class="text-center">
                 {{ result.min }}
               </v-col>
-              <v-col cols="1" v-else class="text-center">
+              <v-col v-else cols="1" class="text-center">
                 {{ result.min }}&ndash;{{ result.max }}
               </v-col>
               <v-col v-html-safe="result.text" class="text-black" />
@@ -32,7 +32,7 @@
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'downtime-ref-print',
+  name: 'DowntimeRefPrint',
   computed: {
     actions() {
       return CompendiumStore().DowntimeActions;

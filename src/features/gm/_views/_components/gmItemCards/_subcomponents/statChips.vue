@@ -21,7 +21,7 @@
 import { Bonus } from '@/classes/components';
 
 export default {
-  name: 'gm-stat-chip-display',
+  name: 'GmStatChipDisplay',
   props: {
     statController: { type: Object, required: true },
     bonuses: { type: Array, required: false, default: () => [] },

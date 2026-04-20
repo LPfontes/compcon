@@ -25,8 +25,8 @@
       <b class="text-accent">Trigger:&nbsp;</b>
       <b>{{ (activeEffect as any).Trigger }}</b>
     </cc-alert>
-    <div class="text-text pa-1 mb-3"
-      v-html-safe="byTier(activeEffect.Detail)" />
+    <div v-html-safe="byTier(activeEffect.Detail)"
+      class="text-text pa-1 mb-3" />
 
     <v-card flat
       tile
@@ -87,7 +87,7 @@ import ApplyButton from './ApplyButton.vue'
 
 
 export default {
-  name: 'ae-menu-input',
+  name: 'AeMenuInput',
   components: {
     EffectApplicator,
     ApplyButton,
@@ -104,15 +104,12 @@ export default {
     initialTargets: { type: Array, default: () => [] },
     action: { type: Object, required: false },
   },
+  emits: ['apply', 'reset'],
   data: () => ({
     event: {} as ActiveEffectEvent,
     ready: false,
     isFree: false,
   }),
-  emits: ['apply', 'reset'],
-  created() {
-    this.reset();
-  },
   computed: {
     isPilotSheet() {
       return this.encounter.ItemType === 'PilotSheet';
@@ -159,6 +156,9 @@ export default {
       }
       return '';
     },
+  },
+  created() {
+    this.reset();
   },
   methods: {
     byTier(detail: string) {

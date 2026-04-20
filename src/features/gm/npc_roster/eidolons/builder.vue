@@ -27,7 +27,7 @@
 
 <script lang="ts">
 export default {
-  name: 'eidolon-builder-content',
+  name: 'EidolonBuilderContent',
   props: {
     item: { type: Object, required: true },
     readonly: { type: Boolean, default: false },

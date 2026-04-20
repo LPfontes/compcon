@@ -314,7 +314,7 @@ class MechWeapon extends MechEquipment {
 
     if (!this.Mod?.AddedRange) return this.SelectedProfile.Range || []
 
-    let ranges = [...(this.SelectedProfile.Range || []), ...(this.Mod?.AddedRange || [])]
+    const ranges = [...(this.SelectedProfile.Range || []), ...(this.Mod?.AddedRange || [])]
     // add ranges of same type together
     const combined: Range[] = []
     ranges.forEach(r => {
@@ -331,7 +331,7 @@ class MechWeapon extends MechEquipment {
   public get Damage(): Damage[] {
     if (!this.Mod?.AddedDamage) return this.SelectedProfile.Damage || []
 
-    let damages = [...(this.SelectedProfile.Damage || []), ...(this.Mod?.AddedDamage || [])]
+    const damages = [...(this.SelectedProfile.Damage || []), ...(this.Mod?.AddedDamage || [])]
     // add Damages of same type together
     const combined: Damage[] = []
     damages.forEach(r => {

@@ -190,8 +190,8 @@ import _ from 'lodash'
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  mixins: [useMobile],
   name: 'PackConfig',
+  mixins: [useMobile],
   data: () => ({
     selection: null as any,
     editingIndex: null as number | null,

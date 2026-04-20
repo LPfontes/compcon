@@ -122,7 +122,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ref-structure-table',
+  name: 'RefStructureTable',
   data: () => ({
     dialog: false,
   }),

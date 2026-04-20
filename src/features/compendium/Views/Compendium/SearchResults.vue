@@ -59,8 +59,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'SearchResults',
+  mixins: [useMobile],
   data: () => ({
     selected: null as any,
     searchText: '',

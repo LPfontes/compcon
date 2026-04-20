@@ -10,11 +10,11 @@
 
     <div class="ml-3">
       <div v-if="(a as Action).Init" v-html-safe="(a as Action).Init" class="caption" />
-      <v-row no-gutters v-if="(a as Action).Trigger">
+      <v-row v-if="(a as Action).Trigger" no-gutters>
         <v-col cols="auto" class="caption font-weight-bold">Trigger:&nbsp;</v-col>
         <v-col><div v-html-safe="(a as Action).Trigger" class="caption" /></v-col>
       </v-row>
-      <v-row no-gutters v-if="(a as Action).Detail">
+      <v-row v-if="(a as Action).Detail" no-gutters>
         <v-col v-if="(a as Action).Trigger" cols="auto" class="caption font-weight-bold">
           Effect:&nbsp;
         </v-col>
@@ -33,7 +33,7 @@
 import { Action } from '@/interface';
 
 export default {
-  name: 'print-action',
+  name: 'PrintAction',
   props: {
     actions: {
       type: Array,

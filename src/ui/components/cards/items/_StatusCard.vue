@@ -5,7 +5,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-bond-card',
+  name: 'CcBondCard',
   props: {
     item: {
       type: Object,

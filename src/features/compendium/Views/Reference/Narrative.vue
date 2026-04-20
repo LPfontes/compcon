@@ -7,11 +7,11 @@ import narrative from '@/assets/srd/lib/narrative_play.json';
 import SrdView from './_components/SrdView.vue';
 
 export default {
-  name: 'narrative',
-  inheritAttrs: false,
+  name: 'Narrative',
   components: {
     SrdView,
   },
+  inheritAttrs: false,
   props: {
     preScroll: {
       type: String,

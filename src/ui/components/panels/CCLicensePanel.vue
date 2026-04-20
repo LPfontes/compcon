@@ -2,8 +2,8 @@
   <v-row density="compact" justify="space-around" dense>
     <v-col
       v-for="n in license.MaxRank"
-      :key="`rank-${n}`"
       v-show="license.Unlocks[n - 1].length"
+      :key="`rank-${n}`"
       lg="4"
       md="6"
       cols="12"
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-license-panel',
+  name: 'CcLicensePanel',
   props: {
     license: {
       type: Object,

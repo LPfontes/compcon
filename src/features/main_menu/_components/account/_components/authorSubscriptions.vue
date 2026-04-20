@@ -133,7 +133,7 @@
           </div>
         </v-tooltip>
       </template>
-      <template v-slot:expanded-row="{ columns, item }">
+      <template #expanded-row="{ columns, item }">
         <td :colspan="columns.length"
           class="pa-4 w-100 bg-light-panel">
           <v-alert v-if="!isLatestVersion(item)"
@@ -185,9 +185,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'collection-subscriptions',
+  name: 'CollectionSubscriptions',
   components: { CollectionShareCodeDialog, CollectionInfo },
+  mixins: [useMobile],
   data: () => ({
     loading: false,
     expanded: [],
@@ -235,7 +235,7 @@ export default {
     },
     async update(item) {
       this.loading = true;
-      let errors = await UserStore().updateRemoteCollection(item);
+      const errors = await UserStore().updateRemoteCollection(item);
       if (errors.length > 0) {
         logger.error(`Error updating collection: ${errors}`, this);
         this.$notify({
@@ -258,7 +258,7 @@ export default {
       this.loading = false;
     },
     async updateAll() {
-      for (let item of this.collectionItems) {
+      for (const item of this.collectionItems) {
         const localSetting = this.getLocalUserSetting(item);
         if (localSetting && localSetting.metadata.version === item.version) continue;
         else await this.update(item);

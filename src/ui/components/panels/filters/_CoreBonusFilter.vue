@@ -9,7 +9,7 @@
     :items="manufacturers"
     chips
     clearable
-    @update:modelValue="updateFilters()" />
+    @update:model-value="updateFilters()" />
   <v-select v-model="lcpFilter"
     class="px-2"
     hide-details
@@ -21,7 +21,7 @@
     label="From Content Pack"
     :items="lcps"
     multiple
-    @update:modelValue="updateFilters()" />
+    @update:model-value="updateFilters()" />
 </template>
 
 <script lang="ts">
@@ -37,12 +37,12 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'core-bonus-filter',
+  name: 'CoreBonusFilter',
+  emits: ['set-filters'],
   data: () => ({
     sourceFilter: [],
     lcpFilter: [],
   }),
-  emits: ['set-filters'],
   computed: {
     manufacturers(): Manufacturer[] {
       return CompendiumStore()

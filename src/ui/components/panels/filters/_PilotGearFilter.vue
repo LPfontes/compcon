@@ -14,7 +14,7 @@
         label="Item Type"
         :items="types"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="tagFilter"
@@ -30,7 +30,7 @@
         item-value="ID"
         multiple
         item-title="Name"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
 </template>
@@ -47,12 +47,12 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'pilot-gear-filter',
+  name: 'PilotGearFilter',
+  emits: ['set-filters'],
   data: () => ({
     tagFilter: [],
     typeFilter: [],
   }),
-  emits: ['set-filters'],
   computed: {
     tags(): Tag[] {
       return _.uniqBy(

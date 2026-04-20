@@ -76,8 +76,8 @@
           alert />
       </div>
       <div :class="mobile ? '' : 'px-3'">
-        <mech-mount-bonus-card v-if="selectedMount"
-          v-for="b in selectedMount.Bonuses"
+        <mech-mount-bonus-card v-for="b in selectedMount.Bonuses"
+          v-if="selectedMount"
           :key="b.ID"
           expanded
           :bonus="b"
@@ -246,6 +246,13 @@ import StagedPanel from './_stagedPanel.vue';
 
 export default {
   name: 'MechSkirmishButton',
+  components: {
+    MenuInput,
+    MechMountBonusCard,
+    MechWeaponAttack,
+    ApplyButton,
+    StagedPanel
+  },
   props: {
     action: {
       type: Object,
@@ -264,47 +271,12 @@ export default {
       required: false,
     },
   },
-  components: {
-    MenuInput,
-    MechMountBonusCard,
-    MechWeaponAttack,
-    ApplyButton,
-    StagedPanel
-  },
   data: () => ({
     event: null as WeaponAttackEvent | null,
     auxEvents: [] as WeaponAttackEvent[],
     selectedWeapon: null as MechWeapon | null,
     include: [] as boolean[],
   }),
-  created() {
-    this.reset();
-  },
-  watch: {
-    include: {
-      handler(newVal, oldVal) {
-        const self = this.encounter.Combatants.find(
-          (c: CombatantData) => c.actor.CombatController.RootActor.ID === this.owner.actor.CombatController.RootActor.ID
-        );
-        if (!self) {
-          throw new Error('Owner combatant not found in encounter');
-        }
-        const auxes = this.selectedMount.Weapons.filter(
-          (x) =>
-            x.InstanceID !== this.selectedWeapon!.InstanceID && x.Size.toLowerCase() === 'auxiliary'
-        );
-
-        this.auxEvents = []
-
-        for (let i = 0; i < newVal.length; i++) {
-          this.auxEvents.push(
-            new WeaponAttackEvent(auxes[i].SelectedProfile as WeaponProfile, this.owner as CombatantData, this.encounter, 'Additional Aux Attack')
-          );
-        }
-      },
-      deep: true,
-    },
-  },
   computed: {
     mobile() {
       return this.$vuetify.display.mdAndDown;
@@ -353,6 +325,34 @@ export default {
       const enabledAuxes = this.auxEvents.filter((x, idx) => this.include[idx]);
       return [this.event].concat(enabledAuxes)
     },
+  },
+  watch: {
+    include: {
+      handler(newVal, oldVal) {
+        const self = this.encounter.Combatants.find(
+          (c: CombatantData) => c.actor.CombatController.RootActor.ID === this.owner.actor.CombatController.RootActor.ID
+        );
+        if (!self) {
+          throw new Error('Owner combatant not found in encounter');
+        }
+        const auxes = this.selectedMount.Weapons.filter(
+          (x) =>
+            x.InstanceID !== this.selectedWeapon!.InstanceID && x.Size.toLowerCase() === 'auxiliary'
+        );
+
+        this.auxEvents = []
+
+        for (let i = 0; i < newVal.length; i++) {
+          this.auxEvents.push(
+            new WeaponAttackEvent(auxes[i].SelectedProfile as WeaponProfile, this.owner as CombatantData, this.encounter, 'Additional Aux Attack')
+          );
+        }
+      },
+      deep: true,
+    },
+  },
+  created() {
+    this.reset();
   },
   methods: {
     reset(clearAction = false) {

@@ -1,0 +1,88 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "loading": "Loading..."
+  },
+  "nav": {
+    "navigateBack": "Navigate Back",
+    "navigateForward": "Navigate Forward",
+    "mainMenu": "Main Menu",
+    "compendium": "Compendium",
+    "pilotManagement": "Pilot Management",
+    "activeMode": "Active Mode",
+    "quickReference": "Quick Reference",
+    "cloudAccount": "Cloud Account",
+    "achievements": "Achievements",
+    "offline": "Offline",
+    "gm": {
+      "npcRoster": "NPC Roster",
+      "encounters": "Encounters",
+      "narrative": "Narrative Elements",
+      "campaigns": "Campaign Manager"
+    },
+    "menu": {
+      "manageContent": "Manage Content",
+      "options": "Options",
+      "about": "About",
+      "credits": "Credits",
+      "help": "Help",
+      "support": "Support COMP/CON"
+    },
+    "storage": {
+      "warning": "WARNING",
+      "alert": "ALERT",
+      "warningText": "COMP/CON has exceeded the storage warning threshold.",
+      "maxText": "COMP/CON has exceeded the maximum storage threshold.",
+      "noSaveText": "NO NEW ITEMS WILL BE SAVED UNTIL THE LIMIT IS INCREASED OR DATA IS DELETED.",
+      "moreDetails": "More details are available in the <b>Storage</b> tab of the Options Menu.",
+      "storageTab": "Storage",
+      "limitExceeded": "STORAGE LIMIT EXCEEDED"
+    }
+  },
+  "options": {
+    "tabs": {
+      "settings": "Settings",
+      "storage": "Storage",
+      "log": "Log"
+    },
+    "settings": {
+      "showUpdateMessages": "Show Update Messages",
+      "showExoticItems": "Show Exotic items in the Compendium",
+      "showExoticTooltip": "Enabling this option may reveal campaign spoilers and it is recommended to leave this setting DISABLED if you are not the GM",
+      "theme": "Theme",
+      "font": "Font",
+      "language": "Language / Idioma",
+      "communityThemes": "Community themes by",
+      "logLevel": "Log Level",
+      "errorReporting": "Error Reporting",
+      "errorReportingDesc": "Error reporting allows anonymous error data to be sent to the developer to help identify and resolve bugs and other issues.",
+      "errorReportingPii": "No personally identifiable information is collected at this level.",
+      "enhancedReporting": "Enhanced error reporting",
+      "enhancedReportingDesc": "Enhanced error reporting sends the developer additional data, including",
+      "enhancedReportingPii": "non-anonymous information, specifically IP address and user ID",
+      "enhancedReportingNotNecessary": "This is <b>not necessary</b> unless you are actively working with the developer to resolve a specific issue and have been asked to enable this setting.",
+      "enabled": "enabled",
+      "disabled": "disabled",
+      "createBackup": "Create Data Backup",
+      "createBackupTooltip": "COMP/CON relies on your browser's secure storage to save and load its data. Generally, this data is safe from deletion, but certain browser settings and utilities can sometimes clear this data, resulting in the loss of your COMP/CON data. It's good practice to back up your data from time to time.",
+      "downloadV2Backup": "Download Stored v2 Backup",
+      "downloadV2Tooltip": "COMP/CON has saved a complete backup of your v2 COMP/CON data. This can be imported into the v2 app at old.compcon.app.",
+      "loadBackup": "Load Data Backup",
+      "loadBackupTooltip": ".compcon files are COMP/CON bulk export files that contain all of your local data in a single file. You can create a .compcon backup file using the 'Create Data Backup' button. Use this option to load .compcon backup files that you have created or obtained from another source. It is recommended to create a backup before loading a .compcon file, especially if the file came from another source.",
+      "importStrategy": "// Import Strategy",
+      "mergeStrategy": "Merge with existing data",
+      "overwriteStrategy": "Overwrite all existing data",
+      "mergeWarning": "COMP/CON will attempt to merge import data with your existing data.",
+      "overwriteWarning": "The overwrite strategy will replace all of your existing local data with the data from the imported file and cannot be undone. It is strongly recommended to create a backup before using this option.",
+      "warning": "Warning",
+      "selectFile": "Select .compcon Bulk Export File",
+      "v2BackupDetected": "v2 Backup Detected",
+      "v2BackupText1": "This is a v2 COMP/CON backup file. It will be processed using the v2 import system: content packs will be installed first, followed by pilots, NPCs, and encounters. Items that require LCPs not present in this backup will be saved to pending v2 imports in the Content Manager.",
+      "v2BackupText2": "v2 backup imports are always processed using the \"append\" strategy.",
+      "importV2": "Import v2 Backup",
+      "confirmImport": "Confirm Import"
+    }
+  }
+}

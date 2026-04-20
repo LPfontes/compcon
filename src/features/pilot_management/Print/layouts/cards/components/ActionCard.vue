@@ -24,7 +24,7 @@ import Card from './PrintCard.vue';
 import ActionInternal from './_actionInternal.vue';
 
 export default {
-  name: 'print-action',
+  name: 'PrintAction',
   components: {
     Card,
     ActionInternal,

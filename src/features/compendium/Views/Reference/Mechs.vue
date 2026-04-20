@@ -7,11 +7,11 @@ import mechs from '@/assets/srd/lib/mechs.json';
 import SrdView from './_components/SrdView.vue';
 
 export default {
-  name: 'mechs',
-  inheritAttrs: false,
+  name: 'Mechs',
   components: {
     SrdView,
   },
+  inheritAttrs: false,
   props: {
     preScroll: {
       type: String,

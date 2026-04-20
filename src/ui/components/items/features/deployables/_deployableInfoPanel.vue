@@ -10,7 +10,7 @@
 import deployableInfoBase from './_deployableInfoBase.vue';
 
 export default {
-  name: 'deployable-info-panel',
+  name: 'DeployableInfoPanel',
   components: { deployableInfoBase },
   props: {
     deployable: {

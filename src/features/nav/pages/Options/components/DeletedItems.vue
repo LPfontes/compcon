@@ -76,7 +76,7 @@ import { CampaignStore, EncounterStore, NpcStore, PilotStore } from '@/stores';
 import { Pilot, PilotGroup } from '@/class';
 
 export default {
-  name: 'deleted-items',
+  name: 'DeletedItems',
   data: () => ({
     loading: false,
   }),

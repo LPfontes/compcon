@@ -48,7 +48,7 @@
     <v-tooltip v-if="tooltip"
       location="top"
       max-width="300px">
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-icon style="align-self: center"
           :size="size"
           v-bind="props"
@@ -62,7 +62,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-switch',
+  name: 'CcSwitch',
   inheritAttrs: false,
   props: {
     modelValue: {

@@ -16,7 +16,7 @@ import StatChips from '../../../../_views/_components/gmItemCards/_subcomponents
 import cListItemBase from './cListItemBase.vue';
 
 export default {
-  name: 'gm-combatant-doodad-list-item',
+  name: 'GmCombatantDoodadListItem',
   components: { StatChips, cListItemBase },
   props: {
     item: { type: Object, required: true },

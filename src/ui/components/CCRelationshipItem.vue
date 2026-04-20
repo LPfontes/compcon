@@ -52,7 +52,7 @@
                 :items="allCollectionItems"
                 item-title="Name"
                 item-value="ID"
-                @update:modelValue="setName(item)" />
+                @update:model-value="setName(item)" />
             </v-col>
             <v-col cols="4">
               <v-text-field
@@ -81,8 +81,8 @@
                         originItem.ItemType
                       )"
                       :key="`suggestion-${index}`"
-                      @click="item.relationship = s"
-                      :title="s" />
+                      :title="s"
+                      @click="item.relationship = s" />
                   </v-list>
                 </v-card>
               </v-menu>
@@ -139,7 +139,7 @@ import { CollectionItem } from '@/classes/narrative/CollectionItem';
 import { NarrativeStore } from '@/stores';
 
 export default {
-  name: 'cc-relationship-item',
+  name: 'CcRelationshipItem',
   props: {
     item: {
       type: Object,

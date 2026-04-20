@@ -116,6 +116,7 @@ import CCMissingGmLcpText from './components/CCMissingGmLcpText.vue'
 import CCShareCodeImporter from './components/CCShareCodeImporter.vue'
 import CCBrokenReference from './components/CCBrokenReference.vue'
 import CCMasonryGrid from './components/CCMasonryGrid.vue'
+import CCLanguageSwitcher from './components/CCLanguageSwitcher.vue'
 
 import CCActiveEffectChip from './components/chips/CCActiveEffectChip.vue'
 import CCCombatActionChip from './components/chips/CCCombatActionChip.vue'
@@ -234,4 +235,5 @@ export {
   CCConfigTip,
   CCMasonryGrid,
   CCBonusTooltip,
+  CCLanguageSwitcher,
 }

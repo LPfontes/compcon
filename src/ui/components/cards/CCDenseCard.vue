@@ -26,8 +26,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
-  mixins: [useMobile],
   name: 'CCDenseCard',
+  mixins: [useMobile],
   props: {
     item: {
       type: Object,

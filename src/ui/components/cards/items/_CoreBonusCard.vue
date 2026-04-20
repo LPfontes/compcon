@@ -6,7 +6,7 @@
 import InfoCardBase from './_InfoCardBase.vue';
 
 export default {
-  name: 'cc-core-bonus-card',
+  name: 'CcCoreBonusCard',
   components: { InfoCardBase },
   props: {
     item: {

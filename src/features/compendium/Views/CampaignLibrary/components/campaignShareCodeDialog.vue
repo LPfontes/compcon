@@ -1,7 +1,7 @@
 <template>
   <cc-share-code-importer
     ref="importer"
-    importType="campaign"
+    import-type="campaign"
     @set-query-result="queryResult = $event"
     @set-data="campaign = $event">
     <template #result>
@@ -24,7 +24,7 @@ import { CampaignStore } from '@/stores';
 import CampaignDetailPanel from './CampaignDetailPanel.vue';
 
 export default {
-  name: 'share-code-dialog',
+  name: 'ShareCodeDialog',
   components: { CampaignDetailPanel },
   data: () => ({
     queryResult: null as any,

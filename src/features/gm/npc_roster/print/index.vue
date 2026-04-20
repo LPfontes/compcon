@@ -84,7 +84,7 @@ import { Npc } from '@/classes/npc/Npc';
 import { options } from 'marked';
 
 export default {
-  name: 'combined-print',
+  name: 'CombinedPrint',
   components: {
     Layout,
     OptionsDialog,
@@ -108,12 +108,6 @@ export default {
       card: [],
     } as any,
   }),
-  mounted() {
-    if (!this.ids) return;
-    let idArr = typeof this.ids === 'string' ? JSON.parse(this.ids) : this.ids;
-    this.selectedNpcs = idArr.map((x) => NpcStore().Npcs.find((p) => p.ID === x) as Npc);
-    this.selectedNpcs = this.selectedNpcs.filter((x) => !!x);
-  },
   computed: {
     allNpcs() {
       return NpcStore().Npcs.filter((x) => !x.SaveController.IsDeleted);
@@ -126,6 +120,12 @@ export default {
           : 'mdi-checkbox-blank-outline';
     },
   },
+  mounted() {
+    if (!this.ids) return;
+    const idArr = typeof this.ids === 'string' ? JSON.parse(this.ids) : this.ids;
+    this.selectedNpcs = idArr.map((x) => NpcStore().Npcs.find((p) => p.ID === x) as Npc);
+    this.selectedNpcs = this.selectedNpcs.filter((x) => !!x);
+  },
   methods: {
     print() {
       window.print();
@@ -135,7 +135,7 @@ export default {
       else this.selectedNpcs = this.allNpcs.slice();
     },
     setOptions(options) {
-      let out = {};
+      const out = {};
       for (const key in options) {
         if (Array.isArray(options[key])) {
           out[key] = options[key].map((x) => x.title.toLowerCase());

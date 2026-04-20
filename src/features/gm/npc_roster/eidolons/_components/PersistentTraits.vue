@@ -28,7 +28,7 @@
 import PersistentTraits from '@/classes/npc/eidolon/persistent_traits.json';
 
 export default {
-  name: 'eidolon-persistent-traits',
+  name: 'EidolonPersistentTraits',
   computed: {
     traits(): any[] {
       return PersistentTraits;

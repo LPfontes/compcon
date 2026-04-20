@@ -23,9 +23,9 @@
 
     <v-row dense class="no-print-break">
       <v-col>
-        <div v-if="npc.Description" class="mt-1 pl-3" v-html-safe="npc.Description" />
+        <div v-if="npc.Description" v-html-safe="npc.Description" class="mt-1 pl-3" />
       </v-col>
-      <v-col cols="4" v-if="options.include.some((x) => x.title === 'Include Image')">
+      <v-col v-if="options.include.some((x) => x.title === 'Include Image')" cols="4">
         <div
           :style="`background-image: url('${npc.Portrait}');`"
           style="height: 300px; width: 100%; background-position: top 0%; background-size: cover" />
@@ -47,7 +47,7 @@
       </div>
     </fieldset>
 
-    <fieldset class="mx-1 pa-1 mb-2 no-print-break" v-for="l in npc.Layers" :key="l.ID">
+    <fieldset v-for="l in npc.Layers" :key="l.ID" class="mx-1 pa-1 mb-2 no-print-break">
       <legend
         class="text-overline text-primary px-1"
         style="line-height: 14px; border: 1px solid grey; border-radius: 3px">
@@ -139,7 +139,7 @@
         class="text-caption px-2 no-print-break">
         <div class="font-weight-bold text-caption" v-text="t.Title" />
         <div v-html-safe="t.Description" class="pl-2" />
-        <v-row dense v-for="(r, ri) in t.Results" :key="`result-${ri}`">
+        <v-row v-for="(r, ri) in t.Results" :key="`result-${ri}`" dense>
           <v-col cols="auto">
             <b>{{ r.min }}-{{ r.max }}</b>
           </v-col>
@@ -170,7 +170,7 @@ import PrintNpcStats from './components/PrintNpcStats.vue';
 import persistent_traits from '@/classes/npc/eidolon/persistent_traits.json';
 
 export default {
-  name: 'npc-print',
+  name: 'NpcPrint',
   components: {
     blankLine,
     notes,

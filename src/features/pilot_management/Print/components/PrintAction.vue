@@ -1,5 +1,5 @@
 <template>
-  <div v-if="actions?.length > 0" v-for="(a, index) in actions" :key="`action-${index}`" class="no-print-break">
+  <div v-for="(a, index) in actions" v-if="actions?.length > 0" :key="`action-${index}`" class="no-print-break">
     <div>
       <v-icon
         :size="compact ? 'x-small' : 'small'"
@@ -15,14 +15,14 @@
 
     <div class="ml-3">
       <div v-if="(a as Action).Init" v-html-safe="(a as Action).Init" class="caption" />
-      <v-row :no-gutters="compact" :dense="!compact" v-if="(a as Action).Trigger">
+      <v-row v-if="(a as Action).Trigger" :no-gutters="compact" :dense="!compact">
         <v-col cols="auto" class="caption font-weight-bold">Trigger:&nbsp;</v-col>
         <v-col><div v-html-safe="(a as Action).Trigger" class="caption" /></v-col>
       </v-row>
       <v-row
+        v-if="(a as Action).Detail"
         :no-gutters="compact"
         :dense="!compact"
-        v-if="(a as Action).Detail"
         :class="compact ? '' : 'mt-n1'">
         <v-col v-if="(a as Action).Trigger" cols="auto" class="caption font-weight-bold">
           Effect:&nbsp;
@@ -37,7 +37,7 @@
 import { Action } from '@/interface';
 
 export default {
-  name: 'print-action',
+  name: 'PrintAction',
   props: {
     actions: {
       type: Array,

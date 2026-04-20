@@ -36,7 +36,7 @@ import StepperContent from '../../_components/StepperContent.vue';
 import TalentSelector from '../../_components/selectors/TalentSelector.vue';
 import { Pilot } from '@/class';
 export default {
-  name: 'talents-page',
+  name: 'TalentsPage',
   components: {
     StepperContent,
     TalentSelector,

@@ -39,12 +39,8 @@
 <script>
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcModal',
   mixins: [useMobile],
-  name: 'cc-modal',
-  data: () => ({
-    modal: false,
-    _savedScrollY: 0,
-  }),
   props: {
     modelValue: Boolean,
     title: {
@@ -80,6 +76,10 @@ export default {
     },
   },
   emits: ['update:modelValue', 'close'],
+  data: () => ({
+    modal: false,
+    _savedScrollY: 0,
+  }),
   watch: {
     modelValue: {
       handler(val) {

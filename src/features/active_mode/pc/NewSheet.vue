@@ -3,8 +3,8 @@
     <div class="heading h2">New Character Sheet</div>
     <v-row dense
       class="mt-2">
-      <v-col cols="1"
-        v-if="!mobile"
+      <v-col v-if="!mobile"
+        cols="1"
         class="text-center">
         <v-icon icon="cc:pilot"
           :color="selectedPilot ? 'success' : 'panel'"
@@ -45,6 +45,7 @@
                 <v-slide-y-transition>
                   <v-row v-if="!selectedPilot || selectedPilot.ID === pilot.ID"
                     v-bind="props"
+                    :key="pilot.ID"
                     class="mb-2 border-sm"
                     :class="isHovering && !selectedPilot
                       ? 'bg-panel cursor'
@@ -53,8 +54,7 @@
                         : ''
                       "
                     no-gutters
-                    @click="setPilot(pilot)"
-                    :key="pilot.ID">
+                    @click="setPilot(pilot)">
                     <v-col cols="auto">
                       <cc-avatar v-if="!mobile && pilot.PortraitController.Avatar"
                         :avatar="pilot.PortraitController.Avatar"
@@ -87,8 +87,8 @@
                         <cc-slashes />
                         LL{{ pilot.Level }}
                       </div>
-                      <div class="mt-1"
-                        v-if="!mobile">
+                      <div v-if="!mobile"
+                        class="mt-1">
                         <pilot-list-item-details :pilot="<Pilot>pilot" />
                       </div>
 
@@ -228,8 +228,8 @@
     </v-slide-y-transition>
     <v-slide-y-transition>
       <v-row v-if="selectedPilot && (selectedMech)">
-        <v-col cols="1"
-          v-if="!mobile"
+        <v-col v-if="!mobile"
+          cols="1"
           class="text-center">
           <v-icon icon="mdi-checkbox-marked-circle-auto-outline"
             color="success"
@@ -301,12 +301,12 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'NewSheet',
   components: {
     PilotListItemDetails,
     MechCardLoadoutField,
   },
+  mixins: [useMobile],
   data: () => ({
     selectedPilot: null as Pilot | null,
     selectedMech: null as Mech | null,
@@ -317,7 +317,7 @@ export default {
   }),
   computed: {
     groups() {
-      let groups = [{ title: 'All Pilots', value: null }];
+      const groups = [{ title: 'All Pilots', value: null }];
       return [...groups,
       ...(PilotStore().PilotGroups as PilotGroup[]).map((g: PilotGroup) => ({ title: g.Name, value: g.ID }))
       ];

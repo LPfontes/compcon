@@ -22,7 +22,7 @@
 
 <script lang="ts">
 export default {
-  name: 'toc-item',
+  name: 'TocItem',
   props: {
     items: {
       type: Array,

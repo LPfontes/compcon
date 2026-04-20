@@ -1,6 +1,6 @@
 <template>
   <v-hover>
-    <template v-slot:default="{ isHovering, props }">
+    <template #default="{ isHovering, props }">
       <div
         :class="`mb-2 ${clickable ? 'clickable' : ''}`"
         v-bind="props"
@@ -46,7 +46,6 @@
 <script lang="ts">
 export default {
   name: 'CCTitledPanel',
-  emits: ['click'],
   props: {
     title: {
       type: String,
@@ -71,5 +70,6 @@ export default {
       required: false,
     },
   },
+  emits: ['click'],
 };
 </script>

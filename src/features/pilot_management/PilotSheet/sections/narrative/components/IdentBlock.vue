@@ -51,9 +51,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'ident-block',
+  name: 'IdentBlock',
   components: { BackgroundSelector },
+  mixins: [useMobile],
   props: {
     pilot: {
       type: Pilot,

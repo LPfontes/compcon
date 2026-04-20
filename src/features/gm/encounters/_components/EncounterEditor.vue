@@ -42,8 +42,8 @@
               </v-row>
 
               <div class="text-overline">ENCOUNTER DETAILS</div>
-              <cc-rich-text-area :readonly="isRemote"
-                v-model="item.Description" />
+              <cc-rich-text-area v-model="item.Description"
+                :readonly="isRemote" />
 
               <sitrep-editor :readonly="isRemote"
                 :item="item" />
@@ -74,8 +74,8 @@
                   <v-window-item>
                     <v-card style="height: 100%"
                       variant="outlined">
-                      <map-preview ref="mapPreview"
-                        v-if="item.Map"
+                      <map-preview v-if="item.Map"
+                        ref="mapPreview"
                         :map="item.Map" />
                       <v-row v-else
                         style="min-height: 22vw; max-width: 100%"
@@ -173,8 +173,8 @@
           </v-row>
           <v-divider class="my-2" />
           <div class="text-caption mb-2">ADDITIONAL NOTES</div>
-          <cc-rich-text-area :readonly="isRemote"
-            v-model="item.Note" />
+          <cc-rich-text-area v-model="item.Note"
+            :readonly="isRemote" />
         </v-container>
       </v-card>
     </div>
@@ -382,8 +382,7 @@ import CombatantEditor from './combatants/CombatantEditor.vue';
 import { CloudController } from '@/classes/components';
 
 export default {
-  name: 'gm-encounter-editor',
-  mixins: [useMobile],
+  name: 'GmEncounterEditor',
   components: {
     SectionEditor,
     GmLabelEditor,
@@ -394,6 +393,7 @@ export default {
     MapPreview,
     CombatantEditor,
   },
+  mixins: [useMobile],
   props: {
     isNew: { type: Boolean },
     showDescription: { type: Boolean },

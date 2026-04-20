@@ -86,7 +86,6 @@ export default {
     IconSelectMenu,
   },
   inheritAttrs: false,
-  emits: ['deselect'],
   props: {
     combatant: {
       type: Object,
@@ -97,5 +96,6 @@ export default {
       required: true,
     },
   },
+  emits: ['deselect'],
 };
 </script>

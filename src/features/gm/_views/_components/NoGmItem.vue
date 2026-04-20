@@ -18,7 +18,7 @@
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'no-gm-item',
+  name: 'NoGmItem',
   computed: {
     canAddNpc(): boolean {
       return CompendiumStore().hasNpcAccess;

@@ -38,8 +38,8 @@
         vertical
         class="mx-6"
         style="transform: skew(-45deg); opacity: 1 !important" />
-      <v-col cols="auto" v-if="!hideClose">
-        <v-btn @click="$emit('close')" tile size="small" icon variant="text" class="fade-select">
+      <v-col v-if="!hideClose" cols="auto">
+        <v-btn tile size="small" icon variant="text" class="fade-select" @click="$emit('close')">
           <v-icon :size="mobile ? 30 : 40">mdi-close</v-icon>
         </v-btn>
       </v-col>
@@ -53,8 +53,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcTitle',
   mixins: [useMobile],
-  name: 'cc-title',
   props: {
     color: { type: String, default: 'primary' },
     title: { type: String, default: '' },

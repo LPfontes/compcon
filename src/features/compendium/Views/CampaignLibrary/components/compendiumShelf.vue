@@ -9,9 +9,9 @@
   <div class="mt-4">
     <v-row dense
       justify="space-around">
-      <v-col cols="auto"
-        v-for="(c, n) in campaigns"
+      <v-col v-for="(c, n) in campaigns"
         :key="`campaign-${n}`"
+        cols="auto"
         class="mx-1">
         <v-badge :model-value="!!c.hasUpdate"
           color="secondary"
@@ -129,9 +129,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'campaign-library-compendium',
+  name: 'CampaignLibraryCompendium',
   components: { CampaignDetailPanel },
+  mixins: [useMobile],
   props: {
     search: {
       type: String,

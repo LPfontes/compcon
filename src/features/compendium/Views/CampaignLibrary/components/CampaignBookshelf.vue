@@ -264,9 +264,9 @@
 import { useMobile } from '@/mixins/useMobile';
 
   export default {
-  mixins: [useMobile],
     name: 'CampaignBookshelf',
     components: { DenseShelf, CompendiumShelf, CampaignShareCodeDialog },
+  mixins: [useMobile],
     props: {
       density: { type: String, default: 'default' },
       search: { type: String, default: '' },

@@ -5,7 +5,7 @@
       item-key="ID"
       :headers="headers"
       :items-per-page="25">
-      <template v-slot:item.Name="{ item }">
+      <template #item.Name="{ item }">
         <div style="min-width: 200px">
           <cc-remote-hover :item="item"
             color="accent" />
@@ -13,7 +13,7 @@
           {{ (item as any).Name }}
         </div>
       </template>
-      <template v-slot:item.ItemType="{ item }">
+      <template #item.ItemType="{ item }">
         <v-btn icon
           size="small"
           variant="plain"
@@ -23,7 +23,7 @@
           <v-icon>mdi-pencil-outline</v-icon>
         </v-btn>
       </template>
-      <template v-slot:item.Layers="{ item }">
+      <template #item.Layers="{ item }">
         <v-chip v-for="l in (item as any).Layers"
           :key="l.ID"
           label
@@ -33,7 +33,7 @@
           {{ l.Layer.Name }}
         </v-chip>
       </template>
-      <template v-slot:item.Templates="{ item }">
+      <template #item.Templates="{ item }">
         <v-chip v-for="t in (item as any).NpcTemplateController.Templates"
           :key="t.ID"
           label
@@ -52,7 +52,7 @@ import * as _ from 'lodash-es';
 import * as headers from './_components/gmItemHeaders';
 
 export default {
-  name: 'item-card-grid',
+  name: 'ItemCardGrid',
   props: {
     items: { type: Array, required: true },
     itemType: { type: String, required: true },

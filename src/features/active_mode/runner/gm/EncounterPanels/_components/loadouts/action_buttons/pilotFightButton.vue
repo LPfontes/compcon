@@ -157,6 +157,12 @@ import PilotWeaponAttack from './_pilotWeaponAttack.vue';
 
 export default {
   name: 'PilotFightButton',
+  components: {
+    MenuInput,
+    ApplyButton,
+    StagedPanel,
+    PilotWeaponAttack
+  },
   props: {
     action: {
       type: Object,
@@ -175,19 +181,10 @@ export default {
       required: false,
     },
   },
-  components: {
-    MenuInput,
-    ApplyButton,
-    StagedPanel,
-    PilotWeaponAttack
-  },
   data: () => ({
     event: null as WeaponAttackEvent | null,
     selectedWeapon: null as PilotWeapon | null,
   }),
-  created() {
-    this.reset();
-  },
   computed: {
     available() {
       return this.canActivate && this.canUse;
@@ -235,6 +232,9 @@ export default {
     eventArray() {
       return [this.event]
     },
+  },
+  created() {
+    this.reset();
   },
   methods: {
     reset(clearAction = false) {

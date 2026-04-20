@@ -43,12 +43,12 @@
                   class="mr-1" />
                 {{ d(item).name }} @ {{ d(item).version }}
               </div>
-              <div class="text-caption px-2"
-                v-html-safe="d(item).installed
+              <div v-html-safe="d(item).installed
                   ? 'Dependency installed'
                   : `${manifest.name} requires Lancer Content Pack <b>${d(item).name
                   } at version ${d(item).version}</b> to be installed before it can be loaded.`
-                  " />
+                  "
+                class="text-caption px-2" />
               <div v-if="d(item).link"
                 class="text-caption px-2 text-right">
                 <v-btn v-if="!d(item).installed"

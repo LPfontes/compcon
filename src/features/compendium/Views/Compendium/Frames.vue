@@ -43,7 +43,7 @@ export default {
   }),
   computed: {
     frames() {
-      let items = CompendiumStore().Frames;
+      const items = CompendiumStore().Frames;
       return orderBy(
         items.filter((x) => !x.IsHidden),
         'Name'

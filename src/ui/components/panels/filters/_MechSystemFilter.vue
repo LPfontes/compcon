@@ -16,7 +16,7 @@
         multiple
         item-title="Name"
         item-value="ID"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="<any>systemTypeFilter"
@@ -29,7 +29,7 @@
         :items="systemTypes"
         chips
         clearable
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12">
       <v-select v-model="llFilter"
@@ -43,7 +43,7 @@
         variant="outlined"
         label="License Level"
         :items="[0, 1, 2, 3]"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
   <v-divider class="my-4" />
@@ -63,7 +63,7 @@
         divided
         density="compact"
         style="height: 30px"
-        @update:modelValue="updateFilters()">
+        @update:model-value="updateFilters()">
         <v-btn value="less"
           size="small">Less Than</v-btn>
         <v-btn value="eq"
@@ -94,7 +94,7 @@
           sp++;
         updateFilters();
         "
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
 </template>
@@ -112,7 +112,8 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'frame-filter',
+  name: 'FrameFilter',
+  emits: ['set-filters'],
   data: () => ({
     tagFilter: [],
     systemTypeFilter: [] as SystemType[],
@@ -120,7 +121,6 @@ export default {
     sp: 0,
     spType: '',
   }),
-  emits: ['set-filters'],
   computed: {
     manufacturers(): Manufacturer[] {
       return CompendiumStore()

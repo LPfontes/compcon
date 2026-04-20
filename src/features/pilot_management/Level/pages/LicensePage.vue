@@ -34,7 +34,7 @@ import LicenseSelector from '../../_components/selectors/LicenseSelector.vue';
 import StepperContent from '../../_components/StepperContent.vue';
 
 export default {
-  name: 'license-page',
+  name: 'LicensePage',
   components: { LicenseSelector, StepperContent },
   props: {
     pilot: {

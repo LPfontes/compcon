@@ -324,7 +324,7 @@ const icons = [
   'thanks',
 ];
 export default {
-  name: 'ui-test',
+  name: 'UiTest',
   data: () => ({
     notificationText: 'test',
     notificationTypes: ['success', 'warning', 'error', 'info'],

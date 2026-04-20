@@ -35,8 +35,8 @@
             title="You have remaining actions!">
             <v-row class="my-1 mx-4 px-2 text-text bg-panel"
               justify="space-around">
-              <v-col cols="auto"
-                v-if="controller.CanActivate('protocol')">
+              <v-col v-if="controller.CanActivate('protocol')"
+                cols="auto">
                 <v-chip color="protocol"
                   class="ml-2"
                   size="large"
@@ -46,8 +46,8 @@
                   Protocol
                 </v-chip>
               </v-col>
-              <v-col cols="auto"
-                v-if="controller.CanActivate('full')">
+              <v-col v-if="controller.CanActivate('full')"
+                cols="auto">
                 <v-chip color="action--full"
                   prepend-icon="mdi-hexagon-slice-6"
                   class="ml-2"
@@ -57,8 +57,8 @@
                   Full Action
                 </v-chip>
               </v-col>
-              <v-col cols="auto"
-                v-else-if="controller.CanActivate('quick')">
+              <v-col v-else-if="controller.CanActivate('quick')"
+                cols="auto">
                 <v-chip color="action--quick"
                   prepend-icon="mdi-hexagon-slice-3"
                   class="ml-2"

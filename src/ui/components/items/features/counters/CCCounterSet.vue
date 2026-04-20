@@ -28,7 +28,7 @@ import NewCounter from './_NewCounter.vue';
 import { Counter } from '@/class';
 
 export default {
-  name: 'cc-counter-set',
+  name: 'CcCounterSet',
   components: { CounterComponent, NewCounter },
   props: {
     actor: {

@@ -25,7 +25,7 @@
 import Importer from '../_components/NpcImporter.vue';
 
 export default {
-  name: 'narrative-graph',
+  name: 'NarrativeGraph',
   components: {
     Importer,
   },

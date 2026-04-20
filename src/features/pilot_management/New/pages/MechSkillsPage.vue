@@ -37,7 +37,7 @@ import MechSkillsSelector from '../../_components/selectors/MechSkillsSelector.v
 import { Pilot } from '@/class';
 
 export default {
-  name: 'mech-skills-page',
+  name: 'MechSkillsPage',
   components: {
     StepperContent,
     MechSkillsSelector,

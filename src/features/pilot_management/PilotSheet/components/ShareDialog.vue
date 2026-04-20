@@ -55,8 +55,8 @@
                   density="compact"
                   hide-details
                   class="my-1"
-                  @click="copyShareLink()"
-                  style="font-size: calc(16px + 0.5vw)" />
+                  style="font-size: calc(16px + 0.5vw)"
+                  @click="copyShareLink()" />
               </v-col>
               <v-col cols="auto">
                 <v-tooltip text="Copy share link to clipboard">
@@ -106,8 +106,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'ShareDialog',
   mixins: [useMobile],
-  name: 'share-dialog',
   props: {
     pilot: { type: Object, required: true },
   },

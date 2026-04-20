@@ -1,8 +1,8 @@
 <template>
   <v-window-item>
-    <v-card-title primary-title class="heading h2" v-html-safe="title" />
+    <v-card-title v-html-safe="title" primary-title class="heading h2" />
     <v-card-text class="text-center flavor-text">
-      <p v-if="content" class="flavor-text" v-html-safe="content" />
+      <p v-if="content" v-html-safe="content" class="flavor-text" />
       <slot />
     </v-card-text>
     <v-card-actions>

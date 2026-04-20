@@ -89,7 +89,7 @@ import {
 } from '@/stores';
 
 export default {
-  name: 'collection-item-selector',
+  name: 'CollectionItemSelector',
   props: {
     addedItems: { type: Array, default: () => [] },
   },

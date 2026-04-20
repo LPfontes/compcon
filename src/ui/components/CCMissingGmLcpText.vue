@@ -25,6 +25,6 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-missing-gm-lcp-text',
+  name: 'CcMissingGmLcpText',
 };
 </script>

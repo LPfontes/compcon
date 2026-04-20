@@ -49,14 +49,14 @@
                 :class="headers[i].subtitle ? 'text-grey' : 'text-accent'"
                 v-text="headers[i].title" />
               <v-list-item-subtitle v-if="headers[i].subtitle"
-                v-text="headers[i].subtitle"
-                class="text-cc-overline my-n1" />
+                class="text-cc-overline my-n1"
+                v-text="headers[i].subtitle" />
             </v-list-item>
             <div v-for="(e, index) in list"
               :key="`entry-${index}`">
               <v-list-item v-if="!e.small"
-                lines="two"
                 :key="e.title"
+                lines="two"
                 :title="e.title"
                 :class="e.disabled ? 'bg-panel' : 'bg-primary'"
                 density="compact"
@@ -121,7 +121,7 @@
 import { EncounterStore, PilotStore } from '@/stores';
 
 export default {
-  name: 'home',
+  name: 'Home',
   data: () => ({
     dialog: true,
     headers: [

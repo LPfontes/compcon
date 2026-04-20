@@ -13,7 +13,7 @@
         :items="manufacturers"
         chips
         clearable
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="12"
       md="4">
@@ -28,7 +28,7 @@
         label="From Content Pack"
         :items="lcps"
         multiple
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
     <v-col cols="4">
       <v-select v-model="tagFilter"
@@ -44,7 +44,7 @@
         item-value="ID"
         multiple
         item-text="Name"
-        @update:modelValue="updateFilters()" />
+        @update:model-value="updateFilters()" />
     </v-col>
   </v-row>
 </template>
@@ -62,14 +62,14 @@ const nameSort = function (a, b): number {
 };
 
 export default {
-  name: 'frame-filter',
+  name: 'FrameFilter',
+  emits: ['set-filters'],
   data: () => ({
     sourceFilter: [],
     tagFilter: [],
     lcpFilter: [],
     weaponTypeFilter: [],
   }),
-  emits: ['set-filters'],
   computed: {
     manufacturers(): Manufacturer[] {
       return CompendiumStore()

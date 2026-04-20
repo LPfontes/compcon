@@ -16,7 +16,7 @@
 
 <script lang="ts">
 export default {
-  name: 'section-edit-chip',
+  name: 'SectionEditChip',
   props: {
     label: {
       type: String,

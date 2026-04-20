@@ -36,16 +36,16 @@
 import { Pilot } from '@/class';
 import { CustomSkill } from '@/class';
 export default {
-  name: 'add-custom-skill',
+  name: 'AddCustomSkill',
   props: {
     pilot: { type: Pilot, required: true },
   },
+  emits: ['add-custom'],
   data: () => ({
     newSkill: '',
     newDesc: '',
     newDetail: '',
   }),
-  emits: ['add-custom'],
   computed: {
     canAdd(): boolean {
       const custSkill = new CustomSkill(this.newSkill, this.newDesc, this.newDetail);

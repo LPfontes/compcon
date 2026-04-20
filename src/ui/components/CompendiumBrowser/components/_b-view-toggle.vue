@@ -11,7 +11,7 @@
     style="width: 100%; height: 30px"
     class="mb-2">
     <v-tooltip v-for="v in options.views" :key="`view-${v}`" :text="viewTooltip(v)" location="top">
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn
           v-bind="props"
           :value="v"
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 export default {
-  name: 'browser-view-toggle',
+  name: 'BrowserViewToggle',
   props: {
     modelValue: {
       type: String,
@@ -39,6 +39,7 @@ export default {
       required: true,
     },
   },
+  emits: ['update:modelValue'],
   computed: {
     internalValue: {
       get() {
@@ -49,7 +50,6 @@ export default {
       },
     },
   },
-  emits: ['update:modelValue'],
   methods: {
     viewIcon(i: string) {
       switch (i) {

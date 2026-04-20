@@ -26,7 +26,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cb-item',
+  name: 'CbItem',
   props: {
     bonus: {
       type: Object,

@@ -25,7 +25,7 @@
 
     <v-menu v-if="$slots.options"
       offset-y>
-      <template v-slot:activator="{ props }">
+      <template #activator="{ props }">
         <v-btn :variant="variant === 'default' ? 'tonal' : (variant as any)"
           style="text-transform: uppercase; clip-path: none; "
           tile
@@ -50,7 +50,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-btn-std',
+  name: 'CcBtnStd',
   props: {
     color: { type: String },
     disabled: { type: Boolean },

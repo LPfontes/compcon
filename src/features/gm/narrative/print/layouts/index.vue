@@ -10,7 +10,7 @@ import NarrativeItemPrint from './NarrativeItemPrint.vue';
 import PageBreak from '@/features/pilot_management/Print/components/PageBreak.vue';
 
 export default {
-  name: 'combined-print',
+  name: 'CombinedPrint',
   components: {
     PageBreak,
     NarrativeItemPrint,

@@ -101,8 +101,8 @@
           </v-expansion-panel-title>
           <v-expansion-panel-text>
             <div v-if="cs.PassiveEffect"
-              class="mb-2 text-text"
-              v-html-safe="cs.PassiveEffect" />
+              v-html-safe="cs.PassiveEffect"
+              class="mb-2 text-text" />
           </v-expansion-panel-text>
         </v-expansion-panel>
       </v-expansion-panels>
@@ -124,11 +124,11 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'mech-core-panel',
+  name: 'MechCorePanel',
   components: {
     DeployButton
   },
+  mixins: [useMobile],
   props: {
     mech: {
       type: Object,

@@ -9,8 +9,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CbCard',
   mixins: [useMobile],
-  name: 'cb-card',
   props: {
     bonus: {
       type: Object,

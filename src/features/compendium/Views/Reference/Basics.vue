@@ -11,13 +11,13 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'basics',
-  inheritAttrs: false,
+  name: 'Basics',
   components: {
     SrdView,
     SwitchLangTemp,
   },
+  mixins: [useMobile],
+  inheritAttrs: false,
   props: {
     preScroll: {
       type: String,

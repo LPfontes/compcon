@@ -39,8 +39,8 @@
       <v-row no-gutters class="fill-height">
         <v-col
           v-for="n in 3"
-          :key="`rank-${n}`"
           v-show="showFull || (!showFull && rank && Number(rank) >= n)"
+          :key="`rank-${n}`"
           cols="12"
           md=""
           style="min-height: 100%">
@@ -110,9 +110,8 @@
 import TalentRankContents from './_TalentRankContents.vue';
 import TalentEmblem from './_TalentEmblem.vue';
 export default {
-  name: 'talent-small',
+  name: 'TalentSmall',
   components: { TalentRankContents, TalentEmblem },
-  emits: ['add', 'remove'],
   props: {
     hideLocked: { type: Boolean },
     talent: { type: Object, required: true },
@@ -120,6 +119,7 @@ export default {
     selectable: { type: Boolean },
     rank: { type: [Number, String], required: false, default: null },
   },
+  emits: ['add', 'remove'],
   data: () => ({
     showAll: false,
   }),

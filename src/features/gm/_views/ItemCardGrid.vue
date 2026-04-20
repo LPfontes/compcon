@@ -58,7 +58,7 @@ import * as _ from 'lodash-es';
 import { Unit } from '@/classes/npc/unit/Unit';
 
 export default {
-  name: 'item-card-grid',
+  name: 'ItemCardGrid',
   components: { ItemCard, GmItemTable, FolderMenu },
   props: {
     itemType: { type: String, required: true },

@@ -67,7 +67,7 @@ import BlankLine from './blank/line.vue';
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'print-action',
+  name: 'PrintAction',
   components: { BlankLine },
   props: {
     combatant: {

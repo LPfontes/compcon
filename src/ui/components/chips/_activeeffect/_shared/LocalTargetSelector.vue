@@ -81,8 +81,8 @@
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  mixins: [useMobile],
   name: 'LocalTargetSelector',
+  mixins: [useMobile],
   props: {
     event: { type: Object, required: true },
   },

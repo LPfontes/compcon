@@ -41,24 +41,24 @@
                     flat
                     tile><span class="heading h3 text-text pr-3">{{ c.name
                       }}</span></cc-chip></v-col>
-                <v-col cols="auto"
-                  v-if="c.status"><v-combobox v-model="c.status"
+                <v-col v-if="c.status"
+                  cols="auto"><v-combobox v-model="c.status"
                     flat
                     tile
                     hide-details
                     density="compact"
                     min-width="250"
                     :items="npcStatusTypes" /></v-col>
-                <v-col cols="auto"
-                  v-if="c.pilotStatus"><v-combobox v-model="c.pilotStatus"
+                <v-col v-if="c.pilotStatus"
+                  cols="auto"><v-combobox v-model="c.pilotStatus"
                     flat
                     tile
                     hide-details
                     density="compact"
                     min-width="250"
                     :items="pilotStatusTypes" /></v-col>
-                <v-col cols="auto"
-                  v-if="c.mechStatus"><v-combobox v-model="c.mechStatus"
+                <v-col v-if="c.mechStatus"
+                  cols="auto"><v-combobox v-model="c.mechStatus"
                     flat
                     tile
                     hide-details
@@ -94,13 +94,13 @@
           </v-slide-y-reverse-transition>
           <v-row>
             <v-col>
-              <cc-button block
-                v-if="!confirm"
+              <cc-button v-if="!confirm"
+                block
                 size=small
                 color="primary"
                 @click="confirm = true">end encounter</cc-button>
-              <cc-button block
-                v-else
+              <cc-button v-else
+                block
                 size=small
                 color="warning"
                 @click="end">Confirm end encounter</cc-button>

@@ -35,7 +35,7 @@ const findNearest = (target, arr) => {
 };
 
 export default {
-  name: 'hex-map-horizontal-editor',
+  name: 'HexMapHorizontalEditor',
   props: {
     sizeX: {
       type: Number,
@@ -129,7 +129,7 @@ export default {
           const h = Math.sqrt(3) * s;
 
           let x = 2 * (col * ((3 / 2) * s));
-          let y = row * 0.5 * h;
+          const y = row * 0.5 * h;
 
           if (row % 2 === 1) {
             x += 1.5 * s;

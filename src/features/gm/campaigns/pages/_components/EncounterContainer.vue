@@ -77,7 +77,7 @@ import EncounterSelector from './EncounterSelector.vue';
 import EncounterContent from './EncounterContent.vue';
 
 export default {
-  name: 'encounter-content-container',
+  name: 'EncounterContentContainer',
   components: { EncounterSelector, EncounterContent },
   props: {
     item: { type: Object, required: true },

@@ -231,8 +231,8 @@
         </v-row>
       </v-card>
       <cc-alert v-if="
-        this.checkType === 'contested' &&
-        this.selectedTarget &&
+        checkType === 'contested' &&
+        selectedTarget &&
         $refs.check.roll &&
         $refs.contest.roll
       "
@@ -247,8 +247,8 @@
           </span>
         </div>
       </cc-alert>
-      <menu-input hide-input
-        :key="controller.ID"
+      <menu-input :key="controller.ID"
+        hide-input
         :active-effect="action"
         :encounter="encounter"
         :owner="owner"
@@ -266,6 +266,10 @@ import SkillCheckBase from './_skillCheckBase.vue';
 
 export default {
   name: 'InvadeButton',
+  components: {
+    MenuInput,
+    SkillCheckBase,
+  },
   props: {
     action: {
       type: Object,
@@ -280,10 +284,7 @@ export default {
       required: true,
     },
   },
-  components: {
-    MenuInput,
-    SkillCheckBase,
-  },
+  emits: ['activate'],
   data: () => ({
     roll: null,
     bonus: 0,
@@ -303,29 +304,6 @@ export default {
       { title: 'None', value: '' },
     ],
   }),
-  watch: {
-    difficult(newVal) {
-      if (newVal) {
-        this.accDiff -= 1;
-      } else {
-        this.accDiff += 1;
-      }
-    },
-    modifier(newVal) {
-      if (newVal === 'heroic') {
-        this.targetVal = 20;
-      } else {
-        this.targetVal = 10;
-      }
-    },
-    applicableBonuses: {
-      immediate: true,
-      handler(newVal) {
-        this.bonus = newVal.bonuses.reduce((acc, curr) => acc + curr.Value, 0);
-        this.accDiff = newVal.accDiff.reduce((acc, curr) => acc + curr.Accuracy, 0);
-      },
-    },
-  },
   computed: {
     controller() {
       return this.owner.actor.CombatController;
@@ -374,7 +352,29 @@ export default {
       return result;
     },
   },
-  emits: ['activate'],
+  watch: {
+    difficult(newVal) {
+      if (newVal) {
+        this.accDiff -= 1;
+      } else {
+        this.accDiff += 1;
+      }
+    },
+    modifier(newVal) {
+      if (newVal === 'heroic') {
+        this.targetVal = 20;
+      } else {
+        this.targetVal = 10;
+      }
+    },
+    applicableBonuses: {
+      immediate: true,
+      handler(newVal) {
+        this.bonus = newVal.bonuses.reduce((acc, curr) => acc + curr.Value, 0);
+        this.accDiff = newVal.accDiff.reduce((acc, curr) => acc + curr.Accuracy, 0);
+      },
+    },
+  },
   methods: {
     clearableConditions(target) {
       if (!target) return [];

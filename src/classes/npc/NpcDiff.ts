@@ -22,7 +22,7 @@ const GenerateItemDiff = (target: Npc, source: Npc) => {
   };
 
   target.NarrativeController.Labels.forEach((label) => {
-    let sourceLabel = source.NarrativeController.Labels.find((x) => x.title === label.title);
+    const sourceLabel = source.NarrativeController.Labels.find((x) => x.title === label.title);
     if (!sourceLabel)
       return (diff.Labels[label.title] = {
         instance: `${label.title}: ${label.value}`,
@@ -36,7 +36,7 @@ const GenerateItemDiff = (target: Npc, source: Npc) => {
   });
 
   target.NarrativeController.TextItems.forEach((text) => {
-    let sourceText = source.NarrativeController.TextItems.find((x) => x.title === text.title);
+    const sourceText = source.NarrativeController.TextItems.find((x) => x.title === text.title);
     if (!sourceText)
       return (diff.AdditionalDetail[text.title] = {
         instance: `${text.title}: ${text.body.length} chars.${text.gm_only ? ' (GM Only)' : ''}`,
@@ -52,7 +52,7 @@ const GenerateItemDiff = (target: Npc, source: Npc) => {
   });
 
   target.NarrativeController.Clocks.forEach((clock) => {
-    let sourceClock = source.NarrativeController.Clocks.find((x) => x.ID === clock.ID);
+    const sourceClock = source.NarrativeController.Clocks.find((x) => x.ID === clock.ID);
     if (!sourceClock)
       return (diff.Clocks[clock.Title] = {
         instance: `${clock.Title}: ${clock.Progress}/${clock.Segments}, ${
@@ -77,7 +77,7 @@ const GenerateItemDiff = (target: Npc, source: Npc) => {
   });
 
   target.NarrativeController.Tables.forEach((table) => {
-    let sourceTable = source.NarrativeController.Tables.find((x) => x.ID === table.ID);
+    const sourceTable = source.NarrativeController.Tables.find((x) => x.ID === table.ID);
     if (!sourceTable)
       return (diff.Tables[table.Title] = {
         instance: `${table.Title}: ${table.Results.length} items.${

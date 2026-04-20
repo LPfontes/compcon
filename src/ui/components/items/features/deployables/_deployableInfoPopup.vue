@@ -32,7 +32,7 @@
 import deployableInfoBase from './_deployableInfoBase.vue';
 
 export default {
-  name: 'deployable-popup',
+  name: 'DeployablePopup',
   components: { deployableInfoBase },
   props: {
     deployable: {

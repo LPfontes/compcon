@@ -79,9 +79,9 @@ import MissingItemAlert from './components/_MissingItemAlert.vue'
 import { useMobile } from '@/mixins/useMobile';
 
 export default {
-  mixins: [useMobile],
   name: 'TalentSelector',
   components: { Selector, MissingItemAlert },
+  mixins: [useMobile],
   props: {
     pilot: { type: Pilot, required: true },
     levelUp: Boolean,

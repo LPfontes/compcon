@@ -46,11 +46,12 @@
 import { CompendiumStore } from '@/stores';
 
 export default {
-  name: 'npc-class-selector',
+  name: 'NpcClassSelector',
   props: {
     item: { type: Object, required: true },
     readonly: { type: Boolean, default: false },
   },
+  emits: ['add-layer'],
   data: () => ({
     allowDupes: false,
     options: {
@@ -68,7 +69,6 @@ export default {
       },
     ],
   }),
-  emits: ['add-layer'],
   computed: {
     hasLayerData() {
       return CompendiumStore().EidolonLayers.length > 0;

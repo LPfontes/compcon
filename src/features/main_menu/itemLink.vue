@@ -63,7 +63,7 @@ import { CompendiumStore } from '@/stores';
 import logger from '@/user/logger';
 
 export default {
-  name: 'itemLink',
+  name: 'ItemLink',
   props: {
     pack: {
       type: String,
@@ -81,6 +81,11 @@ export default {
   data: () => ({
     item: null,
   }),
+  computed: {
+    compendiumLoaded() {
+      return CompendiumStore().loaded;
+    },
+  },
   watch: {
     compendiumLoaded: {
       immediate: true,
@@ -98,11 +103,6 @@ export default {
   },
   mounted() {
     document.title = (this.item as any)?.Name || 'Item Link';
-  },
-  computed: {
-    compendiumLoaded() {
-      return CompendiumStore().loaded;
-    },
   },
   methods: {
     unCamelCase(str) {

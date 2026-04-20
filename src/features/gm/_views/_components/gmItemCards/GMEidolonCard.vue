@@ -26,7 +26,7 @@
 import GmCardBase from './_GMCardBase.vue';
 
 export default {
-  name: 'gm-eidolon-card',
+  name: 'GmEidolonCard',
   components: { GmCardBase },
   props: {
     item: { type: Object, required: true },

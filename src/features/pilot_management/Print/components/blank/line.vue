@@ -11,7 +11,7 @@
 
 <script lang="ts">
 export default {
-  name: 'terse-print',
+  name: 'TersePrint',
   props: {
     height: {
       type: Number,

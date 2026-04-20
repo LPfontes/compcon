@@ -41,9 +41,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'action-economy',
+  name: 'ActionEconomy',
   components: { ActionCard },
+  mixins: [useMobile],
 
   data: () => ({
     actionTypes: [

@@ -37,7 +37,7 @@
         @click="$emit('preview', 'page')">
         <v-tooltip location="bottom"
           open-delay="300">
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <v-icon v-bind="props"
               size="x-large"
               icon="mdi-eye" />
@@ -60,7 +60,7 @@
             icon>
             <v-tooltip location="bottom"
               open-delay="300">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-icon v-bind="props"
                   size="x-large"
                   icon="mdi-tooltip-edit-outline" />
@@ -72,9 +72,9 @@
         <v-card>
           <v-card-text>
             <v-row dense>
-              <v-col cols="auto"
-                v-for="t in sectionTypes"
-                :key="t">
+              <v-col v-for="t in sectionTypes"
+                :key="t"
+                cols="auto">
                 <v-btn variant="tonal"
                   size="small"
                   :color="item.SectionType === t ? 'secondary' : 'accent'"
@@ -97,7 +97,7 @@
             icon>
             <v-tooltip location="bottom"
               open-delay="300">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-icon v-bind="props"
                   size="x-large"
                   icon="mdi-swap-vertical-bold" />
@@ -178,7 +178,7 @@
         @click="item.Duplicate()">
         <v-tooltip location="bottom"
           open-delay="300">
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <v-icon v-bind="props"
               size="x-large"
               icon="mdi-content-copy" />
@@ -197,7 +197,7 @@
             icon>
             <v-tooltip location="bottom"
               open-delay="300">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-icon v-bind="props"
                   size="x-large"
                   icon="mdi-delete" />
@@ -230,7 +230,7 @@ import PageContentContainer from './_components/PageContentContainer.vue';
 import sectionAddMenu from '../_components/sectionAddMenu.vue';
 
 export default {
-  name: 'campaign-editor-page',
+  name: 'CampaignEditorPage',
   components: { PageContentContainer, sectionAddMenu },
   props: {
     item: { type: Object, required: true },

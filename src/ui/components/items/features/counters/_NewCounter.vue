@@ -6,8 +6,8 @@
     :width="mobile ? '' : '200px'"
     density="compact">
     <transition name="fade">
-      <v-card-text class="pa-0"
-        v-if="creating">
+      <v-card-text v-if="creating"
+        class="pa-0">
         <v-text-field ref="nameField"
           v-model="name"
           placeholder="Counter name"

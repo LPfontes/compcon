@@ -26,7 +26,7 @@
 import GmListItemBase from './_GMListItemBase.vue';
 
 export default {
-  name: 'gm-character-list-item',
+  name: 'GmCharacterListItem',
   components: { GmListItemBase },
   props: {
     item: { type: Object, required: true },

@@ -104,8 +104,8 @@
         <div v-else>
           <v-icon size="40" color="grey-lighten-1" class="mr-n1 mt-n5">cc:repair</v-icon>
           <div
-            class="d-inline-block flavor-text font-weight-bold mb-n2"
-            v-html-safe="`/${mech.RepairCapacity}`" />
+            v-html-safe="`/${mech.RepairCapacity}`"
+            class="d-inline-block flavor-text font-weight-bold mb-n2" />
         </div>
       </v-col>
     </v-row>
@@ -307,7 +307,7 @@
         </v-row>
 
         <div class="text-overline mb-n3 text-primary">FRAME TRAITS</div>
-        <v-row dense v-if="blank">
+        <v-row v-if="blank" dense>
           <v-col v-for="n in 4" :key="`trait-${n}`" cols="6">
             <blank-line
               :height="
@@ -331,7 +331,7 @@
         </v-row>
 
         <div class="text-overline mb-n1 text-primary mt-n1">CORE SYSTEM</div>
-        <div dense v-if="blank" class="mb-n2">
+        <div v-if="blank" dense class="mb-n2">
           <blank-line
             :height="
               landscape ? (hasMechOption('Mech Image') ? 92 : 40) : 64
@@ -442,8 +442,8 @@
     </div>
 
     <fieldset
-      v-else
       v-for="m in mounts"
+      v-else
       :key="m.ID"
       style="position: relative; break-inside: avoid"
       class="pb-1 no-print-break">
@@ -453,7 +453,7 @@
         <br />
         <span class="text-overline">// SUPERHEAVY WEAPON BRACING //</span>
       </div>
-      <div v-else v-for="w in m.Weapons.filter(Boolean)" :key="w.ID" class="px-1 caption">
+      <div v-for="w in m.Weapons.filter(Boolean)" v-else :key="w.ID" class="px-1 caption">
         <v-row dense>
           <v-col cols="auto">
             <b class="text-cc-overline font-weight-black">{{ w.Name }}</b>
@@ -566,14 +566,14 @@
             </v-icon>
           </v-col>
         </v-row>
-        <p v-if="s.Effect" class="caption mb-n1" v-html-safe="s.Effect" />
+        <p v-if="s.Effect" v-html-safe="s.Effect" class="caption mb-n1" />
         <print-action :compact="true" :actions="s.Actions" />
         <print-deployable :compact="true" :deployables="s.Deployables" />
         <div class="text-right mb-n2">
           <v-chip
             v-for="t in s.Tags"
-            :key="t.ID"
             v-show="showTag(t.ID)"
+            :key="t.ID"
             size="x-small"
             label
             variant="outlined"
@@ -607,9 +607,9 @@ import PageBreak from '../../components/PageBreak.vue';
 import { usePrintOptions } from '../_usePrintOptions';
 
 export default {
-  name: 'mech-print',
-  mixins: [usePrintOptions],
+  name: 'MechPrint',
   components: { PrintAction, PrintDeployable, blankLine, notes, PageBreak },
+  mixins: [usePrintOptions],
   props: {
     mech: {
       type: Object,

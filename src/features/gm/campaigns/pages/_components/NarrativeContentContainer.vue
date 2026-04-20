@@ -97,7 +97,7 @@ import { NarrativeStore } from '@/stores';
 import NarrativeContent from './NarrativeContent.vue';
 
 export default {
-  name: 'narrative-content-container',
+  name: 'NarrativeContentContainer',
   components: { NarrativeContent },
   props: {
     item: { type: Object, required: true },

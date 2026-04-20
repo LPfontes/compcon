@@ -93,8 +93,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
   export default {
-  mixins: [useMobile],
     name: 'Selector',
+  mixins: [useMobile],
     props: {
       title: {
         type: String,

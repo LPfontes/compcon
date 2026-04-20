@@ -13,21 +13,21 @@
       <span class="text-grey pl-1">{{ feature.FeatureType }}</span>
     </v-col>
     <v-col v-if="feature.WeaponType" class="px-1 text-center">
-      <span class="pl-1" v-for="(r, ri) in feature.Range" :key="`range-${ri}`">
+      <span v-for="(r, ri) in feature.Range" :key="`range-${ri}`" class="pl-1">
         <v-icon :icon="r.Icon" class="mt-n1" />
         {{ r.Value }}
       </span>
-      <cc-slashes class="pl-2" v-if="feature.Damage(tier).length" />
-      <span class="pl-1" v-for="(d, di) in feature.Damage(tier)" :key="`damage-${di}`">
+      <cc-slashes v-if="feature.Damage(tier).length" class="pl-2" />
+      <span v-for="(d, di) in feature.Damage(tier)" :key="`damage-${di}`" class="pl-1">
         <v-icon :icon="d.Icon" class="mt-n1" />
         {{ d.Value }}
       </span>
-      <span class="pl-1" v-if="feature.Accuracy(tier)">
+      <span v-if="feature.Accuracy(tier)" class="pl-1">
         <cc-slashes class="pl-1" />
         <v-icon icon="cc:accuracy" class="mt-n1" />
         {{ feature.Accuracy(tier) }}
       </span>
-      <span class="pl-1" v-if="feature.AttackBonus(tier)">
+      <span v-if="feature.AttackBonus(tier)" class="pl-1">
         <cc-slashes class="pl-1 pr-2" />
         <v-icon icon="cc:reticle" class="mt-n1" size="small" />
         {{ feature.AttackBonus(tier) }}
@@ -78,7 +78,7 @@ import PrintDeployable from './PrintDeployable.vue';
 import PrintAction from './PrintAction.vue';
 
 export default {
-  name: 'print-npc-feature',
+  name: 'PrintNpcFeature',
   components: {
     PrintAction,
     PrintDeployable,

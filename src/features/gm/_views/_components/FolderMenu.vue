@@ -22,7 +22,7 @@
         <v-card-actions>
           <v-btn text @click="menu = false">Cancel</v-btn>
           <v-spacer />
-          <v-btn text @click="set" color="accent">Set</v-btn>
+          <v-btn text color="accent" @click="set">Set</v-btn>
         </v-card-actions>
       </v-card>
     </v-menu>
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 export default {
-  name: 'folder-menu',
+  name: 'FolderMenu',
   props: {
     item: { type: Object, required: true },
     allFolders: { type: Array, required: true },

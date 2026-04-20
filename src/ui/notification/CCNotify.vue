@@ -36,8 +36,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcNotify',
   mixins: [useMobile],
-  name: 'cc-notify',
   methods: {
     color(item) {
       if (item.type) {

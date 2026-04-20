@@ -7,11 +7,11 @@ import pilots from '@/assets/srd/lib/pilots.json';
 import SrdView from './_components/SrdView.vue';
 
 export default {
-  name: 'pilots',
-  inheritAttrs: false,
+  name: 'Pilots',
   components: {
     SrdView,
   },
+  inheritAttrs: false,
   props: {
     preScroll: {
       type: String,

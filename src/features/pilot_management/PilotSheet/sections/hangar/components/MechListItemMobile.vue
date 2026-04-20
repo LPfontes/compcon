@@ -148,7 +148,7 @@
 
 <script lang="ts">
 export default {
-  name: 'mech-list-item',
+  name: 'MechListItem',
   props: {
     mech: {
       type: Object,

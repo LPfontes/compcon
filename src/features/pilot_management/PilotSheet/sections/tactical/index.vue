@@ -16,7 +16,7 @@ import CoreBonusBlock from './components/CoreBonusBlock.vue';
 import TalentBlock from './components/TalentBlock.vue';
 
 export default {
-  name: 'tactical-view',
+  name: 'TacticalView',
   components: {
     MechSkillsBlock,
     SpecialBlock,

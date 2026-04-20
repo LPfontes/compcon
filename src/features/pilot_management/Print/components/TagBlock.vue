@@ -15,9 +15,9 @@
   <div v-else class="text-right pb-1">
     <v-chip
       v-for="(t, index) in (tags as any[])"
+      v-show="showTag(t.ID)"
       :key="`chip-${index}`"
       size="x-small"
-      v-show="showTag(t.ID)"
       label
       variant="outlined"
       class="mx-1 bg-white"
@@ -29,7 +29,7 @@
 
 <script lang="ts">
 export default {
-  name: 'tag-block',
+  name: 'TagBlock',
   props: {
     tags: {
       type: Array,

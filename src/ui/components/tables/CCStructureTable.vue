@@ -19,16 +19,16 @@
                 <template #activator="{ props }">
                   <v-btn v-bind="props" variant="text" icon @click="rolls.splice(n - 1, 1)">
                     <v-icon
+                      v-html-safe="`mdi-dice-${rolls[n - 1]}`"
                       x-large
-                      :color="rolls[n - 1] === 1 ? 'error' : 'stark'"
-                      v-html-safe="`mdi-dice-${rolls[n - 1]}`" />
+                      :color="rolls[n - 1] === 1 ? 'error' : 'stark'" />
                   </v-btn>
                 </template>
               </v-tooltip>
             </div>
             <div v-for="n in totalRolls - rolls.length" :key="`empty-${n}`" class="d-inline">
               <v-btn text icon size="x-large" disabled>
-                <v-icon size="x-large" v-html-safe="'mdi-checkbox-blank-outline'" />
+                <v-icon v-html-safe="'mdi-checkbox-blank-outline'" size="x-large" />
               </v-btn>
             </div>
             <br />
@@ -54,7 +54,7 @@
                   color="primary"
                   icon
                   @click="rolls.push(n)">
-                  <v-icon class="die-hover" size="55px" v-html-safe="`mdi-dice-${n}`" />
+                  <v-icon v-html-safe="`mdi-dice-${n}`" class="die-hover" size="55px" />
                 </v-btn>
               </div>
               <div v-else key="tr02">
@@ -135,7 +135,7 @@
             :color="systemTraumaRoll === n ? 'error' : 'primary'"
             icon
             @click="systemTraumaRoll = n">
-            <v-icon class="die-hover" size="55px" v-html-safe="`mdi-dice-${n}`" />
+            <v-icon v-html-safe="`mdi-dice-${n}`" class="die-hover" size="55px" />
           </v-btn>
           <div v-if="systemTraumaRoll && systemTraumaRoll <= 3">
             <v-select
@@ -177,7 +177,8 @@
                 : 'Your mech must pass a <b>hull</b> check or be <b>destroyed</b>. Even on a successful check, your mech is <b>stunned</b> until the end of your next turn.'
             " />
           <cascade-check :mech="mech" />
-          <div slot="confirm-button">
+          <template #confirm-button>
+<div >
             <div v-if="mech.CurrentStructure >= 3">
               <v-btn color="success" large @click="applyDirectHit">confirm</v-btn>
             </div>
@@ -188,6 +189,7 @@
               </v-btn>
             </div>
           </div>
+</template>
         </table-window-item>
         <table-window-item
           :title="resultData[3].name"

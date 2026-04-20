@@ -13,7 +13,7 @@ import PageBreak from '@/features/pilot_management/Print/components/PageBreak.vu
 import { Npc } from '@/classes/npc/Npc';
 
 export default {
-  name: 'combined-print',
+  name: 'CombinedPrint',
   components: {
     PageBreak,
   },

@@ -66,7 +66,7 @@
         <div class="text-center my-1">
           <v-tooltip location="top"
             open-delay="300">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-icon v-bind="props"
                 icon="cc:pilot"
                 class="mt-n1"
@@ -78,7 +78,7 @@
           <cc-slashes class="mx-4" />
           <v-tooltip location="top"
             open-delay="300">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-icon v-bind="props"
                 icon="cc:license"
                 class="mt-n1"
@@ -93,14 +93,14 @@
             <v-card variant="outlined"
               class="mx-auto pa-2"
               color="panel">
-              <p class="text-text"
-                v-html-safe="campaigns[slide].description" />
+              <p v-html-safe="campaigns[slide].description"
+                class="text-text" />
             </v-card>
           </v-col>
           <v-col cols="auto">
             <v-tooltip location="top"
               open-delay="300">
-              <template v-slot:activator="{ props }">
+              <template #activator="{ props }">
                 <v-btn v-bind="props"
                   :href="campaigns[slide].website"
                   target="_blank"
@@ -159,7 +159,7 @@ import { CampaignStore } from '@/stores';
 import { orderBy } from 'lodash-es';
 
 export default {
-  name: 'campaign-library-dense',
+  name: 'CampaignLibraryDense',
   props: {
     search: {
       type: String,

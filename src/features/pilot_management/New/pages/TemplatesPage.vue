@@ -54,7 +54,7 @@
       <template-item v-for="t in templates"
         :key="t.name"
         :template="t"
-        :isSelected="selected && t.name === selected.name"
+        :is-selected="selected && t.name === selected.name"
         @select="selected = t" />
     </div>
   </stepper-content>
@@ -71,15 +71,15 @@ import { CompendiumItem, MechSkills, Mech, Pilot, Frame } from '@/class';
 import { mechname } from '@/io/Generators';
 
 export default {
-  name: 'templates-page',
+  name: 'TemplatesPage',
   components: { TemplateItem, StepperContent },
-  emits: ['back', 'next'],
   props: {
     pilot: {
       type: Object,
       required: true,
     },
   },
+  emits: ['back', 'next'],
   data: () => ({
     selected: null as any,
   }),

@@ -78,7 +78,7 @@
 import { Project } from '@/class';
 
 export default {
-  name: 'custom-reserve-panel',
+  name: 'CustomReservePanel',
   data: () => ({
     projectName: '',
     details: '',

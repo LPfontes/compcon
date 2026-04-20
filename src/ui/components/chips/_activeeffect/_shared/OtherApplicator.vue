@@ -1,6 +1,6 @@
 <template>
-  <v-col :cols="cols"
-    v-if="event.OtherEvents.length">
+  <v-col v-if="event.OtherEvents.length"
+    :cols="cols">
     <div v-for="(o, index) in event.OtherEvents" :key="`other-${index}`">
       <div class="text-cc-overline text-disabled">{{ o.Type }}</div>
       <v-text-field v-if="['overshield', 'hp', 'repair'].includes(o.Type)"

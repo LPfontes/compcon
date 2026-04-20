@@ -14,8 +14,8 @@
           @click="showNav = !showNav" />
       </div>
       <v-navigation-drawer
-        nav
         v-model="showNav"
+        nav
         :width="mobile ? '280' : '350'"
         style="overflow-y: scroll"
         :style="[
@@ -24,7 +24,7 @@
         ]">
         <v-list density="compact" slim nav>
           <v-list-group v-for="(b, bIdx) in books" :key="`book-${bIdx}`" no-action color="accent">
-            <template v-slot:activator="{ props }">
+            <template #activator="{ props }">
               <v-list-item
                 class="heading text-uppercase"
                 v-bind="props"
@@ -79,7 +79,7 @@
               {{ faq.title }}
             </div>
             <v-spacer />
-            <div class="text-cc-overline" v-if="faq.page && !mobile">
+            <div v-if="faq.page && !mobile" class="text-cc-overline">
               {{ faq.book }}, p. {{ faq.page }}
             </div>
             <template v-if="mobile" #extension>
@@ -103,8 +103,8 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
+  name: 'Errata',
   mixins: [useMobile],
-  name: 'errata',
   data: () => ({
     faq: '',
     loading: true,
@@ -165,7 +165,7 @@ export default {
     },
     srdFormat(arr) {
       return arr.map((item) => {
-        let out = {
+        const out = {
           book: 'Lancer Core Book',
         };
         const titleMatch = item.heading.match(/^page (\d+), (.+)$/i);

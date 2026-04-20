@@ -116,7 +116,7 @@ import exportAsJson from '@/util/jsonExport';
 import sectionAddMenu from './sectionAddMenu.vue';
 
 export default {
-  name: 'campaign-editor-sidebar',
+  name: 'CampaignEditorSidebar',
   components: { IndentedList, CampaignPublisher, CurrentVersionExport, sectionAddMenu },
   props: {
     campaign: { type: Object, required: true },
@@ -127,13 +127,13 @@ export default {
     selected: null,
     showNav: true,
   }),
-  created() {
-    this.lastSave = this.campaign.SaveController.LastModified;
-  },
   computed: {
     dirty() {
       return this.lastSave !== this.campaign.SaveController.LastModified;
     },
+  },
+  created() {
+    this.lastSave = this.campaign.SaveController.LastModified;
   },
   methods: {
     async save() {

@@ -15,7 +15,7 @@
 
 <script lang="ts">
 export default {
-  name: 'doodad-builder-content',
+  name: 'DoodadBuilderContent',
   components: {},
   props: {
     item: { type: Object, required: true },

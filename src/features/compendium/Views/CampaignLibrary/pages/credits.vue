@@ -49,7 +49,7 @@
           {{ campaign.Website }}
         </a>
       </v-col>
-      <v-col cols="auto" v-for="(item, index) in campaign.AuthorContact" :key="`contact-${index}`">
+      <v-col v-for="(item, index) in campaign.AuthorContact" :key="`contact-${index}`" cols="auto">
         {{ item.service }}: {{ item.contact }}
       </v-col>
     </v-row>
@@ -67,7 +67,7 @@
 import PageContentContainer from './containers/campaignContentContainer.vue';
 
 export default {
-  name: 'campaign-credits-page',
+  name: 'CampaignCreditsPage',
   components: { PageContentContainer },
   props: {
     campaign: { type: Object, required: true },

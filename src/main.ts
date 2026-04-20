@@ -22,6 +22,7 @@ import App from './App.vue'
 
 import router from './router'
 import vuetify from './ui/style'
+import { i18n } from './locales/i18n'
 import * as globals from './ui/globals'
 import Notifications from '@kyvg/vue3-notification'
 import { flushNotifyQueue } from '@/util/notify'
@@ -138,6 +139,7 @@ compcon.use(vuetify)
 compcon.use(router)
 compcon.use(VueSecureHTML)
 compcon.use(Notifications)
+compcon.use(i18n)
 
 compcon.component('QuillEditor', QuillEditor)
 

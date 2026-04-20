@@ -145,6 +145,14 @@ export default {
     menu: false,
     localValue: '',
   }),
+  computed: {
+    outlined() {
+      return this.variant === 'outlined';
+    },
+    text() {
+      return this.variant === 'text';
+    },
+  },
   watch: {
     menu(val) {
       if (val) {
@@ -152,14 +160,6 @@ export default {
       } else {
         this.$emit('update:model-value', this.localValue)
       }
-    },
-  },
-  computed: {
-    outlined() {
-      return this.variant === 'outlined';
-    },
-    text() {
-      return this.variant === 'text';
     },
   },
 };

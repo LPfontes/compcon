@@ -82,7 +82,7 @@ import logger from '@/user/logger';
 import { confirmSignUp, resendSignUpCode } from 'aws-amplify/auth';
 
 export default {
-  name: 'auth-account-verify',
+  name: 'AuthAccountVerify',
   props: {
     email: {
       type: String,

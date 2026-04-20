@@ -3,7 +3,7 @@
     color="surface">
     <template #toolbar>
       <cc-toolbar :title="bond.Name"
-        :hideTitle="hideTitle"
+        :hide-title="hideTitle"
         hide-close>
         <template #toolbar-items>
           <cc-lcp-info :item="bond"
@@ -18,9 +18,9 @@
           <v-img :src="bond.Image"
             :width="imageError ? 0 : '376px'"
             :height="imageError ? 0 : '600px'"
+            class="rounded-lg"
             @error="imageError = true"
-            @load="imageError = false"
-            class="rounded-lg" />
+            @load="imageError = false" />
         </v-col>
         <v-col class="text-text">
           <div class="heading h4 font-weight-bold">MAJOR IDEALS</div>
@@ -62,7 +62,7 @@
 
 <script lang="ts">
 export default {
-  name: 'cc-bond-info',
+  name: 'CcBondInfo',
   props: { bond: { type: Object, required: true }, hideTitle: { type: Boolean } },
   data: () => ({
     imageError: false,

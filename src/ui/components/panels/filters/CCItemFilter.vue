@@ -16,7 +16,7 @@ import logger from '@/user/logger';
 import * as filters from './';
 
 export default {
-  name: 'cc-item-filter',
+  name: 'CcItemFilter',
   props: {
     itemType: {
       type: String,

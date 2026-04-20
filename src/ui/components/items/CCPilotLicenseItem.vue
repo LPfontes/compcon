@@ -36,8 +36,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcPilotLicenseItem',
   mixins: [useMobile],
-  name: 'cc-pilot-license-item',
   props: {
     pilotLicense: {
       type: Object,

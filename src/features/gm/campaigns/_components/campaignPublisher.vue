@@ -107,11 +107,12 @@ import CurrentVersionExport from './currentVersionExport.vue';
 import JSZip from 'jszip';
 
 export default {
-  name: 'campaign-publisher',
+  name: 'CampaignPublisher',
   components: { CurrentVersionExport },
   props: {
     campaign: { type: Object, required: true },
   },
+  emits: ['published'],
   data: () => ({
     major: 0,
     minor: 0,
@@ -119,21 +120,6 @@ export default {
     changes: '',
     dOptions: { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' },
   }),
-  emits: ['published'],
-  created() {
-    if (!this.versionHistory.length) {
-      this.major = 1;
-      this.minor = 0;
-      this.patch = 0;
-    } else {
-      const latest = this.versionHistory[this.versionHistory.length - 1].ver
-        .split('.')
-        .map((n) => parseInt(n));
-      this.major = latest[0];
-      this.minor = latest[1] + 1;
-      this.patch = latest[2];
-    }
-  },
   computed: {
     versionHistory() {
       return this.campaign.VersionHistory || [];
@@ -154,6 +140,20 @@ export default {
       });
       return res;
     },
+  },
+  created() {
+    if (!this.versionHistory.length) {
+      this.major = 1;
+      this.minor = 0;
+      this.patch = 0;
+    } else {
+      const latest = this.versionHistory[this.versionHistory.length - 1].ver
+        .split('.')
+        .map((n) => parseInt(n));
+      this.major = latest[0];
+      this.minor = latest[1] + 1;
+      this.patch = latest[2];
+    }
   },
   methods: {
     async publishCampaign() {

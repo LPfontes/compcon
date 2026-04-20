@@ -136,7 +136,7 @@
 
 <script>
 export default {
-  name: 'gm-tool-palette',
+  name: 'GmToolPalette',
   props: {
     expanded: {
       type: Boolean,

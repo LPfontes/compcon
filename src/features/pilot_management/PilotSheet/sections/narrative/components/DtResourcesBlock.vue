@@ -20,10 +20,10 @@
           !pilot.ReservesController.Organizations.length
         " />
       <v-row v-else>
-        <v-col cols="12" md="6" lg="4" v-for="(r, i) in pilot.ReservesController.Reserves" :key="`reserve-${i}`">
+        <v-col v-for="(r, i) in pilot.ReservesController.Reserves" :key="`reserve-${i}`" cols="12" md="6" lg="4">
           <cc-reserve-item :reserve="r" @remove="pilot.ReservesController.RemoveReserve(i)" />
         </v-col>
-        <v-col cols="12" md="6" lg="4" v-for="(o, i) in pilot.ReservesController.Organizations" :key="`org-${i}`">
+        <v-col v-for="(o, i) in pilot.ReservesController.Organizations" :key="`org-${i}`" cols="12" md="6" lg="4">
           <cc-org-item :org="o" @remove="pilot.ReservesController.RemoveOrganization(i)" />
         </v-col>
       </v-row>
@@ -37,7 +37,7 @@ import NoDataBlock from '../../components/NoDataBlock.vue';
 import ReserveSelector from '@/features/pilot_management/_components/selectors/ReserveSelector.vue';
 
 export default {
-  name: 'dt-resources-block',
+  name: 'DtResourcesBlock',
   components: { SectionHeader, NoDataBlock, ReserveSelector },
   props: {
     pilot: {

@@ -141,7 +141,7 @@ class CampaignSection {
   }
 
   public MoveUp(): void {
-    let parent = this.Parent || this.Campaign
+    const parent = this.Parent || this.Campaign
     const index = parent.Children.indexOf(this)
     if (index === 0) return
     parent.Children.splice(index, 1)
@@ -150,7 +150,7 @@ class CampaignSection {
   }
 
   public MoveToTop(): void {
-    let parent = this.Parent || this.Campaign
+    const parent = this.Parent || this.Campaign
     const index = parent.Children.indexOf(this)
     if (index === 0) return
     parent.Children.splice(index, 1)
@@ -159,7 +159,7 @@ class CampaignSection {
   }
 
   public MoveDown(): void {
-    let parent = this.Parent || this.Campaign
+    const parent = this.Parent || this.Campaign
     const index = parent.Children.indexOf(this)
     if (index === parent.Children.length - 1) return
     parent.Children.splice(index, 1)
@@ -168,7 +168,7 @@ class CampaignSection {
   }
 
   public MoveToBottom(): void {
-    let parent = this.Parent || this.Campaign
+    const parent = this.Parent || this.Campaign
     const index = parent.Children.indexOf(this)
     if (index === parent.Children.length - 1) return
     parent.Children.splice(index, 1)
@@ -177,7 +177,7 @@ class CampaignSection {
   }
 
   public MoveToSection(section: CampaignSection): void {
-    let parent = this.Parent || this.Campaign
+    const parent = this.Parent || this.Campaign
     const index = parent.Children.indexOf(this)
     parent.Children.splice(index, 1)
     section.Children.push(this)

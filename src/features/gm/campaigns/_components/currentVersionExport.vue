@@ -113,7 +113,7 @@ import { CampaignStore } from '../../store/campaign_store';
 import { UserStore } from '@/stores';
 
 export default {
-  name: 'campaign-current-version-export',
+  name: 'CampaignCurrentVersionExport',
   props: {
     campaign: { type: Object, required: true },
   },

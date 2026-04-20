@@ -26,8 +26,8 @@
 <script lang="ts">
 import { useMobile } from '@/mixins/useMobile';
 export default {
+  name: 'CcTitle',
   mixins: [useMobile],
-  name: 'cc-title',
   props: {
     color: { type: String, default: 'primary' },
     title: { type: String, default: '' },

@@ -271,7 +271,7 @@
     <v-footer app>
       <v-btn size="x-small" variant="tonal" class="mr-12" icon @click="$emit('preview', 'credits')">
         <v-tooltip location="bottom" open-delay="300">
-          <template v-slot:activator="{ props }">
+          <template #activator="{ props }">
             <v-icon v-bind="props" size="x-large" icon="mdi-eye" />
           </template>
           <span>Preview</span>
@@ -286,7 +286,7 @@
 import PageContentContainer from './_components/PageContentContainer.vue';
 
 export default {
-  name: 'campaign-overview-page',
+  name: 'CampaignOverviewPage',
   components: { PageContentContainer },
   props: {
     campaign: { type: Object, required: true },

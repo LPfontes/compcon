@@ -64,8 +64,8 @@
         style="height: 36px"
         :style="pctBackground" />
       <div v-for="i in ticks"
-        :key="`tick-${i}`"
         v-else
+        :key="`tick-${i}`"
         class="d-inline-block"
         :style="`width: ${100 / ticks}%;`">
         <v-tooltip location="top"

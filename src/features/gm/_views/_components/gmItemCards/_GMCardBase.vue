@@ -49,7 +49,7 @@ import StatChips from './_subcomponents/statChips.vue';
 import SortChips from './_subcomponents/sortChips.vue';
 
 export default {
-  name: 'gm-card-base',
+  name: 'GmCardBase',
   components: { StatChips, SortChips },
   props: {
     item: { type: Object, required: true },

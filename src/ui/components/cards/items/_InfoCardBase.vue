@@ -90,7 +90,7 @@
 
 <script lang="ts">
 export default {
-  name: 'equipment-card-base',
+  name: 'EquipmentCardBase',
   props: {
     item: {
       type: Object,

@@ -76,9 +76,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'npc-roster',
+  name: 'NpcRoster',
   components: { NpcIndex, DoodadIndex, EidolonIndex, Organizer, Importer },
+  mixins: [useMobile],
   props: {
     type: {
       type: String,

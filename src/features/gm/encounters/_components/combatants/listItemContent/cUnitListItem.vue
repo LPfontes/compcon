@@ -39,7 +39,7 @@ import cListItemBase from './cListItemBase.vue';
 import StatChips from '../../../../_views/_components/gmItemCards/_subcomponents/statChips.vue';
 
 export default {
-  name: 'gm-combatant-unit-list-item',
+  name: 'GmCombatantUnitListItem',
   components: { StatChips, cListItemBase },
   props: {
     item: { type: Object, required: true },

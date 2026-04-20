@@ -40,7 +40,7 @@ import StatChips from './_subcomponents/statChips.vue';
 import GmListItemBase from './_GMListItemBase.vue';
 
 export default {
-  name: 'gm-unit-list-item',
+  name: 'GmUnitListItem',
   components: { StatChips, GmListItemBase },
   props: {
     item: { type: Object, required: true },

@@ -23,20 +23,20 @@
           style="min-width: 400px">
           <v-card flat>
             <v-card-text>
-              <v-select density="compact"
+              <v-select v-model="variant"
+                density="compact"
                 label="variant"
                 hide-details
                 clearable
-                v-model="variant"
                 :items="variants" />
-              <v-text-field density="compact"
+              <v-text-field v-model="title"
+                density="compact"
                 hide-details
                 clearable
-                v-model="title"
                 label="title" />
-              <v-checkbox density="compact"
+              <v-checkbox v-model="border"
+                density="compact"
                 hide-details
-                v-model="border"
                 label="border" />
             </v-card-text>
           </v-card>
@@ -64,19 +64,19 @@
           style="min-width: 400px">
           <v-card flat>
             <v-card-text>
-              <v-text-field density="compact"
+              <v-text-field v-model="title"
+                density="compact"
                 hide-details
                 clearable
-                v-model="title"
                 label="title" />
               <v-select v-model="icon"
                 :items="icons"
                 label="icon"
                 hide-details
                 clearable />
-              <v-checkbox density="compact"
+              <v-checkbox v-model="prominent"
+                density="compact"
                 hide-details
-                v-model="prominent"
                 label="prominent" />
             </v-card-text>
           </v-card>
@@ -133,7 +133,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ui-test-panels',
+  name: 'UiTestPanels',
   data: () => ({
     title: '',
     label: 'button text',

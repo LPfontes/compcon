@@ -11,7 +11,7 @@
 import GmCardBase from './_GMCardBase.vue';
 
 export default {
-  name: 'gm-location-card',
+  name: 'GmLocationCard',
   components: { GmCardBase },
   props: {
     item: { type: Object, required: true },

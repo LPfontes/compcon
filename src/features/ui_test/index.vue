@@ -40,7 +40,7 @@ import chips from './pages/chips.vue';
 import textpage from './pages/text.vue';
 
 export default {
-  name: 'ui-test-new',
+  name: 'UiTestNew',
   components: {
     buttons,
     inputs,

@@ -212,9 +212,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
   name: 'GroupMenu',
   components: { GroupFileImport },
+  mixins: [useMobile],
   emits: ['close'],
   data: () => ({
     group: {} as PilotGroup,

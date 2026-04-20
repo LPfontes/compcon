@@ -24,9 +24,9 @@
   <div v-if="Neutral.length > 0">
     <div class="text-caption mt-1">NEUTRAL</div>
     <v-row dense>
-      <v-col cols="auto"
-        v-for="c in Neutral"
+      <v-col v-for="c in Neutral"
         :key="c.id"
+        cols="auto"
         style="min-width: 30vw">
         <npc-tracker :combatant="c" />
       </v-col>
@@ -40,7 +40,7 @@ import NpcTracker from '../components/NpcTracker.vue';
 import * as _ from 'lodash-es';
 
 export default {
-  name: 'gm-tracker-print',
+  name: 'GmTrackerPrint',
   components: {
     NpcTracker,
   },

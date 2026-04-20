@@ -150,7 +150,7 @@ import { CompendiumStore } from '@/stores';
 import PanelView from '../../../_components/PanelView.vue';
 
 export default {
-  name: 'npc-template-selector',
+  name: 'NpcTemplateSelector',
   components: { PanelView },
   props: {
     item: { type: Object, required: true },

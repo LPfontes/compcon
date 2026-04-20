@@ -51,7 +51,7 @@
 import PrintOptionSelect from './PrintOptionSelect.vue';
 
 export default {
-  name: 'print-options-dialog',
+  name: 'PrintOptionsDialog',
   components: { PrintOptionSelect },
   props: {
     options: {

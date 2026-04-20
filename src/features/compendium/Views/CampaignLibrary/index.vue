@@ -63,9 +63,9 @@ import { useMobile } from '@/mixins/useMobile';
 
 
 export default {
-  mixins: [useMobile],
-  name: 'compendium-home',
+  name: 'CompendiumHome',
   components: { SearchBar, CampaignBookshelf },
+  mixins: [useMobile],
   data: () => ({
     search: '',
     isFocused: false,

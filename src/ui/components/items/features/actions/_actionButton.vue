@@ -40,9 +40,8 @@ import { ActivationType } from '@/classes/enums';
 import ActionBase from './_actionBase.vue';
 
 export default {
-  name: 'action-button',
+  name: 'ActionButton',
   components: { ActionBase },
-  emits: ['use', 'undo'],
   props: {
     action: {
       type: Object,
@@ -65,6 +64,7 @@ export default {
       type: Boolean,
     },
   },
+  emits: ['use', 'undo'],
   computed: {
     cost() {
       if (this.action.Activation === ActivationType.Quick) return 1;

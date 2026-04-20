@@ -20,16 +20,7 @@ import { EncounterMap } from '@/classes/encounter/EncounterMap';
 import InfiniteCanvas from 'ef-infinite-canvas';
 
 export default {
-  name: 'square-map-editor',
-  data: () => ({
-    cellSize: 40,
-    extentsX: 0,
-    extentsY: 0,
-    canvas: null,
-    context: null,
-    mapData: {},
-    hoverTile: { row: -1, col: -1 },
-  }),
+  name: 'SquareMapEditor',
   props: {
     sizeX: {
       type: Number,
@@ -55,6 +46,15 @@ export default {
       type: Boolean,
     },
   },
+  data: () => ({
+    cellSize: 40,
+    extentsX: 0,
+    extentsY: 0,
+    canvas: null,
+    context: null,
+    mapData: {},
+    hoverTile: { row: -1, col: -1 },
+  }),
   watch: {
     sizeX() {
       this.DrawGrid();

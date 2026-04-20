@@ -5,7 +5,7 @@
     <div>
       <cc-modal title="Modal Title" icon="cc:campaign" color="primary" cancel-action confirm-action>
         <template #activator="{ open }">
-          <cc-button @click="open" color="primary">Open Modal</cc-button>
+          <cc-button color="primary" @click="open">Open Modal</cc-button>
         </template>
         <p v-html-safe="loremIpsum" />
       </cc-modal>
@@ -14,7 +14,7 @@
     <div class="my-4">
       <cc-dialog title="Dialog Title" color="secondary" icon="mdi-alert">
         <template #activator="{ open }">
-          <cc-button @click="open" color="primary">Open dialog</cc-button>
+          <cc-button color="primary" @click="open">Open dialog</cc-button>
         </template>
         <p v-html-safe="loremIpsum" />
       </cc-dialog>
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ui-test-panels',
+  name: 'UiTestPanels',
   data: () => ({
     icons: [
       'cc:campaign',

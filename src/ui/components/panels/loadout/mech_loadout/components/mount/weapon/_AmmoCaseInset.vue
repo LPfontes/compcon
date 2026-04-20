@@ -36,7 +36,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ammo-case-inset',
+  name: 'AmmoCaseInset',
   props: {
     level: { type: Number, required: true, default: 0 },
     uses: { type: Number, required: false, default: 0 },

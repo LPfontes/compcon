@@ -15,7 +15,7 @@
 import { Mech } from '@/class';
 
 export default {
-  name: 'status-alerts',
+  name: 'StatusAlerts',
   props: {
     mech: {
       status: Object,
