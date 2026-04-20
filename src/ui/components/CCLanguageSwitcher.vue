@@ -1,6 +1,9 @@
 <script setup lang="ts">
   import { useI18n } from 'vue-i18n'
-  import { watch } from 'vue'
+  import * as Vue from 'vue'
+  import { NavStore } from '@/stores'
+
+  const { watch } = Vue
 
   const { locale } = useI18n()
 
@@ -8,6 +11,7 @@
   watch(locale, newLocale => {
     localStorage.setItem('cc_locale', newLocale)
     document.querySelector('html')?.setAttribute('lang', newLocale)
+    NavStore().setLanguage(newLocale)
   })
 
   const items = [

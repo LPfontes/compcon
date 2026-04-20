@@ -209,6 +209,7 @@
 
     <v-expansion-panels>
       <v-expansion-panel>
+        <v-expansion-panel-title>
           {{ $t('activeMode.gm.manager.archivedTitle', { count: archived.length }) }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>

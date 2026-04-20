@@ -46,6 +46,7 @@ const NavStore = defineStore('nav', {
     },
     setLanguage(lang: string) {
       this._language = lang
+      this.CreateIndex()
     },
     addToIndex(items: IndexItem | IndexItem[]) {
       const arr = Array.isArray(items) ? items : [items]

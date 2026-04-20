@@ -14,7 +14,7 @@ const getInitialLocale = (): string => {
   return 'en'
 }
 
-export const i18n = createI18n<[MessageSchema], 'en' | 'pt-BR' | 'pt'>({
+export const i18n = createI18n({
   legacy: false,
   globalInjection: true,
   locale: getInitialLocale(),
