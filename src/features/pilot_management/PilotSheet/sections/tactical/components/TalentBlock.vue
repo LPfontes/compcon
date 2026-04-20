@@ -1,14 +1,14 @@
 <template>
   <div class="mb-4">
-    <section-header title="Talents">
-      <cc-modal v-if="!pilot.IsRemote" title="Set Pilot Talents" icon="cc:trait">
+    <section-header :title="$t('pilotSheet.tactical.talentsTitle')">
+      <cc-modal v-if="!pilot.IsRemote" :title="$t('pilotSheet.tactical.setTalents')" icon="cc:trait">
         <template #activator="{ open }">
           <section-edit-chip
             v-if="!pilot.IsRemote"
             :highlight="!pilot.TalentsController.HasFullTalents"
             :current="pilot.TalentsController.CurrentTalentPoints"
             :max="pilot.TalentsController.MaxTalentPoints"
-            :label="`Edit Pilot Talents (${pilot.TalentsController.CurrentTalentPoints}/${pilot.TalentsController.MaxTalentPoints})`"
+            :label="$t('pilotSheet.tactical.editTalents', { current: pilot.TalentsController.CurrentTalentPoints, max: pilot.TalentsController.MaxTalentPoints })"
             @open-selector="open" />
         </template>
         <talent-selector :pilot="pilot" />

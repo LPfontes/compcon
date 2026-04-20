@@ -142,7 +142,7 @@
         >
           <b class="text-stark">{{ pilot.Name }}</b>
           <div class="text-cc-overline">
-            <span class="text-disabled">License Level</span>
+            <span class="text-disabled">{{ $t('roster.pilotListItem.licenseLevel') }}</span>
             {{ pilot.Level }}
           </div>
         </div>
@@ -157,7 +157,7 @@
                 <span class="text-disabled">>[</span>
                 <b class="text-stark">{{ pilot.Name }}</b>
                 <span class="text-disabled">]</span>
-                <span class="text-disabled">&nbsp;STATUS [</span>
+                <span class="text-disabled">&nbsp;{{ $t('roster.pilotListItem.status') }}</span>
                 <span :class="`text-${statusColor(pilot.Status)}`">{{ pilot.Status }}</span>
                 <span class="text-disabled">] -&nbsp;</span>
                 <b class="text-success">&nbsp;LL: {{ pilot.Level }}&nbsp;</b>

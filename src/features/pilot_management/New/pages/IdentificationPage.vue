@@ -3,36 +3,29 @@
     mandatory
     exit="../pilot_management"
     @complete="$emit('next')">
-    <cc-title offset>New Pilot Registration</cc-title>
+    <cc-title offset>{{ $t('pilotRegistration.title') }}</cc-title>
     <div class="heading h2">
-      UAD IDENT Service
+      {{ $t('pilotRegistration.identService') }}
       <cc-slashes />
-      RM-4 Personnel::Pilot (C)
+      {{ $t('pilotRegistration.personnelPilot') }}
     </div>
     <p class="flavor-text"
       style="font-size: 14px">
-      Welcome to the Union Administrative Department's IDENT registration service. IDENT is the
-      omninet-based certification system that guides the user through the UAD's pilot registration
-      process. IDENT helps ensure pilots meet regulatory and policy requirements through the use of
-      NHP-directed data validation protocols. Union Regulars that have already been issued an RM-4
-      IDENT fingerprint should not complete this form unless instructed to by their commanding
-      officer.
+      {{ $t('pilotRegistration.identWelcome') }}
     </p>
     <v-alert color="accent"
       variant="outlined"
       density="compact"
       class="mt-2">
       <div class="heading">
-        All fields marked with the
+        {{ $t('pilotRegistration.fieldsWarning', { icon: '' }) }}
         <v-icon color="error"
           size="small"
           class="mt-n1">mdi-alert</v-icon>
-        glyph must be populated.
+        {{ $t('pilotRegistration.fieldsWarning').split('{icon}')[1] }}
       </div>
       <p class="text-cc-overline">
-        By submitting this form you attest that your responses are truthful and accurate to the best
-        of your knowledge. Knowingly providing false or or incomplete information is punishable
-        under DoJ/HR AR 303-J.
+        {{ $t('pilotRegistration.truthAttestation') }}
       </p>
     </v-alert>
 
@@ -42,12 +35,12 @@
         class="mr-auto">
         <div class="my-2">
           <div v-if="!mobile"
-            class="text-caption">RM-4-01 // FULL NAME OR PRIMARY ALIAS</div>
+            class="text-caption">{{ $t('pilotRegistration.fullNameLabel') }}</div>
           <div v-else
-            class="text-caption">PILOT NAME</div>
+            class="text-caption">{{ $t('pilotRegistration.pilotNameLabel') }}</div>
           <cc-text-field v-model="pilot.Name"
             variant="outlined"
-            placeholder="Name"
+            :placeholder="$t('pilotRegistration.namePlaceholder')"
             :icon="pilot.Name ? 'mdi-check-circle-outline' : 'mdi-alert'"
             :color="pilot.Name ? 'success' : 'error'"
             class="my-1 d-inline">
@@ -55,7 +48,7 @@
               <cc-button icon="mdi-dice-multiple"
                 variant="outlined"
                 size="small"
-                tooltip="Generate random name"
+                :tooltip="$t('pilotRegistration.randomName')"
                 @click="randomName()" />
             </template>
           </cc-text-field>
@@ -64,13 +57,13 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            RM-4-02 // APPROVED CALLSIGN (OR CADET DESIGNATION, IF APPLICABLE)
+            {{ $t('pilotRegistration.callsignLabel') }}
           </div>
           <div v-else
-            class="text-caption">CALLSIGN</div>
+            class="text-caption">{{ $t('pilotRegistration.callsignLabelShort') }}</div>
           <cc-text-field v-model="pilot.Callsign"
             variant="outlined"
-            placeholder="Callsign"
+            :placeholder="$t('pilotRegistration.callsignPlaceholder')"
             :icon="pilot.Callsign ? 'mdi-check-circle-outline' : 'mdi-alert'"
             :color="pilot.Callsign ? 'success' : 'error'"
             class="my-1 d-inline">
@@ -78,7 +71,7 @@
               <cc-button icon="mdi-dice-multiple"
                 variant="outlined"
                 size="small"
-                tooltip="Generate random callsign"
+                :tooltip="$t('pilotRegistration.randomCallsign')"
                 @click="randomCallsign()" />
             </template>
           </cc-text-field>
@@ -87,18 +80,18 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            RM-4-03 // PRIOR OCCUPATION OR POSITION (ANSWER 17b ON RM-2-C)
+            {{ $t('pilotRegistration.backgroundLabel') }}
           </div>
           <div v-else
-            class="text-caption">BACKGROUND</div>
+            class="text-caption">{{ $t('pilotRegistration.backgroundLabelShort') }}</div>
           <cc-text-field v-model="pilot.Background"
             variant="outlined"
-            placeholder="Background"
+            :placeholder="$t('pilotRegistration.backgroundPlaceholder')"
             :icon="pilot.Background ? 'mdi-check-circle-outline' : 'mdi-circle-outline'"
             :color="pilot.Background ? 'success' : 'light-panel'"
             class="my-1 d-inline">
             <template #extra>
-              <v-tooltip text="Select Predefined Background">
+              <v-tooltip :text="$t('pilotRegistration.selectPredefined')">
                 <template #activator="{ props }">
                   <span v-bind="props">
                     <background-selector
@@ -113,10 +106,10 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            RM-4-04 // ATTACHED BIOGRAPHICAL DOSSIER (RM-4b SUPPLEMENTAL)
+            {{ $t('pilotRegistration.bioLabel') }}
           </div>
           <div v-else
-            class="text-caption">BIOGRAPHY</div>
+            class="text-caption">{{ $t('pilotRegistration.bioLabelShort') }}</div>
           <v-row align="center"
             dense>
             <v-col>
@@ -124,10 +117,10 @@
                 size="small"
                 :color="!pilot.History ? 'light-panel' : 'success'"
                 @click="bioDialog = true">
-                <div v-if="!pilot.History">Add Pilot Biography</div>
-                <div v-else>Edit Pilot Biography</div>
+                <div v-if="!pilot.History">{{ $t('pilotRegistration.addBio') }}</div>
+                <div v-else>{{ $t('pilotRegistration.editBio') }}</div>
                 <cc-text-editor-dialog v-model="bioDialog"
-                  title="Edit Pilot Biography"
+                  :title="$t('pilotRegistration.editBio')"
                   :original="pilot.History"
                   @save="$emit('set', { attr: 'History', val: $event })" />
               </cc-button>
@@ -145,10 +138,10 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            RM-4-05 // ATTACHED OHM HEALTH EXAMINATION RESULTS
+            {{ $t('pilotRegistration.appearanceLabel') }}
           </div>
           <div v-else
-            class="text-caption">APPEARANCE</div>
+            class="text-caption">{{ $t('pilotRegistration.appearanceLabelShort') }}</div>
           <v-row align="center"
             dense>
             <v-col>
@@ -156,10 +149,10 @@
                 size="small"
                 :color="!pilot.TextAppearance ? 'light-panel' : 'success'"
                 @click="appearanceDialog = true">
-                <div v-if="!pilot.TextAppearance">Add Pilot Description</div>
-                <div v-else>Edit Pilot Description</div>
+                <div v-if="!pilot.TextAppearance">{{ $t('pilotRegistration.addAppearance') }}</div>
+                <div v-else>{{ $t('pilotRegistration.editAppearance') }}</div>
                 <cc-text-editor-dialog v-model="appearanceDialog"
-                  title="edit Pilot Description"
+                  :title="$t('pilotRegistration.editAppearance')"
                   :original="pilot.TextAppearance"
                   @save="$emit('set', { attr: 'TextAppearance', val: $event })" />
               </cc-button>
@@ -177,17 +170,17 @@
         <div class="my-4">
           <div v-if="!mobile"
             class="text-caption">
-            RM-4-δ // EXTERNAL LICENSE DATA TRANSFER (IF APPLICABLE)
+            {{ $t('pilotRegistration.llLabel') }}
           </div>
           <div v-else
-            class="text-caption">STARTING LL</div>
+            class="text-caption">{{ $t('pilotRegistration.llLabelShort') }}</div>
           <cc-number-field v-model.number="pilot.Level"
             type="number"
-            label="Starting License Level"
+            :label="$t('pilotRegistration.startingLl')"
             :max="12"
             :min="0"
             :color="pilot.Level ? 'warning' : 'success'"
-            tooltip="Start this Pilot at a specific license level. Recommended for advanced users."
+            :tooltip="$t('pilotRegistration.llTooltip')"
             tooltip-icon="mdi-alert"
             class="my-1 d-inline" />
         </div>
@@ -196,11 +189,11 @@
         md="auto"
         class="mx-auto mt-2"
         style="max-width: 325px">
-        <div v-if="!mobile"
-          class="text-caption">
-          RM-4-06 // ATTACHED OHM IMAGING SCAN
-          <div class="mt-n1 text-disabled">(MUST INCLUDE RETINAL DATA)</div>
-        </div>
+          <div v-if="!mobile"
+            class="text-caption">
+            {{ $t('pilotRegistration.imagingLabel') }}
+            <div class="mt-n1 text-disabled">{{ $t('pilotRegistration.imagingSub') }}</div>
+          </div>
         <div class="border mr-8 ml-auto mr-auto"
           style="width: 300px; height: 300px">
           <cc-img v-if="pilot.Portrait"
@@ -208,7 +201,7 @@
             aspect-ratio="1" />
         </div>
         <div class="mt-3">
-          <cc-modal title="set pilot portrait"
+          <cc-modal :title="$t('pilotRegistration.addImage')"
             icon="cc:pilot">
             <template #activator="{ open }">
               <cc-button block
@@ -217,7 +210,7 @@
                 :append-icon="pilot.Portrait ? '' : 'mdi-check-circle-outline'"
                 :prepend-icon="pilot.Portrait ? 'mdi-circle-edit-outline' : 'mdi-plus'"
                 @click="open">
-                {{ pilot.Portrait ? 'Edit Pilot Image' : 'Add Pilot Image' }}
+                {{ pilot.Portrait ? $t('pilotRegistration.editImage') : $t('pilotRegistration.addImage') }}
               </cc-button>
             </template>
             <cc-image-selector ref="imageSelector"
@@ -237,9 +230,9 @@
           color="primary"
           :disabled="!pilot.HasIdent"
           @click="savePilot">
-          Skip New Pilot Registration
+          {{ $t('pilotRegistration.skipRegistration') }}
         </cc-button>
-        <div class="text-caption text-disabled"><i>Recommended for Advanced Users</i></div>
+        <div class="text-caption text-disabled"><i>{{ $t('pilotRegistration.recommendedAdvanced') }}</i></div>
       </v-col>
       <v-spacer />
       <v-col cols="12"
@@ -249,9 +242,9 @@
           color="primary"
           :disabled="!pilot.HasIdent"
           @click="$emit('templates')">
-          Select Character Template
+          {{ $t('pilotRegistration.selectTemplate') }}
         </cc-button>
-        <div class="text-caption text-disabled"><i>Recommended for New Players</i></div>
+        <div class="text-caption text-disabled"><i>{{ $t('pilotRegistration.recommendedNew') }}</i></div>
       </v-col>
     </v-row>
   </stepper-content>

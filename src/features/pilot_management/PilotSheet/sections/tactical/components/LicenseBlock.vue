@@ -1,14 +1,14 @@
 <template>
   <div>
-    <section-header title="Licenses">
-      <cc-modal ref="licenseSelector" title="Set Pilot Licenses" icon="cc:frame">
+    <section-header :title="$t('pilotSheet.tactical.licensesTitle')">
+      <cc-modal ref="licenseSelector" :title="$t('pilotSheet.tactical.setLicenses')" icon="cc:frame">
         <template #activator="{ open }">
           <section-edit-chip
             v-if="!pilot.IsRemote"
             :highlight="!pilot.LicenseController.HasLicenses"
             :current="pilot.LicenseController.CurrentLicensePoints"
             :max="pilot.LicenseController.MaxLicensePoints"
-            :label="`Edit Pilot Licenses (${pilot.LicenseController.CurrentLicensePoints}/${pilot.LicenseController.MaxLicensePoints})`"
+            :label="$t('pilotSheet.tactical.editLicenses', { current: pilot.LicenseController.CurrentLicensePoints, max: pilot.LicenseController.MaxLicensePoints })"
             @open-selector="open" />
         </template>
         <template #default>

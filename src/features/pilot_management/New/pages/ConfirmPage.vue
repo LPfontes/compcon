@@ -10,33 +10,33 @@
     <br />
     <v-alert v-if="!pilotReady" type="error" variant="outlined" tile>
       <span class="stat-text text-accent">
-        WARNING: Submission for IDENT record {{ pilot.ID }} has the following issue(s):
+        {{ $t('pilotRegistration.wizard.confirm.warning', { id: pilot.ID }) }}
       </span>
       <ul class="flavor-text text-error">
         <li v-if="!pilot.Callsign">
           <v-icon icon="mdi-alert" size="small" class="mx-n1" />
-          CRITICAL
+          {{ $t('pilotRegistration.wizard.confirm.critical') }}
           <v-icon icon="mdi-alert" size="small" class="mx-n1" />
-          &nbsp;PILOT CALLSIGN blank or invalid
+          &nbsp;{{ $t('pilotRegistration.wizard.confirm.errors.callsign') }}
         </li>
         <li v-if="!pilot.Name">
           <v-icon icon="mdi-alert" size="small" class="mx-n1" />
-          CRITICAL
+          {{ $t('pilotRegistration.wizard.confirm.critical') }}
           <v-icon icon="mdi-alert" size="small" class="mx-n1" />
-          &nbsp;PILOT NAME blank or invalid
+          &nbsp;{{ $t('pilotRegistration.wizard.confirm.errors.name') }}
         </li>
         <li v-if="!pilot.SkillsController.HasFullSkills">
-          PILOT SKILL TRIGGERS missing or incomplete
+          {{ $t('pilotRegistration.wizard.confirm.errors.skills') }}
         </li>
-        <li v-if="!pilot.TalentsController.HasFullTalents">PILOT TALENTS missing or incomplete</li>
+        <li v-if="!pilot.TalentsController.HasFullTalents">{{ $t('pilotRegistration.wizard.confirm.errors.talents') }}</li>
         <li v-if="!pilot.MechSkillsController.HasFullHASE">
-          PILOT MECH SKILLS missing or incomplete
+          {{ $t('pilotRegistration.wizard.confirm.errors.mechSkills') }}
         </li>
         <li v-if="!pilot.LicenseController.HasLicenses">
-          PILOT LICENSE DATA missing or incomplete
+          {{ $t('pilotRegistration.wizard.confirm.errors.licenses') }}
         </li>
         <li v-if="!pilot.CoreBonusController.HasCBs">
-          PILOT CORE BONUS DATA missing or incomplete
+          {{ $t('pilotRegistration.wizard.confirm.errors.coreBonuses') }}
         </li>
       </ul>
     </v-alert>
@@ -48,9 +48,10 @@
       :disabled="!pilotReady"
       @click="savePilot()">
       <span>
-        Register New Pilot // {{ pilot.Callsign || default_callsign }} ({{
-          pilot.Name || default_name
-        }})
+        {{ $t('pilotRegistration.wizard.confirm.registerBtn', {
+          callsign: pilot.Callsign || $t('pilotRegistration.wizard.confirm.defaultCallsign'),
+          name: pilot.Name || $t('pilotRegistration.wizard.confirm.defaultName')
+        }) }}
       </span>
     </cc-button>
     <div v-if="!pilotReady" class="text-right">
@@ -58,10 +59,10 @@
         <cc-button
           size="small"
           color="primary"
-          tooltip="Force pilot registration"
+          :tooltip="$t('pilotRegistration.wizard.confirm.overrideTooltip')"
           :disabled="missingBasicInfo"
           @click="savePilot()">
-          Registration Override
+          {{ $t('pilotRegistration.wizard.confirm.overrideBtn') }}
         </cc-button>
       </div>
     </div>
@@ -87,8 +88,8 @@ export default {
     groupID: { type: String },
   },
   data: () => ({
-    default_callsign: '[NEW CALLSIGN]',
-    default_name: 'New Pilot',
+    default_callsign: '',
+    default_name: '',
   }),
   computed: {
     pilotReady(): boolean {
@@ -108,8 +109,8 @@ export default {
   methods: {
     savePilot() {
       const store = PilotStore();
-      this.pilot.Callsign = this.pilot.Callsign ? this.pilot.Callsign : this.default_callsign;
-      this.pilot.Name = this.pilot.Name ? this.pilot.Name : this.default_name;
+      this.pilot.Callsign = this.pilot.Callsign ? this.pilot.Callsign : this.$t('pilotRegistration.wizard.confirm.defaultCallsign');
+      this.pilot.Name = this.pilot.Name ? this.pilot.Name : this.$t('pilotRegistration.wizard.confirm.defaultName');
       store.AddPilot(this.pilot as Pilot, this.groupID);
 
       if (this.pilot.isTemplate) AchievementEventSystem.emit('add_template_pilot');

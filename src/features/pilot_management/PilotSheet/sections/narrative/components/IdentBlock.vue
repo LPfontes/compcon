@@ -9,7 +9,7 @@
       :class="mobile && 'd-flex justify-start'">
       <cc-text-label v-model="pilot.Callsign"
         :readonly="pilot.IsRemote"
-        label="Callsign" />
+        :label="$t('pilotSheet.narrative.callsignLabel')" />
     </v-col>
     <v-col cols="12"
       sm="6"
@@ -17,7 +17,7 @@
       :class="mobile && 'd-flex justify-start'">
       <cc-text-label v-model="pilot.Name"
         :readonly="pilot.IsRemote"
-        label="Name" />
+        :label="$t('pilotSheet.narrative.nameLabel')" />
     </v-col>
     <v-col cols="12"
       sm="6"
@@ -25,7 +25,7 @@
       :class="mobile && 'd-flex justify-start'">
       <cc-text-label v-model="pilot.PlayerName"
         :readonly="pilot.IsRemote"
-        label="Player" />
+        :label="$t('pilotSheet.narrative.playerLabel')" />
     </v-col>
     <v-col cols="12"
       sm="6"
@@ -33,7 +33,7 @@
       :class="mobile && 'd-flex justify-start'">
       <cc-text-label v-model="pilot.Background"
         :readonly="pilot.IsRemote"
-        label="Background">
+        :label="$t('pilotSheet.narrative.backgroundLabel')">
         <template #append>
           <background-selector v-if="!pilot.IsRemote"
             small
@@ -61,18 +61,20 @@ export default {
     },
   },
   data: () => ({
-    pilotStatuses: [
-      { title: 'Active', value: 'ACTIVE' },
-      { title: 'Inactive', value: 'INACTIVE' },
-      { title: 'Retired', value: 'RET' },
-      { title: 'Missing In Action', value: 'MIA' },
-      { title: 'Killed In Action', value: 'KIA' },
-      { title: 'Unknown', value: 'UNKNOWN' },
-    ],
     noteColor: '',
     notification: '',
   }),
   computed: {
+    pilotStatuses() {
+      return [
+        { title: this.$t('pilotSheet.narrative.statusActive'), value: 'ACTIVE' },
+        { title: this.$t('pilotSheet.narrative.statusInactive'), value: 'INACTIVE' },
+        { title: this.$t('pilotSheet.narrative.statusRetired'), value: 'RET' },
+        { title: this.$t('pilotSheet.narrative.statusMia'), value: 'MIA' },
+        { title: this.$t('pilotSheet.narrative.statusKia'), value: 'KIA' },
+        { title: this.$t('pilotSheet.narrative.statusUnknown'), value: 'UNKNOWN' },
+      ];
+    },
     statusColor(): string {
       switch (this.pilot.Status.toLowerCase()) {
         case 'active':

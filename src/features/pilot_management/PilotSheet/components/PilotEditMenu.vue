@@ -16,7 +16,7 @@
             height="46">
             <div v-if="!dense"
               class="heading h3 py-0 px-2">
-              Pilot Options
+              {{ $t('pilotSheet.mobileOptions.title') }}
             </div>
           </v-toolbar>
           <v-list :lines="mobile ? 'one' : 'two'"
@@ -24,48 +24,45 @@
             color="panel"
             density="compact"
             slim>
-            <v-list-item title="Print"
+            <v-list-item :title="$t('pilotSheet.mobileOptions.print')"
               prepend-icon="mdi-printer"
-              subtitle="Print tabletop-ready character and mech sheets"
+              :subtitle="$t('pilotSheet.mobileOptions.printSubtitle')"
               @click="$router.push(`/print/${pilot.ID}`)" />
-            <cc-modal title="Statblock Generator"
+            <cc-modal :title="$t('pilotSheet.mobileOptions.statblockGenTitle')"
               icon="mdi-code-block-tags">
               <template #activator="{ open }">
                 <v-list-item prepend-icon="mdi-file-document-outline"
-                  title="Generate Statblock"
-                  subtitle="Get a plaintext representation of this character's build"
+                  :title="$t('pilotSheet.mobileOptions.genStatblock')"
+                  :subtitle="$t('pilotSheet.mobileOptions.genStatblockSubtitle')"
                   @click.stop="open" />
               </template>
               <statblock-dialog :pilot="pilot" />
             </cc-modal>
             <v-list-item v-if="!pilot.IsRemote"
               prepend-icon="mdi-export-variant"
-              title="Export Pilot"
-              subtitle="Export this pilot as a JSON file"
+              :title="$t('pilotSheet.mobileOptions.export')"
+              :subtitle="$t('pilotSheet.mobileOptions.exportSubtitle')"
               @click="exportPilot()" />
 
             <v-list-item v-if="!pilot.IsRemote"
               prepend-icon="mdi-export-variant"
-              title="Export v2 JSON"
-              subtitle="Export a legacy format for VTT systems and v2 apps"
+              :title="$t('pilotSheet.mobileOptions.exportLegacy')"
+              :subtitle="$t('pilotSheet.mobileOptions.exportLegacySubtitle')"
               @click="exportPilot(true)" />
 
 
             <cc-dialog v-if="pilot.IsRemote"
               :close-on-click="false"
-              title="convert remote pilot"
+              :title="$t('pilotSheet.mobileOptions.convertRemote')"
               icon="cc:pilot">
               <template #activator="{ open }">
                 <v-list-item prepend-icon="mdi-content-copy"
-                  title="Convert to Local"
-                  subtitle="Convert this Pilot to an editable local data instance."
+                  :title="$t('pilotSheet.mobileOptions.convertToLocal')"
+                  :subtitle="$t('pilotSheet.mobileOptions.convertSubtitle')"
                   @click.stop="open" />
               </template>
               <template #default="{ close }">
-                <cc-confirmation content="Converting this pilot to local data will allow local editing but remove its
-                    remote link to the author's cloud account, and prevent any further updates from
-                    being received. To re-enable remote syncing, you will have to re-import this
-                    pilot via its share code."
+                <cc-confirmation :content="$t('pilotSheet.mobileOptions.convertConfirm')"
                   cancellable
                   @confirm="convert()"
                   @cancel="close" />
@@ -73,12 +70,12 @@
             </cc-dialog>
 
             <cc-modal v-else
-              title="Clone Pilot"
+              :title="$t('pilotSheet.mobileOptions.cloneTitle')"
               icon="mdi-dna">
               <template #activator="{ open }">
                 <v-list-item prepend-icon="mdi-dna"
-                  title="Clone"
-                  subtitle="Duplicate or Flash Clone this character"
+                  :title="$t('pilotSheet.mobileOptions.clone')"
+                  :subtitle="$t('pilotSheet.mobileOptions.cloneSubtitle')"
                   @click.stop="open" />
               </template>
               <template #default="{ close }">
@@ -87,14 +84,14 @@
               </template>
             </cc-modal>
 
-            <cc-dialog title="Set LCP Configuration"
+            <cc-dialog :title="$t('pilotSheet.mobileOptions.lcpConfigTitle')"
               :close-on-click="false"
               icon="mdi-list-status">
               <template #activator="{ open }">
                 <v-list-item v-if="!pilot.IsRemote"
                   prepend-icon="mdi-list-status"
-                  title="Set LCP Configuration"
-                  subtitle="Manage which content packs are accessible to this pilot"
+                  :title="$t('pilotSheet.mobileOptions.lcpConfigTitle')"
+                  :subtitle="$t('pilotSheet.mobileOptions.lcpConfigSubtitle')"
                   @click.stop="open" />
               </template>
               <lcp-config-selector :actor="pilot" />
@@ -104,20 +101,20 @@
               :loading="loading"
               :disabled="pilot.CloudController.SyncStatus === 'Synced'"
               prepend-icon="mdi-cloud-sync"
-              title="Download Latest Data"
+              :title="$t('pilotSheet.mobileOptions.downloadData')"
               :subtitle="pilot.CloudController.SyncStatus === 'Synced'
-                ? 'Pilot is up to date with remote data'
-                : 'Download all remote changes to this pilot, overwriting local data.'
+                ? $t('pilotSheet.mobileOptions.upToDate')
+                : $t('pilotSheet.mobileOptions.downloadDesc')
                 "
               @click="remoteUpdate()" />
 
             <v-divider />
             <cc-dialog :close-on-click="false"
-              title="confirm pilot deletion"
+              :title="$t('pilotSheet.mobileOptions.confirmDeletionTitle')"
               icon="cc:pilot">
               <template #activator="{ open }">
-                <v-list-item title="Delete Pilot"
-                  subtitle="Remove this pilot from the roster"
+                <v-list-item :title="$t('pilotSheet.mobileOptions.deletePilot')"
+                  :subtitle="$t('pilotSheet.mobileOptions.deletePilotSubtitle')"
                   @click.stop="open">
                   <template #prepend>
                     <v-icon color="error">mdi-delete</v-icon>
@@ -126,10 +123,7 @@
               </template>
               <template #default="{ close }">
                 <cc-confirmation full-width
-                  :content="`Lancer, please confirm deletion of Pilot Registration Information for:<br/>
-          <span class='text-accent'>
-            ${pilot.Callsign} (${pilot.Name}, LL${pilot.Level})
-          </span>`"
+                  :content="$t('pilotSheet.mobileOptions.confirmDeletionDesc', { callsign: pilot.Callsign, name: pilot.Name, level: pilot.Level })"
                   cancellable
                   @confirm="delete_pilot(close)"
                   @cancel="close" />
@@ -195,25 +189,23 @@ export default {
     },
     exportPilot(v2 = false) {
       try {
+        const fileName = this.pilot.Callsign.toUpperCase().replace(/\W/g, '') + '.json'
         saveFile(
-          this.pilot.Callsign.toUpperCase().replace(/\W/g, '') + '.json',
+          fileName,
           Pilot.Serialize(this.pilot as Pilot),
           'Save Pilot',
           v2
         )
         this.$notify({
-          title: 'Export Success',
-          text: `Pilot data saved as "${this.pilot.Callsign.toUpperCase().replace(
-            /\W/g,
-            ''
-          )}.json"`,
+          title: this.$t('pilotSheet.mobileOptions.exportSuccess'),
+          text: this.$t('pilotSheet.mobileOptions.exportSuccessDesc', { fileName }),
           data: { type: 'success', icon: 'mdi-check' },
         })
       } catch (error) {
         logger.error(`Pilot export failed: ${error}`, this, error)
         this.$notify({
-          title: 'Export Error',
-          text: 'COMP/CON was unable to export pilot data',
+          title: this.$t('pilotSheet.mobileOptions.exportError'),
+          text: this.$t('pilotSheet.mobileOptions.exportErrorDesc'),
           data: { type: 'error', icon: 'mdi-alert' },
         })
       }
@@ -223,15 +215,15 @@ export default {
         await CloudController.UpdateRemote(this.pilot)
         await UserStore().refreshDbData()
         this.$notify({
-          title: `Sync Complete`,
-          text: `Pilot ${this.pilot.Callsign} // ${this.pilot.Name} synced.`,
+          title: this.$t('pilotSheet.mobileOptions.syncComplete'),
+          text: this.$t('pilotSheet.mobileOptions.syncCompleteDesc', { callsign: this.pilot.Callsign, name: this.pilot.Name }),
           data: { icon: 'mdi-cloud-check-variant', color: 'success-darken-2' },
         })
       } catch (err) {
         logger.error(`Error syncing item: ${err}`, this, err)
         this.$notify({
-          title: `Sync Failed`,
-          text: `Failed to sync Pilot ${this.pilot.Callsign} // ${this.pilot.Name}. ${err}`,
+          title: this.$t('pilotSheet.mobileOptions.syncFailed'),
+          text: this.$t('pilotSheet.mobileOptions.syncFailedDesc', { callsign: this.pilot.Callsign, name: this.pilot.Name, error: err }),
           data: { icon: 'mdi-alert', color: 'error' },
         })
       }

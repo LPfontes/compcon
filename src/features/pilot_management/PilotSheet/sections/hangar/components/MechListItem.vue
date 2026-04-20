@@ -48,10 +48,10 @@
                 <v-col>
                   <fieldset class="px-3">
                     <legend class="px-2">
-                      Loadout//{{
+                      {{ $t('pilotSheet.hangar.loadoutLabel') }}{{
                         mech.MechLoadoutController.ActiveLoadout
                           ? mech.MechLoadoutController.ActiveLoadout.Name
-                          : 'ERR'
+                          : $t('pilotSheet.hangar.errLabel')
                       }}
                     </legend>
                     <div v-if="mech.MechLoadoutController.ActiveLoadout" class="pb-3">
@@ -106,11 +106,11 @@
                 <v-col cols="auto" class="pr-4">
                   <cc-dialog
                     :close-on-click="false"
-                    title="Delete Mech"
+                    :title="$t('pilotSheet.hangar.deleteTitle')"
                     color="error"
                     icon="mdi-delete">
                     <template #activator="{ open }">
-                      <v-tooltip text="Delete Mech">
+                      <v-tooltip :text="$t('pilotSheet.hangar.deleteTitle')">
                         <template #activator="{ props }">
                           <v-btn
                             size="small"
@@ -125,15 +125,12 @@
                       </v-tooltip>
                     </template>
                     <cc-confirmation
-                      :content="`Lancer, please confirm deletion of Mech Configuration:
-          <span class='text-accent'>
-            ${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})
-          </span>`"
+                      :content="$t('pilotSheet.hangar.deleteConfirm', { boldText: `<span class='text-accent'>${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})</span>` })"
                       @confirm="$emit('delete', mech)" />
                   </cc-dialog>
-                  <cc-dialog :close-on-click="false" title="Duplicate Mech" icon="mdi-content-copy">
+                  <cc-dialog :close-on-click="false" :title="$t('pilotSheet.hangar.duplicateTitle')" icon="mdi-content-copy">
                     <template #activator="{ open }">
-                      <v-tooltip text="Duplicate Mech">
+                      <v-tooltip :text="$t('pilotSheet.hangar.duplicateTitle')">
                         <template #activator="{ props }">
                           <v-btn
                             size="small"
@@ -147,13 +144,10 @@
                       </v-tooltip>
                     </template>
                     <cc-confirmation
-                      :content="`Lancer, please confirm intention to create a duplicate of Mech Configuration:
-          <span class='text-accent'>
-            ${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})
-          </span>`"
+                      :content="$t('pilotSheet.hangar.duplicateConfirm', { boldText: `<span class='text-accent'>${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})</span>` })"
                       @confirm="$emit('copy', mech)" />
                   </cc-dialog>
-                  <v-tooltip text="Print Mech Sheet">
+                  <v-tooltip :text="$t('pilotSheet.hangar.printTooltip')">
                     <template #activator="{ props }">
                       <v-btn
                         size="small"
@@ -193,11 +187,11 @@ export default {
         this.mech.Pilot.has('CoreBonus', 'cb_superheavy_mounting')
       )) {
         if (!mount.IsLocked) {
-          let str = `<i style="opacity:0.5">${mount.Name}</i>:`;
-          if (!mount.Weapons.length) str += ' EMPTY';
+          let str = `<i style="opacity:0.5">\${mount.Name}</i>:`;
+          if (!mount.Weapons.length) str += ` \${this.$t('pilotSheet.hangar.emptyLabel')}`;
           else {
             mount.Weapons.forEach((w, i) => {
-              str += ` ${w._name}`;
+              str += ` \${w._name}`;
               if (w.Mod) str += ` (${w.Mod._name})`;
               if (i + 1 < mount.Weapons.length) str += ' /';
             });

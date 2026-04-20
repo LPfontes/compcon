@@ -6,9 +6,9 @@
         @click="$emit('to', 1)">
         <v-tooltip open-delay="300"
           location="top"
-          text="Pilot Skill Triggers, Reserves, and Pilot Gear Loadout">
+          :text="$t('pilotSheet.nav.narrativeTooltip')">
           <template #activator="{ props }">
-            <span v-bind="props">NARRATIVE PROFILE</span>
+            <span v-bind="props">{{ $t('pilotSheet.nav.narrativeLabel') }}</span>
           </template>
         </v-tooltip>
       </nav-item>
@@ -17,9 +17,9 @@
         @click="$emit('to', 2)">
         <v-tooltip open-delay="300"
           location="top"
-          text="Pilot Bonds">
+          :text="$t('pilotSheet.nav.bondsTooltip')">
           <template #activator="{ props }">
-            <span v-bind="props">BONDS</span>
+            <span v-bind="props">{{ $t('pilotSheet.nav.bondsLabel') }}</span>
           </template>
         </v-tooltip>
       </nav-item>
@@ -27,9 +27,9 @@
         @click="$emit('to', 3)">
         <v-tooltip open-delay="300"
           location="top"
-          text="Pilot Licenses, Mech Skills, CORE Bonuses, and Talents">
+          :text="$t('pilotSheet.nav.tacticalTooltip')">
           <template #activator="{ props }">
-            <span v-bind="props">TACTICAL PROFILE</span>
+            <span v-bind="props">{{ $t('pilotSheet.nav.tacticalLabel') }}</span>
           </template>
         </v-tooltip>
       </nav-item>
@@ -37,9 +37,9 @@
         @click="$emit('to', 4)">
         <v-tooltip open-delay="300"
           location="top"
-          text="Create and Modify Mechs and their Loadouts">
+          :text="$t('pilotSheet.nav.hangarTooltip')">
           <template #activator="{ props }">
-            <span v-bind="props">MECH HANGAR</span>
+            <span v-bind="props">{{ $t('pilotSheet.nav.hangarLabel') }}</span>
           </template>
         </v-tooltip>
       </nav-item>
@@ -51,9 +51,9 @@
       open-delay="300"
       :text="isAuthed
         ? pilot.CloudController.SyncStatus === 'Synced'
-          ? 'Pilot is up to date with remote data'
-          : 'Download all remote changes to this pilot, overwriting local data.'
-        : 'Must be logged in to update'
+          ? $t('pilotSheet.mobileOptions.upToDate')
+          : $t('pilotSheet.mobileOptions.downloadDesc')
+        : $t('pilotSheet.nav.loginToUpdate')
         ">
       <template #activator="{ props }">
         <v-btn icon
@@ -70,13 +70,13 @@
     </v-tooltip>
 
     <cc-dialog v-else
-      title="Share Pilot Data"
+      :title="$t('pilotSheet.mobileOptions.sharePilotData')"
       icon="cc:pilot"
       :close-on-click="false">
       <template #activator="{ open }">
         <v-tooltip open-delay="300"
           location="top"
-          :text="isAuthed ? 'Share Pilot Data' : 'Requires Cloud Account'">
+          :text="isAuthed ? $t('pilotSheet.mobileOptions.sharePilotData') : $t('pilotSheet.mobileOptions.requiresCloud')">
           <template #activator="{ props }">
             <span v-bind="props">
               <v-btn icon
@@ -96,7 +96,7 @@
 
     <v-tooltip open-delay="300"
       location="top"
-      text="Pilot Options">
+      :text="$t('pilotSheet.mobileOptions.title')">
       <template #activator="{ props }">
         <edit-menu :pilot="pilot"
           class="unskew"
@@ -162,14 +162,14 @@ export default {
         await CloudController.UpdateRemote(this.pilot)
         await UserStore().refreshDbData()
         this.$notify({
-          title: `Sync Complete`,
-          text: `Pilot ${this.pilot.Callsign} // ${this.pilot.Name} synced.`,
+          title: this.$t('pilotSheet.mobileOptions.syncComplete'),
+          text: this.$t('pilotSheet.mobileOptions.syncCompleteDesc', { callsign: this.pilot.Callsign, name: this.pilot.Name }),
           data: { icon: 'mdi-cloud-check-variant', color: 'success-darken-2' },
         })
       } catch (err) {
         this.$notify({
-          title: `Sync Failed`,
-          text: `Failed to sync Pilot ${this.pilot.Callsign} // ${this.pilot.Name}. ${err}`,
+          title: this.$t('pilotSheet.mobileOptions.syncFailed'),
+          text: this.$t('pilotSheet.mobileOptions.syncFailedDesc', { callsign: this.pilot.Callsign, name: this.pilot.Name, error: err }),
           data: { icon: 'mdi-alert', color: 'error' },
         })
       }

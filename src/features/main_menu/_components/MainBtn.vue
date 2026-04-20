@@ -11,7 +11,9 @@
         @focusout="mouseOver = false"
         @click="doAction"
         @keydown.enter="doAction">
-        <div class="unskew heading">
+        <div
+          class="unskew heading"
+          :class="{ condensed: condensed }">
           <v-icon size="50" class="ml-n4 mt-n3">{{ icon }}</v-icon>
           <slot />
         </div>
@@ -45,6 +47,10 @@ export default {
       type: String,
       default: 'cc:pilot',
     },
+    condensed: {
+      type: Boolean,
+      default: false,
+    },
   },
   data: () => ({
     mouseOver: false,
@@ -69,6 +75,11 @@ export default {
   color: #fff;
   font-size: 28pt;
   margin-top: 8px;
+}
+
+.unskew.condensed {
+  font-size: 20pt;
+  margin-top: 14px;
 }
 
 .unskew::before {

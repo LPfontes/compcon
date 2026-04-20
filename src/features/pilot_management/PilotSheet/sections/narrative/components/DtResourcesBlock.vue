@@ -1,10 +1,10 @@
 <template>
   <div class="my-3">
-    <cc-modal title="Add Reserves and Bonuses" icon="cc:barrage" clip>
+    <cc-modal :title="$t('pilotSheet.narrative.addReserves')" icon="cc:barrage" clip>
       <template #activator="{ open }">
         <section-header
-          title="Reserves and Bonuses"
-          label="Add Reserves and Bonuses"
+          :title="$t('pilotSheet.narrative.reservesTitle')"
+          :label="$t('pilotSheet.narrative.addReserves')"
           :editable="!pilot.IsRemote"
           @edit="open" />
       </template>

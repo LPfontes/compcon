@@ -21,13 +21,13 @@
 
     <v-card flat tile border>
       <v-toolbar v-if="license.missing" color="error" class="px-2 heading h3" height="32">
-        WARNING: LICENSE MISSING
+        {{ $t('pilotSheet.mech.licenseMissingWarning') }}
       </v-toolbar>
       <v-card-text class="pa-2 text-text">
-        <b v-if="license.source === 'GMS'">GMS STANDARD PILOT'S LICENSE</b>
-        <b v-else>{{ license.name }} RANK {{ license.rank }}</b>
+        <b v-if="license.source === 'GMS'">{{ $t('pilotSheet.mech.gmsLicense') }}</b>
+        <b v-else>{{ $t('pilotSheet.mech.rankLabel', { name: license.name, rank: license.rank }) }}</b>
         <v-divider class="my-1" />
-        <div class="text-cc-overline text-disabled">Required for:</div>
+        <div class="text-cc-overline text-disabled">{{ $t('pilotSheet.mech.requiredFor') }}</div>
         <cc-chip v-for="(item, index) in license.items" :key="`item-${index}`" size="small" class="ma-1">{{ item }}</cc-chip>
       </v-card-text>
     </v-card>

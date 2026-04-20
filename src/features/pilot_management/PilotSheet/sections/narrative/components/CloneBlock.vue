@@ -10,7 +10,7 @@
         <v-icon size="80"
           icon="mdi-skull" />
       </template>
-      <div class="heading h1 text-center">KILLED IN ACTION</div>
+      <div class="heading h1 text-center">{{ $t('pilotSheet.narrative.kiaLabel') }}</div>
       <div v-if="!pilot.IsRemote"
         style="position: relative"
         class="mb-4">
@@ -22,11 +22,11 @@
                 size="x-small"
                 variant="text"
                 v-bind="props">
-                Flash Clone Pilot
+                {{ $t('pilotSheet.clone.flashCloneBtn') }}
               </v-btn>
             </template>
             <cc-confirmation
-              content="This will clone the selected pilot. Cloned characters can’t join a mission in progress, and cloned characters receive a random quirk. Additional cloning and subjectivity imprinting adds further quirks."
+              :content="$t('pilotSheet.clone.flashCloneTooltip')"
               @confirm="setQuirk" />
           </v-menu>
           <v-menu offset-y
@@ -37,19 +37,19 @@
                 variant="plain"
                 class="ml-6"
                 v-bind="props">
-                Revert
+                {{ $t('pilotSheet.narrative.revertBtn') }}
               </v-btn>
             </template>
             <cc-confirmation
-              content="This will restore the selected pilot and clear the KIA status."
-              @confirm="pilot.Status = 'Active'" />
+              :content="$t('pilotSheet.narrative.revertConfirm')"
+              @confirm="pilot.Status = 'ACTIVE'" />
           </v-menu>
         </div>
       </div>
     </v-alert>
     <div v-if="pilot.Quirks.length && !hideQuirks"
       class="mb-3">
-      <section-header title="Clone Quirks" />
+      <section-header :title="$t('pilotSheet.narrative.cloneQuirksTitle')" />
 
       <v-row v-for="(q, i) in pilot.Quirks"
         :key="`quirk_${i}`"
@@ -73,7 +73,7 @@
           </v-alert>
         </v-col>
         <v-col cols="auto">
-          <v-tooltip text="Remove Clone Quirk">
+          <v-tooltip :text="$t('pilotSheet.narrative.removeQuirkTooltip')">
             <template #activator="{ props }">
               <v-btn icon
                 v-bind="props"

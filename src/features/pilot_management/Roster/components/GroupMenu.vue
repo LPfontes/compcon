@@ -2,30 +2,25 @@
   <v-card-text class="pt-2">
     <div class="heading"
       :class="mobile ? 'h4' : 'h3'">
-      UAD/CAVCOM Office of Records
+      {{ $t('roster.groupMenu.title') }}
       <cc-slashes />
       <br v-if="mobile" />
-      &nbsp;I-7a Self-Service Unit Registration
+      &nbsp;{{ $t('roster.groupMenu.subtitle') }}
     </div>
     <v-container class="flavor-text"
       style="font-size: 13px">
       <div class="mt-n2">
-        IDENT-CR-7a (CAVALRY UNIT REGISTRATION) is a self-directed registration form for the purpose
-        of registering a new unit designation for one or more IDENT-registered pilots. This form is
-        to be used by pilots who are not currently assigned to a unit or who are registering a new
-        unit designation for the first time. If you wish to register a new designation for an
-        existing unit, please submit form CR-7b (CAVALRY UNIT DOCUMENTATION UPDATE) instead.
+        {{ $t('roster.groupMenu.intro') }}
         <br />
-        Unit registration submission will be reviewed by the UAD/CAVCOM Office of Records in the
-        order they are received.
+        {{ $t('roster.groupMenu.intro2') }}
       </div>
     </v-container>
     <v-row align="center">
       <v-col>
         <div class="my-2">
           <div class="text-caption">
-            CR-7-00 // ENCODED DATA REMIT
-            <i class="text-disabled">(OPTIONAL)</i>
+            {{ $t('roster.groupMenu.encodedData') }}
+            <i class="text-disabled">{{ $t('roster.groupMenu.optional') }}</i>
           </div>
           <div class="px-10 pt-1">
             <group-file-import @toggle-import="importHide = $event"
@@ -43,10 +38,10 @@
             md="5"
             class="mr-auto">
             <div class="my-2">
-              <div class="text-caption">CR-7-01 // UNIT DESIGNATION</div>
+              <div class="text-caption">{{ $t('roster.groupMenu.unitDesignation') }}</div>
               <cc-text-field v-model="group.Name"
                 variant="outlined"
-                placeholder="Name"
+                :placeholder="$t('roster.groupMenu.namePlaceholder')"
                 :icon="group.Name ? 'mdi-check-circle-outline' : 'mdi-alert'"
                 :color="group.Name ? 'success' : 'error'"
                 class="my-1 d-inline">
@@ -54,18 +49,18 @@
                   <cc-button icon="mdi-dice-multiple"
                     variant="outlined"
                     size="small"
-                    tooltip="Generate random name"
+                    :tooltip="$t('roster.groupMenu.randomName')"
                     @click="randomName()" />
                 </template>
               </cc-text-field>
             </div>
 
             <div class="my-4">
-              <div class="text-caption">CR-7-02a // ATTACHED NDAP COMP/DISP ANALYSIS RESULTS</div>
+              <div class="text-caption">{{ $t('roster.groupMenu.descResults') }}</div>
               <v-row align="center"
                 dense>
                 <v-col>
-                  <cc-modal title="Group Description"
+                  <cc-modal :title="$t('roster.groupMenu.descTitle')"
                     icon="mdi-account-group"
                     shrink
                     max-width="75vw">
@@ -75,8 +70,8 @@
                         prepend-icon="mdi-pencil"
                         :color="group.Description ? 'success' : 'panel'"
                         @click="open">
-                        <div v-if="!group.Description">Add Group Description</div>
-                        <div v-else>Edit Group Description</div>
+                        <div v-if="!group.Description">{{ $t('roster.groupMenu.addDesc') }}</div>
+                        <div v-else>{{ $t('roster.groupMenu.editDesc') }}</div>
                       </cc-button>
                     </template>
                     <template #default="{ close }">
@@ -87,7 +82,7 @@
                           <cc-button color="primary"
                             size="small"
                             @click="close">
-                            Save and Close
+                            {{ $t('roster.groupMenu.saveAndClose') }}
                           </cc-button>
                         </div>
                       </v-card-text>
@@ -109,12 +104,12 @@
 
             <div class="my-4">
               <div class="text-caption">
-                CR-7-02b // ATTACHED TACANALYSIS RECORDS (SUPPLEMENTAL)
+                {{ $t('roster.groupMenu.histResults') }}
               </div>
               <v-row align="center"
                 dense>
                 <v-col>
-                  <cc-modal title="Group Description"
+                  <cc-modal :title="$t('roster.groupMenu.descTitle')"
                     icon="mdi-account-group"
                     shrink
                     max-width="75vw">
@@ -124,8 +119,8 @@
                         prepend-icon="mdi-pencil"
                         :color="group.History ? 'success' : 'panel'"
                         @click="open">
-                        <div v-if="!group.Description">Add Group History</div>
-                        <div v-else>Edit Group History</div>
+                        <div v-if="!group.Description">{{ $t('roster.groupMenu.addHist') }}</div>
+                        <div v-else>{{ $t('roster.groupMenu.editHist') }}</div>
                       </cc-button>
                     </template>
                     <template #default="{ close }">
@@ -136,7 +131,7 @@
                           <cc-button color="primary"
                             size="small"
                             @click="close">
-                            Save and Close
+                            {{ $t('roster.groupMenu.saveAndClose') }}
                           </cc-button>
                         </div>
                       </v-card-text>
@@ -159,14 +154,14 @@
           <v-col cols="12"
             md="5"
             class="ml-auto">
-            <div class="text-caption">CR-7-03 // UNIT LIVERY</div>
+            <div class="text-caption">{{ $t('roster.groupMenu.livery') }}</div>
             <div class="border mr-8 ml-auto mr-auto"
               style="width: 300px; height: 300px">
               <cc-img v-if="group.Portrait"
                 :src="group.Portrait"
                 aspect-ratio="1" />
               <div class="mt-3 text-center">
-                <cc-modal title="Set Group Emblem"
+                <cc-modal :title="$t('roster.groupMenu.setEmblem')"
                   icon="mdi-image">
                   <template #activator="{ open }">
                     <div class="d-flex justify-center">
@@ -175,11 +170,11 @@
                         @click="open">
                         <div v-if="!group.Portrait">
                           <v-icon start>mdi-plus</v-icon>
-                          Add group emblem
+                          {{ $t('roster.groupMenu.addEmblem') }}
                         </div>
                         <div v-else>
                           <v-icon start>mdi-circle-edit-outline</v-icon>
-                          Edit group emblem
+                          {{ $t('roster.groupMenu.editEmblem') }}
                         </div>
                       </cc-button>
                     </div>
@@ -199,7 +194,7 @@
     <cc-button block
       color="primary"
       :disabled="!group.Name"
-      @click="submit()">Submit</cc-button>
+      @click="submit()">{{ $t('roster.groupMenu.submit') }}</cc-button>
   </div>
 </template>
 

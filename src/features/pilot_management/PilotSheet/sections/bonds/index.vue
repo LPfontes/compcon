@@ -5,12 +5,12 @@
       class="text-center">
       <span class="heading h2"
         style="opacity: 0.4">
-        Bonds available after License Level 1
+        {{ $t('pilotSheet.bonds.availableAfterLvl1') }}
       </span>
       <cc-button size="x-small"
         block
         @click="pilot.BondController.ForceBonds = true">
-        [OVERRIDE]:// Allow LL0 Bond
+        {{ $t('pilotSheet.bonds.overrideBtn') }}
       </cc-button>
     </div>
 
@@ -35,7 +35,7 @@
           color="primary"
           prepend-icon="mdi-vector-link"
           @click="bondModal = true">
-          Select Bond
+          {{ $t('pilotSheet.bonds.selectBondBtn') }}
         </cc-button>
       </div>
 
@@ -44,7 +44,7 @@
           :style="$vuetify.display.lgAndUp ? 'width: calc(100vw - 300px)' : ''">
           <v-col cols="12"
             md="6">
-            <cc-heading line>Major Ideals</cc-heading>
+            <cc-heading line>{{ $t('pilotSheet.bonds.majorIdeals') }}</cc-heading>
             <ul>
               <li v-for="(m, index) in pilot.BondController.Bond.MajorIdeals"
                 :key="`ideal-${index}`"
@@ -53,7 +53,7 @@
           </v-col>
           <v-col md="6"
             cols="12">
-            <cc-heading line>Minor Ideal</cc-heading>
+            <cc-heading line>{{ $t('pilotSheet.bonds.minorIdeal') }}</cc-heading>
             <cc-select v-model="pilot.BondController.MinorIdeal"
               combobox
               :items="pilot.BondController.Bond.MinorIdeals"
@@ -91,7 +91,7 @@
               :size="mobile ? 'small' : 'default'"
               class="mt-4"
               color="secondary"
-              label="pilot xp" />
+              :label="$t('pilotSheet.bonds.pilotXp')" />
             <v-menu v-model="resetXpMenu"
               offset-y
               offset-x
@@ -105,7 +105,7 @@
                   :disabled="pilot.BondController.XP < 8"
                   v-bind="props">
                   <v-icon start>mdi-plus</v-icon>
-                  Gain Bond Power
+                  {{ $t('pilotSheet.bonds.gainPowerBtn') }}
                 </cc-button>
               </template>
               <v-card border
@@ -113,7 +113,7 @@
                 max-width="600px">
                 <v-card-text>
                   <cc-confirmation
-                    content="This will reset your XP to zero and add a new Bond Power selection. This can only be done during <b>Downtime</b>. Continue?"
+                    :content="$t('pilotSheet.bonds.gainPowerConfirm')"
                     @confirm="bondConfirm()" />
                 </v-card-text>
               </v-card>
@@ -126,7 +126,7 @@
             <fieldset class="px-3"
               :style="pilot.BondController.TotalPowerSelections ? 'opacity: 1' : 'opacity: 0.4'">
               <legend>
-                <span class="px-2 heading h4 text-accent">Bond Powers Available</span>
+                <span class="px-2 heading h4 text-accent">{{ $t('pilotSheet.bonds.powersAvailable') }}</span>
               </legend>
               <div class="heading h2 text-center mt-n2"
                 style="font-size: 45px">
@@ -136,7 +136,7 @@
                 <v-btn size="x-small"
                   variant="plain"
                   @click="pilot.BondController.PowerSelections = 0">
-                  Reset
+                  {{ $t('pilotSheet.bonds.resetBtn') }}
                 </v-btn>
               </div>
             </fieldset>
@@ -151,7 +151,7 @@
               :size="mobile ? 'small' : 'default'"
               class="mt-4"
               color="overcharge"
-              label="pilot stress" />
+              :label="$t('pilotSheet.bonds.pilotStress')" />
             <v-menu offset-y
               offset-x
               bottom
@@ -163,15 +163,14 @@
                   color="panel"
                   class="mt-2 ml-2"
                   v-bind="props">
-                  Set Maximum Stress
+                  {{ $t('pilotSheet.bonds.setMaxStressBtn') }}
                 </cc-button>
               </template>
               <v-card max-width="400px"
                 tile>
                 <v-card-text class="text-center">
                   <i>
-                    Set maximum pilot stress. Stress gains from sources like selected Bond Powers
-                    are not automated
+                    {{ $t('pilotSheet.bonds.setMaxStressTooltip') }}
                   </i>
                   <v-text-field v-model.number="pilot.BondController.MaxStress"
                     density="compact"
@@ -180,12 +179,12 @@
                     type="number"
                     color="accent"
                     variant="outlined"
-                    label="Maximum Stress"
+                    :label="$t('pilotSheet.bonds.maxStressLabel')"
                     class="my-3" />
                   <v-btn variant="plain"
                     small
                     @click="pilot.BondController.MaxStress = 8">
-                    Reset
+                    {{ $t('pilotSheet.bonds.resetBtn') }}
                   </v-btn>
                 </v-card-text>
               </v-card>
@@ -211,11 +210,11 @@
             <div v-if="pilot.BondController.AtMaxStress"
               class="my-n1">
               <cc-slashes />
-              <span class="heading h4 px-2">BROKEN</span>
+              <span class="heading h4 px-2">{{ $t('pilotSheet.bonds.brokenLabel') }}</span>
               <cc-slashes />
             </div>
             <div v-else>
-              <span class="flavor-text">Status Nominal</span>
+              <span class="flavor-text">{{ $t('pilotSheet.bonds.statusNominal') }}</span>
             </div>
             <div v-if="pilot.BondController.AtMaxStress">
               <v-menu v-model="addBondMenu"
@@ -231,15 +230,15 @@
                       "
                     prepend-icon="mdi-plus"
                     v-bind="props">
-                    <span v-if="pilot.BondController.AtMaxBurdens">Burden Limit Reached</span>
-                    <span v-else>Add Burden</span>
+                    <span v-if="pilot.BondController.AtMaxBurdens">{{ $t('pilotSheet.bonds.burdenLimitLabel') }}</span>
+                    <span v-else>{{ $t('pilotSheet.bonds.addBurdenBtn') }}</span>
                   </v-btn>
                 </template>
                 <v-card flat
                   tile>
                   <v-card-text>
                     <cc-confirmation
-                      content="This will reset your Stress to zero and add a new Burden. Continue?"
+                      :content="$t('pilotSheet.bonds.addBurdenConfirm')"
                       @confirm="confirmBurden()" />
                   </v-card-text>
                 </v-card>
@@ -250,11 +249,11 @@
       </v-card>
 
       <div v-if="hasBond">
-        <section-header title="Bond Powers">
+        <section-header :title="$t('pilotSheet.bonds.powersTitle')">
           <section-edit-chip :highlight="pilot.BondController.PowerSelectionsRemaining >= 0"
             :current="pilot.BondController.BondPowers.length"
             :max="pilot.BondController.MaxPowerSelections"
-            label="Edit Pilot Bonds"
+            :label="$t('pilotSheet.bonds.editBonds')"
             @open-selector="($refs.powerSelector as any).show()" />
         </section-header>
 
@@ -272,7 +271,7 @@
           </cc-masonry-grid>
         </div>
 
-        <section-header title="Burdens" />
+        <section-header :title="$t('pilotSheet.bonds.burdensTitle')" />
         <div>
           <div v-for="(b, i) in pilot.BondController.Burdens" :key="`burden-${i}`">
             <cc-clock :clock="b"
@@ -286,13 +285,13 @@
               <cc-button size="small"
                 color="primary"
                 @click="pilot.BondController.AddNewBurden()">
-                Add New Burden
+                {{ $t('pilotSheet.bonds.addNewBurden') }}
               </cc-button>
             </v-col>
           </v-row>
         </div>
 
-        <section-header title="Other Clocks" />
+        <section-header :title="$t('pilotSheet.bonds.otherClocksTitle')" />
 
         <div>
           <div v-for="(b, i) in pilot.BondController.Clocks" :key="`clock-${i}`">
@@ -307,7 +306,7 @@
               <cc-button size="small"
                 color="primary"
                 @click="pilot.BondController.AddClock()">
-                Add New Clock
+                {{ $t('pilotSheet.bonds.addNewClock') }}
               </cc-button>
             </v-col>
           </v-row>

@@ -11,7 +11,7 @@
         :size="xs ? 'small' : ''"
         :selected="selected === 1"
         @click="$emit('to', 1)">
-        NARRATIVE
+        {{ $t('pilotSheet.nav.narrative') }}
       </v-tab>
       <v-tab v-if="hasBonds"
         variant="text"
@@ -19,28 +19,28 @@
         :class="selected === 2 ? 'bg-white' : ''"
         :selected="selected === 2"
         @click="$emit('to', 2)">
-        BONDS
+        {{ $t('pilotSheet.nav.bonds') }}
       </v-tab>
       <v-tab variant="text"
         :class="selected === 3 ? 'bg-white' : ''"
         :size="xs ? 'small' : ''"
         :selected="selected === 3"
         @click="$emit('to', 3)">
-        TACTICAL
+        {{ $t('pilotSheet.nav.tactical') }}
       </v-tab>
       <v-tab variant="text"
         :class="selected === 4 ? 'bg-white' : ''"
         :size="xs ? 'small' : ''"
         :selected="selected === 4"
         @click="$emit('to', 4)">
-        HANGAR
+        {{ $t('pilotSheet.nav.hangar') }}
       </v-tab>
       <v-tab variant="text"
         :class="selected === 5 ? 'bg-white' : ''"
         :size="xs ? 'small' : ''"
         :selected="selected === 5"
         @click="$emit('to', 5)">
-        OPTIONS
+        {{ $t('pilotSheet.nav.optionsLabel') }}
       </v-tab>
     </v-tabs>
   </v-bottom-navigation>

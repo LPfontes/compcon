@@ -6,7 +6,7 @@
         start />
       <span v-if="!pilot.SkillsController.Skills.length"
         style="opacity: 0.6"
-        v-text="`[ NO DATA ]`" />
+        v-text="$t('roster.pilotListItem.noData')" />
       <span v-for="(s, i) in pilot.SkillsController.Skills" :key="s.Skill.ID">
         {{ s.Skill.Name }} {{ 'I'.repeat(s.Rank) }}
         <cc-slashes v-if="i < pilot.SkillsController.Skills.length - 1"
@@ -20,7 +20,7 @@
         start />
       <span v-if="!pilot.TalentsController.Talents.length"
         style="opacity: 0.6"
-        v-text="`[ NO DATA ]`" />
+        v-text="$t('roster.pilotListItem.noData')" />
       <span v-for="(s, i) in pilot.TalentsController.Talents" :key="s.Talent.ID">
         {{ s.Talent.Name }} {{ 'I'.repeat(s.Rank) }}
         <cc-slashes v-if="i < pilot.TalentsController.Talents.length - 1"

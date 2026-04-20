@@ -5,7 +5,7 @@
       <v-col cols="12"
         md="auto">
         <div class="heading h1"
-          style="line-height: 0">Pilot Roster</div>
+          style="line-height: 0">{{ $t('roster.title') }}</div>
       </v-col>
       <v-spacer />
       <v-col cols="auto">
@@ -36,7 +36,7 @@
     <v-footer app
       density="compact"
       class="border-t">
-      <cc-modal title="Organize"
+      <cc-modal :title="$t('roster.organize')"
         icon="mdi-queue-first-in-last-out">
         <template #activator="{ open }">
           <cc-button size="small"
@@ -44,7 +44,7 @@
             @click="open">
             <v-icon start
               icon="mdi-queue-first-in-last-out" />
-            Organize
+            {{ $t('roster.organize') }}
           </cc-button>
         </template>
         <organizer type="pilot" />
@@ -57,13 +57,13 @@
             size="small"
             prepend-icon="mdi-plus"
             @click="props.onClick($event)">
-            Add Group
+            {{ $t('roster.addGroup') }}
           </cc-button>
         </template>
         <v-card tile
           border>
           <v-card-text>
-            <cc-modal title="Create Pilot Group"
+            <cc-modal :title="$t('roster.createGroup')"
               icon="mdi-account-group">
               <template #activator="{ open }">
                 <cc-button color="primary"
@@ -71,14 +71,14 @@
                   block
                   prepend-icon="mdi-plus"
                   @click="open">
-                  Add New
+                  {{ $t('roster.addNew') }}
                 </cc-button>
               </template>
               <template #default="{ close }">
                 <group-menu @close="close" />
               </template>
             </cc-modal>
-            <cc-modal title="Import"
+            <cc-modal :title="$t('roster.import')"
               icon="mdi-import"
               max-width="900">
               <template #activator="{ open }">
@@ -87,7 +87,7 @@
                   block
                   prepend-icon="mdi-import"
                   @click="open">
-                  File Import
+                  {{ $t('roster.fileImportTitle') }}
                 </cc-button>
               </template>
               <template #default="{ close }">

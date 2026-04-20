@@ -6,28 +6,21 @@
     back
     @back="$emit('back')"
     @complete="$emit('next')">
-    <cc-title offset>Pilot Talents&emsp;</cc-title>
+    <cc-title offset>{{ $t('pilotRegistration.wizard.coreBonuses.title') }}&emsp;</cc-title>
     <div class="heading h2">
-      UAD IDENT Service
+      {{ $t('pilotRegistration.identService') }}
       <cc-slashes />
-      &nbsp;RM-4c (S-2) Core Modification Supplemental
+      &nbsp;{{ $t('pilotRegistration.wizard.coreBonuses.subtitle') }}
     </div>
     <p class="flavor-text" style="font-size: 14px">
-      The RM-4β Supplemental II (Core Modification) registers a individual pilot's Core Modification
-      Data (CMD) Archive to be made available for printing and outfitting services. The following
-      catalog represents all Core Modifications currently validated as FAB-COMPLETE by General
-      Massive Systems' Universal Frame Standard, as adopted by the Union Licensing Authority.
+      {{ $t('pilotRegistration.wizard.coreBonuses.description') }}
     </p>
     <v-alert color="accent" variant="outlined" density="compact" class="mt-2" tile>
       <div class="heading">
-        Select {{ word }} ({{ count }}) Core {{ count > 1 ? 'Bonuses' : 'Bonus' }}.
+        {{ $t('pilotRegistration.wizard.coreBonuses.selectCount', { word, count, n: count }) }}
       </div>
       <p class="text-cc-overline">
-        The Union Licensing Authority and the Union Administration Department hereby disclaim any
-        and all responsibility, liability, or obligation for any modifications, alterations,
-        adaptations, or amendments (hereinafter, "Core Modifications") made to any system,
-        component, framework, or substrate, whether physical, digital, conceptual, or metaphysical,
-        regardless of the timing, method, or intent of such modifications.
+        {{ $t('pilotRegistration.wizard.coreBonuses.disclaimer') }}
       </p>
     </v-alert>
     <core-bonus-selector flat :pilot="<Pilot>pilot" />
@@ -59,25 +52,7 @@ export default {
       return this.pilot.CoreBonusController.MaxCBPoints;
     },
     word(): string {
-      const words = [
-        'zero',
-        'one',
-        'two',
-        'three',
-        'four',
-        'five',
-        'six',
-        'seven',
-        'eight',
-        'nine',
-        'ten',
-        'eleven',
-        'twelve',
-        'thirteen',
-        'fourteen',
-        'fifteen',
-        'sixteen',
-      ];
+      const words = this.$t('pilotRegistration.wizard.skills.words');
       return words[this.count];
     },
   },

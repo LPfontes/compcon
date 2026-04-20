@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section-header title="Special Equipment"
+    <section-header :title="$t('pilotSheet.tactical.specialTitle')"
       class="mb-4" />
     <no-data-block v-if="!pilot.SpecialEquipment.length" />
     <v-card v-else
@@ -33,7 +33,7 @@
     <v-row v-if="!pilot.IsRemote"
       class="mt-1 mb-5">
       <v-col>
-        <cc-modal title="Add Standard Equipment"
+        <cc-modal :title="$t('pilotSheet.tactical.addStandard')"
           icon="mdi-star-circle-outline"
           clip>
           <template #activator="{ open }">
@@ -43,7 +43,7 @@
               block
               prepend-icon="mdi-plus"
               @click="open">
-              Add Equipment
+              {{ $t('pilotSheet.tactical.addStandardBtn') }}
             </cc-button>
           </template>
           <template #default="{ close }">
@@ -53,7 +53,7 @@
         </cc-modal>
       </v-col>
       <v-col>
-        <cc-modal title="Add Exotic Equipment"
+        <cc-modal :title="$t('pilotSheet.tactical.addExotic')"
           icon="mdi-star-circle-outline"
           clip>
           <template #activator="{ open }">
@@ -62,7 +62,7 @@
               block
               prepend-icon="mdi-plus"
               @click="open">
-              Add Exotic Equipment
+              {{ $t('pilotSheet.tactical.addExotic') }}
             </cc-button>
           </template>
           <template #default="{ close }">

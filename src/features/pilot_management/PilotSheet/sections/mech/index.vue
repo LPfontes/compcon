@@ -54,7 +54,7 @@
         style="max-height: 80vh" />
       <div class="text-right mt-n3">
         <cc-modal v-if="!mech.Pilot.IsRemote"
-          title="set mech image"
+          :title="$t('pilotSheet.mech.setImageTitle')"
           icon="cc:frame">
           <template #activator="{ open }">
             <cc-button variant="tonal"
@@ -62,7 +62,7 @@
               size="small"
               prepend-icon="mdi-circle-edit-outline"
               @click="open">
-              Set Mech Image
+              {{ $t('pilotSheet.mech.setImageBtn') }}
             </cc-button>
           </template>
           <cc-image-selector ref="imageSelector"
@@ -73,7 +73,7 @@
     </div>
 
     <cc-dialog :close-on-click="false"
-      title="Delete Mech"
+      :title="$t('pilotSheet.mech.deleteTitle')"
       color="error"
       icon="mdi-delete">
       <template #activator="{ open }">
@@ -85,10 +85,7 @@
       </template>
       <template #default="{ close }">
         <cc-confirmation full-width
-          :content="`Lancer, please confirm deletion of Mech Configuration:
-          <span class='text-accent'>
-            ${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})
-          </span>`"
+          :content="$t('pilotSheet.mech.deleteConfirm', { boldText: `<span class='text-accent'>${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})</span>` })"
           @cancel="close()"
           @confirm="deleteMech" />
       </template>
@@ -98,12 +95,12 @@
     <v-container>
       <v-row align="start">
         <v-col>
-          <section-header title="Operator Notes" />
+          <section-header :title="$t('pilotSheet.mech.operatorNotes')" />
           <cc-rich-text-area v-model="mech.Notes"
             :readonly="mech.Pilot.IsRemote"
             class="mb-3 mt-2" />
 
-          <section-header title="Licenses Required" />
+          <section-header :title="$t('pilotSheet.mech.licensesRequired')" />
           <div class="pt-1">
             <requirement-item v-for="l in reqLicenses.filter(x => x.source)"
               :key="l.source"
@@ -112,7 +109,7 @@
 
           <status-alerts :mech="mech" />
 
-          <section-header :title="`${mech.Frame.Source} ${mech.Frame.Name} Frame Traits`"
+          <section-header :title="$t('pilotSheet.mech.frameTraits', { source: mech.Frame.Source, name: mech.Frame.Name })"
             class="mt-2" />
           <cc-trait-item v-for="t in mech.Frame.Traits"
             :key="t.Name"
@@ -129,7 +126,7 @@
             position="top center" />
           <div class="text-right mt-n3">
             <cc-modal v-if="!mech.Pilot.IsRemote"
-              title="set mech image"
+              :title="$t('pilotSheet.mech.setImageTitle')"
               icon="cc:frame">
               <template #activator="{ open }">
                 <cc-button variant="tonal"
@@ -137,7 +134,7 @@
                   size="small"
                   prepend-icon="mdi-circle-edit-outline"
                   @click="open">
-                  Set Mech Image
+                  {{ $t('pilotSheet.mech.setImageBtn') }}
                 </cc-button>
               </template>
               <cc-image-selector ref="imageSelector"
@@ -152,7 +149,7 @@
         :mech="mech"
         :pilot="pilot" />
 
-      <section-header :title="`${mech.Frame.Source} ${mech.Frame.Name} Core System`"
+      <section-header :title="$t('pilotSheet.mech.coreSystem', { source: mech.Frame.Source, name: mech.Frame.Name })"
         class="mt-6 mb-1" />
       <cc-core-system-panel :frame="mech.Frame"
         :small="!!mobile"

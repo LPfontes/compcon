@@ -6,7 +6,7 @@
         <v-file-input v-model="fileValue"
           accept=".json, text/json"
           variant="outlined"
-          label="Select Pilot Data File"
+          :label="$t('roster.fileImport.selectFile')"
           prepend-icon="mdi-paperclip"
           density="compact"
           @change="stageImport"
@@ -23,11 +23,9 @@
         border>
         <cc-alert v-if="isV2"
           icon="mdi-alert-circle-outline"
-          title="v2 Data">
+          :title="$t('roster.fileImport.v2Data')">
           <p class="text-text">
-            This appears to be Pilot data from an older COMP/CON release. COMP/CON will attempt to
-            convert and import this data, but may not be able to convert all items and may not be
-            able to furnish information about missing LCP requirements.
+            {{ $t('roster.fileImport.v2DataDesc') }}
           </p>
         </cc-alert>
         <v-card-text>
@@ -37,11 +35,11 @@
             <span class="text-accent pl-2">{{ stagedData.callsign }}</span>
           </div>
           <div class="text-cc-overline mb-2">
-            LICENSE LEVEL
+            {{ $t('roster.fileImport.licenseLevel') }}
             <span class="heading h3">{{ stagedData.level }}</span>
           </div>
           <div v-if="stagedData.mechs.length">
-            <div class="text-cc-overline">HANGAR</div>
+            <div class="text-cc-overline">{{ $t('roster.fileImport.hangar') }}</div>
             <cc-chip v-for="mech in stagedData.mechs"
               :key="mech.id"
               class="mr-1 mb-1">
@@ -52,7 +50,7 @@
           </div>
           <div v-if="stagedData.brews.length"
             class="text-cc-overline my-1">
-            INCLUDES DATA FROM THE FOLLOWING CONTENT PACKS
+            {{ $t('roster.fileImport.contentPacks') }}
             <div>
               <cc-chip v-for="brew in stagedData.brews"
                 :key="brew.LcpId"
@@ -64,10 +62,9 @@
           <div v-if="stagedData.save">
             <v-divider class="my-2" />
             <div class="text-cc-overline mb-2">
-              Created {{ new Date(stagedData.save.created).toLocaleString() }}
+              {{ $t('roster.fileImport.created', { date: new Date(stagedData.save.created).toLocaleString() }) }}
               <cc-slashes />
-              Last Modified
-              {{ new Date(stagedData.save.lastModified).toLocaleString() }}
+              {{ $t('roster.fileImport.lastModified', { date: new Date(stagedData.save.lastModified).toLocaleString() }) }}
             </div>
           </div>
         </v-card-text>
@@ -80,23 +77,17 @@
         border>
         <v-card-text class="text-center">
           <p class="heading h4 text-accent">
-            This Pilot contains content from the following Lancer Content Packs that are not
-            currently installed/active,
-            or have mismatching versions:
+            {{ $t('roster.fileImport.missingPacksDesc') }}
           </p>
           <p v-html-safe="missingContent"
             class="effect-text text-center" />
           <p v-if="isV2"
             class="text-text">
-            This Pilot will be saved to the v2 Imports collection in the Content Manager. It can be
-            imported once the missing content packs are installed and activated, or force-imported
-            with missing items stripped.
+            {{ $t('roster.fileImport.v2MissingDesc') }}
           </p>
           <p v-else
             class="text-text">
-            This Pilot may be imported, but some items from missing content packs will be instanced
-            from saved data. If removed, these items will not be able to be re-equipped without the
-            missing content packs.
+            {{ $t('roster.fileImport.v3MissingDesc') }}
           </p>
         </v-card-text>
       </v-card>
@@ -112,7 +103,7 @@
           block
           prepend-icon="mdi-plus"
           @click="importFile()">
-          Import {{ (stagedData as any).callsign }} ({{ (stagedData as any).name }})
+          {{ $t('roster.fileImport.importButton', { callsign: (stagedData as any).callsign, name: (stagedData as any).name }) }}
         </cc-button>
       </v-slide-x-reverse-transition>
     </div>
@@ -210,8 +201,7 @@ export default {
 
       const exists = PilotStore().Pilots.find((x) => x.ID === pilotData.id);
       if (exists && !exists.SaveController.IsDeleted) {
-        this.alreadyPresent =
-          'A Pilot with this ID already exists in the roster. Importing will create a unique copy of this pilot.';
+        this.alreadyPresent = this.$t('roster.fileImport.alreadyPresent');
         const num = PilotStore().Pilots.filter((x) => x.Name === pilotData.name).length;
         pilotData.name += ` (${num})`;
       }
@@ -223,8 +213,8 @@ export default {
 
         if (result.action === 'backup') {
           this.$notify({
-            title: 'v2 Import Backup',
-            text: `${(this.stagedData as any).callsign} saved to pending v2 imports in the Content Manager.`,
+            title: this.$t('roster.fileImport.v2BackupTitle'),
+            text: this.$t('roster.fileImport.v2BackupText', { callsign: (this.stagedData as any).callsign }),
             data: { icon: 'mdi-information-box-outline', color: 'info' },
           });
           this.reset();
@@ -239,8 +229,8 @@ export default {
           await PilotStore().AddPilot(importPilot, this.groupId);
           this.reset();
           this.$notify({
-            title: 'Import Successful',
-            text: `${importPilot.Name} // ${importPilot.Callsign} successfully added to roster.`,
+            title: this.$t('roster.fileImport.successTitle'),
+            text: this.$t('roster.fileImport.successText', { name: importPilot.Name, callsign: importPilot.Callsign }),
             data: { icon: 'cc:pilot' },
           });
           this.$emit('done');
@@ -251,8 +241,8 @@ export default {
       } catch (error) {
         logger.error(`Pilot import error: ${error}`, this, error);
         this.$notify({
-          title: 'Import Error',
-          text: `Unable to import Pilot: ${error}`,
+          title: this.$t('roster.fileImport.errorTitle'),
+          text: this.$t('roster.fileImport.errorText', { error }),
           data: { icon: 'cc:pilot', color: 'error' },
         });
       }

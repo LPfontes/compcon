@@ -46,19 +46,26 @@ export default {
     tooltip(): string {
       switch (this.title) {
         case 'hull':
-          return `MECH HP <b>+${this.skillPoints * 2}</b><br>REPAIR CAPACITY <b>+${Math.floor(
-            this.skillPoints / 2
-          )}</b>`;
+          return this.$t('pilotSheet.tactical.haseTooltips.hull', {
+            hp: this.skillPoints * 2,
+            rep: Math.floor(this.skillPoints / 2),
+          });
         case 'agility':
-          return `EVASION <b>+${this.skillPoints}</b><br>SPEED <b>+${Math.floor(
-            this.skillPoints / 2
-          )}</b>`;
+          return this.$t('pilotSheet.tactical.haseTooltips.agility', {
+            eva: this.skillPoints,
+            spd: Math.floor(this.skillPoints / 2),
+          });
         case 'systems':
-          return `E-DEFENSE <b>+${this.skillPoints}</b><br>TECH ATTACK <b>+${this.skillPoints
-            }</b><br>SP <b>+${Math.floor(this.skillPoints / 2)}</b>`;
+          return this.$t('pilotSheet.tactical.haseTooltips.systems', {
+            edef: this.skillPoints,
+            tatk: this.skillPoints,
+            sp: Math.floor(this.skillPoints / 2),
+          });
         case 'engineering':
-          return `HEAT CAPACITY <b>+${this.skillPoints
-            }</b><br>LIMITED SYSTEMS BONUS <b>+${Math.floor(this.skillPoints / 2)}</b>`;
+          return this.$t('pilotSheet.tactical.haseTooltips.engineering', {
+            heat: this.skillPoints,
+            lsb: Math.floor(this.skillPoints / 2),
+          });
         default:
           return '';
       }

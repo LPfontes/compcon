@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="heading h1">Mech Hangar</div>
+    <div class="heading h1">{{ $t('pilotSheet.hangar.title') }}</div>
     <v-btn-toggle
       id="viewToggle"
       :value="view"
@@ -64,7 +64,7 @@
     <cc-modal
       v-if="!pilot.IsRemote"
       icon="cc:frame"
-      title="Add New Mech"
+      :title="$t('pilotSheet.hangar.addNewTitle')"
       clip
     >
       <template #activator="{ open }">
@@ -76,7 +76,7 @@
           append-icon="mdi-plus"
           @click="open"
         >
-          Add New Mech
+          {{ $t('pilotSheet.hangar.addNewTitle') }}
         </cc-button>
       </template>
       <template #default="{ close }">

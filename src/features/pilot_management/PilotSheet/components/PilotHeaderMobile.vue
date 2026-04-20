@@ -7,8 +7,7 @@
           <v-tooltip v-if="pilot.IsRemote"
             :open-on-click="true"
             location="bottom"
-            text="This pilot is a remote resource linked to another user's account. It is
-                    read-only and will receive updates from the linked account.">
+            :text="$t('pilotSheet.header.remoteTooltip')">
             <template #activator="{ props }">
               <v-icon size="small"
                 class="text-disabled"
@@ -92,7 +91,7 @@
                 params: { pilotID: pilot.ID, callsign: pilot.Callsign },
               })
               ">
-            Level Up
+            {{ $t('pilotSheet.header.levelUp') }}
           </cc-button>
         </div>
       </v-col>
@@ -115,7 +114,7 @@
     </v-row>
   </div>
   <cc-solo-modal v-model="levelEdit"
-    title="edit license level"
+    :title="$t('pilotSheet.header.editLicenseLevelTitle')"
     icon="cc:pilot"
     shrink
     width="600px">

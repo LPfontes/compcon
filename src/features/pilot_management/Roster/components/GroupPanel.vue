@@ -62,7 +62,7 @@
       </v-menu>
       <span class="heading h3">{{ group.Name }}</span>
       <span class="pl-4 text-caption">
-        ({{ pilots.length }} Pilot{{ pilots.length === 1 ? '' : 's' }})
+        {{ $t('roster.groupPanel.pilotsCount', pilots.length) }}
       </span>
       <v-spacer />
       <v-divider v-if="!mobile"
@@ -82,7 +82,7 @@
                   class="pa-1 my-1"
                   style="border-radius: 4px">
                   <legend class="text-overline px-2"
-                    style="line-height: 0">Description</legend>
+                    style="line-height: 0">{{ $t('roster.groupPanel.description') }}</legend>
                   <div class="py-1 px-2 flavor-text">
                     <cc-text-editor-inline v-if="edit"
                       :original="group.Description"
@@ -97,7 +97,7 @@
                   class="pa-1 my-4"
                   style="border-radius: 4px">
                   <legend class="text-overline px-2"
-                    style="line-height: 0">History</legend>
+                    style="line-height: 0">{{ $t('roster.groupPanel.history') }}</legend>
                   <div class="py-1 px-2 flavor-text">
                     <cc-text-editor-inline v-if="edit"
                       :original="group.History"
@@ -114,7 +114,7 @@
               <cc-img :src="group.Portrait" />
               <div v-if="edit"
                 class="text-right mb-2">
-                <cc-modal title="Set Group Emblem"
+                <cc-modal :title="$t('roster.groupPanel.setEmblem')"
                   icon="mdi-image">
                   <template #activator="{ open }">
                     <div class="d-flex justify-center">
@@ -123,11 +123,11 @@
                         @click="open">
                         <div v-if="!group.Portrait">
                           <v-icon start>mdi-plus</v-icon>
-                          Add group emblem
+                          {{ $t('roster.groupPanel.addEmblem') }}
                         </div>
                         <div v-else>
                           <v-icon start>mdi-circle-edit-outline</v-icon>
-                          Edit group emblem
+                          {{ $t('roster.groupPanel.editEmblem') }}
                         </div>
                       </cc-button>
                     </div>
@@ -158,7 +158,7 @@
                     <cc-button color="error"
                       size="small"
                       prepend-icon="mdi-delete"
-                      v-bind="props">Delete Group
+                      v-bind="props">{{ $t('roster.groupPanel.deleteGroup') }}
                     </cc-button>
                   </template>
 
@@ -166,15 +166,14 @@
                     <v-card-text>
                       <cc-alert color="error"
                         icon="mdi-alert"
-                        :title="`Delete ${group.Name}?`">
+                        :title="$t('roster.groupPanel.deleteGroupConfirm', { name: group.Name })">
                         <div v-if="pilots.length"
                           class="pa-1">
                           <span v-if="deletePilotsToggle">
-                            All pilots assigned to this group will be permanently deleted.
+                            {{ $t('roster.groupPanel.deletePilotsPerm') }}
                           </span>
                           <span v-else>
-                            All pilots assigned to this group will be moved to the "No Group"
-                            section
+                            {{ $t('roster.groupPanel.deletePilotsMove') }}
                           </span>
                         </div>
                       </cc-alert>
@@ -184,7 +183,7 @@
                           <cc-switch v-model="deletePilotsToggle"
                             inset
                             color="error"
-                            label="Delete pilots"
+                            :label="$t('roster.groupPanel.deletePilotsLabel')"
                             density="compact"
                             hide-details />
                         </v-col>
@@ -196,7 +195,7 @@
                         variant="plain"
                         tile
                         @click="deleteDialog = false">
-                        Dismiss
+                        {{ $t('roster.groupPanel.dismiss') }}
                       </v-btn>
                       <v-spacer />
                       <cc-button v-if="!noGroup"
@@ -204,7 +203,7 @@
                         variant="tonal"
                         prepend-icon="mdi-delete"
                         @click="deleteGroup()">
-                        Delete Group
+                        {{ $t('roster.groupPanel.deleteGroup') }}
                       </cc-button>
                     </v-card-actions>
                   </v-card>
@@ -222,7 +221,7 @@
           <v-col v-if="!noGroup"
             cols="12"
             sm="auto">
-            <v-tooltip :text="edit ? 'Finish Editing' : 'Edit Group Information'">
+            <v-tooltip :text="edit ? $t('roster.groupPanel.finishEditing') : $t('roster.groupPanel.editInfo')">
               <template #activator="{ props }">
                 <cc-button v-if="mobile"
                   :prepend-icon="edit ? 'mdi-pencil-off' : 'mdi-pencil'"
@@ -231,7 +230,7 @@
                   block
                   v-bind="props"
                   @click="edit = !edit">
-                  Edit Group
+                  {{ $t('roster.groupPanel.editGroup') }}
                 </cc-button>
                 <cc-button v-else
                   :icon="edit ? 'mdi-pencil-off' : 'mdi-pencil'"
@@ -253,7 +252,7 @@
               :block="mobile"
               prepend-icon="mdi-transfer"
               :disabled="!transferrable.length">
-              {{ mobile ? 'Transfer' : 'Transfer Pilots' }}
+              {{ mobile ? $t('roster.groupPanel.transfer') : $t('roster.groupPanel.transferPilots') }}
               <v-menu activator="parent">
                 <v-list max-height="400px">
                   <v-list-item v-for="pilot in transferrable"
@@ -272,7 +271,7 @@
               block
               prepend-icon="mdi-plus"
               @click="$router.push({ name: 'new', params: { groupID: group.ID } })">
-              Create New Pilot
+              {{ $t('roster.groupPanel.createPilot') }}
               <template #info>
                 <v-icon size="small"
                   icon="cc:pilot" />
@@ -280,8 +279,8 @@
               <template #subtitle>
                 <div class="text-cc-overline"
                   style="font-size: max(8px, calc(8px + 0.2vw)) !important">
-                  <span v-if="group.ID === 'no_group'">Add a new pilot to the roster</span>
-                  <span v-else>Add a new pilot to {{ group.Name }}</span>
+                  <span v-if="group.ID === 'no_group'">{{ $t('roster.groupPanel.addPilotNoGroup') }}</span>
+                  <span v-else>{{ $t('roster.groupPanel.addPilotGroup', { name: group.Name }) }}</span>
                 </div>
               </template>
             </cc-button>
@@ -296,13 +295,13 @@
                   :block="mobile"
                   prepend-icon="mdi-dots-vertical"
                   @click="props.onClick($event)">
-                  Import
+                  {{ $t('roster.groupPanel.import') }}
                 </cc-button>
               </template>
               <v-card tile
                 border>
                 <v-card-text>
-                  <cc-modal title="Import"
+                  <cc-modal :title="$t('roster.groupPanel.import')"
                     icon="mdi-import"
                     max-width="900">
                     <template #activator="{ open }">
@@ -311,7 +310,7 @@
                         block
                         prepend-icon="mdi-import"
                         @click="open">
-                        File Import
+                        {{ $t('roster.groupPanel.fileImport') }}
                       </cc-button>
                     </template>
                     <template #default="{ close }">
@@ -332,7 +331,7 @@
             :block="mobile"
             prepend-icon="mdi-export"
             @click="exportGroup()">
-            Export
+            {{ $t('roster.groupPanel.export') }}
           </cc-button>
         </v-row>
       </v-card>

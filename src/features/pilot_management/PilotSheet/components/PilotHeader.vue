@@ -11,8 +11,7 @@
               align="center">
               <v-col v-if="pilot.IsRemote"
                 cols="auto">
-                <v-tooltip text="This pilot is a remote resource linked to another user's account. It is
-                    read-only and will receive updates from the linked account."
+                <v-tooltip :text="$t('pilotSheet.header.remoteTooltip')"
                   max-width="400">
                   <template #activator="{ props }">
                     <v-avatar size="40"
@@ -42,7 +41,7 @@
                 class="mr-4">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  name
+                  {{ $t('pilotSheet.header.nameLabel') }}
                 </div>
                 <div class="stat-text mt-n2 mb-n1">
                   {{ pilot.Name }}
@@ -53,7 +52,7 @@
                 class="mr-4 pb-0">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  background
+                  {{ $t('pilotSheet.header.backgroundLabel') }}
                 </div>
                 <div class="stat-text mt-n2 mb-n1">
                   {{ pilot.Background }}
@@ -64,7 +63,7 @@
                 class="mr-4 pb-0">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  player
+                  {{ $t('pilotSheet.header.playerLabel') }}
                 </div>
                 <div class="stat-text mt-n2 mb-n1">
                   {{ pilot.PlayerName }}
@@ -74,7 +73,7 @@
                 class="mr-4 pb-0">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  rm-4://IDENT
+                  {{ $t('pilotSheet.header.identLabel') }}
                 </div>
                 <div class="stat-text mt-n2 mb-n1">
                   <v-dialog max-width="1200px">
@@ -96,14 +95,14 @@
                 class="pb-0">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  RM-6://DATA
+                  {{ $t('pilotSheet.header.dataLabel') }}
                 </div>
                 <cc-brew-info :controller="pilot.BrewController" />
               </v-col>
               <v-col class="pb-0">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  NDAP/SR-01://STATUS REPORT
+                  {{ $t('pilotSheet.header.statusLabel') }}
                 </div>
                 <div class="heading"
                   style="padding-top: 4px; font-size: 14px">
@@ -138,7 +137,7 @@
                 cols="auto">
                 <div class="text-overline mb-n3"
                   style="opacity: 0.4">
-                  ./cfg
+                  {{ $t('pilotSheet.header.cfgLabel') }}
                 </div>
                 <div class="heading"
                   style="padding-top: 4px; font-size: 14px">
@@ -155,7 +154,7 @@
               justify="end">
               <v-col cols="auto"
                 class="heading h4 mt-1">
-                license level
+                {{ $t('pilotSheet.header.licenseLevel') }}
               </v-col>
               <v-col cols="auto"
                 class="heading h2 text-highlight">
@@ -163,7 +162,7 @@
               </v-col>
               <v-col cols="auto">
                 <v-tooltip v-if="!pilot.IsRemote && !isLevelingUp"
-                  text="Edit License Level">
+                  :text="$t('pilotSheet.header.editLicenseLevel')">
                   <template #activator="{ props }">
                     <v-icon size="15"
                       class="fade-select"
@@ -188,7 +187,7 @@
                   params: { pilotID: pilot.ID },
                 })
                 ">
-              Level Up
+              {{ $t('pilotSheet.header.levelUp') }}
             </cc-button>
           </v-col>
 
@@ -210,7 +209,7 @@
     </v-row>
   </div>
   <cc-solo-modal v-model="levelEdit"
-    title="edit license level"
+    :title="$t('pilotSheet.header.editLicenseLevelTitle')"
     icon="cc:pilot"
     shrink
     width="600px">

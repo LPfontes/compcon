@@ -5,14 +5,14 @@
     equippable
     @equip="select($event)">
     <template #header>
-      <div class="heading h4 text-center text-accent">Select New Frame</div>
+      <div class="heading h4 text-center text-accent">{{ $t('pilotSheet.hangar.selectFrameTitle') }}</div>
     </template>
 
     <template #top>
       <v-row justify="end">
         <v-col cols="auto">
           <cc-switch v-model="showAll"
-            label="Show All Frames"
+            :label="$t('pilotSheet.hangar.showAllFrames')"
             color="error" />
         </v-col>
       </v-row>
@@ -21,19 +21,19 @@
 
   <cc-solo-modal v-model="nameDialog"
     shrink
-    title="register new mech"
+    :title="$t('pilotSheet.hangar.registerTitle')"
     icon="cc:frame">
     <v-row justify="center">
       <v-col cols="11"
         md="8">
-        <span class="text-overline">XK-4-01 // REGISTER MECH NAME</span>
+        <span class="text-overline">{{ $t('pilotSheet.hangar.registerLabel') }}</span>
         <v-text-field v-model="mechName"
           variant="outlined"
-          label="Name"
+          :label="$t('pilotSheet.hangar.nameLabel')"
           hide-details
           tile>
           <template #prepend>
-            <v-tooltip text="Generate Random Name"
+            <v-tooltip :text="$t('pilotSheet.hangar.randomNameTooltip')"
               location="top">
               <template #activator="{ props }">
                 <cc-button v-bind="props"
@@ -66,7 +66,7 @@
         class="px-10"
         :disabled="!mechName"
         @click="addMech()">
-        Register New Mech
+        {{ $t('pilotSheet.hangar.registerBtn') }}
       </cc-button>
     </div>
   </cc-solo-modal>
@@ -97,24 +97,26 @@ export default {
       groups: ['source', 'lcp', 'none'],
       initialGroup: 'source',
     },
-    headers: [
-      { title: 'Manufacturer', key: 'Source' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Size', key: 'Size' },
-      { title: 'Armor', key: 'Armor' },
-      { title: 'HP', key: 'HP' },
-      { title: 'Evasion', key: 'Evasion' },
-      { title: 'EDef', key: 'EDefense' },
-      { title: 'HeatCap', key: 'HeatCap' },
-      { title: 'RepCap', key: 'RepCap' },
-      { title: 'Sensors', key: 'SensorRange' },
-      { title: 'TechAtk', key: 'TechAttack' },
-      { title: 'Save', key: 'SaveTarget' },
-      { title: 'Speed', key: 'Speed' },
-      { title: 'SP', key: 'SP' },
-    ],
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('pilotSheet.hangar.frameHeaders.manufacturer'), key: 'Source' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.name'), key: 'Name' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.size'), key: 'Size' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.armor'), key: 'Armor' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.hp'), key: 'HP' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.evasion'), key: 'Evasion' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.edef'), key: 'EDefense' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.heatcap'), key: 'HeatCap' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.repcap'), key: 'RepCap' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.sensors'), key: 'SensorRange' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.techatk'), key: 'TechAttack' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.save'), key: 'SaveTarget' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.speed'), key: 'Speed' },
+        { title: this.$t('pilotSheet.hangar.frameHeaders.sp'), key: 'SP' },
+      ];
+    },
     allFrames() {
       if (!this.pilot.LcpConfig) return CompendiumStore().Frames
       return CompendiumStore().Frames.filter(

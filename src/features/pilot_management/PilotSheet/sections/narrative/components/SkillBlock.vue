@@ -1,14 +1,14 @@
 <template>
   <div>
-    <section-header title="Skill Triggers">
-      <cc-modal title="Set Pilot Skill Triggers" icon="cc:skill">
+    <section-header :title="$t('pilotSheet.narrative.skillTriggersTitle')">
+      <cc-modal :title="$t('pilotSheet.narrative.setSkillTriggers')" icon="cc:skill">
         <template #activator="{ open }">
           <section-edit-chip
             v-if="!pilot.IsRemote"
             :highlight="!pilot.SkillsController.HasFullSkills"
             :current="pilot.SkillsController.CurrentSkillPoints"
             :max="pilot.SkillsController.MaxSkillPoints"
-            :label="`Edit Pilot Skill Triggers (${pilot.SkillsController.CurrentSkillPoints}/${pilot.SkillsController.MaxSkillPoints})`"
+            :label="$t('pilotSheet.narrative.editSkillTriggers', { current: pilot.SkillsController.CurrentSkillPoints, max: pilot.SkillsController.MaxSkillPoints })"
             @open-selector="open" />
         </template>
         <skill-selector :pilot="<Pilot>pilot" modal />

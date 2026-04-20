@@ -30,36 +30,36 @@ export default {
       //   out.push('cascading')
       if ((this.mech as Mech).FreeSP < 0)
         out.push({
-          title: 'SYSTEM CAPACITY EXCEEDED',
-          text: 'Loadout configuration exceeds available Frame System Capacity',
+          title: this.$t('pilotSheet.mech.statusAlerts.systemCapacityExceededTitle'),
+          text: this.$t('pilotSheet.mech.statusAlerts.systemCapacityExceededText'),
           icon: 'mdi-alert',
           color: 'error',
         });
       if ((this.mech as Mech).FreeSP > 0)
         out.push({
-          title: 'SYSTEM CAPACITY REMAINING',
-          text: 'Operational capacity significantly impaired',
+          title: this.$t('pilotSheet.mech.statusAlerts.systemCapacityRemainingTitle'),
+          text: this.$t('pilotSheet.mech.statusAlerts.capacityImpairedText'),
           icon: 'mdi-alert-decagram-outline',
           color: 'warning',
         });
       if ((this.mech as Mech).MechLoadoutController.ActiveLoadout.HasEmptyMounts)
         out.push({
-          title: 'EMPTY MOUNTS DETECTED',
-          text: 'Operational capacity significantly impaired',
+          title: this.$t('pilotSheet.mech.statusAlerts.emptyMountsTitle'),
+          text: this.$t('pilotSheet.mech.statusAlerts.capacityImpairedText'),
           icon: 'mdi-alert-decagram-outline',
           color: 'warning',
         });
       if ((this.mech as Mech).RequiredLicenses.filter((x) => x.missing).length)
         out.push({
-          title: 'UNLICENSED EQUIPMENT DETECTED',
-          text: 'Pilot is missing one or more licenses required to legally print or operate this configuration',
+          title: this.$t('pilotSheet.mech.statusAlerts.unlicensedTitle'),
+          text: this.$t('pilotSheet.mech.statusAlerts.unlicensedText'),
           icon: 'mdi-alert',
           color: 'warning',
         });
       if (!(this.mech as Mech).HasCompatibleMods())
         out.push({
-          title: 'INCOMPATIBLE WEAPON MOD',
-          text: 'One or more weapon mods are installed to incompatible weapons',
+          title: this.$t('pilotSheet.mech.statusAlerts.incompatibleModTitle'),
+          text: this.$t('pilotSheet.mech.statusAlerts.incompatibleModText'),
           icon: 'mdi-cancel',
           color: 'warning',
         });

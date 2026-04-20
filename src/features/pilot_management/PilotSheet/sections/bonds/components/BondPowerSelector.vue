@@ -1,7 +1,7 @@
 <template>
   <cc-solo-modal v-model="dialog"
     color="blue-grey darken-4"
-    title="Select Bond powers">
+    :title="$t('pilotSheet.bonds.selectPowersTitle')">
     <v-layout :style="!mobile && 'overflow-y: scroll; height: 89vh'">
       <div style="position: absolute; z-index: 999"
         :style="`left: ${showNav ? (mobile ? '322' : '238') : '0'}px; top: 6px`">
@@ -25,7 +25,7 @@
             <template #title>
               <div class="text-button">
                 <b class="text-accent">{{ pilot.BondController.Bond.Name }}</b>
-                Powers
+                {{ $t('pilotSheet.bonds.powersLabel') }}
               </div>
             </template>
           </v-list-item>
@@ -34,7 +34,7 @@
             @click="featureSet = 'assigned'">
             <template #title>
               <div class="text-button">
-                <b>All Selected Powers</b>
+                <b>{{ $t('pilotSheet.bonds.allSelectedPowers') }}</b>
               </div>
             </template>
           </v-list-item>
@@ -75,13 +75,13 @@
             <v-col>
               <span class="heading h3">
                 <span class="text-accent">{{ currentSelection }}</span>
-                Powers
+                {{ $t('pilotSheet.bonds.powersLabel') }}
               </span>
             </v-col>
             <v-col>
               <span class="heading h3">
                 <b class="text-accent">{{ pilot.BondController.TotalPowerSelections }}</b>
-                Selections Available
+                {{ $t('pilotSheet.bonds.selectionsAvailable') }}
               </span>
             </v-col>
             <v-col cols="auto">
@@ -91,7 +91,7 @@
                 hide-details
                 class="ma-0"
                 color="accent"
-                label="Ignore Limit" />
+                :label="$t('pilotSheet.bonds.ignoreLimit')" />
             </v-col>
           </v-row>
           <v-divider class="mt-2 mb-4" />
@@ -110,7 +110,7 @@
                     size="x-small"
                     @click="pilot.BondController.AddPower(item)">
                     <v-icon start>mdi-plus</v-icon>
-                    Add {{ (item as any).name }}
+                    {{ $t('pilotSheet.bonds.addPowerBtn', { name: (item as any).name }) }}
                   </cc-button>
                   <cc-button v-if="hasPower(item)"
                     color="warning darken-1"
@@ -118,7 +118,7 @@
                     size="x-small"
                     @click="pilot.BondController.RemovePower(item)">
                     <v-icon start>mdi-minus</v-icon>
-                    Remove {{ (item as any).name }}
+                    {{ $t('pilotSheet.bonds.removePowerBtn', { name: (item as any).name }) }}
                   </cc-button>
                 </div>
               </template>
@@ -129,22 +129,21 @@
               <v-alert v-if="featureSet === 'all'"
                 variant="outlined"
                 class="text-center">
-                No Bond Power selections remaining
+                {{ $t('pilotSheet.bonds.noSelectionsRemaining') }}
                 <br />
                 <span class="caption text--secondary">
-                  Additional features beyond the recommended guidelines can be added by toggling the
-                  "Ignore Limit" option above
+                  {{ $t('pilotSheet.bonds.ignoreLimitTooltip') }}
                 </span>
               </v-alert>
               <v-alert v-else-if="featureSet === 'assigned'"
                 variant="outlined"
                 class="text-center">
-                No Bond Powers assigned
+                {{ $t('pilotSheet.bonds.noPowersAssigned') }}
               </v-alert>
               <v-alert v-else
                 variant="outlined"
                 class="text-center">
-                No Bond Powers available
+                {{ $t('pilotSheet.bonds.noPowersAvailable') }}
                 <br />
                 <span class="caption text--secondary">
                   Additional features beyond the recommended guidelines can be added by toggling the

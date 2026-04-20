@@ -21,6 +21,7 @@
           {{ $t('mainMenu.pilotRoster') }}
         </main-btn>
         <main-btn icon="cc:encounter"
+          condensed
           :to="'/gm'"
           :help="$t('mainMenu.gmHelp')"
           @hover="ccLog('gm')">
@@ -33,6 +34,7 @@
           {{ $t('mainMenu.activeMode') }}
         </main-btn>
         <main-btn icon="cc:content_manager"
+          condensed
           :help="$t('mainMenu.contentHelp')"
           @hover="ccLog('content')"
           @clicked="extraContentModal = true">

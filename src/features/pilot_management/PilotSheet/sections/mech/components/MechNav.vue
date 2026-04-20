@@ -2,7 +2,7 @@
   <div class="nav-body elevation-10">
     <div id="cap" />
     <div class="d-inline">
-      <v-tooltip text="Return to Pilot Sheet"
+      <v-tooltip :text="$t('pilotSheet.mech.returnToPilot')"
         location="top">
         <template #activator="{ props }">
           <v-btn v-bind="props"
@@ -26,7 +26,7 @@
           variant="plain"
           size="small"
           v-bind="props">
-          <v-tooltip text="Mech Options"
+          <v-tooltip :text="$t('pilotSheet.mech.mechOptions')"
             location="top">
             <template #activator="{ props }">
               <v-icon v-bind="props"
@@ -37,18 +37,18 @@
           </v-tooltip>
         </v-btn>
       </template>
-      <div class="heading h2 bg-primary py-0 px-2">Mech Options</div>
+      <div class="heading h2 bg-primary py-0 px-2">{{ $t('pilotSheet.mech.mechOptions') }}</div>
       <v-list lines="two"
         density="compact"
         slim>
         <v-list-item prepend-icon="mdi-printer"
-          title="Print"
-          subtitle="Print a tabletop-ready mech sheet"
+          :title="$t('pilotSheet.mech.printTitle')"
+          :subtitle="$t('pilotSheet.mech.printSubtitle')"
           @click="$router.push(`/print/${pilot.ID}/${mechID}`)" />
 
         <v-list-item prepend-icon="mdi-file-document-outline"
-          title="Generate Statblock"
-          subtitle="Get a plaintext representation of this mech configuration"
+          :title="$t('pilotSheet.mech.generateStatblock')"
+          :subtitle="$t('pilotSheet.mech.generateStatblockSubtitle')"
           @click="statblockDialog = true" />
 
         <v-divider v-if="!pilot.IsRemote" />
@@ -56,8 +56,8 @@
         <v-list-item v-if="!pilot.IsRemote"
           class="text-error"
           prepend-icon="mdi-delete"
-          title="Delete Mech"
-          subtitle="Remove mech from the Hangar"
+          :title="$t('pilotSheet.mech.deleteTitle')"
+          :subtitle="$t('pilotSheet.mech.deleteSubtitle')"
           @click="$emit('delete')" />
       </v-list>
     </v-menu>
@@ -65,7 +65,7 @@
     <div id="end-cap" />
   </div>
   <cc-solo-modal v-model="statblockDialog"
-    title="Generate Statblock"
+    :title="$t('pilotSheet.mech.generateStatblock')"
     icon="mdi-code-block-tags">
     <statblock-dialog :pilot="<Pilot>pilot"
       :mech-i-d="mechID" />

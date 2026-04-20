@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section-header title="Mech Skills">
-      <cc-modal title="Set Pilot Mech Skills"
+    <section-header :title="$t('pilotSheet.tactical.haseTitle')">
+      <cc-modal :title="$t('pilotSheet.tactical.setHase')"
         icon="cc:frame"
         shrink>
         <template #activator="{ open }">
@@ -9,7 +9,7 @@
             :highlight="!pilot.MechSkillsController.HasFullHASE"
             :current="pilot.MechSkillsController.CurrentHASEPoints"
             :max="pilot.MechSkillsController.MaxHASEPoints"
-            :label="`Edit Pilot Mech Skills (${pilot.MechSkillsController.CurrentHASEPoints}/${pilot.MechSkillsController.MaxHASEPoints})`"
+            :label="$t('pilotSheet.tactical.editHase', { current: pilot.MechSkillsController.CurrentHASEPoints, max: pilot.MechSkillsController.MaxHASEPoints })"
             @open-selector="open" />
         </template>
         <mech-skills-selector :pilot="<Pilot>pilot" />
@@ -21,7 +21,7 @@
       <v-col class="mx-2"
         style="min-width: 400px">
         <cc-tickbar v-model="pilot.MechSkillsController.Hull"
-          label="hull"
+          :label="$t('pilotSheet.tactical.hull')"
           :size="mobile ? 'small' : 'default'"
           readonly
           icon="mdi-alpha-h-box-outline" />
@@ -29,7 +29,7 @@
       <v-col class="mx-2"
         style="min-width: 400px">
         <cc-tickbar v-model="pilot.MechSkillsController.Agi"
-          label="agility"
+          :label="$t('pilotSheet.tactical.agi')"
           :size="mobile ? 'small' : 'default'"
           readonly
           icon="mdi-alpha-a-box-outline" />
@@ -37,7 +37,7 @@
       <v-col class="mx-2"
         style="min-width: 400px">
         <cc-tickbar v-model="pilot.MechSkillsController.Sys"
-          label="systems"
+          :label="$t('pilotSheet.tactical.sys')"
           :size="mobile ? 'small' : 'default'"
           readonly
           icon="mdi-alpha-s-box-outline" />
@@ -45,7 +45,7 @@
       <v-col class="mx-2"
         style="min-width: 400px">
         <cc-tickbar v-model="pilot.MechSkillsController.Eng"
-          label="engineering"
+          :label="$t('pilotSheet.tactical.eng')"
           :size="mobile ? 'small' : 'default'"
           readonly
           icon="mdi-alpha-e-box-outline" />

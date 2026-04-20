@@ -91,7 +91,7 @@
                     <v-card-actions v-if="!mech.Pilot.IsRemote">
                       <v-spacer />
                       <v-tooltip location="top"
-                        text="Delete Mech">
+                        :text="$t('pilotSheet.hangar.deleteTitle')">
                         <template #activator="{ props }">
                           <v-btn v-bind="props"
                             size="small"
@@ -104,7 +104,7 @@
                         </template>
                       </v-tooltip>
                       <v-tooltip location="top"
-                        text="Duplicate Mech">
+                        :text="$t('pilotSheet.hangar.duplicateTitle')">
                         <template #activator="{ props }">
                           <v-btn v-bind="props"
                             size="small"
@@ -116,7 +116,7 @@
                         </template>
                       </v-tooltip>
                       <v-tooltip location="top"
-                        text="Print Mech Sheet">
+                        :text="$t('pilotSheet.hangar.printTooltip')">
                         <template #activator="{ props }">
                           <v-btn v-bind="props"
                             size="small"
@@ -139,26 +139,20 @@
 
     <cc-dialog ref="delete"
       :close-on-click="false"
-      title="Delete Mech"
+      :title="$t('pilotSheet.hangar.deleteTitle')"
       color="error"
       icon="mdi-delete">
       <cc-confirmation full-width
-        :content="`Lancer, please confirm deletion of Mech Configuration:
-          <span class='text-accent'>
-            ${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})
-          </span>`"
+        :content="$t('pilotSheet.hangar.deleteConfirm', { boldText: `<span class='text-accent'>${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})</span>` })"
         @confirm="$emit('delete', mech)" />
     </cc-dialog>
 
     <cc-dialog ref="copy"
       :close-on-click="false"
-      title="Duplicate Mech"
+      :title="$t('pilotSheet.hangar.duplicateTitle')"
       icon="mdi-content-copy">
       <cc-confirmation full-width
-        :content="`Lancer, please confirm intention to create a duplicate of Mech Configuration:
-          <span class='text-accent'>
-            ${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})
-          </span>`"
+        :content="$t('pilotSheet.hangar.duplicateConfirm', { boldText: `<span class='text-accent'>${mech.Name} (${mech.Frame.Source}, ${mech.Frame.Name})</span>` })"
         @confirm="copyAndClose()" />
     </cc-dialog>
   </v-col>

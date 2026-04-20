@@ -7,7 +7,7 @@
         md="">
         <cc-select v-model="genRadios"
           :items="genItems"
-          label="Generate" />
+          :label="$t('pilotSheet.statblock.generateLabel')" />
       </v-col>
       <v-col cols="auto">
         <cc-switch v-model="discordEmoji"
@@ -16,10 +16,10 @@
       </v-col>
       <v-col cols="auto">
         <div>
-          Include Pilot NET Discord Emoji
+          {{ $t('pilotSheet.statblock.emojiLabel') }}
           <div class="text-caption"
             style="line-height: 8px">
-            (Doesn't work in code block format)
+            {{ $t('pilotSheet.statblock.emojiCaption') }}
           </div>
         </div>
       </v-col>
@@ -33,7 +33,7 @@
         density="compact"
         item-title="Name"
         item-value="ID"
-        label="Select Mech"
+        :label="$t('pilotSheet.statblock.selectMechLabel')"
         variant="outlined"
         class="mb-4"
         hide-details />
@@ -46,14 +46,14 @@
       :rows="mobile ? 14 : 24"
       variant="solo-filled"
       class="flavor-text" />
-    <v-tooltip text="Copy stat block to clipboard">
+    <v-tooltip :text="$t('pilotSheet.statblock.copyTooltip')">
       <template #activator="{ props }">
         <cc-button v-bind="props"
           prepend-icon="mdi-clipboard-text-outline"
           color="primary"
           block
           @click="copy()">
-          Copy to Clipboard
+          {{ $t('pilotSheet.statblock.copyBtn') }}
         </cc-button>
       </template>
     </v-tooltip>
@@ -82,13 +82,15 @@ export default {
     selected_mech: null as any,
     discordEmoji: false,
     genRadios: 'full',
-    genItems: [
-      { title: 'Full', value: 'full' },
-      { title: 'Pilot Only', value: 'pilotBuild' },
-      { title: 'Mech Only', value: 'mechBuild' },
-    ],
   }),
   computed: {
+    genItems() {
+      return [
+        { title: this.$t('pilotSheet.statblock.optFull'), value: 'full' },
+        { title: this.$t('pilotSheet.statblock.optPilotOnly'), value: 'pilotBuild' },
+        { title: this.$t('pilotSheet.statblock.optMechOnly'), value: 'mechBuild' },
+      ];
+    },
     defaultMechID() {
       if (this.$route.name === 'mech-sheet') {
         return this.mechID;
@@ -134,15 +136,15 @@ export default {
         .writeText(this.statblock)
         .then(() =>
           this.$notify({
-            title: 'Statblock Copied to Clipboard',
-            text: 'Copy Success',
+            title: this.$t('pilotSheet.statblock.copySuccessTitle'),
+            text: this.$t('pilotSheet.statblock.copySuccessText'),
             data: { icon: 'mdi-clipboard-text-outline' },
           })
         )
         .catch(() =>
           this.$notify({
-            title: 'Error',
-            text: 'Unable to copy statblocik',
+            title: this.$t('pilotSheet.statblock.copyErrorTitle'),
+            text: this.$t('pilotSheet.statblock.copyErrorText'),
             data: { icon: 'mdi-clipboard-text-outline', color: 'error' },
           })
         );

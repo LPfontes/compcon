@@ -21,7 +21,7 @@
         :color="color" />
       <div>
         <v-divider class="mt-2" />
-        <span class="text-overline no-height">System Points</span>
+        <span class="text-overline no-height">{{ $t('pilotSheet.mech.systemPoints') }}</span>
         <v-tooltip>
           <template #activator="{ props }">
             <span v-bind="props"
@@ -30,7 +30,7 @@
             </span>
           </template>
           <div class="heading h4"
-            v-text="`${mech.MaxSP} System Points`" />
+            v-text="$t('pilotSheet.mech.systemPointsCount', { count: mech.MaxSP })" />
           <v-divider />
           <p v-html-safe="mech.SPContributors.join('<br />')"
             class="py-2" />

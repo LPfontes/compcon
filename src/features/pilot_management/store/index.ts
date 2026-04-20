@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { i18n } from '@/locales/i18n'
 import { SetItem, RemoveItem, GetAll, SetValue, GetValue } from '@/io/Storage'
 import { Pilot } from '@/class'
 import { PilotGroup } from './PilotGroup'
@@ -88,7 +89,7 @@ export const PilotStore = defineStore('pilot', {
         this.PilotGroups.push(
           new PilotGroup({
             id: 'no_group',
-            name: 'No Group',
+            name: i18n.global.t('roster.noGroup'),
             pilots: [],
             description: '',
             history: '',

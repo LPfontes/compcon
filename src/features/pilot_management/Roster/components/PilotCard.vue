@@ -52,7 +52,7 @@
                       size="x-small">
                       <v-icon start
                         class="mr-3">mdi-broadcast</v-icon>
-                      REMOTE RESOURCE
+                      {{ $t('roster.pilotCard.remoteResource') }}
                     </v-chip>
                   </div>
 
@@ -61,11 +61,11 @@
                   <br />
                   <b>{{ pilot.Callsign }}</b>
                   <cc-slashes />
-                  <b>{{ pilot.Status }}</b>
+                  <b>{{ $t(`pilotSheet.narrative.status${pilot.Status.charAt(0).toUpperCase() + pilot.Status.slice(1).toLowerCase()}`) }}</b>
                   <v-divider />
-                  HULL {{ pilot.MechSkillsController.MechSkills.Hull }} AGI
-                  {{ pilot.MechSkillsController.MechSkills.Agi }} SYS
-                  {{ pilot.MechSkillsController.MechSkills.Sys }} ENG
+                  {{ $t('roster.pilotCard.hull') }} {{ pilot.MechSkillsController.MechSkills.Hull }} {{ $t('roster.pilotCard.agi') }}
+                  {{ pilot.MechSkillsController.MechSkills.Agi }} {{ $t('roster.pilotCard.sys') }}
+                  {{ pilot.MechSkillsController.MechSkills.Sys }} {{ $t('roster.pilotCard.eng') }}
                   {{ pilot.MechSkillsController.MechSkills.Eng }}
                   <v-divider />
                   <div>

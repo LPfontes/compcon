@@ -11,7 +11,7 @@
             color="accent" />
         </v-btn>
       </template>
-      <span>Sort by Name</span>
+      <span>{{ $t('pilotSheet.hangar.sortName') }}</span>
     </v-tooltip>
 
     <v-tooltip location="top" open-delay="300">
@@ -25,7 +25,7 @@
             class="mb-n1" />
         </v-btn>
       </template>
-      <span>Sort by Manufacturer</span>
+      <span>{{ $t('pilotSheet.hangar.sortSource') }}</span>
     </v-tooltip>
 
     <v-tooltip location="top" open-delay="300">
@@ -39,7 +39,7 @@
             class="mb-n1" />
         </v-btn>
       </template>
-      <span>Sort by created timestamp</span>
+      <span>{{ $t('pilotSheet.hangar.sortCreated') }}</span>
     </v-tooltip>
   </div>
 </template>

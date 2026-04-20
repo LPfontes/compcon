@@ -9,7 +9,7 @@
         :height="small ? '175px' : '225px'"
         class="py-2" />
     </template>
-    <template #overline>{{ item.MechTypeString }} Frame</template>
+    <template #overline>{{ item.MechTypeString }} {{ $t('compendium.frameSuffix') }}</template>
   </c-card-base>
 </template>
 

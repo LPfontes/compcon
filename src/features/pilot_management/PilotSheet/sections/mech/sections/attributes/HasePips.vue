@@ -1,10 +1,10 @@
 <template>
   <div :class="mobile && 'd-inline-block mr-11'">
-    <v-tooltip :text="`${attr.toUpperCase()}: ${val}`">
+    <v-tooltip :text="`${$t('pilotSheet.mech.stats.' + attr).toUpperCase()}: ${val}`">
       <template #activator="{ props }">
         <span class="text-overline no-height ml-n1"
           v-bind="props">
-          {{ attr }}
+          {{ $t('pilotSheet.mech.stats.' + attr) }}
         </span>
       </template>
     </v-tooltip>

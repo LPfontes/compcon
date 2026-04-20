@@ -27,7 +27,7 @@
     <v-spacer style="min-height: 80px" />
   </div>
   <div v-else>
-    <h1 style="margin-top: 50px; text-align: center">ERROR // INVALID PILOT</h1>
+    <h1 style="margin-top: 50px; text-align: center">{{ $t('pilotSheet.invalidPilot') }}</h1>
   </div>
 </template>
 

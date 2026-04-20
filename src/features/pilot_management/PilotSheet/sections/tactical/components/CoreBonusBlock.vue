@@ -1,14 +1,14 @@
 <template>
   <div>
-    <section-header title="CORE Bonuses">
-      <cc-modal title="Set Pilot CORE Bonuses" icon="cc:corebonus">
+    <section-header :title="$t('pilotSheet.tactical.coreBonusesTitle')">
+      <cc-modal :title="$t('pilotSheet.tactical.setCoreBonuses')" icon="cc:corebonus">
         <template #activator="{ open }">
           <section-edit-chip
             v-if="!pilot.IsRemote"
             :highlight="!pilot.CoreBonusController.HasCBs"
             :current="pilot.CoreBonusController.CurrentCBPoints"
             :max="pilot.CoreBonusController.MaxCBPoints"
-            :label="`Edit Pilot CORE Bonuses (${pilot.CoreBonusController.CurrentCBPoints}/${pilot.CoreBonusController.MaxCBPoints})`"
+            :label="$t('pilotSheet.tactical.editCoreBonuses', { current: pilot.CoreBonusController.CurrentCBPoints, max: pilot.CoreBonusController.MaxCBPoints })"
             @open-selector="open" />
         </template>
         <core-bonus-selector :pilot="pilot" />

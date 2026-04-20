@@ -6,7 +6,7 @@
         <v-file-input v-model="fileValue"
           accept=".json, text/json"
           variant="outlined"
-          label="Select Pilot Data File"
+          :label="$t('roster.groupFileImport.selectFile')"
           prepend-icon="mdi-paperclip"
           density="compact"
           @change="stageImport"
@@ -43,7 +43,7 @@
               {{ p.callsign }}
             </div>
             <div class="text-caption">
-              {{ p.background || 'Unknown Background' }}, LL {{ p.level }} <span v-if=p.player_name>
+              {{ p.background || $t('roster.groupFileImport.unknownBackground') }}, LL {{ p.level }} <span v-if=p.player_name>
                 ({{ p.player_name
                 }})</span>
             </div>
@@ -63,7 +63,7 @@
         <v-col cols="auto">
           <cc-checkbox v-model="importPilots"
             color="accent"
-            :label="`Import Pilots (${stagedPilots.length})`"
+            :label="$t('roster.groupFileImport.importPilots', { count: stagedPilots.length })"
             density="compact"
             hide-details />
         </v-col>
@@ -73,7 +73,7 @@
         <cc-alert v-if="alreadyPresent"
           color="warning"
           icon="mdi-alert"
-          title="Group Already Exists"
+          :title="$t('roster.groupFileImport.alreadyExists')"
           class="my-2">
           <p class="text-center"
             v-text="alreadyPresent" />
@@ -87,11 +87,10 @@
                 block
                 prepend-icon="mdi-plus"
                 @click="importFile()">
-                Import {{ (stagedData as any).name }}
+                {{ $t('roster.groupFileImport.importGroup', { name: (stagedData as any).name }) }}
                 <span v-if="stagedPilots.length && importPilots">
-                  &nbsp;and {{ stagedPilots.length }} Pilot{{
-                    stagedPilots.length > 1 ? 's' : ''
-                  }}</span>
+                  {{ $t('roster.groupFileImport.andPilots', stagedPilots.length) }}
+                </span>
               </cc-button>
             </v-col>
           </v-row>
@@ -142,8 +141,8 @@ export default {
         pilotData = importedData.pilotData;
       } catch (error) {
         this.$notify({
-          title: 'Import Error',
-          text: `Unable to read file: ${error}`,
+          title: this.$t('roster.groupFileImport.errorTitle'),
+          text: this.$t('roster.groupFileImport.errorRead', { error }),
           data: { icon: 'mdi-account-multiple', color: 'error' },
         });
         logger.error('File Import Error', { error, fileName: file.target.files[0].name });
@@ -156,8 +155,7 @@ export default {
       );
 
       if (exists && !exists.SaveController.IsDeleted) {
-        this.alreadyPresent =
-          'A pilot group with this name already exists in the roster. Importing will create a unique copy of this group.';
+        this.alreadyPresent = this.$t('roster.groupFileImport.alreadyExistsText');
         const num = PilotStore().PilotGroups.filter(
           (x) => x.Name === data.name
         ).length;
@@ -174,14 +172,14 @@ export default {
         newID = importGroup.RenewID();
         PilotStore().AddGroup(importGroup);
         this.$notify({
-          title: 'Import Successful',
-          text: `${importGroup.Name} successfully added.`,
+          title: this.$t('roster.groupFileImport.successTitle'),
+          text: this.$t('roster.groupFileImport.successGroup', { name: importGroup.Name }),
           data: { icon: 'mdi-account-multiple' },
         });
       } catch (error) {
         this.$notify({
-          title: 'Import Error',
-          text: `Unable to import pilot group: ${error}`,
+          title: this.$t('roster.groupFileImport.errorTitle'),
+          text: this.$t('roster.groupFileImport.errorGroup', { error }),
           data: { icon: 'mdi-account-multiple', color: 'error' },
         });
       }
@@ -197,14 +195,14 @@ export default {
           PilotStore().AddPilot(importPilot, newID);
           this.reset();
           this.$notify({
-            title: 'Import Successful',
-            text: `${importPilot.Name} // ${importPilot.Callsign} successfully added to roster.`,
+            title: this.$t('roster.fileImport.successTitle'),
+            text: this.$t('roster.fileImport.successText', { name: importPilot.Name, callsign: importPilot.Callsign }),
             data: { icon: 'cc:pilot' },
           });
         } catch (error) {
           this.$notify({
-            title: 'Import Error',
-            text: `Unable to import Pilot: ${error}`,
+            title: this.$t('roster.fileImport.errorTitle'),
+            text: this.$t('roster.fileImport.errorText', { error }),
             data: { icon: 'cc:pilot', color: 'error' },
           });
         }

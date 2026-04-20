@@ -3,11 +3,11 @@
     <div class="border">
       <cc-img v-if="pilot.Portrait" :src="pilot.Portrait" max-width="100%" />
     </div>
-    <cc-modal v-if="!pilot.IsRemote" title="set pilot portrait" icon="cc:pilot" tabs>
+    <cc-modal v-if="!pilot.IsRemote" :title="$t('pilotSheet.narrative.setPortraitTitle')" icon="cc:pilot" tabs>
       <template #activator="{ open }">
         <v-btn color="secondary" size="small" block variant="tonal" @click="open">
           <v-icon start>mdi-circle-edit-outline</v-icon>
-          Set Pilot Portrait
+          {{ $t('pilotSheet.narrative.setPortraitBtn') }}
         </v-btn>
       </template>
       <cc-image-selector ref="imageSelector" :item="pilot" type="pilot" avatar />
