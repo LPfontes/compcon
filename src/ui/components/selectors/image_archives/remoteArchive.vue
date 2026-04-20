@@ -37,11 +37,11 @@
                   color="error"
                   size="x-small"
                   v-bind="props">
-                  Delete
+                  {{ $t('common.selectors.imageArchive.remote.delete') }}
                 </v-btn>
               </template>
               <cc-confirmation
-                content="This will delete this image link from your library.</span> Do you want to continue?"
+                :content="$t('common.selectors.imageArchive.remote.deleteConfirm')"
                 @confirm="deleteRemoteImage(image)" />
             </v-menu>
           </v-card>
@@ -56,18 +56,17 @@
     <cc-alert density="compact"
       class="my-2 text-caption"
       icon="mdi-alert"
-      title="External Data Warning">
+      :title="$t('common.selectors.imageArchive.remote.externalWarningTitle')">
       <i>
-        Images in this gallery are links to remote resources and are not managed by COMP/CON. If you
-        do not control the remote host, items may be removed or changed at any time.
+        {{ $t('common.selectors.imageArchive.remote.externalWarningText') }}
       </i>
     </cc-alert>
 
     <v-card-text>
       <div class="heading h3">
-        ADD REMOTE IMAGE
+        {{ $t('common.selectors.imageArchive.remote.addTitle') }}
         <cc-tooltip inline
-          content="Link a remotely-hosted image to this asset. These images are not stored or managed by COMP/CON and are subject to change or removal based on their hosts.">
+          :content="$t('common.selectors.imageArchive.remote.addTooltip')">
           <v-icon left>mdi-information-outline</v-icon>
         </cc-tooltip>
       </div>
@@ -78,7 +77,7 @@
             dense
             outlined
             hide-details
-            placeholder="Link Image"
+            :placeholder="$t('common.selectors.imageArchive.remote.linkPlaceholder')"
             prepend-icon="mdi-image-sync"
             :disabled="loading" />
         </v-col>
@@ -86,7 +85,7 @@
           <v-btn color="secondary"
             :disabled="!remoteInput || remoteError.length > 0"
             @click="setRemoteImage()">
-            Load
+            {{ $t('common.selectors.imageArchive.remote.loadBtn') }}
           </v-btn>
         </v-col>
       </v-row>
@@ -154,7 +153,7 @@ export default {
     },
     async setRemoteImage() {
       if (!this.remoteInput || !this.validURL(this.remoteInput)) {
-        this.remoteError = 'Invalid URL';
+        this.remoteError = this.$t('common.selectors.imageArchive.remote.invalidUrl');
         return;
       }
       this.remoteError = '';

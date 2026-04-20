@@ -20,8 +20,8 @@
         :color="critical ? 'exotic' : 'primary'"
         class="text-white heading h3">
         {{ title }}
-        <span v-if="critical" class="flavor-text text-white text--secondary">// CRITICAL</span>
-        <span v-if="overkill" class="flavor-text text-white text--secondary">// OVERKILL</span>
+        <span v-if="critical" class="flavor-text text-white text--secondary">// {{ $t('activeMode.diceMenu.critical') }}</span>
+        <span v-if="overkill" class="flavor-text text-white text--secondary">// {{ $t('activeMode.diceMenu.overkill') }}</span>
       </v-toolbar>
       <v-row no-gutters align="center" justify="center">
         <v-col>
@@ -31,49 +31,49 @@
               justify="center"
               style="border: 1px solid rgb(var(--v-theme-primary)); border-radius: 2px">
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add coin flip (d2)">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addCoin')">
                   <v-btn icon color="accent" @click="addDice(2)">
                     <v-icon large>mdi-numeric-2-circle-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d4 roll">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDice', { n: 4 })">
                   <v-btn icon color="accent" @click="addDice(4)">
                     <v-icon large>mdi-dice-d4-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add d6 roll">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDice', { n: 6 })">
                   <v-btn icon color="accent" @click="addDice(6)">
                     <v-icon large>mdi-dice-d6-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d8 roll">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDice', { n: 8 })">
                   <v-btn icon color="accent" @click="addDice(8)">
                     <v-icon large>mdi-dice-d8-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d10 roll">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDice', { n: 10 })">
                   <v-btn icon color="accent" @click="addDice(10)">
                     <v-icon large>mdi-dice-d10-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col v-show="moreDice" cols="auto">
-                <cc-tooltip content="Add d12 roll">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDice', { n: 12 })">
                   <v-btn icon color="accent" @click="addDice(12)">
                     <v-icon large>mdi-dice-d12-outline</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add d20 roll">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDice', { n: 20 })">
                   <v-btn icon color="accent" @click="addDice(20)">
                     <v-icon large>mdi-dice-d20-outline</v-icon>
                   </v-btn>
@@ -86,14 +86,14 @@
                 </v-btn>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add Accuracy">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addAccuracy')">
                   <v-btn icon color="accent" @click="accuracy++">
                     <v-icon large>cc:accuracy</v-icon>
                   </v-btn>
                 </cc-tooltip>
               </v-col>
               <v-col cols="auto">
-                <cc-tooltip content="Add Difficulty">
+                <cc-tooltip :content="$t('activeMode.diceMenu.addDifficulty')">
                   <v-btn icon color="accent" @click="accuracy--">
                     <v-icon large>cc:difficulty</v-icon>
                   </v-btn>
@@ -102,7 +102,7 @@
             </v-row>
             <v-row density="compact" align="center" justify="center">
               <v-col cols="auto">
-                <v-chip v-if="!dice.length" variant="outlined" style="opacity: 0.5">No Roll</v-chip>
+                <v-chip v-if="!dice.length" variant="outlined" style="opacity: 0.5">{{ $t('activeMode.diceMenu.noRoll') }}</v-chip>
               </v-col>
               <v-col v-for="(d, i) in dice" :key="`dice-${i}`" cols="auto">
                 <v-chip
@@ -144,13 +144,13 @@
               </v-row>
             </v-slide-y-reverse-transition>
             <v-btn block variant="outlined" color="secondary" class="my-3" @click="roll">
-              Roll
+              {{ $t('activeMode.diceMenu.roll') }}
             </v-btn>
             <v-divider v-if="result" />
             <div style="min-height: 20px">
               <div v-if="result">
                 <div v-for="(r, j) in result" :key="`result-${j}`">
-                  <div class="caption">ROLLING {{ r.rolls.length }}D{{ r.sides }}</div>
+                  <div class="caption">{{ $t('activeMode.diceMenu.rolling', { count: r.rolls.length, sides: r.sides }) }}</div>
                   <v-row no-gutters>
                     <v-col v-for="(val, i) in r.rolls" :key="`roll-${i}`" cols="auto">
                       <v-chip
@@ -177,7 +177,7 @@
                   </v-row>
                 </div>
                 <div v-if="flat">
-                  <div class="caption">FLAT MODIFIER</div>
+                  <div class="caption">{{ $t('activeMode.diceMenu.flatModifier') }}</div>
                   <v-row no-gutters>
                     <v-col cols="auto">
                       <v-chip x-small label>
@@ -191,7 +191,7 @@
                 </div>
                 <div v-if="accuracy">
                   <div class="caption">
-                    {{ accuracy > 0 ? 'ACCURACY' : 'DIFFICULTY' }}
+                    {{ accuracy > 0 ? $t('activeMode.diceMenu.accuracy') : $t('activeMode.diceMenu.difficulty') }}
                   </div>
                   <v-row no-gutters>
                     <v-col v-for="(a, i) in accRolls" :key="`acc-${i}`" cols="auto">
@@ -214,7 +214,7 @@
                   class="pa-1 ma-1"
                   style="border: 1px solid rgb(var(--v-theme-secondary)); border-radius: 2px">
                   <v-col cols="auto" class="ml-auto text-stark text-right">
-                    <div class="caption">TOTAL</div>
+                    <div class="caption">{{ $t('activeMode.diceMenu.total') }}</div>
                     <div class="heading h2">{{ total }}</div>
                   </v-col>
                 </v-row>
@@ -224,7 +224,7 @@
                   class="pa-1 ma-1"
                   style="border: 1px solid rgb(var(--v-theme-heat)); border-radius: 2px">
                   <v-col cols="auto" class="ml-auto text-stark text-right">
-                    <div class="caption">// OVERKILL //</div>
+                    <div class="caption">// {{ $t('activeMode.diceMenu.overkill') }} //</div>
                     <v-chip v-for="(n, index) in overkillRolls" :key="`overkill-${index}`" x-small color="heat">
                       <v-icon small>cc:heat</v-icon>
                     </v-chip>
@@ -236,11 +236,11 @@
             <v-card-actions>
               <v-row density="compact" justify="center" align="center" class="text-center">
                 <v-col cols="12" md="auto">
-                  <v-btn small text class="mr-3" @click="menu = false">Cancel</v-btn>
+                  <v-btn small text class="mr-3" @click="menu = false">{{ $t('common.cancel') }}</v-btn>
                 </v-col>
                 <v-col cols="12" md="auto">
-                  <v-btn small variant="outlined" color="accent" @click="clear">Clear All</v-btn>
-                  <v-btn small variant="outlined" color="accent" @click="reset">Reset All</v-btn>
+                  <v-btn small variant="outlined" color="accent" @click="clear">{{ $t('activeMode.diceMenu.clearAll') }}</v-btn>
+                  <v-btn small variant="outlined" color="accent" @click="reset">{{ $t('activeMode.diceMenu.resetAll') }}</v-btn>
                 </v-col>
 
                 <v-col cols="12" md="auto">
@@ -250,7 +250,7 @@
                     color="secondary"
                     :disabled="!result && !flat"
                     @click="commit">
-                    Commit Result
+                    {{ $t('activeMode.diceMenu.commit') }}
                   </v-btn>
                 </v-col>
               </v-row>
@@ -265,6 +265,18 @@
 <script lang="ts">
 import { DiceRoller } from '@/classes/dice/DiceRoller';
 
+interface Dice {
+  sides: number;
+  count: number;
+}
+
+interface RollResult {
+  sides: number;
+  rolls: number[];
+  class: string[];
+  overkill: number;
+}
+
 export default {
   name: 'CcDiceMenu',
   props: {
@@ -278,24 +290,26 @@ export default {
   data: () => ({
     menu: false,
     moreDice: false,
-    dice: [],
-    accRolls: [],
-    flat: 0,
-    result: null,
+    dice: [] as Dice[],
+    accRolls: [] as number[],
+    flat: 0 as number | string,
+    result: null as RollResult[] | null,
     accuracy: 0,
     accTotal: 0,
   }),
   computed: {
     accString() {
-      if (this.accuracy > 0) return `<b>${this.accuracy}</b>&nbsp;&nbsp;ACCURACY`;
-      else return `<b>${Math.abs(this.accuracy)}</b>&nbsp;&nbsp;DIFFICULTY`;
+      if (this.accuracy > 0) return `<b>${this.accuracy}</b>&nbsp;&nbsp;${this.$t('activeMode.diceMenu.accuracy')}`;
+      else return `<b>${Math.abs(this.accuracy)}</b>&nbsp;&nbsp;${this.$t('activeMode.diceMenu.difficulty')}`;
     },
     overkillRolls() {
       if (!this.result) return 0;
       return this.result.map((x) => x.overkill).reduce((a, b) => a + b, 0);
     },
-    total() {
-      if (!this.result) return parseInt(this.flat);
+    total(): number {
+      const flatMod = typeof this.flat === 'string' ? parseInt(this.flat) || 0 : this.flat;
+      const accMod = typeof this.accTotal === 'string' ? parseInt(this.accTotal) || 0 : this.accTotal;
+      if (!this.result) return flatMod;
       return (
         this.result
           .flatMap((x) =>
@@ -304,8 +318,8 @@ export default {
             })
           )
           .reduce((a, b) => a + b, 0) +
-        parseInt(this.flat) +
-        parseInt(this.accTotal)
+        flatMod +
+        accMod
       );
     },
   },
@@ -326,15 +340,16 @@ export default {
     if (this.autoroll) this.$nextTick(this.autoRoll);
   },
   methods: {
-    addDice(sides) {
+    addDice(sides: number) {
       this.result = null;
       const idx = this.dice.findIndex((x) => x.sides === sides);
       if (idx > -1) this.dice[idx].count++;
       else this.dice.push({ sides, count: 1 });
     },
-    removeDice(sides) {
+    removeDice(sides: number) {
       this.result = null;
       const idx = this.dice.findIndex((x) => x.sides === sides);
+      if (idx === -1) return;
       this.dice[idx].count--;
       if (this.dice[idx].count < 1) this.dice.splice(idx, 1);
     },
@@ -377,8 +392,8 @@ export default {
         arr.forEach((e) => {
           if (e.includes('d')) {
             const dice = e.split('d');
-            this.dice.push({ sides: dice[1], count: dice[0] });
-          } else this.flat += parseInt(e);
+            this.dice.push({ sides: parseInt(dice[1]), count: parseInt(dice[0]) });
+          } else this.flat = (typeof this.flat === 'number' ? this.flat : parseInt(this.flat || '0')) + parseInt(e);
         });
       }
       this.accuracy = this.presetAccuracy;

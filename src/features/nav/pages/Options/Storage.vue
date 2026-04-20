@@ -16,7 +16,15 @@
         </v-chip>
       </v-progress-linear>
 
-      <p class="px-2" v-html="$t('options.storage.usageText', { usage: bytesToSize(size.usage), quota: bytesToSize(size.quota), percent: ((size.usage / size.quota) * 100).toFixed(3) })" />
+      <i18n-t keypath="options.storage.usageText"
+        tag="p"
+        class="px-2">
+        <template #usage>{{ bytesToSize(size.usage) }}</template>
+        <template #quota>{{ bytesToSize(size.quota) }}</template>
+        <template #percent>
+          <b class="text-accent">{{ ((size.usage / size.quota) * 100).toFixed(3) }}%</b>
+        </template>
+      </i18n-t>
 
       <div class="mb-4">
         <cc-heading is-title
@@ -60,8 +68,22 @@
               @change="updateUserStorage" />
           </v-col>
         </v-row>
-        <div class="text-caption text-right text-stark" v-html="$t('options.storage.warningHint', { percent: storageRange[0].toFixed(2), size: bytesToSize((storageRange[0] / 100) * size.quota) })" />
-        <div class="text-caption text-right text-stark" v-html="$t('options.storage.maxHint', { percent: storageRange[1].toFixed(2), size: bytesToSize((storageRange[1] / 100) * size.quota) })" />
+        <i18n-t keypath="options.storage.warningHint"
+          tag="div"
+          class="text-caption text-right text-stark">
+          <template #percent>{{ storageRange[0].toFixed(2) }}</template>
+          <template #size>
+            <b class="text-accent">{{ bytesToSize((storageRange[0] / 100) * size.quota) }}</b>
+          </template>
+        </i18n-t>
+        <i18n-t keypath="options.storage.maxHint"
+          tag="div"
+          class="text-caption text-right text-stark">
+          <template #percent>{{ storageRange[1].toFixed(2) }}</template>
+          <template #size>
+            <b class="text-accent">{{ bytesToSize((storageRange[1] / 100) * size.quota) }}</b>
+          </template>
+        </i18n-t>
       </div>
 
       <div class="mb-8">
@@ -75,8 +97,16 @@
           density="compact"
           @update:model-value="updateDeleteDays()" />
         <div class="text-caption text-right text-stark">
-          <span v-if="!deleteDays" v-html="$t('options.storage.neverDelete')" />
-          <span v-else v-html="$t('options.storage.autoDeleteText', { days: deleteDays })" />
+          <i18n-t v-if="!deleteDays"
+            keypath="options.storage.neverDelete">
+            <template #never><b class="text-accent">{{ $t('common.never') }}</b></template>
+          </i18n-t>
+          <i18n-t v-else
+            keypath="options.storage.autoDeleteText">
+            <template #days>
+              <b class="text-accent">{{ deleteDays }} {{ $t('common.days') }}</b>
+            </template>
+          </i18n-t>
         </div>
       </div>
     </v-card-text>
@@ -126,9 +156,15 @@
             <span class="heading h2">{{ $t('options.storage.warningTitle') }}</span>
           </v-alert>
           <p class="text-center heading h2 text-text">
-            <span v-html="$t('options.storage.deleteConfirm1')" /><br />
-            <span v-html="$t('options.storage.deleteConfirm2')" /><br /><br />
-            <span v-html="$t('options.storage.deleteConfirm3')" />
+            <i18n-t keypath="options.storage.deleteConfirm1">
+              <template #all><b class="text-accent">{{ $t('common.all') }}</b></template>
+            </i18n-t><br />
+            <i18n-t keypath="options.storage.deleteConfirm2">
+              <template #cannot><b class="text-accent">{{ $t('common.cannot') }}</b></template>
+            </i18n-t><br /><br />
+            <i18n-t keypath="options.storage.deleteConfirm3">
+              <template #sure><b class="text-accent">{{ $t('options.storage.sureContinue') }}</b></template>
+            </i18n-t>
           </p>
         </v-card-text>
         <v-divider />

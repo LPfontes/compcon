@@ -2,11 +2,10 @@ function decrypt(encryptedText) {
   encryptedText = decodeURIComponent(encryptedText);
   let decrypted = '';
   for (let i = 0; i < encryptedText.length; i++) {
+    const key = import.meta.env.VITE_ACHIEVEMENT_KEY || 'compcon';
     const charCode =
       encryptedText.charCodeAt(i) ^
-      import.meta.env.VITE_ACHIEVEMENT_KEY.charCodeAt(
-        i % import.meta.env.VITE_ACHIEVEMENT_KEY.length
-      );
+      key.charCodeAt(i % key.length);
     decrypted += String.fromCharCode(charCode);
   }
   return decrypted;
@@ -15,11 +14,10 @@ function decrypt(encryptedText) {
 function encrypt(text) {
   let encrypted = '';
   for (let i = 0; i < text.length; i++) {
+    const key = import.meta.env.VITE_ACHIEVEMENT_KEY || 'compcon';
     const charCode =
       text.charCodeAt(i) ^
-      import.meta.env.VITE_ACHIEVEMENT_KEY.charCodeAt(
-        i % import.meta.env.VITE_ACHIEVEMENT_KEY.length
-      );
+      key.charCodeAt(i % key.length);
     encrypted += String.fromCharCode(charCode);
   }
   return encodeURIComponent(encrypted);

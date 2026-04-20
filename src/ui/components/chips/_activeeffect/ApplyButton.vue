@@ -6,14 +6,14 @@
     color="panel"
     prepend-icon="mdi-close"
     @click="close()">
-    Dismiss
+    {{ $t('activeMode.applyButton.dismiss') }}
   </cc-button>
 
   <div v-else-if="!embedded"
     class="d-flex justify-end mt-2 mr-4">
     <cc-button size="small"
       stacked
-      @click="close">Cancel</cc-button>
+      @click="close">{{ $t('activeMode.applyButton.cancel') }}</cc-button>
     <v-spacer />
     <div>
       <cc-button v-if="!ready"
@@ -27,8 +27,8 @@
             :icon="icon"
             class="mt-n1"
             start />
-          <span v-if="activation">Activate</span>
-          <span v-else>{{ canOverride ? 'Apply All' : 'Confirm' }}</span>
+          <span v-if="activation">{{ $t('activeMode.applyButton.activate') }}</span>
+          <span v-else>{{ canOverride ? $t('activeMode.applyButton.applyAll') : $t('activeMode.applyButton.confirm') }}</span>
           <div class="text-disabled">
             <span v-if="activation"
               style="letter-spacing: 1px">
@@ -57,11 +57,11 @@
 
             <v-list-item class="bg-action--free"
               :disabled="mandatoryRemaining"
-              title="Activate (Free Action)"
+              :title="$t('activeMode.applyButton.activateFree')"
               @click="stage(true)">
               <template v-if="mandatoryRemaining"
                 #subtitle>
-                <v-list-item-subtitle>Mandatory Fields Remaining</v-list-item-subtitle>
+                <v-list-item-subtitle>{{ $t('activeMode.applyButton.mandatoryRemaining') }}</v-list-item-subtitle>
               </template>
               <template #prepend>
                 <v-icon icon="cc:free"
@@ -69,7 +69,7 @@
               </template>
             </v-list-item>
             <v-divider class="my-2" />
-            <v-list-item title="Reset All Inputs"
+            <v-list-item :title="$t('activeMode.applyButton.resetInputs')"
               @click="$emit('reset', false)">
               <template #prepend>
                 <v-icon icon="mdi-reload"
@@ -91,7 +91,7 @@
             :icon="icon"
             class="mt-n1"
             start />
-          Confirm
+          {{ $t('activeMode.applyButton.confirm') }}
           <div class="text-disabled">
             <span v-if="activation"
               style="letter-spacing: 1px">
@@ -116,7 +116,7 @@
             border
             tile>
 
-            <v-list-item title="Reset All Inputs"
+            <v-list-item :title="$t('activeMode.applyButton.resetInputs')"
               @click="$emit('reset', false)">
               <template #prepend>
                 <v-icon icon="mdi-reload"
@@ -127,8 +127,8 @@
         </template>
       </cc-button>
       <div class="text-center text-cc-overline text-disabled">
-        <div v-if="isApplied">Already Activated</div>
-        <div v-if="noAction">Insufficient Actions</div>
+        <div v-if="isApplied">{{ $t('activeMode.applyButton.alreadyActivated') }}</div>
+        <div v-if="noAction">{{ $t('activeMode.applyButton.insufficientActions') }}</div>
       </div>
     </div>
   </div>
