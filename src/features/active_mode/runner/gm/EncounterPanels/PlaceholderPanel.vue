@@ -11,7 +11,7 @@
     </v-col>
 
     <v-col v-if="combatant.actor.Player" cols="auto">
-      <span class="text-cc-overline pr-1">Played by</span>
+      <span class="text-cc-overline pr-1">{{ $t('activeMode.runner.playedBy') }}</span>
       <b class="text-accent">{{ combatant.actor.Player }}</b>
     </v-col>
   </v-row>
@@ -30,7 +30,7 @@
             size="small"
             block
             :color="combatant.actor.CombatController.Mounted ? 'primary' : 'panel'"
-            text="Mounted"
+            :text="$t('activeMode.runner.common.palette.mounted')"
             @click="
               combatant.actor.CombatController.Mounted = !combatant.actor.CombatController.Mounted
             " />
@@ -41,7 +41,7 @@
             size="small"
             block
             :color="combatant.actor.CombatController.Braced ? 'primary' : 'panel'"
-            text="Braced"
+            :text="$t('activeMode.runner.common.palette.braced')"
             @click="
               combatant.actor.CombatController.Braced = !combatant.actor.CombatController.Braced
             " />
@@ -53,7 +53,7 @@
             size="small"
             block
             :color="combatant.actor.CombatController.Overwatch ? 'primary' : 'panel'"
-            text="Overwatch"
+            :text="$t('activeMode.runner.common.palette.overwatch')"
             @click="
               combatant.actor.CombatController.Overwatch =
                 !combatant.actor.CombatController.Overwatch
@@ -65,7 +65,7 @@
             size="small"
             block
             :color="combatant.actor.CombatController.Prepared ? 'primary' : 'panel'"
-            text="Prepared"
+            :text="$t('activeMode.runner.common.palette.prepared')"
             @click="
               combatant.actor.CombatController.Prepared = !combatant.actor.CombatController.Prepared
             " />

@@ -1,6 +1,6 @@
 <template>
   <v-container :fluid="$vuetify.display.mdAndDown">
-    <div class="heading h2">New Local Active Encounter</div>
+    <div class="heading h2">{{ $t('activeMode.gm.new_encounter.title') }}</div>
     <v-row dense
       class="mt-4"
       align="center">
@@ -13,13 +13,13 @@
       <v-col cols="11">
         <div class="text-cc-overline mb-1">
           <cc-slashes class="pr-1" />
-          <span class="text-disabled">ENCOUNTER DATA</span>
+          <span class="text-disabled">{{ $t('activeMode.gm.new_encounter.encounterData') }}</span>
         </div>
         <cc-panel>
           <v-slide-x-transition leave-absolute>
             <div v-if="!emptyEncounter">
               <cc-titled-divider v-if="!encounter"
-                title="select encounter"
+                :title="$t('activeMode.gm.new_encounter.selectEncounter')"
                 color="accent"
                 class="mb-1" />
               <v-row v-if="!encounter"
@@ -91,7 +91,7 @@
 
           <v-slide-x-transition leave-absolute>
             <cc-panel v-if="emptyEncounter">
-              <cc-titled-divider title="New Encounter"
+              <cc-titled-divider :title="$t('activeMode.gm.new_encounter.newEncounter')"
                 color="accent" />
 
               <sitrep-editor :item="emptyEncounter" />
@@ -104,7 +104,7 @@
             <cc-alert class="my-1">
               <v-icon icon="mdi-information-outline"
                 class="mr-2" />
-              Additional NPCs can be added in the Encounter Runner after creation.
+              {{ $t('activeMode.gm.new_encounter.npcCreationNote') }}
             </cc-alert>
           </div>
 
@@ -118,7 +118,7 @@
                   color="error"
                   prepend-icon="mdi-close"
                   @click="clearEmptyEncounter()">
-                  Cancel
+                  {{ $t('common.cancel') }}
                 </cc-button>
               </v-slide-x-transition>
             </v-col>
@@ -130,7 +130,7 @@
                   color="primary"
                   prepend-icon="mdi-card-plus-outline"
                   @click="useEmptyEncounter()">
-                  New Encounter
+                  {{ $t('activeMode.gm.new_encounter.newEncounter') }}
                 </cc-button>
               </v-col>
             </v-slide-x-reverse-transition>
@@ -150,11 +150,11 @@
         <v-col>
           <div class="text-cc-overline mb-1">
             <cc-slashes class="pr-1" />
-            <span class="text-disabled">Pilots</span>
+            <span class="text-disabled">{{ $t('activeMode.gm.new_encounter.pilots') }}</span>
           </div>
           <cc-panel>
             <cc-titled-divider v-if="!pilots.length"
-              title="Add Pilots"
+              :title="$t('activeMode.gm.new_encounter.addPilots')"
               color="accent" />
             <div>
               <v-row v-for="p in pilots"
@@ -200,7 +200,7 @@
                     <v-col v-if="p.ActiveMech"
                       cols="auto"
                       class="mx-4">
-                      <div class="text-cc-overline">Active Mech</div>
+                      <div class="text-cc-overline">{{ $t('activeMode.gm.new_encounter.activeMech') }}</div>
                       <v-divider />
                       <div class="heading">
                         {{ p.ActiveMech?.Name }}
@@ -242,20 +242,20 @@
                 <v-col class="ml-n1">
                   <cc-title>
                     &nbsp;
-                    <span class="heading h3">Pilot Placeholder #{{ i + 1 }}</span>
+                    <span class="heading h3">{{ $t('activeMode.gm.new_encounter.placeholderTitle', { n: i + 1 }) }}</span>
                   </cc-title>
                   <v-row dense
                     class="pa-1 px-2">
                     <v-col>
                       <cc-text-field v-model="p.Name"
                         color="panel"
-                        placeholder="Pilot name or Callsign"
+                        :placeholder="$t('activeMode.gm.new_encounter.placeholderName')"
                         prepend-icon="cc:pilot" />
                     </v-col>
                     <v-col>
                       <cc-text-field v-model="p.Mechname"
                         color="panel"
-                        placeholder="Frame or Mech Name"
+                        :placeholder="$t('activeMode.gm.new_encounter.placeholderMech')"
                         prepend-icon="cc:frame" />
                     </v-col>
                   </v-row>
@@ -281,16 +281,16 @@
                 <add-from-share :pilots="pilots" />
               </v-col>
               <v-col>
-                <cc-modal title="Import"
+                <cc-modal :title="$t('activeMode.gm.new_encounter.importTitle')"
                   icon="mdi-import">
                   <template #activator="{ open }">
                     <cc-button color="primary"
                       size="small"
                       block
-                      tooltip="Import a pilot from JSON data"
+                      :tooltip="$t('activeMode.gm.new_encounter.importTooltip')"
                       prepend-icon="mdi-file-import-outline"
                       @click="open">
-                      Add from File
+                      {{ $t('activeMode.gm.new_encounter.addFromFile') }}
                     </cc-button>
                   </template>
                   <template #default="{ close }">
@@ -304,10 +304,10 @@
                 <cc-button size="small"
                   block
                   color="primary"
-                  tooltip="Adds a pilot-type combatant placeholder without any pilot data. Useful if you want to track encounter stats but don't have or don't need pilot data."
+                  :tooltip="$t('activeMode.gm.new_encounter.addPlaceholderTooltip')"
                   prepend-icon="mdi-account-outline"
                   @click="addPlaceholder()">
-                  add pilot placeholder
+                  {{ $t('activeMode.gm.new_encounter.addPlaceholderBtn') }}
                 </cc-button>
               </v-col>
             </v-row>
@@ -326,18 +326,18 @@
         <v-col>
           <div class="text-cc-overline mb-1">
             <cc-slashes class="pr-1" />
-            <span class="text-disabled">Overview</span>
+            <span class="text-disabled">{{ $t('activeMode.gm.new_encounter.overview') }}</span>
           </div>
           <cc-panel>
             <div class="heading h2">{{ encounter.Name }}</div>
             <div class="text-cc-overline">
               <span class="text-disabled">
-                ENVIRONMENT
+                {{ $t('activeMode.gm.new_encounter.environment') }}
                 <cc-slashes />
               </span>
               {{ encounter.Environment.Name }} &mdash;
               <span class="text-disabled">
-                SITREP
+                {{ $t('activeMode.gm.new_encounter.sitrep') }}
                 <cc-slashes />
               </span>
               {{ encounter.Sitrep.Name }}
@@ -351,7 +351,7 @@
                   <div class="heading"
                     h3>
                     <cc-slashes />
-                    pilots
+                    {{ $t('activeMode.gm.new_encounter.pilotsLabel') }}
                   </div>
                   <v-divider class="mb-2" />
                   <v-row v-for="(p, i) in pilots.concat(placeholders)"
@@ -377,7 +377,7 @@
                     </v-col>
                     <v-col>
                       <div class="heading h3">
-                        {{ p.Callsign || p.Name || 'Unnamed Pilot' }}
+                        {{ p.Callsign || p.Name || $t('activeMode.gm.new_encounter.unnamedPilot') }}
                         <span v-if="p.PlayerName"
                           class="text-cc-overline text-disabled">
                           ({{ p.PlayerName }})
@@ -391,7 +391,7 @@
                             ? `${p.ActiveMech.Frame.Source} ${p.ActiveMech.Frame.Name}`
                             : p.Mechname
                               ? ''
-                              : 'No Active Mech'
+                              : $t('activeMode.gm.new_encounter.noActiveMech')
                         }}
                       </div>
                     </v-col>
@@ -406,7 +406,7 @@
                   <div class="heading"
                     h3>
                     <cc-slashes />
-                    NPCs
+                    {{ $t('activeMode.gm.new_encounter.npcs') }}
                   </div>
                   <v-divider class="mb-2" />
                   <v-row v-for="(n, i) in encounter.Combatants.sort((a, b) =>
@@ -441,7 +441,7 @@
                       <div class="text-cc-overline">
                         <span v-if="n.actor.NpcClassController?.Tier"
                           class="pr-1">
-                          Tier {{ n.actor.NpcClassController?.Tier }}
+                          {{ $t('activeMode.gm.new_encounter.tier') }} {{ n.actor.NpcClassController?.Tier }}
                         </span>
                         <span v-if="n.actor.NpcClassController?.Class"
                           class="pr-1">
@@ -461,8 +461,8 @@
                       <div v-if="n.reinforcement"
                         cols="12"
                         class="bg-panel text-center text-cc-overline pa-0">
-                        Reinforcement
-                        <span v-if="n.reinforcementTurn">(TURN {{ n.reinforcementTurn }})</span>
+                        {{ $t('activeMode.gm.new_encounter.reinforcement') }}
+                        <span v-if="n.reinforcementTurn">{{ $t('activeMode.gm.new_encounter.turn', { n: n.reinforcementTurn }) }}</span>
                       </div>
                     </v-col>
                     <v-col cols="auto"
@@ -488,9 +488,9 @@
                 "
               @click="createEncounter(true)">
               <span v-if="!pilots.length && !placeholders.length">
-                An encounter requires at least one pilot.
+                {{ $t('activeMode.gm.new_encounter.requiresPilot') }}
               </span>
-              <span v-else>Create and Launch Encounter</span>
+              <span v-else>{{ $t('activeMode.gm.new_encounter.createAndLaunch') }}</span>
             </cc-button>
             <v-row v-if="pilots.length || placeholders.length"
               dense
@@ -501,7 +501,7 @@
                   color="error"
                   prepend-icon="mdi-close"
                   @click="reset()">
-                  Cancel
+                  {{ $t('common.cancel') }}
                 </cc-button>
               </v-col>
               <v-col>
@@ -510,7 +510,7 @@
                   color="primary"
                   prepend-icon="mdi-content-save"
                   @click="createEncounter(false)">
-                  Create and return to library
+                  {{ $t('activeMode.gm.new_encounter.createAndReturn') }}
                 </cc-button>
               </v-col>
             </v-row>

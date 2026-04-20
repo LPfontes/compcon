@@ -1368,6 +1368,7 @@
     },
     "runner": {
       "loading": "Loading pilot sheet...",
+      "loadingEncounter": "Loading encounter instance...",
       "playedBy": "Played by",
       "reserves": "reserves",
       "unusedOnly": "Unused Only",
@@ -1457,6 +1458,86 @@
             "desc": "Damage ignores armor and resistance."
           }
         }
+      }
+    },
+    "gm": {
+      "new_encounter": {
+        "title": "New Local Active Encounter",
+        "encounterData": "ENCOUNTER DATA",
+        "selectEncounter": "select encounter",
+        "newEncounter": "New Encounter",
+        "npcCreationNote": "Additional NPCs can be added in the Encounter Runner after creation.",
+        "pilots": "Pilots",
+        "addPilots": "Add Pilots",
+        "activeMech": "Active Mecha",
+        "placeholderTitle": "Pilot Placeholder #{n}",
+        "placeholderName": "Pilot name or Callsign",
+        "placeholderMech": "Frame or Mecha Name",
+        "importTitle": "Import",
+        "importTooltip": "Import a pilot from JSON data",
+        "addFromFile": "Add from File",
+        "addPlaceholderTooltip": "Adds a pilot-type combatant placeholder without any pilot data. Useful if you want to track encounter stats but don't have or don't need pilot data.",
+        "addPlaceholderBtn": "add pilot placeholder",
+        "overview": "Overview",
+        "environment": "ENVIRONMENT",
+        "sitrep": "SITREP",
+        "pilotsLabel": "pilots",
+        "unnamedPilot": "Unnamed Pilot",
+        "noActiveMech": "No Active Mecha",
+        "npcs": "NPCs",
+        "tier": "Tier",
+        "reinforcement": "Reinforcement",
+        "turn": "TURN {n}",
+        "requiresPilot": "An encounter requires at least one pilot.",
+        "createAndLaunch": "Create and Launch Encounter",
+        "createAndReturn": "Create and return to library"
+      },
+      "manager": {
+        "title": "Local Active Encounters",
+        "round": "ROUND",
+        "deleteEncounter": "Delete Encounter",
+        "labels": {
+          "created": "CREATED",
+          "lastUpdate": "LAST UPDATE",
+          "environment": "ENVIRONMENT",
+          "sitrep": "SITREP",
+          "archived": "ARCHIVED",
+          "rounds": "Rounds"
+        },
+        "createBtn": "Create New Encounter",
+        "archivedTitle": "Archived Encounters ({count})",
+        "noArchived": "No archived encounters found",
+        "noArchivedSearch": "No archived encounters found including \"{search}\"",
+        "aar": {
+          "title": "{name} - After Action Report",
+          "btn": "After-Action Report",
+          "wip": "This feature is still in development. After-action reports will be expanded in future builds.",
+          "copyBtn": "Copy Report",
+          "exportBtn": "Export as JSON"
+        },
+        "telemetry": {
+          "title": "{name} - LOGS AND TELEMETRY",
+          "btn": "Logs & Telemetry",
+          "wip": "This feature is still in development. Additional data and export options will be available in future builds.",
+          "battlefieldTelemetry": "BATTLEFIELD TELEMETRY",
+          "combatLogs": "COMBAT LOGS",
+          "exportBtn": "Export as JSON"
+        },
+        "reInstance": {
+          "title": "Re-instance this encounter?",
+          "desc": "This will create a new active encounter with the same initial configuration as the archived one, starting from round 1.",
+          "btn": "Create New Instance"
+        },
+        "delete": {
+          "title": "Delete this archive?",
+          "desc": "This will flag the archive for deletion. It will no longer appear in this list, but will be permanently deleted based on your retention options in the Options Menu.",
+          "btn": "Delete"
+        }
+      },
+      "tableConfig": {
+        "tableName": "Table Name",
+        "gameMaster": "Game Master",
+        "newTable": "New Table"
       }
     },
     "endRound": {

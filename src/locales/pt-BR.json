@@ -607,7 +607,7 @@
       "gm": "Construa e gerencie NPCs e encontros, e rode missões com NPCs e pilotos",
       "wip": "trabalho em progresso",
       "content": "Gerencie e crie dados de expansão do COMP/CON",
-      "encounter": "Seja o Mestre de un Encontro, abra ou continue uma Ficha de Personagem Ativa, ou crie/entre em uma Mesa na nuvem (em breve!)",
+      "encounter": "Seja o Mestre de um Encontro, abra ou continue uma Ficha de Personagem Ativa, ou crie/entre em uma Mesa na nuvem (em breve!)",
       "options": "Abrir o gestor de opções",
       "about": "Sobre o COMP/CON",
       "help": "Abrir a página de ajuda do COMP/CON",
@@ -1368,6 +1368,7 @@
     },
     "runner": {
       "loading": "Carregando ficha do piloto...",
+      "loadingEncounter": "Carregando instância de encontro...",
       "playedBy": "Jogado por",
       "reserves": "reservas",
       "unusedOnly": "Apenas Não Usados",
@@ -1379,7 +1380,7 @@
         "pilotMounted": "PILOTO MONTADO",
         "pilotUnmounted": "PILOTO DESMONTADO",
         "round": "Rodada {n}",
-        "grit": "Audácia do Piloto",
+        "grit": "Brio",
         "counters": "CONTADORES",
         "override": "sobrescrever",
         "confirm": "Confirmar",
@@ -1456,7 +1457,90 @@
             "title": "Estraçalhado",
             "desc": "O dano ignora armadura e resistência."
           }
+        },
+        "palette": {
+          "label": "Paleta Personalizada"
         }
+      }
+    },
+    "gm": {
+      "new_encounter": {
+        "title": "Novo Encontro Ativo Local",
+        "encounterData": "DADOS DO ENCONTRO",
+        "selectEncounter": "selecionar encontro",
+        "newEncounter": "Novo Encontro",
+        "npcCreationNote": "NPCs adicionais podem ser adicionados no Executor de Encontro após a criação.",
+        "pilots": "Pilotos",
+        "addPilots": "Adicionar Pilotos",
+        "activeMech": "Mecha Ativo",
+        "placeholderTitle": "Espaço Reservado para Piloto #{n}",
+        "placeholderName": "Nome do Piloto ou Codinome",
+        "placeholderMech": "Nome do Chassi ou Mecha",
+        "importTitle": "Importar",
+        "importTooltip": "Importar um piloto de dados JSON",
+        "addFromFile": "Adicionar de Arquivo",
+        "addPlaceholderTooltip": "Adiciona um espaço reservado de combatente do tipo piloto sem quaisquer dados de piloto. Útil se você quiser rastrear estatísticas de encontro, mas não tiver ou não precisar de dados de piloto.",
+        "addPlaceholderBtn": "adicionar espaço reservado para piloto",
+        "overview": "Visão Geral",
+        "environment": "AMBIENTE",
+        "sitrep": "SITREP",
+        "pilotsLabel": "pilotos",
+        "unnamedPilot": "Piloto Sem Nome",
+        "noActiveMech": "Nenhum Mecha Ativo",
+        "npcs": "NPCs",
+        "tier": "Patamar",
+        "reinforcement": "Reforço",
+        "turn": "RODADA {n}",
+        "requiresPilot": "Um encontro requer pelo menos um piloto.",
+        "createAndLaunch": "Criar e Iniciar Encontro",
+        "createAndReturn": "Criar e retornar à biblioteca"
+      },
+      "manager": {
+        "title": "Encontros Ativos Locais",
+        "round": "RODADA",
+        "deleteEncounter": "Excluir Encontro",
+        "labels": {
+          "created": "CRIADO EM",
+          "lastUpdate": "ÚLTIMA ATUALIZAÇÃO",
+          "environment": "AMBIENTE",
+          "sitrep": "SITREP",
+          "archived": "ARQUIVADO EM",
+          "rounds": "Rodadas"
+        },
+        "createBtn": "Criar Novo Encontro",
+        "archivedTitle": "Encontros Arquivados ({count})",
+        "noArchived": "Nenhum encontro arquivado encontrado",
+        "noArchivedSearch": "Nenhum encontro arquivado encontrado incluindo \"{search}\"",
+        "aar": {
+          "title": "{name} - Relatório Pós-Ação",
+          "btn": "Relatório Pós-Ação",
+          "wip": "Este recurso ainda está em desenvolvimento. Os relatórios pós-ação serão expandidos em versões futuras.",
+          "copyBtn": "Copiar Relatório",
+          "exportBtn": "Exportar como JSON"
+        },
+        "telemetry": {
+          "title": "{name} - LOGS E TELEMETRIA",
+          "btn": "Logs e Telemetria",
+          "wip": "Este recurso ainda está em desenvolvimento. Dados adicionais e opções de exportação estarão disponíveis em versões futuras.",
+          "battlefieldTelemetry": "TELEMETRIA DE CAMPO DE BATALHA",
+          "combatLogs": "LOGS DE COMBATE",
+          "exportBtn": "Exportar como JSON"
+        },
+        "reInstance": {
+          "title": "Reiniciar este encontro?",
+          "desc": "Isso criará um novo encontro ativo com a mesma configuração inicial do arquivado, começando na rodada 1.",
+          "btn": "Criar Nova Instância"
+        },
+        "delete": {
+          "title": "Excluir este arquivo?",
+          "desc": "Isso marcará o arquivo para exclusão. Ele não aparecerá mais nesta lista, mas será excluído permanentemente com base em suas opções de retenção no Menu de Opções.",
+          "btn": "Excluir"
+        }
+      },
+      "tableConfig": {
+        "tableName": "Nome da Mesa",
+        "gameMaster": "Mestre",
+        "newTable": "Nova Mesa"
       }
     },
     "endRound": {

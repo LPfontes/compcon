@@ -7,10 +7,10 @@
     </div>
     <v-row>
       <v-col>
-        <cc-text-field v-model="table.name" color="primary" label="Table Name" />
+        <cc-text-field v-model="table.name" color="primary" :label="$t('activeMode.gm.tableConfig.tableName')" />
       </v-col>
       <v-col>
-        <cc-text-field v-model="table.gm" color="primary" label="Game Master" />
+        <cc-text-field v-model="table.gm" color="primary" :label="$t('activeMode.gm.tableConfig.gameMaster')" />
       </v-col>
     </v-row>
     <br />
@@ -29,7 +29,7 @@ export default {
   name: 'ActiveTableConfiguration',
   data: () => ({
     table: {
-      name: 'New Table',
+      name: this.$t('activeMode.gm.tableConfig.newTable'),
     },
   }),
 };

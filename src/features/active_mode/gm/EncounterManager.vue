@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="heading h2">Local Active Encounters</div>
+    <div class="heading h2">{{ $t('activeMode.gm.manager.title') }}</div>
 
     <div class="my-1">
       <v-tooltip location="top"
@@ -21,7 +21,7 @@
               class="mb-n1" />
           </v-btn>
         </template>
-        <span>Sort by Recent</span>
+        <span>{{ $t('activeMode.manager.sortRecent') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top"
@@ -42,7 +42,7 @@
               color="accent" />
           </v-btn>
         </template>
-        <span>Sort by Name</span>
+        <span>{{ $t('activeMode.manager.sortName') }}</span>
       </v-tooltip>
 
       <v-tooltip location="top"
@@ -63,7 +63,7 @@
               class="mb-n1" />
           </v-btn>
         </template>
-        <span>Sort by created timestamp</span>
+        <span>{{ $t('activeMode.manager.sortCreated') }}</span>
       </v-tooltip>
     </div>
 
@@ -106,7 +106,7 @@
                 class="heading text-white">
                 {{ e.Encounter.Name }}
                 <cc-slashes class="mx-3" />
-                <span class="text-disabled mr-1">ROUND</span>
+                <span class="text-disabled mr-1">{{ $t('activeMode.gm.manager.round') }}</span>
                 <b>{{ e.Round }}</b>
               </v-col>
               <v-col cols="auto"
@@ -126,7 +126,7 @@
                       <v-list-item prepend-icon="mdi-delete"
                         color="error"
                         @click="RemoveEncounter(e)">
-                        <v-list-item-title>Delete Encounter</v-list-item-title>
+                        <v-list-item-title>{{ $t('activeMode.gm.manager.deleteEncounter') }}</v-list-item-title>
                       </v-list-item>
                     </v-list>
                   </v-card>
@@ -142,14 +142,14 @@
                 class="pb-0 my-1">
                 <div>
                   <span class="text-disabled mr-1">
-                    CREATED
+                    {{ $t('activeMode.gm.manager.labels.created') }}
                     <cc-slashes />
                   </span>
                   <b>{{ new Date(e.SaveController.Created).toLocaleDateString() }}</b>
                 </div>
                 <div v-if="e.SaveController.LastModified">
                   <span class="text-disabled mr-1">
-                    LAST UPDATE
+                    {{ $t('activeMode.gm.manager.labels.lastUpdate') }}
                     <cc-slashes />
                   </span>
                   <b>{{ new Date(e.SaveController.LastModified).toLocaleDateString() }}</b>
@@ -158,7 +158,7 @@
               <v-col class="mb-0 pb-0 mt-1">
                 <div>
                   <span class="text-disabled mr-1">
-                    ENVIRONMENT
+                    {{ $t('activeMode.gm.manager.labels.environment') }}
                     <cc-slashes />
                   </span>
                   <b>{{ e.Encounter.Environment.Name }}</b>
@@ -166,7 +166,7 @@
 
                 <div>
                   <span class="text-disabled mr-1">
-                    SITREP
+                    {{ $t('activeMode.gm.manager.labels.sitrep') }}
                     <cc-slashes />
                   </span>
                   <b>{{ e.Encounter.Sitrep.Name }}</b>
@@ -203,14 +203,13 @@
       prepend-icon="mdi-plus"
       color="primary"
       :to="'new-encounter'">
-      Create New Encounter
+      {{ $t('activeMode.gm.manager.createBtn') }}
     </cc-button>
     <br />
 
     <v-expansion-panels>
       <v-expansion-panel>
-        <v-expansion-panel-title class="text-cc-overline">
-          Archived Encounters ({{ archived.length }})
+          {{ $t('activeMode.gm.manager.archivedTitle', { count: archived.length }) }}
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <div class="mb-4"
@@ -224,7 +223,8 @@
           </div>
           <div v-if="archived.length === 0"
             class="text-center text-cc-overline text-disabled">
-            <i>No archived encounters found{{ search ? ` including "${search}"` : '' }}.</i>
+            <i v-if="search">{{ $t('activeMode.gm.manager.noArchivedSearch', { search: search }) }}</i>
+            <i v-else>{{ $t('activeMode.gm.manager.noArchived') }}</i>
           </div>
           <v-row v-for="e in archived"
             :key="e.ID"
@@ -241,23 +241,23 @@
               </v-card>
             </v-col>
             <v-col cols="auto">
-              {{ e.Round }} Rounds
+              {{ e.Round }} {{ $t('activeMode.gm.manager.labels.rounds') }}
               <div>
-                <span class="text-disabled mr-1">CREATED</span>
+                <span class="text-disabled mr-1">{{ $t('activeMode.gm.manager.labels.created') }}</span>
                 <b>{{ new Date(e.Start).toLocaleDateString() }}</b>
               </div>
               <div>
-                <span class="text-disabled mr-1">ARCHIVED</span>
+                <span class="text-disabled mr-1">{{ $t('activeMode.gm.manager.labels.archived') }}</span>
                 <b>{{ new Date(e.End).toLocaleDateString() }}</b>
               </div>
             </v-col>
             <v-col cols="auto">
               <cc-dialog :close-on-click="false"
-                :title="`${e.Name} - After Action Report`">
+                :title="$t('activeMode.gm.manager.aar.title', { name: e.Name })">
                 <template #activator="{ open }">
                   <cc-button size="small"
                     color="primary"
-                    @click="open()">After-Action Report</cc-button>
+                    @click="open()">{{ $t('activeMode.gm.manager.aar.btn') }}</cc-button>
                 </template>
                 <v-card flat
                   tile>
@@ -268,8 +268,7 @@
                       tile
                       color="panel"
                       border=start
-                      border-color="red">This feature is still in development. After-action
-                      reports will be expanded in future builds.
+                      border-color="red">{{ $t('activeMode.gm.manager.aar.wip') }}
                     </v-alert>
                     <div class="pa-2 bg-background">
                       <code class="text-left"
@@ -281,11 +280,11 @@
                   <v-card-actions>
                     <cc-button color="primary"
                       @click="copyText(reportText(e))">
-                      Copy Report
+                      {{ $t('activeMode.gm.manager.aar.copyBtn') }}
                     </cc-button>
                     <cc-button color="primary"
                       @click="exportJson(e, 'report')">
-                      Export as JSON
+                      {{ $t('activeMode.gm.manager.aar.exportBtn') }}
                     </cc-button>
                   </v-card-actions>
                 </v-card>
@@ -293,11 +292,11 @@
             </v-col>
             <v-col cols="auto">
               <cc-dialog :close-on-click="false"
-                :title="`${e.Name} - LOGS AND TELEMETRY`">
+                :title="$t('activeMode.gm.manager.telemetry.title', { name: e.Name })">
                 <template #activator="{ open }">
                   <cc-button size="small"
                     color="primary"
-                    @click="open()">Logs & Telemetry</cc-button>
+                    @click="open()">{{ $t('activeMode.gm.manager.telemetry.btn') }}</cc-button>
                 </template>
                 <v-card flat
                   tile>
@@ -308,8 +307,7 @@
                       tile
                       color="panel"
                       border=start
-                      border-color="red">This feature is still in development. Additional
-                      data and export options will be available in future builds.
+                      border-color="red">{{ $t('activeMode.gm.manager.telemetry.wip') }}
                     </v-alert>
                     <v-expansion-panels>
                       <v-expansion-panel v-for="(a, index) in e.History"
@@ -322,12 +320,12 @@
                             style="white-space: pre-wrap; word-break: break-word;">
                         <v-row dense>
                           <v-col>
-                            <div class="text-disabled mb-1">BATTLEFIELD TELEMETRY</div>
+                            <div class="text-disabled mb-1">{{ $t('activeMode.gm.manager.telemetry.battlefieldTelemetry') }}</div>
                             <div class="text-disabled mb-1">---------------------</div>
                             {{ formatTelemetry(a.telemetry) }}
                           </v-col>
                           <v-col style="max-height: 800px; overflow-y: scroll;">
-                            <div class="text-disabled mb-1">COMBAT LOGS</div>
+                            <div class="text-disabled mb-1">{{ $t('activeMode.gm.manager.telemetry.combatLogs') }}</div>
                             <div class="text-disabled mb-1">---------------------</div>
                             <div v-for="(log, logIndex) in a.log" :key="`log-entry-${logIndex}`"
                               class="mb-2">
@@ -343,7 +341,7 @@
                   <v-card-actions>
                     <cc-button color="primary"
                       @click="exportJson(e, 'logs')">
-                      Export as JSON
+                      {{ $t('activeMode.gm.manager.telemetry.exportBtn') }}
                     </cc-button>
                   </v-card-actions>
                 </v-card>
@@ -365,18 +363,16 @@
                 </template>
                 <v-card>
                   <v-card-text>
-                    <b>Re-instance this encounter?</b>
+                    <b>{{ $t('activeMode.gm.manager.reInstance.title') }}</b>
                     <br>
                     <p class="text-caption text--text mb-2">
-                      This will create a new active encounter with the same initial configuration as
-                      the
-                      archived one, starting from round 1.
+                      {{ $t('activeMode.gm.manager.reInstance.desc') }}
                     </p>
                     <cc-button size="small"
                       block
                       color="primary"
                       @click="unarchive(e as EncounterArchive)">
-                      Create New Instance
+                      {{ $t('activeMode.gm.manager.reInstance.btn') }}
                     </cc-button>
                   </v-card-text>
                 </v-card>
@@ -394,19 +390,16 @@
                 </template>
                 <v-card>
                   <v-card-text>
-                    <b>Delete this archive?</b>
+                    <b>{{ $t('activeMode.gm.manager.delete.title') }}</b>
                     <br>
                     <p class="text-caption text--text mb-2">
-                      This will flag the archive for deletion. It will no longer appear in this
-                      list,
-                      but will be permanently deleted based on your retention options in the Options
-                      Menu.
+                      {{ $t('activeMode.gm.manager.delete.desc') }}
                     </p>
                     <cc-button size="small"
                       block
                       color="primary"
                       @click="deleteEncounter(e)">
-                      Delete
+                      {{ $t('common.delete') }}
                     </cc-button>
                   </v-card-text>
                 </v-card>

@@ -29,7 +29,7 @@
             size="small"
             block
             :color="actor.CombatController.Overwatch ? 'primary' : 'panel'"
-            text="Overwatch"
+            :text="$t('activeMode.runner.common.palette.overwatch')"
             @click="actor.CombatController.Overwatch = !actor.CombatController.Overwatch" />
           <v-divider />
           <v-btn flat
@@ -37,7 +37,7 @@
             size="small"
             block
             :color="actor.CombatController.Prepared ? 'primary' : 'panel'"
-            text="Prepared"
+            :text="$t('activeMode.runner.common.palette.prepared')"
             @click="actor.CombatController.Prepared = !actor.CombatController.Prepared" />
         </v-col>
       </v-row>
