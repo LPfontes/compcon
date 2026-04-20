@@ -57,7 +57,7 @@ export default {
       required: true,
     },
   },
-  emits: ['complete', 'next', 'back'],
+  emits: ['complete', 'next', 'back', 'done'],
 };
 </script>
 

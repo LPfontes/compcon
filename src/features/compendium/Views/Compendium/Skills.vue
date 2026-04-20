@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Pilot Skill Triggers</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.skillTriggers') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -19,11 +19,6 @@ export default {
   name: 'Skills',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Description', key: 'Description' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -33,6 +28,13 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: this.$t('nav.stats.overview'), key: 'Description' },
+      ];
+    },
     skills(): Skill[] {
       return orderBy(CompendiumStore().Skills, 'Name');
     },

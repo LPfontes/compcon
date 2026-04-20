@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Core Bonuses</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.coreBonuses') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -18,12 +18,6 @@ export default {
   name: 'CoreBonuses',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Manufacturer', key: 'Source' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Effect', key: 'Effect' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -32,6 +26,14 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.manufacturer'), key: 'Source' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: this.$t('nav.stats.effect'), key: 'Effect' },
+      ];
+    },
     bonuses(): CoreBonus[] {
       return orderBy(
         CompendiumStore().CoreBonuses.filter((x: CoreBonus) => !x.IsHidden),

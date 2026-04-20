@@ -5,7 +5,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">NPC Features</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.npcFeatures') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -35,13 +35,12 @@ export default {
       return orderBy(CompendiumStore().NpcFeatures, ['FeatureType', 'Origin.Name', 'Name']);
     },
     headers() {
-      const h = [
-        { title: 'Content Pack', key: 'LcpName' },
-        { title: 'Origin', key: 'Origin' },
-        { title: 'Name', key: 'Name' },
-        { title: 'Tags', key: 'Tags' },
-      ] as any[];
-      return h;
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.origin'), key: 'Origin' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: this.$t('nav.stats.tags'), key: 'Tags' },
+      ];
     },
   },
 };

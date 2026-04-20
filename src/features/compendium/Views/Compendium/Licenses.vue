@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Licenses</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.licenses') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -17,13 +17,6 @@ export default {
   name: 'Licenses',
 
   data: () => ({
-    headers: [
-      { title: 'Manufacturer', key: 'Source' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Tier I', key: 'T1', sortable: false },
-      { title: 'Tier II', key: 'T2', sortable: false },
-      { title: 'Tier III', key: 'T3', sortable: false },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -33,6 +26,15 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.manufacturer'), key: 'Source' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: `${this.$t('nav.stats.tier')} I`, key: 'T1', sortable: false },
+        { title: `${this.$t('nav.stats.tier')} II`, key: 'T2', sortable: false },
+        { title: `${this.$t('nav.stats.tier')} III`, key: 'T3', sortable: false },
+      ];
+    },
     licenses() {
       return CompendiumStore()
         .Licenses.filter((x) => !x.Hidden)

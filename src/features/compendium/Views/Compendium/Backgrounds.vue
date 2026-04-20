@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Pilot Background</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.backgrounds') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -26,13 +26,15 @@ export default {
       initialGroup: 'lcp',
       noSource: true,
     },
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-      { title: '', key: 'Terse' },
-    ],
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: '', key: 'Terse' },
+      ];
+    },
     backgrounds(): Background[] {
       return orderBy(CompendiumStore().Backgrounds, 'Name');
     },

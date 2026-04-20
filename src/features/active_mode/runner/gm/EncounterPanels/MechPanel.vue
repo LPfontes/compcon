@@ -251,6 +251,7 @@
 </template>
 
 <script lang="ts">
+import { orderBy, sampleSize } from 'lodash-es';
 import { CompendiumStore } from '@/stores';
 import PanelBase from './_PanelBase.vue';
 import MechCombatLoadout from './_components/loadouts/MechCombatLoadout.vue';
@@ -281,17 +282,17 @@ export default {
   },
   computed: {
     xlColumns() {
-      if (this.mobile) return 1
-      else return this.encounterInstance.MaxMasonryColumns
+      if (this.mobile) return 1;
+      else return this.encounterInstance.MaxMasonryColumns;
     },
     mech() {
       return this.combatant.actor.ActiveMech;
     },
     statuses() {
-      return _.orderBy(CompendiumStore().Statuses, 'StatusType');
+      return orderBy(CompendiumStore().Statuses, 'StatusType');
     },
     randomTalents() {
-      return _.sampleSize(CompendiumStore().Talents, 3);
+      return sampleSize(CompendiumStore().Talents, 3);
     },
     applicableStatuses() {
       const exclude = [`dangerzone`, `downandout`, `engaged`, `hidden`, `invisible`];
@@ -315,78 +316,6 @@ export default {
         repair: 'cc:repair',
       };
       return icons[stat];
-    },
-    addStatus(status) {
-      if (this.pilot.statuses.includes(status)) {
-        const index = this.pilot.statuses.indexOf(status);
-        this.pilot.statuses.splice(index, 1);
-      } else {
-        this.pilot.statuses.push(status);
-      }
-    },
-    addCustomStatus(status) {
-      if (this.pilot.special.includes(status.Name)) {
-        const index = this.pilot.special.indexOf(status.Name);
-        this.pilot.special.splice(index, 1);
-        return;
-      }
-      this.pilot.special.push(status.Name);
-    },
-    addResistance(resist) {
-      if (this.pilot.vulnerabilities.includes(resist.Name)) {
-        const index = this.pilot.vulnerabilities.indexOf(resist.Name);
-        this.pilot.vulnerabilities.splice(index, 1);
-        return;
-      }
-      if (this.pilot.immunities.includes(resist.Name)) {
-        const index = this.pilot.immunities.indexOf(resist.Name);
-        this.pilot.immunities.splice(index, 1);
-        this.pilot.vulnerabilities.push(resist.Name);
-        return;
-      }
-      if (this.pilot.resistances.includes(resist.Name)) {
-        const index = this.pilot.resistances.indexOf(resist.Name);
-        this.pilot.resistances.splice(index, 1);
-        this.pilot.immunities.push(resist.Name);
-      } else {
-        this.pilot.resistances.push(resist.Name);
-      }
-    },
-    hasResistance(resist) {
-      return this.pilot.resistances.includes(resist.Name);
-    },
-    hasImmunity(resist) {
-      return this.pilot.immunities.includes(resist.Name);
-    },
-    hasVulnerability(resist) {
-      return this.pilot.vulnerabilities.includes(resist.Name);
-    },
-    actionStatus(action) {
-      if (action === 'full')
-        return this.usedActions.includes('full') || this.usedActions.includes('quick');
-      if (action === 'quick')
-        return (
-          this.usedActions.includes('full') ||
-          this.usedActions.filter((x) => x === 'quick').length === 2
-        );
-      if (action === 'protocol') return this.usedActions.length;
-      if (action === 'move') return this.usedActions.includes('move') || this.movement === 0;
-      return this.usedActions.includes(action);
-    },
-    setAction(action) {
-      if (action === 'quick') {
-        if (this.usedActions.filter((x) => x === 'quick').length === 2) {
-          this.usedActions = this.usedActions.filter((x) => x !== 'quick');
-        } else {
-          this.usedActions.push('quick');
-        }
-      }
-      if (this.usedActions.includes(action)) {
-        const index = this.usedActions.indexOf(action);
-        this.usedActions.splice(index, 1);
-      } else {
-        this.usedActions.push(action);
-      }
     },
     setMounted() {
       this.mech.CombatController.ToggleMounted();

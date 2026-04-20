@@ -47,7 +47,7 @@
           <v-col style="max-width: 500px">
             <cc-tickbar
               :model-value="pilot.MechSkillsController[s.val]"
-              :icon="!mobile && s.icon"
+              :icon="!mobile ? s.icon : undefined"
               :size="mobile ? 'small' : 'default'"
               color="accent"
               controls

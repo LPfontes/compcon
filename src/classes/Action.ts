@@ -257,42 +257,79 @@ class Action {
     return this._uses
   }
 
+  private normalizeActivation(activation: string): string {
+    const map: Record<string, string> = {
+      'livre': 'free',
+      'ação livre': 'free',
+      'rápida': 'quick',
+      'ação rápida': 'quick',
+      'completa': 'full',
+      'ação completa': 'full',
+      'reação': 'reaction',
+      'movimento': 'move',
+      'protocolo': 'protocol',
+      'programar rápido': 'quick_tech',
+      'programar completo': 'full_tech',
+      'invadir': 'invade'
+    };
+    const key = activation.toLowerCase();
+    return map[key] || key.replace(/\s/g, '_');
+  }
+
   public get Color(): string {
     if (this.ID === 'act_overcharge') return 'action--overcharge'
     if (this.ID === 'act_self_destruct') return 'error'
-    return `action--${this.Activation.toLowerCase()}`
+    return `action--${this.normalizeActivation(this.Activation.toString())}`
   }
 
   public get Icon(): string {
     if (this.ID === 'act_overcharge') return 'cc:overcharge'
     if (this.ID === 'act_full_tech') return 'cc:full_tech'
     if (this.ID === 'act_self_destruct') return 'mdi-alert-rhombus'
-    switch (this.Activation) {
-      case ActivationType.Full:
+    const normalized = this.normalizeActivation(this.Activation.toString());
+    switch (normalized) {
+      case 'full':
         return 'mdi-hexagon-slice-6'
-      case ActivationType.Quick:
+      case 'quick':
         return 'mdi-hexagon-slice-3'
-      case ActivationType.Move:
+      case 'move':
         return 'mdi-arrow-right-bold-hexagon-outline'
-      case ActivationType.Jockey:
+      case 'jockey':
         return 'cc:activation_full'
       default:
-        return `cc:${this.Activation.toLowerCase().replace(' ', '_')}`
+        return `cc:${normalized}`
     }
   }
 
   public static getIcon(activation: ActivationType): string {
-    switch (activation) {
-      case ActivationType.Full:
+    const map: Record<string, string> = {
+      'livre': 'free',
+      'ação livre': 'free',
+      'rápida': 'quick',
+      'ação rápida': 'quick',
+      'completa': 'full',
+      'ação completa': 'full',
+      'reação': 'reaction',
+      'movimento': 'move',
+      'protocolo': 'protocol',
+      'programar rápido': 'quick_tech',
+      'programar completo': 'full_tech',
+      'invadir': 'invade'
+    };
+    const key = activation.toString().toLowerCase();
+    const normalized = map[key] || key.replace(/\s/g, '_');
+
+    switch (normalized) {
+      case 'full':
         return 'mdi-hexagon-slice-6'
-      case ActivationType.Quick:
+      case 'quick':
         return 'mdi-hexagon-slice-3'
-      case ActivationType.Move:
+      case 'move':
         return 'mdi-arrow-right-bold-hexagon-outline'
-      case ActivationType.Jockey:
+      case 'jockey':
         return 'cc:activation_full'
       default:
-        return `cc:${activation.toLowerCase().replace(' ', '_')}`
+        return `cc:${normalized}`
     }
   }
 

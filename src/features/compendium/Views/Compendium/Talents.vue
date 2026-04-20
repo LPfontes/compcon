@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Pilot Talents</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.talents') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -18,11 +18,6 @@ export default {
   name: 'Talents',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Overview', key: 'Terse' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -33,6 +28,13 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: this.$t('nav.stats.overview'), key: 'Terse' },
+      ];
+    },
     talents(): Talent[] {
       return orderBy(
         CompendiumStore().Talents.filter((x) => !x.IsHidden),

@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Statuses & Conditions</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.statuses') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -19,13 +19,6 @@ export default {
   name: 'Statuses',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Icon', key: 'Icon', sortable: false },
-      { title: 'Name', key: 'Name' },
-      { title: 'Type', key: 'StatusType' },
-      { title: '', key: 'Terse' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -35,6 +28,15 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.icon'), key: 'Icon', sortable: false },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: this.$t('nav.stats.type'), key: 'StatusType' },
+        { title: '', key: 'Terse' },
+      ];
+    },
     statuses(): Status[] {
       return orderBy(CompendiumStore().Statuses, 'Name');
     },

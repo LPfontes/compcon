@@ -189,7 +189,7 @@
                 </template>
                 <template #title>
                   <span class="text-button">
-                    <b>{{ manufacturer ? manufacturer : 'Other' }}</b>
+                    <b>{{ manufacturer ? manufacturer : $t('common.selectors.other') }}</b>
                   </span>
                 </template>
               </v-list-item>
@@ -305,7 +305,7 @@
                 v-bind="props">
                 <template #title>
                   <span class="text-button">
-                    <b>{{ license ? license : 'Other' }}</b>
+                    <b>{{ license ? license : $t('common.selectors.other') }}</b>
                   </span>
                 </template>
               </v-list-item>

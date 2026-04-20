@@ -8,7 +8,7 @@
       variant="solo"
       density="compact"
       :disabled="disabled"
-      :placeholder="`Search the ${loc}`"
+      :placeholder="$t('compendium.searchPlaceholder', { loc: $t(`compendium.${loc.toLowerCase()}`) })"
       @update:focused="isFocused = $event"
       @keyup.enter="search">
       <template #prepend>

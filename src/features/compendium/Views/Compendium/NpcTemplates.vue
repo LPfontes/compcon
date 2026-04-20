@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">NPC Templates</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.npcTemplates') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -18,11 +18,6 @@ export default {
   name: 'NpcTemplates',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-      { title: '', key: 'Terse' },
-    ],
     options: {
       views: ['single', 'table', 'list'],
       initialView: 'single',
@@ -32,6 +27,13 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: '', key: 'Terse' },
+      ];
+    },
     templates(): NpcTemplate[] {
       return orderBy(CompendiumStore().NpcTemplates, 'Name');
     },

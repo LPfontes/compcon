@@ -80,6 +80,7 @@ import { PilotStore } from '@/stores';
 export default {
   name: 'ConfirmPage',
   components: { PilotRegistrationCard, StepperContent },
+  emits: ['done', 'back'],
   props: {
     pilot: {
       type: Object,

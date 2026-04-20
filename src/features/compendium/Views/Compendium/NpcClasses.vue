@@ -7,7 +7,7 @@
     :options="options"
     @view-change="toggleTieredView">
     <template #header>
-      <div class="heading h3 text-center text-accent">NPC Classes</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.npcClasses') }}</div>
       <v-slide-y-transition>
         <div v-if="tieredView"
           class="text-center my-n1">
@@ -17,11 +17,11 @@
             mandatory
             style="height: 15px">
             <v-btn size="x-small"
-              :value="1">Tier 1</v-btn>
+              :value="1">{{ $t('nav.stats.tier') }} 1</v-btn>
             <v-btn size="x-small"
-              :value="2">Tier 2</v-btn>
+              :value="2">{{ $t('nav.stats.tier') }} 2</v-btn>
             <v-btn size="x-small"
-              :value="3">Tier 3</v-btn>
+              :value="3">{{ $t('nav.stats.tier') }} 3</v-btn>
           </v-btn-toggle>
         </div>
       </v-slide-y-transition>
@@ -36,19 +36,19 @@ import { CompendiumStore } from '@/stores';
 import { NpcClass } from '@/classes/npc/class/NpcClass';
 
 const keymap = {
-  hull: 'Hull',
-  agi: 'Agi',
-  sys: 'Sys',
-  eng: 'Eng',
-  armor: 'Armor',
-  hp: 'HP',
-  heat: 'HeatCap',
-  evasion: 'Evade',
-  edef: 'E-Def',
-  speed: 'Speed',
-  sensorRange: 'Sensor',
-  saveTarget: 'Save',
-  sizes: 'Size',
+  hull: 'nav.stats.hull',
+  agi: 'nav.stats.agi',
+  sys: 'nav.stats.sys',
+  eng: 'nav.stats.eng',
+  armor: 'nav.stats.armor',
+  hp: 'nav.stats.hp',
+  heat: 'nav.stats.heatCap',
+  evasion: 'nav.stats.evasion',
+  edef: 'nav.stats.edef',
+  speed: 'nav.stats.speed',
+  sensorRange: 'nav.stats.sensors',
+  saveTarget: 'nav.stats.save',
+  sizes: 'nav.stats.size',
 };
 
 export default {
@@ -71,13 +71,13 @@ export default {
     },
     headers() {
       const h = [
-        { title: 'Content Pack', key: 'LcpName' },
-        { title: 'Role', key: 'Icon' },
-        { title: 'Name', key: 'Name' },
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.role'), key: 'Icon' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
       ] as any[];
       for (const key in keymap) {
         h.push({
-          title: keymap[key],
+          title: this.$t(keymap[key]),
           key,
           tier: this.selectedTier,
           sortRaw: (a: NpcClass, b: NpcClass) =>

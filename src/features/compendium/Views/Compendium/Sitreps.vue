@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Sitreps</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.sitreps') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -17,10 +17,6 @@ export default {
   name: 'Sitreps',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -30,6 +26,12 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+      ];
+    },
     sitreps() {
       return orderBy(CompendiumStore().Sitreps, 'Name');
     },

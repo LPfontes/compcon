@@ -27,7 +27,8 @@
       "addCustomReserve": "Adicionar Reserva Personalizada",
       "addDowntimeProject": "Adicionar Projeto de Downtime",
       "addProject": "Adicionar Projeto",
-      "addOrganization": "Adicionar Organização"
+      "addOrganization": "Adicionar Organização",
+      "other": "Outro"
     }
   },
   "pilotManagement": {
@@ -264,6 +265,46 @@
     "cloudAccount": "Conta na Nuvem",
     "achievements": "Conquistas",
     "offline": "Offline",
+    "stats": {
+      "name": "Nome",
+      "size": "Tamanho",
+      "mounts": "Encaixes",
+      "armor": "Armadura",
+      "hp": "PV",
+      "evasion": "Evasão",
+      "edef": "E-Def",
+      "heatCap": "Cap. Calor",
+      "repCap": "Cap. Reparo",
+      "sensors": "Sensores",
+      "techAtk": "Atq. Tec.",
+      "save": "Salvamento",
+      "speed": "Velocidade",
+      "sp": "PE",
+      "type": "Tipo",
+      "range": "Alcance",
+      "damage": "Dano",
+      "weapon": "Arma",
+      "license": "Licença",
+      "tags": "Etiquetas",
+      "system": "Sistema",
+      "spCost": "Custo de PE",
+      "licenseLevel": "Nível de Licença",
+      "manufacturer": "Fabricante",
+      "tier": "Posto",
+      "contentPack": "Pacote de Conteúdo",
+      "overview": "Visão Geral",
+      "item": "Item",
+      "uses": "Usos",
+      "hpBonus": "Bônus de PV",
+      "effect": "Efeito",
+      "role": "Função",
+      "hull": "EST",
+      "agi": "AGI",
+      "sys": "SIS",
+      "eng": "ENG",
+      "origin": "Origem",
+      "icon": "Ícone"
+    },
     "gm": {
       "npcRoster": "Lista de NPCs",
       "encounters": "Encontros",
@@ -288,6 +329,42 @@
       "storageTab": "Armazenamento",
       "limitExceeded": "LIMITE DE ARMAZENAMENTO EXCEDIDO"
     }
+  },
+  "compendium": {
+    "title": "Compêndio",
+    "compendium": "Compêndio",
+    "manufacturers": "Fabricantes",
+    "licenses": "Licenças",
+    "coreBonuses": "Bônus de NÚCLEO",
+    "frames": "Chassis",
+    "mechWeapons": "Armas de Mecha",
+    "mechSystems": "Sistemas de Mecha",
+    "pilotGear": "Equipamento de Piloto",
+    "backgrounds": "Antecedentes",
+    "skillTriggers": "Gatilhos de Perícia",
+    "talents": "Talentos",
+    "bonds": "Vínculos",
+    "npcClasses": "Classes de PNJ",
+    "npcFeatures": "Características de PNJ",
+    "npcTemplates": "Modelos de PNJ",
+    "eidolonLayers": "Camadas de Eidolon",
+    "statuses": "Status e Condições",
+    "tags": "Etiquetas de Equipamento",
+    "downtimeActions": "Ações de Downtime",
+    "reserves": "Reservas",
+    "environments": "Ambientes",
+    "sitreps": "Relatórios de Situação (Sitreps)",
+    "reference": "Referência",
+    "searchPlaceholder": "Buscar no {loc}",
+    "noBondData": "Sem Dados de Vínculos",
+    "bondsDescription": "<strong>Vínculos</strong> são um conjunto opcional de regras de jogo narrativo que se sobrepõem às regras básicas de Lancer, ajustando e adicionando profundidade. As regras narrativas padrão do Lancer são leves para focar no combate de mechas, mas os Vínculos dão aos jogadores mais agência narrativa e progressão.",
+    "bondsLcpNotice": "Vínculos não fazem parte das regras principais do Lancer e, portanto, não estão incluídos no COMP/CON por padrão. Você pode encontrar as regras no Guia de Campo para as Baronias Comerciais de Karrakin e adicioná-las instalando o LCP correspondente.",
+    "returnToCompendium": "Voltar ao Compêndio",
+    "switchToReference": "Mudar para busca na referência",
+    "search": "Busca",
+    "results": "{count, plural, one {# resultado} other {# resultados}}",
+    "selectBtn": "Selecionar {name}",
+    "frameSuffix": "Chassi"
   },
   "options": {
     "tabs": {
@@ -1732,9 +1809,5 @@
         "desc": "mesas concluídas/encerradas com histórico, relatórios pós-ação, etc. Devem ser imprimíveis/exportáveis e convertidas em elementos narrativos ou similares."
       }
     }
-  },
-  "compendium": {
-    "selectBtn": "Selecionar {name}",
-    "frameSuffix": "Chassi"
   }
 }

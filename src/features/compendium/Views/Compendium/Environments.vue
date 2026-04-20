@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Environments</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.environments') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -17,10 +17,6 @@ export default {
   name: 'Environments',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -30,6 +26,12 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+      ];
+    },
     environments() {
       return orderBy(CompendiumStore().Environments, 'Name');
     },

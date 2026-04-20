@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Frames</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.frames') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -23,25 +23,27 @@ export default {
       groups: ['source', 'lcp', 'none'],
       initialGroup: 'source',
     },
-    headers: [
-      { title: '', key: 'Source' },
-      { title: 'Name', key: 'Name' },
-      { title: 'Size', key: 'SizeIcon', align: 'center' },
-      { title: 'Mounts', key: 'Mounts' },
-      { title: 'Armor', key: 'Armor', align: 'center' },
-      { title: 'HP', key: 'HP', align: 'center' },
-      { title: 'Evasion', key: 'Evasion', align: 'center' },
-      { title: 'EDef', key: 'EDefense', align: 'center' },
-      { title: 'HeatCap', key: 'HeatCap', align: 'center' },
-      { title: 'RepCap', key: 'RepCap', align: 'center' },
-      { title: 'Sensors', key: 'SensorRange', align: 'center' },
-      { title: 'TechAtk', key: 'TechAttack', align: 'center' },
-      { title: 'Save', key: 'SaveTarget', align: 'center' },
-      { title: 'Speed', key: 'Speed', align: 'center' },
-      { title: 'SP', key: 'SP', align: 'center' },
-    ],
   }),
   computed: {
+    headers() {
+      return [
+        { title: '', key: 'Source' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+        { title: this.$t('nav.stats.size'), key: 'SizeIcon', align: 'center' },
+        { title: this.$t('nav.stats.mounts'), key: 'Mounts' },
+        { title: this.$t('nav.stats.armor'), key: 'Armor', align: 'center' },
+        { title: this.$t('nav.stats.hp'), key: 'HP', align: 'center' },
+        { title: this.$t('nav.stats.evasion'), key: 'Evasion', align: 'center' },
+        { title: this.$t('nav.stats.edef'), key: 'EDefense', align: 'center' },
+        { title: this.$t('nav.stats.heatCap'), key: 'HeatCap', align: 'center' },
+        { title: this.$t('nav.stats.repCap'), key: 'RepCap', align: 'center' },
+        { title: this.$t('nav.stats.sensors'), key: 'SensorRange', align: 'center' },
+        { title: this.$t('nav.stats.techAtk'), key: 'TechAttack', align: 'center' },
+        { title: this.$t('nav.stats.save'), key: 'SaveTarget', align: 'center' },
+        { title: this.$t('nav.stats.speed'), key: 'Speed', align: 'center' },
+        { title: this.$t('nav.stats.sp'), key: 'SP', align: 'center' },
+      ];
+    },
     frames() {
       const items = CompendiumStore().Frames;
       return orderBy(

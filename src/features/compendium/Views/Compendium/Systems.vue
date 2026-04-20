@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Mech Systems</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.mechSystems') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -23,19 +23,19 @@ export default {
       views: ['single', 'table'],
       initialView: 'single',
       groups: ['source', 'lcp', 'license', 'none'],
-      initialGroup: 'license',
     },
-    headers: [
-      { title: '', align: 'left', key: 'Source' },
-      { title: 'System', align: 'left', key: 'Name' },
-      { title: 'License', key: 'License' },
-      { title: 'License Level', align: 'center', key: 'LicenseLevel' },
-      { title: 'Tags', align: 'center', key: 'Tags' },
-
-      { title: 'SP Cost', align: 'center', key: 'SP' },
-    ],
   }),
   computed: {
+    headers() {
+      return [
+        { title: '', align: 'left', key: 'Source' },
+        { title: this.$t('nav.stats.system'), align: 'left', key: 'Name' },
+        { title: this.$t('nav.stats.license'), key: 'License' },
+        { title: this.$t('nav.stats.licenseLevel'), align: 'center', key: 'LicenseLevel' },
+        { title: this.$t('nav.stats.tags'), align: 'center', key: 'Tags' },
+        { title: this.$t('nav.stats.spCost'), align: 'center', key: 'SP' },
+      ];
+    },
     systems(): MechEquipment[] {
       return orderBy(
         [...CompendiumStore().MechSystems, ...CompendiumStore().WeaponMods].filter(

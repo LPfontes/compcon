@@ -4,7 +4,7 @@
     :table-headers="headers"
     :options="options">
     <template #header>
-      <div class="heading h3 text-center text-accent">Equipment Tags</div>
+      <div class="heading h3 text-center text-accent">{{ $t('compendium.tags') }}</div>
     </template>
   </cc-compendium-browser>
 </template>
@@ -18,10 +18,6 @@ export default {
   name: 'Tags',
 
   data: () => ({
-    headers: [
-      { title: 'Content Pack', key: 'LcpName' },
-      { title: 'Name', key: 'Name' },
-    ],
     options: {
       views: ['list', 'table'],
       initialView: 'list',
@@ -31,6 +27,12 @@ export default {
     },
   }),
   computed: {
+    headers() {
+      return [
+        { title: this.$t('nav.stats.contentPack'), key: 'LcpName' },
+        { title: this.$t('nav.stats.name'), key: 'Name' },
+      ];
+    },
     tags() {
       return sortBy(
         CompendiumStore().Tags.filter((x) => !x.IsHidden),

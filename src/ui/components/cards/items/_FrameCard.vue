@@ -105,12 +105,14 @@ export default {
       return this.$vuetify.display.smAndDown;
     },
     mColor() {
-      this.item.Manufacturer.GetColor(this.$vuetify.theme.current.dark);
+      return this.item.Manufacturer.GetColor(this.$vuetify.theme.current.dark);
     },
   },
   methods: {
     glossary(name: string) {
-      return glossary.find((x) => x.name.toLowerCase() === name.toLowerCase()).description;
+      const targetName = name.toLowerCase() === 'size' ? 'tamanho' : name.toLowerCase();
+      const entry = glossary.find((x) => x.name.toLowerCase() === name.toLowerCase() || x.name.toLowerCase() === targetName);
+      return entry ? entry.description : `[Missing glossary: ${name}]`;
     },
 
     get_mount_tooltip(mount_type: string) {
