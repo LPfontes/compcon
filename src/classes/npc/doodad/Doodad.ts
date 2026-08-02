@@ -118,7 +118,7 @@ class Doodad extends Npc implements ICombatant, IInstanceable {
   }
 
   public Clone<Doodad>(setName = true): Doodad {
-    const itemData = structuredClone(Doodad.Serialize(this, false))
+    const itemData = JSON.parse(JSON.stringify(Doodad.Serialize(this, false)))
     const newItem = Doodad.Deserialize(itemData)
     newItem.RenewID()
     if (setName) newItem.Name += ' (COPY)'
@@ -127,6 +127,10 @@ class Doodad extends Npc implements ICombatant, IInstanceable {
 
   public get Icon(): string {
     return 'mdi-cube-outline'
+  }
+
+  public get Tag(): string {
+    return 'Doodad'
   }
 
   public get TagIcon(): string {
